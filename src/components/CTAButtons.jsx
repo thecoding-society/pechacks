@@ -1,4 +1,3 @@
-// components/CTAButtons.jsx
 import { motion } from "framer-motion";
 import { Calendar, Zap, Users } from "lucide-react";
 import { GlowButton } from "./GlowButton";
@@ -16,7 +15,7 @@ export const CTAButtons = () => {
         icon={<Calendar className="w-4 h-4 sm:w-5 sm:h-5" />}
         onClick={() => window.open("https://pechacks.org/", "_blank")}
       >
-        Visit PEC Hacks 2.0
+        PEC Hacks 2.0
       </GlowButton>
 
       <GlowButton
@@ -24,7 +23,7 @@ export const CTAButtons = () => {
         icon={<Zap className="w-4 h-4 sm:w-5 sm:h-5" />}
         onClick={() => console.log("Pre-register clicked")}
       >
-        PRE REGISTER HERE
+        Pre-register here
       </GlowButton>
 
       <GlowButton
@@ -37,7 +36,7 @@ export const CTAButtons = () => {
           )
         }
       >
-        Join Our Community
+        Join our community
       </GlowButton>
     </motion.div>
   );

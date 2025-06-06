@@ -16,7 +16,7 @@ export const BackgroundEffects = ({ children }) => {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative flex flex-col items-center p-0">
       <div className="w-full flex-1 flex flex-col items-center justify-start relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20 animate-gradient-shift" />
 
         <div
           className="absolute inset-0 opacity-30"
@@ -31,13 +31,13 @@ export const BackgroundEffects = ({ children }) => {
         />
 
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-[clamp(100px,12vw,200px)] h-[clamp(100px,12vw,200px)] bg-cyan-500/20 rounded-full blur-[clamp(20px,2.5vw,40px)] animate-pulse" />
+          <div className="absolute top-1/4 left-1/4 w-[clamp(100px,12vw,200px)] h-[clamp(100px,12vw,200px)] bg-cyan-500/20 rounded-full blur-[clamp(20px,2.5vw,40px)] animate-pulse animate-float" />
           <div
-            className="absolute top-3/4 right-1/4 w-[clamp(120px,15vw,240px)] h-[clamp(120px,15vw,240px)] bg-purple-500/20 rounded-full blur-[clamp(20px,2.5vw,40px)] animate-pulse"
+            className="absolute top-3/4 right-1/4 w-[clamp(120px,15vw,240px)] h-[clamp(120px,15vw,240px)] bg-purple-500/20 rounded-full blur-[clamp(20px,2.5vw,40px)] animate-pulse animate-float-reverse"
             style={{ animationDelay: "2s" }}
           />
           <div
-            className="absolute bottom-1/4 left-1/3 w-[clamp(80px,10vw,160px)] h-[clamp(80px,10vw,160px)] bg-pink-500/20 rounded-full blur-[clamp(20px,2.5vw,40px)] animate-pulse"
+            className="absolute bottom-1/4 left-1/3 w-[clamp(80px,10vw,160px)] h-[clamp(80px,10vw,160px)] bg-pink-500/20 rounded-full blur-[clamp(20px,2.5vw,40px)] animate-pulse animate-float"
             style={{ animationDelay: "4s" }}
           />
         </div>
