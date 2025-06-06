@@ -62,7 +62,7 @@ export const SocialLinks = () => {
           <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping" />
         </div>
         <span className="text-cyan-300 font-medium text-sm sm:text-sm md:text-base cursor-default">
-          Stay tuned for epic updates
+          Stay tuned for updates
         </span>
       </motion.div>
     </>

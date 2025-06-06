@@ -44,7 +44,7 @@ export const GlowButton = ({ children, variant, icon, onClick }) => {
       <button
         onClick={onClick}
         className={`
-          relative w-full sm:w-auto px-20 py-3 sm:px-10 sm:py-4
+          relative w-full sm:w-auto px-22 py-3 sm:px-10 sm:py-4
           text-sm sm:text-base font-semibold
           bg-black/50 backdrop-blur-sm
           border-2 ${style.border}
