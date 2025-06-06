@@ -6,7 +6,7 @@ import { GlowButton } from "./GlowButton";
 export const CTAButtons = () => {
   return (
     <motion.div
-      className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mt-4 sm:mt-8"
+      className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center mt-4 sm:mt-6"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 1.8 }}

@@ -9,7 +9,7 @@ export const TitleSection = () => {
       transition={{ duration: 1, delay: 0.2 }}
       className="space-y-3 w-full px-4"
     >
-      <div className="space-y-2">
+      <div className="space-y-2 sm:space-y-1">
         <motion.div
           className="relative"
           initial={{ scale: 0.8, opacity: 0 }}
@@ -70,7 +70,7 @@ export const TitleSection = () => {
       </div>
 
       <motion.div
-        className="text-[clamp(1.3rem,1.8vw,1.8rem)] font-light max-w-[90vw] md:max-w-3xl mx-auto leading-relaxed space-y-2 sm:space-y-3"
+        className="text-[clamp(1.3rem,1.8vw,1.8rem)] font-light max-w-[90vw] md:max-w-3xl mx-auto leading-relaxed space-y-2 sm:space-y-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}

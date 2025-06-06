@@ -32,7 +32,7 @@ export const SocialLinks = () => {
   return (
     <>
       <motion.div
-        className="flex justify-center items-center gap-4 sm:gap-8 mt-6 sm:mt-5"
+        className="flex justify-center items-center gap-4 sm:gap-8 mt-6 sm:mt-7"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 2.0 }}
@@ -59,7 +59,7 @@ export const SocialLinks = () => {
       </motion.div>
 
       <motion.div
-        className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-2 rounded-full border-2 border-cyan-400/30 bg-black/50 backdrop-blur-sm mt-3 mb-8"
+        className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-2 rounded-full border-2 border-cyan-400/30 bg-black/50 backdrop-blur-sm mt-5 mb-8"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 2.2 }}
