@@ -44,14 +44,14 @@ export const GlowButton = ({ children, variant, icon, onClick }) => {
       <button
         onClick={onClick}
         className={`
-          relative w-full sm:w-auto px-10 py-3 sm:px-6 sm:py-4
+          relative w-full sm:w-auto px-20 py-3 sm:px-10 sm:py-4
           text-sm sm:text-base font-semibold
           bg-black/50 backdrop-blur-sm
           border-2 ${style.border}
           hover:bg-black/70
           transition-all duration-300
           ${isHovered ? "text-white" : "text-gray-300"}
-          rounded-2xl
+          rounded-xl
           cursor-pointer
         `}
         style={{

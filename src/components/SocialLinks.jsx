@@ -28,7 +28,7 @@ export const SocialLinks = () => {
   return (
     <>
       <motion.div
-        className="flex justify-center items-center gap-4 sm:gap-8 mt-8"
+        className="flex justify-center items-center gap-4 sm:gap-8 mt-6 sm:mt-8"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 2.0 }}
@@ -43,7 +43,7 @@ export const SocialLinks = () => {
             onClick={() => window.open(url, "_blank")}
           >
             <div
-              className={`p-2 sm:p-5 border-2 border-white/20 rounded-full ${color} hover:border-white/50 transition-colors duration-300 cursor-pointer`}
+              className={`p-3 sm:p-3 border-2 border-white/20 rounded-full ${color} hover:border-white/50 transition-colors duration-300 cursor-pointer`}
             >
               <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
@@ -52,7 +52,7 @@ export const SocialLinks = () => {
       </motion.div>
 
       <motion.div
-        className="inline-flex items-center gap-2 sm:gap-3 px-3 py-1 sm:px-6 sm:py-3 rounded-full border-2 border-cyan-400/30 bg-black/50 backdrop-blur-sm mt-5 mb-8"
+        className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full border-2 border-cyan-400/30 bg-black/50 backdrop-blur-sm mt-5 mb-8"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 2.2 }}
@@ -61,7 +61,7 @@ export const SocialLinks = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 animate-pulse" />
           <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping" />
         </div>
-        <span className="text-cyan-300 font-medium text-xs sm:text-sm md:text-base cursor-default">
+        <span className="text-cyan-300 font-medium text-sm sm:text-sm md:text-base cursor-default">
           Stay tuned for epic updates
         </span>
       </motion.div>
