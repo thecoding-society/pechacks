@@ -14,7 +14,7 @@ export const App = () => {
         </nav>
       </header>
 
-      <div className="relative z-20 w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center pt-22  sm:pt-16  px-4">
+      <div className="relative z-20 w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center pt-22  sm:pt-14  px-4">
         <TitleSection />
         <CTAButtons />
         <SocialLinks />
