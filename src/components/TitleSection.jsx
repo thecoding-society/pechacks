@@ -35,25 +35,25 @@ export const TitleSection = () => {
           transition={{ duration: 1.5, delay: 0.8 }}
         >
           <div className="relative group">
-            <div className="absolute inset-0 text-[clamp(3rem,7vw,6rem)] font-black cursor-default">
+            <div className="absolute inset-0 text-[clamp(3rem,7vw,5rem)] font-black cursor-default">
               <span className="absolute inset-0 text-cyan-400 blur-[clamp(8px,1vw,16px)] animate-pulse transform -translate-x-2 -translate-y-2">
-                2.0
+                3.0
               </span>
               <span
                 className="absolute inset-0 text-purple-500 blur-[clamp(5px,0.6vw,10px)] animate-pulse transform translate-x-1 translate-y-1"
                 style={{ animationDelay: "1s" }}
               >
-                2.0
+                3.0
               </span>
               <span
                 className="absolute inset-0 text-pink-500 blur-[clamp(3px,0.4vw,6px)] animate-pulse transform translate-x-2 -translate-y-1"
                 style={{ animationDelay: "2s" }}
               >
-                2.0
+                3.0
               </span>
             </div>
 
-            <div className="relative text-[clamp(3rem,7vw,6rem)] font-black cursor-default">
+            <div className="relative text-[clamp(3rem,7vw,5rem)] font-black cursor-default">
               <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent transform translate-x-1 translate-y-1 opacity-60">
                 3.0
               </span>
@@ -63,6 +63,27 @@ export const TitleSection = () => {
               <span className="relative bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
                 3.0
               </span>
+            </div>
+
+            {/* Spinner Circle */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div
+                className="w-[clamp(8rem,20vw,16rem)] h-[clamp(6rem,13vw,11rem)] border-2 border-cyan-400/30 rounded-full animate-spin"
+                style={{ animationDuration: "8s" }}
+              >
+                <div
+                  className="absolute inset-[0.5rem] border border-purple-500/50 rounded-full animate-spin"
+                  style={{
+                    animationDuration: "6s",
+                    animationDirection: "reverse",
+                  }}
+                >
+                  <div
+                    className="absolute inset-[0.5rem] border border-pink-500/30 rounded-full animate-spin"
+                    style={{ animationDuration: "4s" }}
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

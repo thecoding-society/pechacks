@@ -1,8 +1,7 @@
-// components/GlowButton.jsx
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export const GlowButton = ({ children, variant, icon, onClick }) => {
+export const GlowButton = ({ children, variant, icon, onClick, className }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const variantStyles = {
@@ -31,7 +30,7 @@ export const GlowButton = ({ children, variant, icon, onClick }) => {
       whileTap={{ scale: 0.95 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="relative group w-full sm:w-auto"
+      className={`relative group ${className}`}
     >
       <div
         className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${
@@ -44,7 +43,7 @@ export const GlowButton = ({ children, variant, icon, onClick }) => {
       <button
         onClick={onClick}
         className={`
-          relative w-full sm:w-auto px-22 py-3 sm:px-10 sm:py-4
+          relative w-full px-6 py-3 sm:px-8 sm:py-3
           text-sm sm:text-base font-semibold
           bg-black/50 backdrop-blur-sm
           border-2 ${style.border}
