@@ -16,10 +16,10 @@ export const BackgroundEffects = ({ children }) => {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative flex flex-col items-center p-0">
       <div className="w-full flex-1 flex flex-col items-center justify-start relative">
-        {/* Enhanced gradient background */}
+        
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20 animate-gradient-shift" />
 
-        {/* Animated grid */}
+        
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -32,7 +32,7 @@ export const BackgroundEffects = ({ children }) => {
           }}
         />
 
-        {/* Floating blobs */}
+        
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-[clamp(100px,12vw,200px)] h-[clamp(100px,12vw,200px)] bg-cyan-500/20 rounded-full blur-[clamp(20px,2.5vw,40px)] animate-pulse animate-float" />
           <div
@@ -49,7 +49,7 @@ export const BackgroundEffects = ({ children }) => {
           />
         </div>
 
-        {/* Mouse follow effect */}
+        
         <div
           className="absolute inset-0 opacity-20 pointer-events-none transition-all duration-300"
           style={{
@@ -61,7 +61,7 @@ export const BackgroundEffects = ({ children }) => {
           }}
         />
 
-        {/* Particles */}
+        
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(20)].map((_, i) => (
             <div
