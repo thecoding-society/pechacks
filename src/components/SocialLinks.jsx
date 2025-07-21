@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import { FaDiscord } from "react-icons/fa"; // Import FaDiscord from react-icons
 
 export const SocialLinks = () => {
   const socials = [
@@ -26,6 +27,12 @@ export const SocialLinks = () => {
       color: "text-red-500",
       borderColor: "border-red-500/50",
       url: "https://www.youtube.com/@TheCodingSociety",
+    },
+    {
+      Icon: FaDiscord, // Using Font Awesome Discord icon
+      color: "text-indigo-500",
+      borderColor: "border-indigo-500/50",
+      url: "https://discord.gg/YOUR_INVITE_LINK", // Replace with your Discord invite link
     },
   ];
 
