@@ -13,43 +13,37 @@ const ParticleAnimation = ({ onComplete }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Enhanced mobile detection with viewport check
+    // Check if mobile device
     const checkMobile = () => {
-      const isMobileUserAgent =
+      return (
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
           navigator.userAgent
-        );
-      const isSmallViewport =
-        window.innerWidth < 768 || window.innerHeight < 600;
-      return isMobileUserAgent || isSmallViewport;
+        ) || window.innerWidth < 768
+      );
     };
 
     setIsMobile(checkMobile());
 
-    // Responsive configuration with more mobile adjustments
+    // Configuration with mobile adjustments
     const CONFIG = {
-      particleCount: isMobile ? 6000 : 15000, // Reduced for mobile
-      shapeSize: isMobile ? 6 : 12, // Smaller size for mobile
-      swarmDistanceFactor: isMobile ? 1.0 : 1.5,
-      swirlFactor: isMobile ? 2.0 : 4.0,
+      particleCount: isMobile ? 8000 : 15000,
+      shapeSize: isMobile ? 8 : 12,
+      swarmDistanceFactor: isMobile ? 1.2 : 1.5,
+      swirlFactor: isMobile ? 2.5 : 4.0,
       noiseFrequency: 0.1,
       noiseTimeScale: 0.04,
-      noiseMaxStrength: isMobile ? 1.5 : 2.8,
-      morphDuration: isMobile ? 2500 : 2000, // Slightly longer for mobile
-      particleSizeRange: isMobile ? [0.15, 0.35] : [0.08, 0.25], // Larger particles on mobile
-      starCount: isMobile ? 8000 : 18000, // Reduced stars for mobile
-      bloomStrength: isMobile ? 0.6 : 1.3, // Reduced bloom for mobile
-      bloomRadius: isMobile ? 0.2 : 0.5,
+      noiseMaxStrength: isMobile ? 1.8 : 2.8,
+      morphDuration: isMobile ? 2000 : 2000,
+      particleSizeRange: isMobile ? [0.1, 0.3] : [0.08, 0.25],
+      starCount: isMobile ? 10000 : 18000,
+      bloomStrength: isMobile ? 0.8 : 1.3,
+      bloomRadius: isMobile ? 0.3 : 0.5,
       bloomThreshold: 0.05,
-      idleFlowStrength: isMobile ? 0.12 : 0.25,
-      idleFlowSpeed: isMobile ? 0.04 : 0.08,
-      idleRotationSpeed: isMobile ? 0.01 : 0.02,
-      morphSizeFactor: isMobile ? 0.2 : 0.5,
-      morphBrightnessFactor: isMobile ? 0.3 : 0.6,
-      textFontSize: isMobile ? 30 : 50,
-      textCanvasWidth: isMobile ? 300 : 700, // Adjusted text canvas size
-      textCanvasHeight: isMobile ? 80 : 100,
-      textSamplingStep: isMobile ? 5 : 2, // More sparse sampling for mobile
+      idleFlowStrength: isMobile ? 0.15 : 0.25,
+      idleFlowSpeed: isMobile ? 0.05 : 0.08,
+      idleRotationSpeed: isMobile ? 0.015 : 0.02,
+      morphSizeFactor: isMobile ? 0.3 : 0.5,
+      morphBrightnessFactor: isMobile ? 0.4 : 0.6,
     };
 
     // Initialize variables
@@ -76,95 +70,56 @@ const ParticleAnimation = ({ onComplete }) => {
     const swirlAxis = new THREE.Vector3();
     const currentVec = new THREE.Vector3();
 
-    // Enhanced text point generation for mobile
+    // Shape generators
     const generateTextPoints = (text) => {
       const cvs = document.createElement("canvas");
-      cvs.width = CONFIG.textCanvasWidth;
-      cvs.height = CONFIG.textCanvasHeight;
+      cvs.width = isMobile ? 400 : 700;
+      cvs.height = isMobile ? 60 : 100;
       const ctx = cvs.getContext("2d");
       ctx.clearRect(0, 0, cvs.width, cvs.height);
       ctx.fillStyle = "#ffffff";
-      ctx.font = `bold ${CONFIG.textFontSize}px Courier New`;
+      ctx.font = `bold ${isMobile ? 30 : 50}px Courier New`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-
-      // Split text into two lines for mobile if needed
-      if (isMobile && text.length > 10) {
-        const words = text.split(" ");
-        if (words.length > 1) {
-          const mid = Math.ceil(words.length / 2);
-          const line1 = words.slice(0, mid).join(" ");
-          const line2 = words.slice(mid).join(" ");
-          ctx.fillText(
-            line1,
-            cvs.width / 2,
-            cvs.height / 2 - CONFIG.textFontSize / 2
-          );
-          ctx.fillText(
-            line2,
-            cvs.width / 2,
-            cvs.height / 2 + CONFIG.textFontSize / 2
-          );
-        } else {
-          ctx.fillText(text, cvs.width / 2, cvs.height / 2);
-        }
-      } else {
-        ctx.fillText(text, cvs.width / 2, cvs.height / 2);
-      }
+      ctx.fillText(text, cvs.width / 2, cvs.height / 2);
 
       const img = ctx.getImageData(0, 0, cvs.width, cvs.height).data;
       const pts = [];
-
-      // More efficient sampling for mobile
-      for (let y = 0; y < cvs.height; y += CONFIG.textSamplingStep) {
-        for (let x = 0; x < cvs.width; x += CONFIG.textSamplingStep) {
+      const step = isMobile ? 4 : 2;
+      for (let y = 0; y < cvs.height; y += step) {
+        for (let x = 0; x < cvs.width; x += step) {
           const i = (y * cvs.width + x) * 4;
           if (img[i + 3] > 128) {
-            const px = (x - cvs.width / 2) * (isMobile ? 0.07 : 0.1);
-            const py = (cvs.height / 2 - y) * (isMobile ? 0.07 : 0.1);
+            const px = (x - cvs.width / 2) * (isMobile ? 0.08 : 0.1);
+            const py = (cvs.height / 2 - y) * (isMobile ? 0.08 : 0.1);
             pts.push(px, py, 0);
           }
         }
       }
 
-      // Ensure we have enough points
       const arr = new Float32Array(CONFIG.particleCount * 3);
-      if (pts.length === 0) {
-        // Fallback if no points detected (shouldn't happen)
-        for (let i = 0; i < CONFIG.particleCount; i++) {
-          const angle = (i / CONFIG.particleCount) * Math.PI * 2;
-          const radius = CONFIG.shapeSize * 0.8;
-          arr[i * 3] = Math.cos(angle) * radius;
-          arr[i * 3 + 1] = Math.sin(angle) * radius;
-          arr[i * 3 + 2] = 0;
-        }
-      } else {
-        const count = pts.length / 3;
-        for (let i = 0; i < CONFIG.particleCount; i++) {
-          const src = (i % count) * 3;
-          arr[i * 3] = pts[src];
-          arr[i * 3 + 1] = pts[src + 1];
-          arr[i * 3 + 2] = pts[src + 2];
-        }
+      const count = pts.length / 3;
+      for (let i = 0; i < CONFIG.particleCount; i++) {
+        const src = (i % count) * 3;
+        arr[i * 3] = pts[src];
+        arr[i * 3 + 1] = pts[src + 1];
+        arr[i * 3 + 2] = pts[src + 2];
       }
       return arr;
     };
 
-    // Shapes with adjusted text for mobile
     const SHAPES = [
       {
         name: "PEC Hacks 2.0",
-        generator: () =>
-          generateTextPoints(isMobile ? "PEC Hacks\n2.0" : "PEC Hacks 2.0"),
+        generator: () => generateTextPoints("PEC Hacks 2.0"),
       },
       {
         name: "PEC Hacks 3.0",
-        generator: () =>
-          generateTextPoints(isMobile ? "PEC Hacks\n3.0" : "PEC Hacks 3.0"),
+        generator: () => generateTextPoints("PEC Hacks 3.0"),
       },
     ];
 
-    // Create star texture (unchanged)
+    // Create star texture
     const createStarTexture = () => {
       const size = 64;
       const canvas = document.createElement("canvas");
@@ -188,7 +143,7 @@ const ParticleAnimation = ({ onComplete }) => {
       return new THREE.CanvasTexture(canvas);
     };
 
-    // Create starfield with adjusted density for mobile
+    // Create starfield
     const createStarfield = () => {
       const starVertices = [];
       const starSizes = [];
@@ -201,9 +156,8 @@ const ParticleAnimation = ({ onComplete }) => {
           THREE.MathUtils.randFloatSpread(400),
           THREE.MathUtils.randFloatSpread(400)
         );
-        if (tempVec.length() < 100) {
+        if (tempVec.length() < 100)
           tempVec.setLength(100 + Math.random() * 300);
-        }
         starVertices.push(tempVec.x, tempVec.y, tempVec.z);
         starSizes.push(Math.random() * 0.15 + 0.05);
         const color = new THREE.Color();
@@ -238,7 +192,7 @@ const ParticleAnimation = ({ onComplete }) => {
             vColor = color;
             vSize = size;
             vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-            gl_PointSize = size * (300.0 / -mvPosition.z);
+            gl_PointSize = size * (400.0 / -mvPosition.z);
             gl_Position = projectionMatrix * mvPosition;
           }
         `,
@@ -261,7 +215,7 @@ const ParticleAnimation = ({ onComplete }) => {
       scene.add(new THREE.Points(starGeometry, starMaterial));
     };
 
-    // Update color array (unchanged)
+    // Update color array
     const updateColorArray = (colors, positionsArray) => {
       const center = new THREE.Vector3(0, 0, 0);
       const maxRadius = CONFIG.shapeSize * 1.1;
@@ -285,14 +239,14 @@ const ParticleAnimation = ({ onComplete }) => {
       }
     };
 
-    // Update colors (unchanged)
+    // Update colors
     const updateColors = () => {
       const colors = particlesGeometry.attributes.color.array;
       updateColorArray(colors, particlesGeometry.attributes.position.array);
       particlesGeometry.attributes.color.needsUpdate = true;
     };
 
-    // Setup particle system with mobile adjustments
+    // Setup particle system
     const setupParticleSystem = () => {
       targetPositions = SHAPES.map((shape) => shape.generator());
       currentPositions = new Float32Array(targetPositions[0]);
@@ -360,9 +314,7 @@ const ParticleAnimation = ({ onComplete }) => {
             float sizeScale = 1.0 - vEffectStrength * ${CONFIG.morphSizeFactor.toFixed(
               2
             )};
-            gl_PointSize = size * sizeScale * (${
-              isMobile ? "250.0" : "400.0"
-            } / -mvPosition.z);
+            gl_PointSize = size * sizeScale * (400.0 / -mvPosition.z);
 
             gl_Position = projectionMatrix * mvPosition;
           }
@@ -395,7 +347,7 @@ const ParticleAnimation = ({ onComplete }) => {
       scene.add(particleSystem);
     };
 
-    // Setup post processing with mobile adjustments
+    // Setup post processing
     const setupPostProcessing = () => {
       composer = new EffectComposer(renderer);
       composer.addPass(new RenderPass(scene, camera));
@@ -408,7 +360,7 @@ const ParticleAnimation = ({ onComplete }) => {
       composer.addPass(bloomPass);
     };
 
-    // Trigger morph animation with mobile adjustments
+    // Trigger morph animation
     const triggerMorph = () => {
       if (isMorphing) return;
       isMorphing = true;
@@ -470,7 +422,7 @@ const ParticleAnimation = ({ onComplete }) => {
       });
     };
 
-    // Update morph animation (unchanged)
+    // Update morph animation
     const updateMorphAnimation = (
       positions,
       effectStrengths,
@@ -546,7 +498,7 @@ const ParticleAnimation = ({ onComplete }) => {
       particlesGeometry.attributes.aEffectStrength.needsUpdate = true;
     };
 
-    // Update idle animation (unchanged)
+    // Update idle animation
     const updateIdleAnimation = (
       positions,
       effectStrengths,
@@ -600,7 +552,7 @@ const ParticleAnimation = ({ onComplete }) => {
       }
     };
 
-    // Animation loop with mobile optimizations
+    // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
       if (!isInitialized) return;
@@ -636,22 +588,13 @@ const ParticleAnimation = ({ onComplete }) => {
     };
 
     const handleWindowResize = () => {
-      const newIsMobile = checkMobile();
-      if (newIsMobile !== isMobile) {
-        setIsMobile(newIsMobile);
-        // Reinitialize if mobile state changes
-        cleanup();
-        init();
-        return;
-      }
-
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
       composer.setSize(window.innerWidth, window.innerHeight);
     };
 
-    // Initialize the scene with mobile adjustments
+    // Initialize the scene
     const init = () => {
       clock = new THREE.Clock();
       noise3D = createNoise3D(() => Math.random());
@@ -660,48 +603,40 @@ const ParticleAnimation = ({ onComplete }) => {
       scene.fog = new THREE.FogExp2(0x000308, 0.03);
 
       camera = new THREE.PerspectiveCamera(
-        75, // Wider FOV for mobile
+        70,
         window.innerWidth / window.innerHeight,
         0.1,
         1000
       );
-      // Adjusted camera position for mobile
-      camera.position.set(0, isMobile ? 5 : 8, isMobile ? 25 : 28);
+      camera.position.set(0, 8, isMobile ? 35 : 28);
       camera.lookAt(scene.position);
 
       renderer = new THREE.WebGLRenderer({
         canvas: canvasRef.current,
-        antialias: !isMobile, // Disable antialiasing on mobile for performance
+        antialias: true,
         alpha: true,
-        powerPreference: isMobile ? "low-power" : "high-performance",
+        powerPreference: isMobile ? "default" : "high-performance",
       });
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(
-        Math.min(window.devicePixelRatio, isMobile ? 1.0 : 2)
+        Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2)
       );
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = isMobile ? 1.0 : 1.1;
+      renderer.toneMappingExposure = 1.1;
 
       controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
       controls.dampingFactor = 0.05;
-      controls.minDistance = isMobile ? 10 : 5;
-      controls.maxDistance = isMobile ? 50 : 80;
+      controls.minDistance = isMobile ? 8 : 5;
+      controls.maxDistance = isMobile ? 100 : 80;
       controls.autoRotate = true;
-      controls.autoRotateSpeed = isMobile ? 0.15 : 0.3;
-      controls.enableZoom = !isMobile; // Disable zoom on mobile
+      controls.autoRotateSpeed = isMobile ? 0.2 : 0.3;
 
       scene.add(new THREE.AmbientLight(0x404060));
-      const dirLight1 = new THREE.DirectionalLight(
-        0xffffff,
-        isMobile ? 1.0 : 1.5
-      );
+      const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.5);
       dirLight1.position.set(15, 20, 10);
       scene.add(dirLight1);
-      const dirLight2 = new THREE.DirectionalLight(
-        0x88aaff,
-        isMobile ? 0.6 : 0.9
-      );
+      const dirLight2 = new THREE.DirectionalLight(0x88aaff, 0.9);
       dirLight2.position.set(-15, -10, -15);
       scene.add(dirLight2);
 
@@ -718,31 +653,14 @@ const ParticleAnimation = ({ onComplete }) => {
       setTimeout(triggerMorph, 1000);
     };
 
-    // Cleanup function
-    const cleanup = () => {
+    init();
+
+    // Cleanup
+    return () => {
       window.removeEventListener("resize", handleWindowResize);
       if (morphTimeline) {
         morphTimeline.pause();
       }
-      if (renderer) {
-        renderer.dispose();
-      }
-      if (composer) {
-        composer.dispose();
-      }
-      if (scene) {
-        while (scene.children.length > 0) {
-          scene.remove(scene.children[0]);
-        }
-      }
-      isInitialized = false;
-    };
-
-    init();
-
-    // Cleanup on unmount
-    return () => {
-      cleanup();
     };
   }, [isMobile, onComplete]);
 
