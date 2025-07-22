@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
@@ -8,41 +8,42 @@ import anime from "animejs";
 import { createNoise3D, createNoise4D } from "simplex-noise";
 import "./ParticleAnimation.css";
 
-const ParticleAnimation = () => {
+const ParticleAnimation = ({ onComplete }) => {
   const canvasRef = useRef(null);
-  const loadingRef = useRef(null);
-  const progressRef = useRef(null);
-  const infoRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Configuration
-    const CONFIG = {
-      particleCount: 15000,
-      shapeSize: 14,
-      swarmDistanceFactor: 1.5,
-      swirlFactor: 4.0,
-      noiseFrequency: 0.1,
-      noiseTimeScale: 0.04,
-      noiseMaxStrength: 2.8,
-      colorScheme: "fire",
-      morphDuration: 4000,
-      particleSizeRange: [0.08, 0.25],
-      starCount: 18000,
-      bloomStrength: 1.3,
-      bloomRadius: 0.5,
-      bloomThreshold: 0.05,
-      idleFlowStrength: 0.25,
-      idleFlowSpeed: 0.08,
-      idleRotationSpeed: 0.02,
-      morphSizeFactor: 0.5,
-      morphBrightnessFactor: 0.6,
+    // Check if mobile device
+    const checkMobile = () => {
+      return (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        ) || window.innerWidth < 768
+      );
     };
 
-    const COLOR_SCHEMES = {
-      fire: { startHue: 0, endHue: 45, saturation: 0.95, lightness: 0.6 },
-      neon: { startHue: 300, endHue: 180, saturation: 1.0, lightness: 0.65 },
-      nature: { startHue: 90, endHue: 160, saturation: 0.85, lightness: 0.55 },
-      rainbow: { startHue: 0, endHue: 360, saturation: 0.9, lightness: 0.6 },
+    setIsMobile(checkMobile());
+
+    // Configuration with mobile adjustments
+    const CONFIG = {
+      particleCount: isMobile ? 8000 : 15000,
+      shapeSize: isMobile ? 8 : 12,
+      swarmDistanceFactor: isMobile ? 1.2 : 1.5,
+      swirlFactor: isMobile ? 2.5 : 4.0,
+      noiseFrequency: 0.1,
+      noiseTimeScale: 0.04,
+      noiseMaxStrength: isMobile ? 1.8 : 2.8,
+      morphDuration: isMobile ? 2000 : 2000,
+      particleSizeRange: isMobile ? [0.1, 0.3] : [0.08, 0.25],
+      starCount: isMobile ? 10000 : 18000,
+      bloomStrength: isMobile ? 0.8 : 1.3,
+      bloomRadius: isMobile ? 0.3 : 0.5,
+      bloomThreshold: 0.05,
+      idleFlowStrength: isMobile ? 0.15 : 0.25,
+      idleFlowSpeed: isMobile ? 0.05 : 0.08,
+      idleRotationSpeed: isMobile ? 0.015 : 0.02,
+      morphSizeFactor: isMobile ? 0.3 : 0.5,
+      morphBrightnessFactor: isMobile ? 0.4 : 0.6,
     };
 
     // Initialize variables
@@ -72,24 +73,25 @@ const ParticleAnimation = () => {
     // Shape generators
     const generateTextPoints = (text) => {
       const cvs = document.createElement("canvas");
-      cvs.width = 900;
-      cvs.height = 128;
+      cvs.width = isMobile ? 400 : 700;
+      cvs.height = isMobile ? 60 : 100;
       const ctx = cvs.getContext("2d");
       ctx.clearRect(0, 0, cvs.width, cvs.height);
       ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 60px Courier New";
+      ctx.font = `bold ${isMobile ? 30 : 50}px Courier New`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(text, cvs.width / 2, cvs.height / 2);
 
       const img = ctx.getImageData(0, 0, cvs.width, cvs.height).data;
       const pts = [];
-      for (let y = 0; y < cvs.height; y += 2) {
-        for (let x = 0; x < cvs.width; x += 2) {
+      const step = isMobile ? 4 : 2;
+      for (let y = 0; y < cvs.height; y += step) {
+        for (let x = 0; x < cvs.width; x += step) {
           const i = (y * cvs.width + x) * 4;
           if (img[i + 3] > 128) {
-            const px = (x - cvs.width / 2) * 0.15;
-            const py = (cvs.height / 2 - y) * 0.15;
+            const px = (x - cvs.width / 2) * (isMobile ? 0.08 : 0.1);
+            const py = (cvs.height / 2 - y) * (isMobile ? 0.08 : 0.1);
             pts.push(px, py, 0);
           }
         }
@@ -108,12 +110,12 @@ const ParticleAnimation = () => {
 
     const SHAPES = [
       {
-        name: " PEC Hacks 2.0 ",
-        generator: () => generateTextPoints(" PEC Hacks 2.0 "),
+        name: "PEC Hacks 2.0",
+        generator: () => generateTextPoints("PEC Hacks 2.0"),
       },
       {
-        name: " PEC Hacks 3.0 ",
-        generator: () => generateTextPoints(" PEC Hacks 3.0 "),
+        name: "PEC Hacks 3.0",
+        generator: () => generateTextPoints("PEC Hacks 3.0"),
       },
     ];
 
@@ -215,7 +217,6 @@ const ParticleAnimation = () => {
 
     // Update color array
     const updateColorArray = (colors, positionsArray) => {
-      const colorScheme = COLOR_SCHEMES[CONFIG.colorScheme];
       const center = new THREE.Vector3(0, 0, 0);
       const maxRadius = CONFIG.shapeSize * 1.1;
 
@@ -223,36 +224,12 @@ const ParticleAnimation = () => {
         const i3 = i * 3;
         tempVec.fromArray(positionsArray, i3);
         const dist = tempVec.distanceTo(center);
-        let hue;
 
-        if (CONFIG.colorScheme === "rainbow") {
-          const normX = (tempVec.x / maxRadius + 1) / 2;
-          const normY = (tempVec.y / maxRadius + 1) / 2;
-          const normZ = (tempVec.z / maxRadius + 1) / 2;
-          hue = (normX * 120 + normY * 120 + normZ * 120) % 360;
-        } else {
-          hue = THREE.MathUtils.mapLinear(
-            dist,
-            0,
-            maxRadius,
-            colorScheme.startHue,
-            colorScheme.endHue
-          );
-        }
+        // Gradient from pink-400 (#ec4899) via cyan-400 (#22d3ee) to purple-400 (#a855f7)
+        const hue = THREE.MathUtils.mapLinear(dist, 0, maxRadius, 330, 270);
+        const saturation = 0.9;
+        const lightness = 0.6 + Math.sin(dist * 0.5) * 0.1;
 
-        const noiseValue =
-          (noise3D(tempVec.x * 0.2, tempVec.y * 0.2, tempVec.z * 0.2) + 1) *
-          0.5;
-        const saturation = THREE.MathUtils.clamp(
-          colorScheme.saturation * (0.9 + noiseValue * 0.2),
-          0,
-          1
-        );
-        const lightness = THREE.MathUtils.clamp(
-          colorScheme.lightness * (0.85 + noiseValue * 0.3),
-          0.1,
-          0.9
-        );
         const color = new THREE.Color().setHSL(
           hue / 360,
           saturation,
@@ -388,8 +365,6 @@ const ParticleAnimation = () => {
       if (isMorphing) return;
       isMorphing = true;
       controls.autoRotate = false;
-      infoRef.current.innerText = "Morphing...";
-      infoRef.current.style.textShadow = "0 0 8px rgba(255, 150, 50, 0.9)";
 
       sourcePositions.set(currentPositions);
       const nextShapeIndex = (currentShapeIndex + 1) % SHAPES.length;
@@ -430,8 +405,6 @@ const ParticleAnimation = () => {
         duration: CONFIG.morphDuration,
         easing: "cubicBezier(0.4, 0.0, 0.2, 1.0)",
         complete: () => {
-          infoRef.current.innerText = `Shape: ${SHAPES[currentShapeIndex].name} (Click to morph)`;
-          infoRef.current.style.textShadow = "0 0 5px rgba(0, 128, 255, 0.8)";
           currentPositions.set(targetPositions[currentShapeIndex]);
           particlesGeometry.attributes.position.needsUpdate = true;
           particleEffectStrengths.fill(0.0);
@@ -440,6 +413,11 @@ const ParticleAnimation = () => {
           updateColors();
           isMorphing = false;
           controls.autoRotate = true;
+
+          // After morphing is complete, wait 2 seconds then transition to next page
+          setTimeout(() => {
+            if (onComplete) onComplete();
+          }, 2000);
         },
       });
     };
@@ -609,13 +587,6 @@ const ParticleAnimation = () => {
       composer.render(deltaTime);
     };
 
-    // Canvas click handler
-    const handleCanvasClick = (event) => {
-      if (event.target.closest("#controls")) return;
-      triggerMorph();
-    };
-
-    // Window resize handler
     const handleWindowResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -625,26 +596,11 @@ const ParticleAnimation = () => {
 
     // Initialize the scene
     const init = () => {
-      let progress = 0;
-      const updateProgress = (increment) => {
-        progress += increment;
-        progressRef.current.style.width = `${Math.min(100, progress)}%`;
-        if (progress >= 100) {
-          setTimeout(() => {
-            loadingRef.current.style.opacity = "0";
-            setTimeout(() => {
-              loadingRef.current.style.display = "none";
-            }, 600);
-          }, 200);
-        }
-      };
-
       clock = new THREE.Clock();
       noise3D = createNoise3D(() => Math.random());
       noise4D = createNoise4D(() => Math.random());
       scene = new THREE.Scene();
       scene.fog = new THREE.FogExp2(0x000308, 0.03);
-      updateProgress(5);
 
       camera = new THREE.PerspectiveCamera(
         70,
@@ -652,30 +608,29 @@ const ParticleAnimation = () => {
         0.1,
         1000
       );
-      camera.position.set(0, 8, 28);
+      camera.position.set(0, 8, isMobile ? 35 : 28);
       camera.lookAt(scene.position);
-      updateProgress(5);
 
       renderer = new THREE.WebGLRenderer({
         canvas: canvasRef.current,
         antialias: true,
         alpha: true,
-        powerPreference: "high-performance",
+        powerPreference: isMobile ? "default" : "high-performance",
       });
       renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(
+        Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2)
+      );
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.1;
-      updateProgress(10);
 
       controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
       controls.dampingFactor = 0.05;
-      controls.minDistance = 5;
-      controls.maxDistance = 80;
+      controls.minDistance = isMobile ? 8 : 5;
+      controls.maxDistance = isMobile ? 100 : 80;
       controls.autoRotate = true;
-      controls.autoRotateSpeed = 0.3;
-      updateProgress(5);
+      controls.autoRotateSpeed = isMobile ? 0.2 : 0.3;
 
       scene.add(new THREE.AmbientLight(0x404060));
       const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.5);
@@ -684,37 +639,18 @@ const ParticleAnimation = () => {
       const dirLight2 = new THREE.DirectionalLight(0x88aaff, 0.9);
       dirLight2.position.set(-15, -10, -15);
       scene.add(dirLight2);
-      updateProgress(10);
 
       setupPostProcessing();
-      updateProgress(10);
       createStarfield();
-      updateProgress(15);
       setupParticleSystem();
-      updateProgress(25);
 
       window.addEventListener("resize", handleWindowResize);
-      canvasRef.current.addEventListener("click", handleCanvasClick);
-      document
-        .getElementById("shape-btn")
-        .addEventListener("click", triggerMorph);
-      document.querySelectorAll(".color-option").forEach((option) => {
-        option.addEventListener("click", (e) => {
-          document
-            .querySelectorAll(".color-option")
-            .forEach((o) => o.classList.remove("active"));
-          e.target.classList.add("active");
-          CONFIG.colorScheme = e.target.dataset.scheme;
-          updateColors();
-        });
-      });
-      document
-        .querySelector(`.color-option[data-scheme="${CONFIG.colorScheme}"]`)
-        .classList.add("active");
-      updateProgress(15);
 
       isInitialized = true;
       animate();
+
+      // Start morphing automatically after a short delay
+      setTimeout(triggerMorph, 1000);
     };
 
     init();
@@ -722,70 +658,13 @@ const ParticleAnimation = () => {
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleWindowResize);
-      if (canvasRef.current) {
-        canvasRef.current.removeEventListener("click", handleCanvasClick);
-      }
       if (morphTimeline) {
         morphTimeline.pause();
       }
-      // Additional cleanup for Three.js resources if needed
     };
-  }, []);
+  }, [isMobile, onComplete]);
 
-  return (
-    <>
-      <div id="loading" ref={loadingRef}>
-        <span>Initializing Particles...</span>
-        <div id="progress-container">
-          <div id="progress" ref={progressRef}></div>
-        </div>
-      </div>
-
-      <div id="ui">
-        <div id="info" ref={infoRef}>
-          Shape: Sphere (Click to morph)
-        </div>
-      </div>
-
-      <div id="controls">
-        <button id="shape-btn">Change Shape</button>
-
-        <div id="color-picker">
-          <div
-            className="color-option"
-            data-scheme="fire"
-            style={{
-              background: "linear-gradient(to bottom right, #ff4500, #ffcc00)",
-            }}
-          ></div>
-          <div
-            className="color-option"
-            data-scheme="neon"
-            style={{
-              background: "linear-gradient(to bottom right, #ff00ff, #00ffff)",
-            }}
-          ></div>
-          <div
-            className="color-option"
-            data-scheme="nature"
-            style={{
-              background: "linear-gradient(to bottom right, #00ff00, #66ffcc)",
-            }}
-          ></div>
-          <div
-            className="color-option"
-            data-scheme="rainbow"
-            style={{
-              background:
-                "linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)",
-            }}
-          ></div>
-        </div>
-      </div>
-
-      <canvas id="webglCanvas" ref={canvasRef}></canvas>
-    </>
-  );
+  return <canvas id="webglCanvas" ref={canvasRef}></canvas>;
 };
 
 export default ParticleAnimation;
