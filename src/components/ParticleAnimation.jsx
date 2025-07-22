@@ -27,7 +27,7 @@ const ParticleAnimation = ({ onComplete }) => {
     // Configuration with mobile adjustments
     const CONFIG = {
       particleCount: isMobile ? 8000 : 15000,
-      shapeSize: isMobile ? 8 : 12,
+      shapeSize: isMobile ? 10 : 12, // Increased for mobile to accommodate multi-line text
       swarmDistanceFactor: isMobile ? 1.2 : 1.5,
       swirlFactor: isMobile ? 2.5 : 4.0,
       noiseFrequency: 0.1,
@@ -73,15 +73,38 @@ const ParticleAnimation = ({ onComplete }) => {
     // Shape generators
     const generateTextPoints = (text) => {
       const cvs = document.createElement("canvas");
-      cvs.width = isMobile ? 300 : 700;
-      cvs.height = isMobile ? 45 : 100;
+      cvs.width = isMobile ? 400 : 700;
+      cvs.height = isMobile ? 150 : 100; // Increased height for mobile to accommodate multiple lines
       const ctx = cvs.getContext("2d");
       ctx.clearRect(0, 0, cvs.width, cvs.height);
       ctx.fillStyle = "#ffffff";
-      ctx.font = `bold ${isMobile ? 30 : 50}px Courier New`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText(text, cvs.width / 2, cvs.height / 2);
+
+      if (isMobile) {
+        // For mobile, split the text into lines
+        const lines = text.split(" ");
+        const fontSize = 30;
+        const lineHeight = fontSize * 1.4; // Slightly more spacing between lines
+        ctx.font = `bold ${fontSize}px Courier New`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+
+        // Draw each line centered with proper spacing
+        lines.forEach((line, i) => {
+          ctx.fillText(
+            line,
+            cvs.width / 2,
+            cvs.height / 2 -
+              (lineHeight * (lines.length - 1)) / 2 +
+              i * lineHeight
+          );
+        });
+      } else {
+        // For desktop, draw as single line
+        ctx.font = `bold ${50}px Courier New`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(text, cvs.width / 2, cvs.height / 2);
+      }
 
       const img = ctx.getImageData(0, 0, cvs.width, cvs.height).data;
       const pts = [];
