@@ -32,7 +32,7 @@ export const App = () => {
     // Set loading to false after 4 seconds (or when particles are loaded)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 7000);
+    }, 5000);
 
     return () => {
       window.removeEventListener("resize", checkIfMobile);
