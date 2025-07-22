@@ -61,7 +61,7 @@ export const App = () => {
             >
               <a href="#" className="flex items-center cursor-default">
                 <img
-                  src="/pechacks bgr.png"
+                  src="/pechacks-01.png"
                   alt="Logo"
                   className="h-6 sm:h-8 lg:ml-2 lg:mt-10 hover:scale-110 transition-transform duration-300"
                 />

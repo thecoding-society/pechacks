@@ -1,9 +1,13 @@
 export const globalStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.cdnfonts.com/css/blanka');
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bree+Serif&family=Passion+One:wght@400;700;900&display=swap');
   
-  * {
-    font-family: 'Poppins', sans-serif;
+  h1 {
+    font-family: 'Blanka', sans-serif;
   }
+
+  h2 {
+    font-family: "Bree Serif", serif;
 
   /* These styles will be injected by main.jsx */
   ::-webkit-scrollbar {

@@ -18,13 +18,13 @@ export const TitleSection = () => {
           {/* Main heading with enhanced glow effect */}
           <h1 className="text-[clamp(3.1rem,7vw,6rem)] font-black relative leading-[1.1] cursor-default font-[Poppins]">
             <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 via-pink-500 to-cyan-400 bg-clip-text text-transparent blur-sm animate-pulse">
-              PEC HACKS
+              P E C&nbsp;&nbsp;H A C K S
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-purple-400 via-cyan-300 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-text-glow">
-              PEC HACKS
+              P E C&nbsp;&nbsp;H A C K S
             </span>
             <span className="relative bg-gradient-to-r from-white via-cyan-200 via-purple-200 via-pink-200 to-white bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
-              PEC HACKS
+              P E C&nbsp;&nbsp;H A C K S
             </span>
           </h1>
         </motion.div>
@@ -46,7 +46,7 @@ export const TitleSection = () => {
             {/* Spinner Circle */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div
-                className="w-[clamp(8rem,20vw,16rem)] h-[clamp(6rem,13vw,10rem)] border-2 border-cyan-400/30 rounded-full animate-spin"
+                className="w-[clamp(8rem,20vw,16rem)] h-[clamp(6rem,10vw,10rem)] border-2 border-cyan-400/30 rounded-full animate-spin"
                 style={{ animationDuration: "8s" }}
               >
                 <div
@@ -65,7 +65,7 @@ export const TitleSection = () => {
             </div>
 
             {/* Version number with same glow effect as PEC HACKS */}
-            <div className="relative text-[clamp(3rem,7vw,5rem)] font-black cursor-default">
+            <h2 className="relative text-[clamp(3.5rem,8vw,6rem)] font-black cursor-default">
               <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 via-pink-500 to-cyan-400 bg-clip-text text-transparent blur-sm animate-pulse">
                 3.0
               </span>
@@ -75,7 +75,7 @@ export const TitleSection = () => {
               <span className="relative bg-gradient-to-r from-white via-cyan-200 via-purple-200 via-pink-200 to-white bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
                 3.0
               </span>
-            </div>
+            </h2>
           </div>
         </motion.div>
       </div>
