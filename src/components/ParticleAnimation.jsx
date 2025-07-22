@@ -73,8 +73,8 @@ const ParticleAnimation = ({ onComplete }) => {
     // Shape generators
     const generateTextPoints = (text) => {
       const cvs = document.createElement("canvas");
-      cvs.width = isMobile ? 400 : 700;
-      cvs.height = isMobile ? 60 : 100;
+      cvs.width = isMobile ? 300 : 700;
+      cvs.height = isMobile ? 45 : 100;
       const ctx = cvs.getContext("2d");
       ctx.clearRect(0, 0, cvs.width, cvs.height);
       ctx.fillStyle = "#ffffff";
