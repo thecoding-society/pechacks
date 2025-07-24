@@ -1,9 +1,9 @@
 export const globalStyles = `
-  @import url('https://fonts.cdnfonts.com/css/blanka');
+  @import url('https://fonts.cdnfonts.com/css/transformers-2');
   @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bree+Serif&family=Passion+One:wght@400;700;900&display=swap');
   
   h1 {
-    font-family: 'Blanka', sans-serif;
+    font-family: 'Transformers', sans-serif;
   }
 
   h2 {

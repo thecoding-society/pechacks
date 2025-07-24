@@ -16,15 +16,15 @@ export const TitleSection = () => {
           transition={{ duration: 1.2, delay: 0.5 }}
         >
           {/* Main heading with enhanced glow effect */}
-          <h1 className="text-[clamp(2.2rem,7vw,6rem)] font-black relative leading-[1.1] cursor-default font-[Poppins]">
+          <h1 className="text-[clamp(2.4rem,8vw,7rem)] font-black relative leading-[1.1] cursor-default font-[Poppins]">
             <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 via-pink-500 to-cyan-400 bg-clip-text text-transparent blur-sm animate-pulse">
-              P E C&nbsp;&nbsp;H A C K S
+              PEC&nbsp;HACKS
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-purple-400 via-cyan-300 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-text-glow">
-              P E C&nbsp;&nbsp;H A C K S
+              PEC&nbsp;HACKS
             </span>
             <span className="relative bg-gradient-to-r from-white via-cyan-200 via-purple-200 via-pink-200 to-white bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
-              P E C&nbsp;&nbsp;H A C K S
+              PEC&nbsp;HACKS
             </span>
           </h1>
         </motion.div>

@@ -1,9 +1,11 @@
-import React from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
-const Loader = () => {
+const Preloader = () => {
+  // Loader styles
   const loaderStyle = {
     width: "fit-content",
-    fontSize: "40px",
+    fontSize: "clamp(40px, 7vw, 75px)",
     fontFamily: "system-ui, sans-serif",
     fontWeight: "bold",
     textTransform: "uppercase",
@@ -18,36 +20,29 @@ const Loader = () => {
     backgroundClip: "text",
     WebkitBackgroundClip: "text",
     animation: "l7 4s linear infinite",
+    position: "relative",
+    zIndex: 20,
   };
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: "black",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <style>
-        {`
-          @keyframes l7 {
-            0%  { background-position: 100%, 0; }
-            50% { background-position: 0, 0; }
-            100% { background-position: 0, 100%; }
-          }
-        `}
-      </style>
-      <div className="loader" style={loaderStyle}>
-        PECHACKS 3.0
+    <div className="fixed inset-0 bg-black overflow-hidden flex items-center justify-center">
+      {/* Text loader */}
+      <div className="relative z-10">
+        <style>
+          {`
+            @keyframes l7 {
+              0%  { background-position: 100%, 0; }
+              50% { background-position: 0, 0; }
+              100% { background-position: 0, 100%; }
+            }
+          `}
+        </style>
+        <div className="loader" style={loaderStyle}>
+          PEC HACKS 3.0
+        </div>
       </div>
     </div>
   );
 };
 
-export default Loader;
+export default Preloader;
