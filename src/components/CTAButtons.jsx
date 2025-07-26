@@ -38,7 +38,7 @@ export const CTAButtons = () => {
       <GlowButton
         variant="secondary"
         icon={<Zap className="w-4 h-4 sm:w-5 sm:h-5" />}
-        onClick={() => console.log("Pre-register clicked")}
+        onClick={() => window.open("https://forms.office.com/r/quWQDSF8BS", "_blank")}
         className="w-full sm:w-auto"
       >
         Pre-register here
