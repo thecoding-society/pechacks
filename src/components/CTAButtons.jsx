@@ -14,7 +14,7 @@ export const CTAButtons = () => {
         <GlowButton
           variant="primary"
           icon={<Calendar className="w-4 h-4 sm:w-5 sm:h-5" />}
-          onClick={() => window.open("https://pechacks.org/", "_blank")}
+          onClick={() => window.open("https://two.pechacks.org/", "_blank")}
           className="w-full sm:w-auto"
         >
           Visit 2.0
