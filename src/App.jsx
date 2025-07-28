@@ -16,15 +16,28 @@ export const App = () => {
     checkIfMobile();
     window.addEventListener("resize", checkIfMobile);
 
-    // Removed wheel and touchmove preventDefault to allow scrolling on all devices
+    const handleWheel = (e) => {
+      if (!isMobile) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("touchmove", handleWheel, { passive: false });
 
     return () => {
       window.removeEventListener("resize", checkIfMobile);
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchmove", handleWheel);
     };
   }, [isMobile]);
 
   return (
-    <div className="min-h-screen overflow-y-auto">
+    <div
+      className={`${
+        isMobile ? "overflow-y-auto" : "fixed inset-0 overflow-hidden"
+      }`}
+    >
       <BackgroundEffects>
         <header className="w-full fixed top-0 z-50 bg-transparent">
           <motion.nav
