@@ -178,7 +178,7 @@ export const BackgroundEffects = ({ children }) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative flex flex-col items-center p-0">
+    <div className="min-h-screen bg-black text-white relative flex flex-col items-center p-0">
       <canvas
         ref={canvasRef}
         className="fixed inset-0 pointer-events-none z-0 opacity-70"
