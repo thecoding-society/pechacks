@@ -1,12 +1,137 @@
-# React + Vite
+# PEC Hacks 3.0 - Official Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the official website for PEC Hacks 3.0, built with React + Vite and deployed on GitHub Pages with a custom domain.
 
-Currently, two official plugins are available:
+## 🚀 Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit: [https://pechacks.org](https://pechacks.org)
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React 19.1.0
+- **Build Tool**: Vite 6.3.5
+- **Styling**: Tailwind CSS 4.1.8
+- **3D Graphics**: Three.js
+- **Animations**: Framer Motion, Anime.js
+- **Icons**: Lucide React, React Icons, Ant Design Icons
+- **Deployment**: GitHub Pages with custom domain
+
+## 📦 Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/thecoding-society/pechacks.git
+cd pechacks
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start development server:
+```bash
+npm run dev
+```
+
+## 🔧 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+- `npm run deploy` - Deploy to GitHub Pages (manual)
+
+## 🚀 Deployment
+
+### Automatic Deployment (Recommended)
+
+The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch using GitHub Actions.
+
+### Manual Deployment
+
+#### Option 1: Using npm script
+```bash
+npm run deploy
+```
+
+#### Option 2: Using deployment scripts
+**Windows:**
+```cmd
+deploy.bat
+```
+
+**Linux/Mac:**
+```bash
+chmod +x deploy.sh
+./deploy.sh
+```
+
+## 🌐 Custom Domain Setup
+
+The site uses the custom domain `pechacks.org`. The domain configuration is handled by:
+
+1. `CNAME` file in the root directory
+2. GitHub Actions workflow that preserves the CNAME during deployment
+3. DNS settings pointing to GitHub Pages
+
+## 📁 Project Structure
+
+```
+pechacks/
+├── public/              # Static assets
+├── src/                 # Source code
+│   ├── components/      # React components
+│   ├── assets/         # Images, icons, etc.
+│   ├── App.jsx         # Main App component
+│   └── main.jsx        # Entry point
+├── .github/
+│   └── workflows/      # GitHub Actions
+├── dist/               # Built files (generated)
+├── deploy.sh           # Linux/Mac deployment script
+├── deploy.bat          # Windows deployment script
+├── CNAME               # Custom domain configuration
+└── package.json        # Project configuration
+```
+
+## 🔄 Workflow
+
+1. **Development**: Work on the `pre-reg` branch
+2. **Testing**: Create pull requests to `main`
+3. **Deployment**: Merge to `main` triggers automatic deployment
+
+## 🐛 Troubleshooting
+
+### Build Issues
+- Ensure all dependencies are installed: `npm install`
+- Clear cache: `npm run build -- --force`
+
+### Deployment Issues
+- Check GitHub Pages settings in repository
+- Verify CNAME file exists and contains `pechacks.org`
+- Ensure GitHub Actions have proper permissions
+
+### Custom Domain Issues
+- Verify DNS records point to GitHub Pages
+- Check domain configuration in repository settings
+- Wait for DNS propagation (up to 24 hours)
+
+## 📄 License
+
+This project is private and proprietary to The Coding Society, PEC Chennai.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/new-feature`
+3. Commit changes: `git commit -am 'Add new feature'`
+4. Push to branch: `git push origin feature/new-feature`
+5. Submit a pull request
+
+## 📞 Support
+
+For issues related to the website, contact The Coding Society at PEC Chennai.
+
+---
+
+Built with ❤️ by The Coding Society, PEC Chennai

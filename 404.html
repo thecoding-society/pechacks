@@ -1,5 +1,20 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting to https://pechacks.org</title>
-<meta http-equiv="refresh" content="0; URL=https://pechacks.org">
-<link rel="canonical" href="https://pechacks.org">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PEC Hacks | Hackathon</title>
+    <script>
+      const pathSegmentsToKeep = 0;
+      const l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
