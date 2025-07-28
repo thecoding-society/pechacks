@@ -36,17 +36,36 @@ npm run dev
 
 ## 🔧 Available Scripts
 
-- `npm run dev` - Start development server
+- `npm run dev` - Start development server (http://localhost:3000)
 - `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
+- `npm run preview` - Preview production build locally (http://localhost:4173)
 - `npm run lint` - Run ESLint
 - `npm run deploy` - Deploy to GitHub Pages (manual)
+
+## ⚙️ Configuration
+
+### Development Ports
+- **Dev Server**: `localhost:3000` (configurable in vite.config.js)
+- **Preview Server**: `localhost:4173` (for testing production build)
+
+### Environment Variables
+Create a `.env` file for local development:
+```env
+VITE_APP_TITLE=PEC Hacks 3.0
+VITE_APP_URL=https://pechacks.org
+VITE_APP_DESCRIPTION=Tamil Nadu's premier hackathon at PEC Chennai
+```
+
+### Network Access
+The development server is configured with `host: true` to allow network access:
+- Local: `http://localhost:3000`
+- Network: `http://[your-ip]:3000` (accessible from other devices on same network)
 
 ## 🚀 Deployment
 
 ### Automatic Deployment (Recommended)
 
-The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch using GitHub Actions.
+The site automatically deploys to GitHub Pages when changes are pushed to the `pre-reg` branch using GitHub Actions.
 
 ### Manual Deployment
 
@@ -75,6 +94,44 @@ The site uses the custom domain `pechacks.org`. The domain configuration is hand
 2. GitHub Actions workflow that preserves the CNAME during deployment
 3. DNS settings pointing to GitHub Pages
 
+### DNS Configuration Required:
+For your domain registrar, set up these DNS records:
+
+**For root domain (pechacks.org):**
+```
+Type: A
+Name: @
+Value: 185.199.108.153
+```
+```
+Type: A  
+Name: @
+Value: 185.199.109.153
+```
+```
+Type: A
+Name: @  
+Value: 185.199.110.153
+```
+```
+Type: A
+Name: @
+Value: 185.199.111.153
+```
+
+**For www subdomain (optional):**
+```
+Type: CNAME
+Name: www
+Value: thecoding-society.github.io
+```
+
+### GitHub Pages Settings:
+- Repository Settings → Pages
+- Source: Deploy from branch `gh-pages`
+- Custom domain: `pechacks.org`
+- Enforce HTTPS: ✅ Enabled
+
 ## 📁 Project Structure
 
 ```
@@ -96,9 +153,9 @@ pechacks/
 
 ## 🔄 Workflow
 
-1. **Development**: Work on the `pre-reg` branch
-2. **Testing**: Create pull requests to `main`
-3. **Deployment**: Merge to `main` triggers automatic deployment
+1. **Development**: Work on the `pre-reg` branch (main development branch)
+2. **Testing**: Test locally using `npm run dev`
+3. **Deployment**: Push to `pre-reg` branch triggers automatic deployment
 
 ## 🐛 Troubleshooting
 
