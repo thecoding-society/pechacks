@@ -9,7 +9,7 @@ lerna-debug.log*
 
 node_modules
 # dist folder will be built by GitHub Actions
-# dist
+dist
 dist-ssr
 *.local
 
