@@ -128,9 +128,11 @@ Value: thecoding-society.github.io
 
 ### GitHub Pages Settings:
 - Repository Settings → Pages
-- Source: Deploy from branch `gh-pages`
+- Source: **"GitHub Actions"** (not "Deploy from a branch")
 - Custom domain: `pechacks.org`
 - Enforce HTTPS: ✅ Enabled
+
+**Important**: You must enable GitHub Actions as the source, not deploy from a branch!
 
 ## 📁 Project Structure
 
@@ -164,14 +166,24 @@ pechacks/
 - Clear cache: `npm run build -- --force`
 
 ### Deployment Issues
-- Check GitHub Pages settings in repository
-- Verify CNAME file exists and contains `pechacks.org`
-- Ensure GitHub Actions have proper permissions
+- **GitHub Pages Source**: Must be set to "GitHub Actions" (not "Deploy from a branch")
+- **Permissions**: Ensure repository has Actions enabled in Settings → Actions → General
+- **Branch Protection**: If `pre-reg` branch has protection rules, allow GitHub Actions to bypass them
+- **Custom Domain**: Verify CNAME file exists in `public/` directory
+- **Workflow Permissions**: Repository Settings → Actions → General → Workflow permissions should be "Read and write permissions"
+
+### Permission Errors (403)
+If you see "Write access to repository not granted":
+1. Go to Repository Settings → Actions → General
+2. Set "Workflow permissions" to "Read and write permissions"
+3. Check "Allow GitHub Actions to create and approve pull requests"
+4. Ensure Pages source is set to "GitHub Actions"
 
 ### Custom Domain Issues
 - Verify DNS records point to GitHub Pages
 - Check domain configuration in repository settings
 - Wait for DNS propagation (up to 24 hours)
+- CNAME file should be in `public/` directory (gets copied to build)
 
 ## 📄 License
 
