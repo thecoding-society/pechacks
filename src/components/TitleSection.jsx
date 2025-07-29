@@ -16,7 +16,7 @@ export const TitleSection = () => {
           transition={{ duration: 1.2, delay: 0.5 }}
         >
           {/* Main heading with enhanced glow effect */}
-          <h1 className="text-[clamp(3rem,8vw,7rem)] font-black relative leading-[1.1] cursor-default font-[Poppins]">
+          <h1 className="text-[clamp(3.5rem,8vw,7rem)] font-black relative leading-[1.1] cursor-default font-[Poppins]">
             <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 via-pink-500 to-cyan-400 bg-clip-text text-transparent blur-sm animate-pulse">
               PEC&nbsp;HACKS
             </span>
