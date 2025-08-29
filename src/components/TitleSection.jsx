@@ -102,6 +102,16 @@ export const TitleSection = () => {
             Coming Soon
           </span>
         </p>
+        
+        {/* Added text for website under construction */}
+        <motion.p
+          className="text-gray-400 text-lg sm:text-xl mt-4 cursor-default"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
+        >
+          Our official website is under construction, will update soon
+        </motion.p>
       </motion.div>
     </motion.div>
   );
