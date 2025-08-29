@@ -32,7 +32,7 @@ export const SocialLinks = () => {
       Icon: FaDiscord, // Using Font Awesome Discord icon
       color: "text-indigo-500",
       borderColor: "border-indigo-500/50",
-      url: "https://discord.gg/KQMcbUZb", // Replace with your Discord invite link
+      url: "https://discord.gg/3nwwVtSz", // Replace with your Discord invite link
     },
   ];
 
