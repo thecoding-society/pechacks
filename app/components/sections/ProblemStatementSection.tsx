@@ -88,7 +88,7 @@ export function ProblemStatementSection() {
   };
 
   return (
-    <CosmicSection id="problem-statement" className="relative">
+    <CosmicSection id="Domains" className="relative">
       {/* Animated background */}
 
       <div className="relative z-10">
