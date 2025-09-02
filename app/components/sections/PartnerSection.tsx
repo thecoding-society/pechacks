@@ -106,7 +106,7 @@ export function PartnerSection() {
   // Function to handle the download
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/PEC Hacks 2.0 - Sponsor Deck.pdf";
+    link.href = "/Pec Hacks 3.0 Sponsorship Deck.pdf";
     link.download = "PEC-Hacks-3.0-Sponsorship-Deck.pdf";
     document.body.appendChild(link);
     link.click();
