@@ -88,12 +88,12 @@ export function ProblemStatementSection() {
   };
 
   return (
-    <CosmicSection id="problem-statement" className="relative">
+    <CosmicSection id="Domains" className="relative">
       {/* Animated background */}
 
       <div className="relative z-10">
         <SpaceSectionHeader
-          title="Problem Statements"
+          title="Domains"
           subtitle="Choose your mission and solve challenges that matter to the universe"
         />
 
