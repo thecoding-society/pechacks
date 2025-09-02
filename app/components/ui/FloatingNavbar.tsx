@@ -1,177 +1,172 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { cn } from "@/app/lib/utils";
+import GlassContainer from "./GlassContainer";
 import Image from "next/image";
-import Link from "next/link";
 
-// Define interfaces for the component props
 interface NavItem {
   name: string;
   href: string;
+  icon?: React.ReactNode;
 }
 
 interface FloatingNavbarProps {
   navItems: NavItem[];
-  logoImage?: string;
+  className?: string;
 }
 
-export function FloatingNavbar({ navItems, logoImage }: FloatingNavbarProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [isHome, setIsHome] = useState(true);
+export function FloatingNavbar({ navItems, className }: FloatingNavbarProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      setScrolled(isScrolled);
+      setIsScrolled(window.scrollY > 50);
 
-      // Check if we're at the top of the page (home section)
-      const atTop = window.scrollY < 50;
-      setIsHome(atTop);
+      // Update active section based on scroll position
+      const sections = navItems.map((item) => item.href.replace("#", ""));
+      const currentSection = sections.find((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
-
-    // Initial check
-    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navItems]);
+
+  const scrollToSection = (href: string) => {
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   return (
-    <nav
-      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
-        scrolled ? "w-[90%]" : "w-[85%]"
-      }`}
-    >
+    <>
       <div
-        className={`transition-all duration-300 ${
-          isOpen
-            ? "rounded-xl bg-black/30 backdrop-blur-md border border-cyan-500/30 shadow-lg shadow-cyan-500/20"
-            : scrolled
-            ? "rounded-full bg-black/30 backdrop-blur-md border border-cyan-500/30 shadow-lg shadow-cyan-500/20"
-            : isHome
-            ? "rounded-full bg-transparent border-transparent"
-            : "rounded-full bg-black/20 backdrop-blur-md border border-gray-700/30"
-        }`}
+        className={cn(
+          "fixed top-4 left-0 right-0 z-50 transition-all duration-500 px-4",
+          isScrolled ? "top-2" : "top-6",
+          className
+        )}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center py-3">
-            {/* Logo - Fixed with proper image container */}
+        <GlassContainer
+          variant="primary"
+          blur="lg"
+          opacity={isScrolled ? 0.15 : 0.1}
+          className={cn(
+            "transition-all duration-500 rounded-full",
+            isScrolled ? "px-4 py-2" : "px-6 py-3"
+          )}
+        >
+          <nav className="flex items-center justify-between">
+            {/* Logo/Brand on the left */}
             <div className="flex-shrink-0">
-              <Link href="#home" className="flex items-center">
-                <div className="relative h-10 w-40">
-                  {" "}
-                  {/* Proper container with dimensions */}
-                  <Image
-                    src={logoImage || "/pechacks bgr.png"}
-                    alt="PEC HACKS 3.0 Logo"
-                    fill
-                    className="object-contain" // Maintains aspect ratio
-                    sizes="(max-width: 768px) 160px, 160px"
-                    priority
-                  />
-                </div>
-              </Link>
+              <Image
+                src="/pechacks-01.png" // Place your image in public folder
+                alt="PEC HACKS 3.0 Logo"
+                width={160} // Adjust based on your logo's aspect ratio
+                height={40}
+                className="object-contain"
+              />
             </div>
 
-            {/* Desktop Navigation - Centered */}
-            <div className="hidden md:flex space-x-8 mx-auto">
+            {/* Desktop navigation items on the right */}
+            <div className="hidden md:flex items-center space-x-6">
               {navItems.map((item, index) => (
-                <Link
+                <button
                   key={index}
-                  href={item.href}
-                  className="text-gray-300 hover:text-cyan-300 transition-colors duration-300 font-medium"
+                  onClick={() => scrollToSection(item.href)}
+                  className={cn(
+                    "relative text-sm font-electrolize font-medium transition-all duration-300 hover:scale-105",
+                    "before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5",
+                    "before:bg-gradient-to-r before:from-cyan-400 before:to-purple-500",
+                    "before:scale-x-0 before:origin-left before:transition-transform before:duration-300",
+                    "hover:before:scale-x-100 hover:text-cyan-300",
+                    activeSection === item.href.replace("#", "")
+                      ? "text-cyan-300 before:scale-x-100"
+                      : "text-gray-200"
+                  )}
                 >
-                  {item.name}
-                </Link>
+                  <span>{item.name}</span>
+                </button>
               ))}
             </div>
 
-            {/* Mobile Menu Button - Positioned on the right */}
-            <div className="md:hidden">
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center">
               <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-300 hover:text-white focus:outline-none"
-                aria-label="Toggle menu"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white hover:text-cyan-300 transition-colors"
+                title="Open navigation menu"
+                aria-label="Open navigation menu"
               >
-                {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               </button>
             </div>
+          </nav>
+        </GlassContainer>
+      </div>
 
-            {/* Spacer to balance the logo on the left for desktop */}
-            <div className="hidden md:block flex-shrink-0">
-              <div className="h-8 w-8"></div>
-            </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isOpen && (
-            <div className="md:hidden px-4 pt-2 pb-4">
-              <div className="flex flex-col space-y-3">
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div className="absolute top-20 left-4 right-4">
+            <GlassContainer
+              variant="primary"
+              blur="lg"
+              opacity={0.2}
+              className="rounded-3xl"
+            >
+              <div className="p-6 space-y-4">
                 {navItems.map((item, index) => (
-                  <Link
+                  <button
                     key={index}
-                    href={item.href}
-                    className="text-gray-300 hover:text-cyan-300 transition-colors duration-300 py-2 text-center font-semibold"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => scrollToSection(item.href)}
+                    className={cn(
+                      "w-full text-left p-3 rounded-lg transition-all duration-200",
+                      "flex items-center space-x-3 font-electrolize",
+                      activeSection === item.href.replace("#", "")
+                        ? "bg-cyan-500/20 text-cyan-300"
+                        : "text-gray-200 hover:bg-white/10 hover:text-cyan-300"
+                    )}
                   >
-                    {item.name}
-                  </Link>
+                    <span>{item.name}</span>
+                  </button>
                 ))}
               </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </nav>
-  );
-}
-
-// Example usage in a page
-export default function DemoPage() {
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Domains", href: "#domains" },
-    { name: "Partners", href: "#partners" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      <FloatingNavbar navItems={navItems} logoImage="/hackathon-logo.png" />
-
-      {/* Home Section */}
-      <section id="home" className="min-h-screen pt-32 px-4 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Welcome to <span className="text-cyan-400">PEC HACKS 3.0</span>
-        </h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-          A 36-hour hackathon where developers, designers, and innovators come
-          together to build the future.
-        </p>
-      </section>
-
-      {/* Other Sections */}
-      {["About", "Domains", "Partners", "Contact"].map((section) => (
-        <section
-          key={section}
-          id={section.toLowerCase()}
-          className="min-h-screen pt-32 px-4"
-        >
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-cyan-300 mb-8 text-center">
-              {section}
-            </h2>
-            <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700/50">
-              <p className="text-gray-400 text-center">
-                Content for the {section} section would appear here.
-              </p>
-            </div>
+            </GlassContainer>
           </div>
-        </section>
-      ))}
-    </div>
+        </div>
+      )}
+    </>
   );
 }
