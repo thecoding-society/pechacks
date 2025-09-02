@@ -93,7 +93,7 @@ export function ProblemStatementSection() {
 
       <div className="relative z-10">
         <SpaceSectionHeader
-          title="Problem Statements"
+          title="Domains"
           subtitle="Choose your mission and solve challenges that matter to the universe"
         />
 

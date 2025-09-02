@@ -9,6 +9,14 @@ import {
   CosmicCardContent,
 } from "../ui/CosmicCard";
 import { CosmicButton } from "../ui/CosmicButton";
+import Image from "next/image";
+
+// Define types for our partner objects
+interface Partner {
+  name: string;
+  logo: string;
+  website: string;
+}
 
 export function PartnerSection() {
   const partnershipTiers = [
@@ -59,14 +67,21 @@ export function PartnerSection() {
     },
   ];
 
-  const currentPartners = [
-    { name: "TechCorp", logo: "🚀", category: "Technology Partner" },
-    { name: "InnovateX", logo: "⚡", category: "Innovation Partner" },
-    { name: "DevHub", logo: "💻", category: "Developer Tools" },
-    { name: "CloudNext", logo: "☁️", category: "Cloud Infrastructure" },
-    { name: "AILabs", logo: "🤖", category: "AI & ML Partner" },
-    { name: "BlockChain Corp", logo: "⛓️", category: "Blockchain Partner" },
-  ];
+  // Partner data organized by category
+  const partnersByCategory = {
+    gold: [
+      {
+        name: "Devfolio",
+        logo: "/Devfolio.png",
+        website: "https://devfolio.co/",
+      },
+      {
+        name: "ETH-india",
+        logo: "/ETH - india.png",
+        website: "https://ethindia2024.devfolio.co/",
+      },
+    ],
+  };
 
   const whyPartner = [
     {
@@ -97,10 +112,9 @@ export function PartnerSection() {
 
   // Function to handle the download
   const handleDownload = () => {
-    // Create a temporary anchor element
     const link = document.createElement("a");
-    link.href = "/PEC Hacks 2.0 - Sponsor Deck.pdf"; // Path to your PDF file in the public folder
-    link.download = "PEC-Hacks-3.0-Sponsorship-Deck.pdf"; // The filename for download
+    link.href = "/Pec Hacks 3.0 Sponsorship Deck.pdf";
+    link.download = "PEC-Hacks-3.0-Sponsorship-Deck.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -116,10 +130,57 @@ export function PartnerSection() {
     window.location.href = "tel:+916374723471";
   };
 
+  // Function to handle partner logo click
+  const handlePartnerClick = (website: string) => {
+    window.open(website, "_blank", "noopener,noreferrer");
+  };
+
+  // Function to render partner category section
+  const renderPartnerCategory = (
+    category: string,
+    partners: Partner[] | undefined,
+    title: string,
+    colorClass: string
+  ) => {
+    if (!partners || partners.length === 0) return null;
+
+    return (
+      <div className="mb-12">
+        <div className="text-center mb-8">
+          <h3
+            className={`text-2xl md:text-3xl font-bold font-bungee ${colorClass}`}
+          >
+            {title}
+          </h3>
+        </div>
+        <div className="flex flex-wrap justify-center gap-8">
+          {partners.map((partner, index) => (
+            <div
+              key={index}
+              className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              onClick={() => handlePartnerClick(partner.website)}
+            >
+              <div className="bg-white/5 rounded-xl  flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    fill
+                    className="object-contain rounded-xl "
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              </div>
+              {/* Removed the partner name display as requested */}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <CosmicSection id="partners" className="relative">
-      {/* Background overlay */}
-
       <div className="relative z-10">
         <SpaceSectionHeader
           title="Join Our Cosmic Alliance"
@@ -173,11 +234,9 @@ export function PartnerSection() {
                 glow
                 className="relative overflow-hidden group"
               >
-                {/* Background gradient */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${tier.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
                 />
-
                 <div className="relative z-10">
                   <CosmicCardHeader className="text-center">
                     <div className="text-5xl mb-4">{tier.icon}</div>
@@ -186,14 +245,13 @@ export function PartnerSection() {
                         {tier.title}
                       </CosmicCardTitle>
                       <div className="text-lg font-electrolize text-gray-300">
-                        {tier.level} Level
+                        {tier.level}
                       </div>
                       <div className="text-xl font-bold font-major-mono text-cyan-400">
                         {tier.investment}
                       </div>
                     </div>
                   </CosmicCardHeader>
-
                   <CosmicCardContent>
                     <div className="space-y-4">
                       <h4 className="font-bold font-electrolize text-white text-center">
@@ -218,32 +276,22 @@ export function PartnerSection() {
           </div>
         </div>
 
-        {/* Current Partners */}
+        {/* Partners by Category */}
         <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold font-bungee text-center text-white mb-8">
+          <h3 className="text-2xl md:text-3xl font-bold font-bungee text-center text-white mb-12">
             Our Amazing Partners
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {currentPartners.map((partner, index) => (
-              <CosmicCard
-                key={index}
-                variant="default"
-                hover
-                className="text-center py-8"
-              >
-                <div className="text-3xl mb-2">{partner.logo}</div>
-                <div className="font-michroma text-white text-sm mb-1">
-                  {partner.name}
-                </div>
-                <div className="text-xs text-gray-400 font-electrolize">
-                  {partner.category}
-                </div>
-              </CosmicCard>
-            ))}
-          </div>
+
+          {/* Gold Partners */}
+          {renderPartnerCategory(
+            "gold",
+            partnersByCategory.gold,
+            "GOLD SPONSORS",
+            "text-yellow-300"
+          )}
         </div>
 
-        {/* Call to Action - Updated */}
+        {/* Call to Action */}
         <div className="text-center">
           <CosmicCard variant="highlight" className="max-w-4xl mx-auto">
             <div className="text-center space-y-6">
