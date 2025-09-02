@@ -9,9 +9,6 @@ import { PartnerSection } from './components/sections/PartnerSection';
 import { FooterSection } from './components/sections/FooterSection';
 import { LoadingScreen } from './components/ui/CosmicLoader';
 import { Vortex } from './components/ui/VortexBackground';
-import PatronsSection from './components/sections/PatronsSection';
-import ClashSlider from './components/sections/ClashSlider';
-import Footer from './components/sections/Footer';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -81,16 +78,13 @@ export default function Home() {
           
           <AboutSection />
 
-          <PatronsSection />
-
-         
-          <ClashSlider />
+          <ProblemStatementSection/>
 
           
           <PartnerSection />
 
           {/* Footer Section */}
-          <Footer/>
+          <FooterSection/>
         </div>
       </div>
     </>

@@ -73,9 +73,10 @@ export function GlobalBackground({ onGlobeLoad }: GlobalBackgroundProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-2xl lg:text-5xl font-bold text-white mb-8"
+              className="text-xl md:text-2xl lg:text-4xl font-bold font-electrolize text-white mb-8 uppercase
+              tracking-wider"
             >
-              International Level Largest Hackathon
+              National Level Largest Hackathon
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
