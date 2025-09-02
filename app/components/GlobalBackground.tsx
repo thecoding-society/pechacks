@@ -76,7 +76,9 @@ export function GlobalBackground({ onGlobeLoad }: GlobalBackgroundProps) {
               className="text-xl md:text-2xl lg:text-4xl font-bold font-electrolize text-white mb-8 uppercase
               tracking-wider"
             >
+
               International Level Hackathon
+
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
