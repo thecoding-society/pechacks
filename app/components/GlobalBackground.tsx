@@ -34,12 +34,21 @@ export function GlobalBackground({ onGlobeLoad }: GlobalBackgroundProps) {
   };
 
   const handleCommunityClick = () => {
-    window.open("https://chat.whatsapp.com/FtFHlapbGqPBxtZomqR5Km", "_blank"); // Replace with actual community URL
+    window.open("https://chat.whatsapp.com/FtFHlapbGqPBxtZomqR5Km", "_blank");
   };
 
-  const handlePreregisterClick = () => {
-    window.open("https://forms.office.com/r/quWQDSF8BS", "_blank"); // Replace with actual preregister URL
-  };
+  // Load Devfolio script
+  React.useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://apply.devfolio.co/v2/sdk.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="relative w-full min-h-screen md:mt-10 lg:h-screen">
@@ -105,14 +114,13 @@ export function GlobalBackground({ onGlobeLoad }: GlobalBackgroundProps) {
                 </button>
               </div>
 
-              {/* Pre-register Here Button - full width below */}
-              <button
-                onClick={handlePreregisterClick}
-                className="group px-6 py-3 border-2 border-purple-500 hover:border-purple-400 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 relative overflow-hidden"
-              >
-                <span>register Here</span>
-                <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              {/* Devfolio Apply Button */}
+              <div
+                className="apply-button flex justify-center lg:justify-start"
+                data-hackathon-slug="YOUR-HACKATHON-SLUG"
+                data-button-theme="dark-inverted"
+                style={{ height: "44px", width: "312px" }}
+              ></div>
             </motion.div>
           </div>
         </div>
