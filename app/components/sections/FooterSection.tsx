@@ -24,7 +24,7 @@ export function FooterSection() {
               PEC Hacks
             </h2>
             <p className="text-lg mt-2 text-gray-300">
-              Tamil Nadu&apos;s Largest Hackathon*
+              International Hackathon*
             </p>
             <div className="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
               <Link

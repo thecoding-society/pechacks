@@ -332,7 +332,7 @@ export function AboutSection() {
                 <div className="flex-shrink-0">
                   <div className="relative w-40 h-40 overflow-hidden">
                     <Image
-                      src="/gdg-bg-remove.png" // Replace with actual GDG logo path
+                      src="/GDGpec.png" // Replace with actual GDG logo path
                       alt="Google Developer Groups"
                       fill
                       className="object-contain"
