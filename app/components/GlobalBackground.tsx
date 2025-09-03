@@ -123,7 +123,7 @@ export function GlobalBackground({ onGlobeLoad }: GlobalBackgroundProps) {
                 onClick={handlePreregisterClick}
                 className="group px-6 py-3 border-2 border-purple-500 hover:border-purple-400 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 relative overflow-hidden"
               >
-                <span>register Here</span>
+                <span>Pre-register Here</span>
                 <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
 
