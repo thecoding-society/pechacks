@@ -71,12 +71,12 @@ export function PartnerSection() {
   const partnersByCategory = {
     gold: [
       {
-        name: "Devfolio",
+        name: "DEVFOLIO LOGO",
         logo: "/Devfolio.png",
         website: "https://devfolio.co/",
       },
       {
-        name: "ETH-india",
+        name: "ETHINDIA LOGO",
         logo: "/ETH - india.png",
         website: "https://ethindia2024.devfolio.co/",
       },
