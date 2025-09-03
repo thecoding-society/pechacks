@@ -19,53 +19,7 @@ interface Partner {
 }
 
 export function PartnerSection() {
-  const partnershipTiers = [
-    {
-      title: "Title Sponsor",
-      level: "Stellar",
-      investment: "₹10,00,000+",
-      icon: "👑",
-      color: "from-yellow-500 to-orange-500",
-      benefits: [
-        "Exclusive title branding across all materials",
-        "Prime booth space and exhibition area",
-        "Speaking slot in opening ceremony",
-        "Access to all participant resumes",
-        "Custom workshop hosting opportunity",
-        "Dedicated recruitment sessions",
-      ],
-    },
-    {
-      title: "Platinum Partner",
-      level: "Cosmic",
-      investment: "₹5,00,000+",
-      icon: "💎",
-      color: "from-purple-500 to-pink-500",
-      benefits: [
-        "Logo placement on all event materials",
-        "Premium booth space allocation",
-        "Branded swag distribution rights",
-        "Judge panel participation",
-        "Technical workshop opportunity",
-        "Hiring booth and interview space",
-      ],
-    },
-    {
-      title: "Gold Sponsor",
-      level: "Galactic",
-      investment: "₹2,50,000+",
-      icon: "🏆",
-      color: "from-blue-500 to-cyan-500",
-      benefits: [
-        "Brand visibility on event platforms",
-        "Standard booth space",
-        "Prize category sponsorship",
-        "Networking session access",
-        "Talent pool access",
-        "Social media mentions",
-      ],
-    },
-  ];
+  
 
   // Partner data organized by category
   const partnersByCategory = {
