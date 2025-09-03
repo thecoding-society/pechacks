@@ -220,61 +220,7 @@ export function PartnerSection() {
           </div>
         </div>
 
-        {/* Partnership Tiers */}
-        <div className="mb-20">
-          <h3 className="text-3xl md:text-4xl font-bold font-bungee text-center text-purple-300 mb-12">
-            Partnership Opportunities
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {partnershipTiers.map((tier, index) => (
-              <CosmicCard
-                key={index}
-                variant="feature"
-                hover
-                glow
-                className="relative overflow-hidden group"
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${tier.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
-                />
-                <div className="relative z-10">
-                  <CosmicCardHeader className="text-center">
-                    <div className="text-5xl mb-4">{tier.icon}</div>
-                    <div className="space-y-2">
-                      <CosmicCardTitle className="text-2xl">
-                        {tier.title}
-                      </CosmicCardTitle>
-                      <div className="text-lg font-electrolize text-gray-300">
-                        {tier.level}
-                      </div>
-                      <div className="text-xl font-bold font-major-mono text-cyan-400">
-                        {tier.investment}
-                      </div>
-                    </div>
-                  </CosmicCardHeader>
-                  <CosmicCardContent>
-                    <div className="space-y-4">
-                      <h4 className="font-bold font-electrolize text-white text-center">
-                        Partnership Benefits
-                      </h4>
-                      <ul className="space-y-2">
-                        {tier.benefits.map((benefit, idx) => (
-                          <li
-                            key={idx}
-                            className="text-sm text-gray-300 flex items-start"
-                          >
-                            <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                            {benefit}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </CosmicCardContent>
-                </div>
-              </CosmicCard>
-            ))}
-          </div>
-        </div>
+        
 
         {/* Partners by Category */}
         <div className="mb-16">
