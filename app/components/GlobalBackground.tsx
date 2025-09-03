@@ -117,7 +117,7 @@ export function GlobalBackground({ onGlobeLoad }: GlobalBackgroundProps) {
               {/* Devfolio Apply Button */}
               <div
                 className="apply-button flex justify-center lg:justify-start"
-                data-hackathon-slug="YOUR-HACKATHON-SLUG"
+                data-hackathon-slug="pechacks3"
                 data-button-theme="dark-inverted"
                 style={{ height: "44px", width: "312px" }}
               ></div>
