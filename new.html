@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEC HACKS 3.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Add Lordicon script -->
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(0, 0%, 0%)',
+                        foreground: 'hsl(0, 0%, 100%)',
+                        card: 'hsl(0, 0%, 5%)',
+                        popover: 'hsl(0, 0%, 5%)',
+                        primary: {
+                            DEFAULT: 'hsl(210, 100%, 60%)',
+                            foreground: 'hsl(0, 0%, 0%)'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(0, 0%, 10%)',
+                            foreground: 'hsl(0, 0%, 100%)'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(0, 0%, 15%)',
+                            foreground: 'hsl(0, 0%, 70%)'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(270, 100%, 65%)',
+                            foreground: 'hsl(0, 0%, 100%)'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(0, 84%, 60%)',
+                            foreground: 'hsl(0, 0%, 100%)'
+                        },
+                        border: 'hsl(0, 0%, 20%)',
+                        input: 'hsl(0, 0%, 10%)',
+                        ring: 'hsl(210, 100%, 60%)',
+                        'neon-blue': 'hsl(210, 100%, 60%)',
+                        'neon-pink': 'hsl(320, 100%, 70%)',
+                        'neon-purple': 'hsl(270, 100%, 65%)',
+                        'neon-cyan': 'hsl(180, 100%, 60%)'
+                    },
+                    fontFamily: {
+                        heading: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'orbitron': ['Orbitron', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 30px hsl(210, 100%, 60%, 0.5)',
+                        'glow-purple': '0 0 30px hsl(270, 100%, 65%, 0.5)',
+                        'glow-pink': '0 0 30px hsl(320, 100%, 70%, 0.5)',
+                        'neon': '0 0 50px hsl(210, 100%, 60%, 0.3), 0 0 100px hsl(270, 100%, 65%, 0.2)'
+                    },
+                    animation: {
+                        'floating': 'floating 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                        'rotate-slow': 'rotate-slow 20s linear infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        floating: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        'pulse-glow': {
+                            'from': { 
+                                textShadow: '0 0 10px hsl(210, 100%, 60%, 0.5), 0 0 20px hsl(210, 100%, 60%, 0.3), 0 0 30px hsl(210, 100%, 60%, 0.2)'
+                            },
+                            'to': { 
+                                textShadow: '0 0 20px hsl(210, 100%, 60%, 0.8), 0 0 30px hsl(210, 100%, 60%, 0.6), 0 极0 40px hsl(210, 100%, 60%, 0.4)'
+                            }
+                        },
+                        'rotate-slow': {
+                            'from': { transform: 'rotateY(0deg)' },
+                            'to': { transform: 'rotateY(360deg)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+        
+        * {
+            border-color: hsl(0, 0%, 20%);
+        }
+
+        body {
+            background-color: hsl(0, 0%, 0%);
+            color: hsl(0, 0%, 100%);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: hsl(极0, 0%, 0%);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: hsl(210, 100%, 60%, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: hsl(210, 100%, 60%, 0.5);
+        }
+
+        /* Neon Glow Text */
+        .neon-text {
+            text-shadow: 0 0 10px hsl(210, 100%, 60%, 0.8), 0 0 20px hsl(210, 100%, 60%, 0.6), 0 0 30px hsl(210, 100%, 60%, 0.4);
+        }
+
+        .neon-text-purple {
+            text-shadow: 0 0 10px hsl(270, 100%, 65%, 0.8), 0 0 20px hsl(270, 100%, 65%, 0.6), 0 0 30px hsl(270, 100%, 65%, 0.4);
+        }
+
+        .neon-text-pink {
+            text-shadow: 0 0 10px hsl(320, 100%, 70%, 0.8), 0 0 20px hsl(320, 100%, 70%, 0.6), 0 0 30px hsl(320, 100%, 70%, 0.4);
+        }
+
+        /* Glow Effects */
+        .glow-blue {
+            box-shadow: 0 0 30px hsl(210, 100%, 60%, 0.5);
+        }
+
+        .glow-purple {
+            box-shadow: 0 0 30px hsl(270, 100%, 65%, 0.5);
+        }
+
+        .glow-pink {
+            box-shadow: 0 0 30px hsl(320, 100%, 70%, 0.5);
+        }
+
+        .shadow-neon {
+            box-shadow: 0 0 50px hsl(210, 100%, 60%, 极0.3), 0 0 100px hsl(270, 100%, 65%, 0.2);
+        }
+
+        /* Gradient Backgrounds */
+        .bg-gradient-neon {
+            background: linear-gradient(135deg, hsl(210, 100%, 60%), hsl(270, 100%, 65%), hsl(320, 100%, 70%));
+        }
+
+        .bg-gradient-hero {
+            background: linear-gradient(135deg, hsl(210, 100%, 60%, 0.2), hsl(270, 100%, 65%, 0.2));
+        }
+
+        .bg-gradient-button {
+            background: linear-gradient(135deg, hsl(210, 100%, 60%, 0.8), hsl(270, 100%, 65%, 0.8));
+        }
+
+        /* Writing mode utilities */
+        .writing-mode-vertical-rl {
+            writing-mode: vertical-rl;
+        }
+
+        /* Button variants */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn:focus {
+            outline: 2px solid hsl(210, 100%, 60%);
+            outline-offset: 2px;
+        }
+
+        .btn-hero {
+            background: linear-gradient(135deg, hsl(210, 100%, 60%, 0.8), hsl(270, 100%, 65%, 0.8));
+            color: black;
+            padding: 0.75rem 1.5rem;
+            border: none;
+        }
+
+        .btn-hero:hover {
+            background: linear-gradient(135deg, hsl(210, 100%, 60%), hsl(270, 100%, 65%));
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px hsl(210, 100%, 60%, 0.5);
+        }
+
+        .btn-project {
+            background: transparent;
+            color: hsl(0, 0%, 100%);
+            padding: 0.5rem 1rem;
+            border: 1px solid hsl(0, 0%, 70%, 0.3);
+        }
+
+        .btn-project:hover {
+            border-color: hsl(210, 100%, 60%);
+            box-shadow: 0 0 30px hsl(210, 100%, 60%, 0.5);
+        }
+
+        .btn-sm {
+            height: 2rem;
+            padding: 0 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        /* Additional styles for the About section */
+        .gradient-text {
+            background: linear-gradient(90极deg, hsl(210, 100%, 60%), hsl(270, 100%, 65%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-cl极ip: text;
+        }
+        
+        .hover-neon {
+            transition: all 0.3s ease;
+            border: 1px solid hsl(210, 100%, 60%, 0.3);
+            box-shadow: 0 0 5px hsl(210, 100%, 60%, 0.5);
+        }
+        
+        .hover-neon:hover {
+            border: 1px solid hsl(210, 100%, 60%);
+            box-shadow: 0 0 15px hsl(210, 100%, 60%), 0 0 25px hsl(210, 100%, 60%, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .cyber-border {
+            position: relative;
+        }
+        
+极        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: -1;
+            background: linear-gradient(45deg, hsl(210, 100%, 60%), hsl(270, 100%, 65%, 0.5), hsl(210, 100%, 60%));
+            border-radius: 8px;
+            animation: border-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes border-pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .stats-container {
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .stats-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+        
+        /* New styles for the hero buttons */
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: hsl(0, 0%, 100%);
+            text-shadow: 0 0 10px hsl(210, 100%, 60%, 0.5);
+        }
+        
+        .hero-buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .button-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .border-button {
+            background: transparent;
+            color: white;
+            border: 2px solid hsl(210, 100%, 60%);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 180px;
+        }
+        
+        .border-button:hover {
+            box-shadow: 0 0 15px hsl(210, 100%, 60%), 0 0 25px hsl(210, 100%, 60%, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .full-width-button {
+            width: 100%;
+            max-width: 372px; /* Width of two buttons + gap */
+        }
+        
+        @media (max-width: 640px) {
+            .button-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .border-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .full-width-button {
+                max-width: 300px;
+            }
+        }
+        
+        /* Styles for the icon container */
+        .icon-container {
+            margin-top: 3rem;
+        }
+        
+        .icon-container .text-center {
+            transition: transform 0.3s ease;
+        }
+        
+        .icon-container .text-center:hover {
+            transform: translateY(-5px);
+        }
+        
+        .icon-container p {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* New styles for the updated home section */
+        .anton-sc-regular {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .orbitron-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .not-selectable {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        .container-home {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .cont {
+            text-align: center;
+        }
+        
+        .heading-pec {
+            font-size: 6rem;
+            line-height: 1;
+            margin-bottom: 1rem;
+            position: relative;
+            font-weight: 600;
+            
+        }
+        
+        .outline {
+            color: transparent;
+            -webkit-text-stroke: 2px hsl(210, 100%, 60%);
+            text-stroke: 2px hsl(210, 100%, 60%);
+        }
+        
+        .CLH {
+            display: block;
+            font-size: 3rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            color: hsl(0, 0%, 100%);
+            text-shadow: 0 0 10px hsl(210, 100%, 60%, 0.5);
+        }
+        
+        .home_contents {
+            margin-top: 2rem;
+        }
+        
+        .intro-excerpt {
+            text-align: center;
+        }
+        
+        .hero-buttons {
+            margin-bottom: 1rem;
+        }
+        
+        .hero-buttons a {
+            display: inline-block;
+            margin: 0 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-buttons a.back, .hero-buttons a.okay {
+            background-color: rgb(214, 214, 189);
+            color: black;
+            border: none;
+        }
+        
+        .hero-buttons a.back:hover, .hero-buttons a.okay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(214, 214, 189, 0.7);
+        }
+        
+        .join_com {
+            margin-bottom: 2rem;
+        }
+        
+        .join_com a.white {
+            background-color: black;
+            color: white;
+            border: 2px solid hsl(210, 100%, 60%);
+        }
+        
+        .join_com a.white:hover {
+            box-shadow: 0 0 15px hsl(210, 100%, 60%), 0 0 25px hsl(210, 100%, 60%, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .date-con {
+            margin-top: 2rem;
+        }
+        
+        #hero-sub {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+            color: hsl(0, 0%, 100%);
+            text-shadow: 0 0 10px hsl(210, 100%, 60%, 0.5);
+        }
+        
+        /* Custom button styles - ADDED TO FIX HOVER ISSUE */
+        .custom-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: transparent;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid;
+            color: white;
+            cursor: pointer;
+        }
+
+        .custom-button .overlay {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .custom-button:hover .极overlay {
+            left: 0;
+        }
+
+        .custom-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10极px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Specific button colors */
+        .custom-button.border-cyan-500 {
+            border-color: hsl(180, 100%, 50%);
+        }
+        
+        .custom-button.border-teal-500 {
+            border-color: hsl(173, 80%, 40%);
+        }
+        
+        .custom-button.border-purple-500 {
+            border-color: hsl(270, 100%, 65%);
+        }
+        
+        .custom-button.border-cyan-500:hover {
+            box-shadow: 0 0 15px hsl(180, 100%, 50%, 0.7), 0 0 25px hsl(180, 100%, 50%, 0.5);
+        }
+
+        .custom-button.border-teal-500:hover {
+            box-shadow: 0 0 15px hsl(173, 80%, 40%, 0.7), 0 0 25px hsl(173, 80%, 40%, 0.5);
+        }
+
+        .custom-button.border-purple-500:hover {
+            box-shadow: 0 0 15px hsl(270, 100%, 65%, 0.7), 0 0 25px hsl(270, 100%, 65%, 0.5);
+        }
+        
+        /* Sticky navbar */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            /* Navigation */
+            .sticky-nav .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .sticky-nav .btn-project {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.875rem;
+            }
+            
+            /* Home Section */
+            .heading-pec {
+                font-size: 3.5rem;
+                display: flex;
+                flex-direction: column;
+                line-height: 1.1;
+            }
+            
+            .heading-pec .outline {
+                margin-top: 0.5rem;
+                font-size: 3.5rem;
+            }
+            
+            .CLH {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            #hero-sub {
+                font-size: 1.2rem;
+            }
+            
+            .custom-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            /* About Section */
+            .text-5xl {
+                font-size: 3rem;
+            }
+            
+            .text-7xl {
+                font-size: 4rem;
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .icon-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .icon-container p {
+                font-size: 1rem;
+            }
+            
+            /* Adjust iframe size on mobile */
+            iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading-pec {
+                font-size: 2.5rem;
+            }
+            
+            .heading-pec .outline {
+                font-size: 2.5rem;
+            }
+            
+            .CLH {
+                font-size: 1.2rem;
+            }
+            
+            .icon-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+            
+            .text-7xl {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-background">
+    
+
+    <!-- Hero Section - Updated Content -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center px-4">
+        <!-- Updated Content -->
+        <div class="container-home">
+            <div>
+                <div class="cont">
+                    <h1 class="orbitron-font heading-pec not-selectable" id="heading-pec" style="color: white;">
+                        PEC HACKS
+                        <span class="outline orbitron-font">3.0</span>
+                        <span class="CLH anton-sc-regular">International Level Hackathon</span>
+                    </h1>
+                </div>
+                <div class="home_contents">
+                    <div class="intro-excerpt">
+                       <div class="flex flex-col gap-4" style="opacity: 1; transform: none;">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="handleVisitClick()" class="custom-button group px-6 py-3 border-2 border-cyan-500 hover:border-cyan-400 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 relative overflow-hidden flex-1">
+                            <span>Visit 2.0</span>
+                            <div class="overlay bg-cyan-500/10"></div>
+                        </button>
+                        <button onclick="handleCommunityClick()" class="custom-button group px-6 py-3 border-2 border-teal-500 hover:border-teal-400 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-teal-500/30 relative overflow-hidden flex-1">
+                            <span>Join Our Community</span>
+                            <div class="overlay bg-teal-500/10"></div>
+                        </button>
+                    </div>
+                    <button onclick="handlePreregisterClick()" class="custom-button group px-6 py-3 border-2 border-purple-500 hover:border-purple-400 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 relative overflow-hidden">
+                        <span>Pre-register Here</span>
+                        <div class="overlay bg-purple-500/10"></div>
+                    </button>
+                    
+                            <p class="anton-sc-regular not-selectable" id="hero-sub">
+                                December 27-28, 2025
+                            </p>
+                            <p class="anton-sc-regular not-selectable" id="hero-sub">
+                                36-hr Hackathon in Chennai
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ambient glow effects -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(210_100%_60%/0.2)] rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[hsl(270_100%_65%/0.2)] rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-[hsl(320_100%_70%/0.2)] rounded-full blur-3xl animate-pulse delay-2000"></div>
+        
+       
+       
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="px-6 relative py-12">
+        <!-- Background Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style="animation-delay: '2s'"></div>
+        </div>
+        
+        <div class="container mx-auto max-w-7xl relative z-10">
+            <!-- Centered Title -->
+            <div class="text-center mb-12">
+                <h2 class="text-5xl md:text-7xl font-bold mb-4 tracking-wider inline-block py-10 neon-text">
+                    ABOUT 
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto mt-4">
+                    Where innovation meets opportunity - Join us for an unforgettable hacking experience
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div>
+                    <div class="space-y-4 text-slate-100/90 leading-relaxed">
+                        <p class="text-lg">
+                            Welcome, <span class="text-blue-500 font-semibold">Innovators and Change-Makers!</span> Introducing PEC HACKS 3.0– where boundless creativity meets game-changing innovation!
+                        </p>
+                        
+                        <p>
+                            Hosted by <span class="text-emerald-400 font-semibold">PANIMALAR ENGINEERING COLLEGE, CHENNAI, TAMILNADU</span>, this hackathon is your Golden-ticket to transform bold ideas into impactful solutions.
+                        </p>
+                        
+                        <p>
+                            Join us on this electrifying journey as you team up with brilliant minds, tackle real-world challenges, and push the boundaries of technology.
+                        </p>
+                        
+                        <p class="pt-2 text-accent font-medium">
+                            Get ready to code, create, and conquer at PEC HACKS 3.0 - where the future is built!
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right Content - Iframe -->
+                <div class="w-full h-full flex justify-center lg:justify-end pb-2">
+                    <iframe src='https://my.spline.design/robotfollowcursorforlandingpage-vgr5FzmzJtDNda3qqOGgqITM/' frameborder='0' width='100%' height='500' class="rounded-lg shadow-2xl"></iframe>
+                </div>
+            </div>
+
+            <!-- Icon Container - Replaced the stats grid -->
+            <div class="icon-container grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                <div class="icon-man text-center">
+                    <span class="center flex justify-center">
+                        <lord-icon src="https://cdn.lordicon.com/srupsmbe.json" trigger="loop" colors="primary:#7ee3ff,secondary:#7ee3ff" style="width:70px;height:70px"></lord-icon>
+                    </span>
+                    <p class="text-gray-300 mt-2">300+ Hackers</p>
+                </div>
+                <div class="icon-projects text-center">
+                    <span class="center flex justify-center">
+                        <lord-icon src="https://cdn.lordicon.com/ogjpwrxe.json" trigger="loop" colors="primary:#7ee3ff,secondary:#7ee3ff" style="width:70px;height:70px"></lord-icon>
+                    </span>
+                    <p class="text-gray-300 mt-2">60+ Projects</p>
+                </div>
+                <div class="icon-projects text-center">
+                    <span class="center flex justify-center">
+                        <lord-icon src="https://cdn.lordicon.com/vttzorhw.json" trigger="loop" colors="primary:#f0abfc,secondary:#f0abfc" style="width:70px;height:70px" delay="1500" state="in-reveal"></lord-icon>
+                    </span>
+                    <p class="text-gray-300 mt-2">8 Prizes</p>
+                </div>
+                <div class="icon-projects text-center">
+                    <span class="center flex justify-center">
+                        <lord-icon src="https://cdn.lordicon.com/ytklkgsc.json" trigger="loop" colors="primary:#86efac,secondary:#86efac" style="width:70px;height:70px" delay="1500" state="in-reveal"></lord-icon>
+                    </span>
+                    <p class="text-gray-300 mt-2">Prize Pool - ₹ 19 Lakhs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Button handlers with URLs
+        function handleVisitClick() {
+            window.open("https://two.pechacks.org/", "_blank");
+        };
+
+        function handleCommunityClick() {
+            window.open("https://chat.whatsapp.com/FtFHlapbGqPBxtZomqR5Km", "_blank");
+        };
+
+        function handlePreregisterClick() {
+            window.open("https://forms.office.com/r/quWQDSF8BS", "_blank");
+        };
+        
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
