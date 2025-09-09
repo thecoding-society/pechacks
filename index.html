@@ -4,274 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PEC Hacks | Hackathon</title>
-    <link rel="icon" type="image/png" href="./assets/New folder/favicon.png" />
-    
-    <!-- Tailwind CSS for utility classes -->
+    <link rel="icon" type="image/png" href="./assets//favicon (1).png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts for cosmic and hero section -->
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Electrolize&family=Passion+One&family=Rajdhani:wght@300;400;500;600;700&family=Kanit:wght@800&family=Poppins:wght@300;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
-    <!-- React Icons -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Lordicon -->
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    <!-- AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Custom Styles including stars and cosmic theme -->
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background: radial-gradient(circle at bottom, #0d0d0d, #000000);
-            color: #ffffff;
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            overflow-x: hidden;
-        }
-        .stars {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            background: transparent;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none; /* So scrolling and mouse pass through */
-        }
-        .star {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #ffffff;
-            opacity: 0;
-            border-radius: 50%;
-            animation: moveStar 8s linear infinite;
-        }
-        @keyframes moveStar {
-            0% { transform: translate(0, 0); opacity: 0; }
-            30% { opacity: 0.8; }
-            100% { transform: translate(calc(50vw - 100px), calc(-150vh + 100px)); opacity: 0; }
-        }
-        .container, main {
-            position: relative;
-            z-index: 2;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .cosmic-card {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(125, 227, 255, 0.2);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-        .cosmic-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(125, 227, 255, 0.15);
-            border-color: rgba(125, 227, 255, 0.4);
-        }
-        .cosmic-card.glow {
-            box-shadow: 0 0 20px rgba(125, 227, 255, 0.2);
-        }
-        .cosmic-button {
-            background: linear-gradient(45deg, #7ee3ff, #f0abfc);
-            color: black;
-            font-weight: 600;
-            border-radius: 8px;
-            padding: 10px 24px;
-            transition: all 0.3s ease;
-        }
-        .cosmic-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(125, 227, 255, 0.4);
-        }
-        .cosmic-button.ghost {
-            background: transparent;
-            border: 2px solid #7ee3ff;
-            color: #7ee3ff;
-        }
-        .cosmic-button.ghost:hover {
-            background: rgba(125, 227, 255, 0.1);
-        }
-        .back-about { position: relative; overflow: hidden; }
-        .section-header h2 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #7ee3ff, #f0abfc, #86efac);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1rem;
-            font-family: 'Bungee', cursive;
-        }
-        .section-header p {
-            color: #cbd5e1;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            font-family: 'Rajdhani', sans-serif;
-        }
-        .not-selectable { user-select: none; }
-        .sticky-nav { position: sticky; top: 0; z-index: 50; }
-        /* Hero Effects */
-        .title-font { font-family: 'Kanit', sans-serif; }
-        .subtitle-font { font-family: 'Space Grotesk', sans-serif; }
-        .animate-text-glow {
-            animation: textGlow 3s ease-in-out infinite alternate;
-        }
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px rgba(192, 132, 252, 0.5); }
-            50% { text-shadow: 0 0 20px rgba(34, 211, 238, 0.7); }
-            100% { text-shadow: 0 0 10px rgba(236, 72, 153, 0.5); }
-        }
-        .animate-gradient {
-            background-size: 200% 200%;
-            animation: gradient 5s ease infinite;
-        }
-        @keyframes gradient {
-            0%   { background-position: 0% 50%; }
-            50%  { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        /* Responsive Styles */
-        @media (max-width: 640px) {
-            #hero-section {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-                height: auto;
-                min-height: calc(100vh - 80px);
-                overflow-y: auto;
-            }
-            #title-container h1 {
-                font-size: 3.5rem !important;
-                line-height: 1;
-            }
-            #cta-buttons { flex-direction: column; gap: 1rem; margin-top: 2rem !important; }
-            .glow-button { padding: 0.75rem 1.5rem; font-size: 1rem; max-width: 100%; }
-            .relative.z-20 {
-                height: auto;
-                min-height: calc(100vh - 80px);
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-                overflow-y: auto;
-            }
-        }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
 </head>
-<body class="bg-black text-white not-selectable">
-    <!-- Stars Animated Background -->
-    <div class="stars"></div>
-    <!-- Site Content -->
-    <main>
-        <!-- Navigation Bar -->
-        <nav class="sticky-nav top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md">
-            <div class="container mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <img src="/assets/pechacks-01.png" alt="PEC Hacks Logo" class="h-8 w-auto">
-                    </div>
-                    <div class="hidden md:flex items-center space-x-8">
-                        <a href="#home" class="text-white/80 hover:text-white transition-colors duration-300 font-medium">Home</a>
-                        <a href="#about" class="text-white/80 hover:text-white transition-colors duration-300 font-medium">About</a>
-                        <a href="#domains" class="text-white/80 hover:text-white transition-colors duration-300 font-medium">Domains</a>
-                        <a href="#partners" class="text-white/80 hover:text-white transition-colors duration-300 font-medium">Partners</a>
-                    </div>
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="text-white focus:outline-none">
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <button class="hidden md:block border px-4 py-1 rounded-xl">Register here</button>
+<body>
+    <!-- Starfield Canvas -->
+    <canvas id="starfield"></canvas>
+    
+    <div class="hud-container">
+        <!-- Main Frame Container -->
+        <div class="hud-frame" id="hudFrame">
+            <!-- Frame Corners -->
+            <div class="frame-corner frame-corner-v top-0 left-0"></div>
+            <div class="frame-corner frame-corner-h top-0 left-0"></div>
+            
+            <div class="frame-corner frame-corner-v top-0 right-0"></div>
+            <div class="frame-corner frame-corner-h top-0 right-0"></div>
+            
+            <div class="frame-corner frame-corner-v bottom-0 left-0"></div>
+            <div class="frame-corner frame-corner-h bottom-0 left-0"></div>
+            
+            <div class="frame-corner frame-corner-v bottom-0 right-0"></div>
+            <div class="frame-corner frame-corner-h bottom-0 right-0"></div>
+            
+            <!-- Midpoints (hidden on mobile) -->
+            <div id="midpoints" class="hidden sm:block">
+                <div class="frame-corner frame-corner-h top-1/2 left-0 transform -translate-y-1/2" style="width: 12px;"></div>
+                <div class="frame-corner frame-corner-v top-1/2 left-0 transform -translate-y-1/2" style="height: 12px;"></div>
+                
+                <div class="frame-corner frame-corner-h top-1/2 right-0 transform -translate-y-1/2" style="width: 12px;"></div>
+                <div class="frame-corner frame-corner-v top-1/2 right-0 transform -translate-y-1/2" style="height: 12px;"></div>
+                
+                <div class="frame-corner frame-corner-h top-0 left-1/2 transform -translate-x-1/2" style="width: 12px;"></div>
+                <div class="frame-corner frame-corner-v top-0 left-1/2 transform -translate-x-1/2" style="height: 12px;"></div>
+                
+                <div class="frame-corner frame-corner-h bottom-0 left-1/2 transform -translate-x-1/2" style="width: 12px;"></div>
+                <div class="frame-corner frame-corner-v bottom-0 left-1/2 transform -translate-x-1/2" style="height: 12px;"></div>
+            </div>
+
+            <!-- Top Bar - Date & Time -->
+            <div class="h-8 flex items-center justify-between px-4 bg-black bg-opacity-50 relative" >
+                <div class="text-white font-mono text-sm font-semibold pulse" id="dateDisplay">DECEMBER 2025</div>
+                <div class="text-white font-mono text-sm font-semibold pulse" id="timeDisplay">00:00:00</div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="flex-1 relative">
+                <!-- Bottom Left Text -->
+                <div class="absolute bottom-3 left-3 text-sm sm:text-2xl text-white font-bold leading-tight" style="font-family: 'Teko', sans-serif;">
+                    <p>International</p>
+                    <p>Level</p>
+                    <p>Hackathon</p>
                 </div>
-                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4 pb-4">
-                    <a href="#home" class="block text-white/80 hover:text-white transition-colors duration-300 font-medium">Home</a>
-                    <a href="#about" class="block text-white/80 hover:text-white transition-colors duration-300 font-medium">About</a>
-                    <a href="#domains" class="block text-white/80 hover:text-white transition-colors duration-300 font-medium">Domains</a>
-                    <a href="#partners" class="block text-white/80 hover:text-white transition-colors duration-300 font-medium">Partners</a>
-                    <button class="w-full cosmic-button mt-4 border">Register here</button>
+
+                <!-- Bottom Right Text -->
+                <div class="absolute bottom-3 right-3 text-sm sm:text-2xl text-white font-bold text-right leading-tight" style="font-family: 'Teko', sans-serif;">
+                    <p>36 Hour</p>
+                    <p>Hackathon</p>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- Title -->
+        <div class="hud-title" id="hudTitle">
+            PEC HACKS 3.0
+        </div>
+
+        <!-- Button Container - FIXED -->
+        <div class="button-container">
+            <div class="button-row">
+                <!-- Visit 2.0 button with blue theme -->
+                <div class="galaxy-button">
+                    <button class="space-button blue-theme"  onclick="window.location.href='https://two.pechacks.org/'">
+                        <span class="backdrop"></span>
+                        <span class="galaxy"></span>
+                        <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Visit 2.0</label>
+                    </button>
+                </div>
+                <!-- Community button with original theme -->
+                <div class="galaxy-button">
+                    <button class="space-button" onclick="window.location.href='https://chat.whatsapp.com/FtFHlapbGqPBxtZomqR5Km'">
+                        <span class="backdrop"></span>
+                        <span class="galaxy"></span>
+                        <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Join Our Community</label>
+                    </button>
                 </div>
             </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section id="home" class="relative flex items-center justify-center px-4 overflow-hidden">
-            <div class="relative z-20 flex flex-col items-center justify-center w-full px-4 py-4 h-[calc(100vh-80px)] no-scrollbar">
-                <div id="hero-section" class="text-center space-y-8 max-w-6xl mx-auto no-scrollbar">
-                    <div class="space-y-8 mb-6">
-                        <div id="title-container" class="relative">
-                            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black relative cursor-default title-font">
-                                <span class="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 via-pink-500 to-cyan-400 bg-clip-text text-transparent blur-sm animate-pulse">PEC HACKS</span>
-                                <span class="absolute inset-0 bg-gradient-to-r from-purple-400 via-cyan-300 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-text-glow">PEC HACKS</span>
-                                <span class="relative bg-gradient-to-r from-white via-cyan-200 via-purple-200 via-pink-200 to-white bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">PEC HACKS</span>
-                            </h1>
-                        </div>
-                        <div id="version-container" class="relative flex justify-center mt-6">
-                            <div class="relative group">
-                                <div class="relative text-5xl md:text-6xl lg:text-7xl font-black title-font">
-                                    <span class="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent transform translate-x-1 translate-y-1 opacity-60">3.0</span>
-                                    <span class="relative bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">3.0</span>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Pre-register button with new design -->
+            <div class="space-btn-wrapper">
+            <button class="space-btn" id="preRegisterBtn">
+                <strong>PRE-REGISTER HERE</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </div>
+            <!-- Devfolio Button -->
+            <div class="devfolio-button-wrapper">
+                <div 
+                    class="apply-button devfolio-button" 
+                    data-hackathon-slug="PEC HACKS 3.0" 
+                    data-button-theme="light"
+                ></div>
+            </div>
+        </div>
+        
+        <!-- Timer Container -->
+            <div class="timer-container">
+                <div id="timer">
+                    <div class="timer-unit">
+                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="days">00</div>
+                        <div class="timer-label">Days</div>
                     </div>
-                    <div id="subtitle" class="space-y-6 px-4">
-                        <p class="text-xl md:text-2xl lg:text-3xl font-light max-w-4xl mx-auto leading-relaxed cursor-default subtitle-font">
-                            <span class="text-gray-300">International </span>
-                            <span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent font-bold animate-gradient bg-[length:200%_200%]">Level Hackathon</span>
-                        </p>
-                        <p class="text-lg md:text-xl text-gray-300 mt-4">
-                            December 27-28, 2025 | 36-hr Hackathon in Chennai
-                        </p>
+                    <div class="timer-unit">
+                        <div class="timer-value" id="hours">00</div>
+                        <div class="timer-label">Hours</div>
                     </div>
-                    <div id="cta-buttons" class="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12 px-4">
-                        <div class="glow-button glow-button-primary" onclick="handleVisitClick()">
-                            <div class="flex items-center gap-3">
-                                <i data-lucide="calendar" class="w-5 h-5"></i>
-                                <span class="text-lg">Visit PEC Hacks 2.0</span>
-                            </div>
-                        </div>
-                        <div class="glow-button glow-button-secondary" onclick="handlePreregisterClick()">
-                            <div class="flex items-center gap-3">
-                                <i data-lucide="zap" class="w-5 h-5"></i>
-                                <span class="text-lg">PRE REGISTER HERE</span>
-                            </div>
-                        </div>
-                        <div class="glow-button glow-button-accent" onclick="handleCommunityClick()">
-                            <div class="flex items-center gap-1">
-                                <i data-lucide="users" class="w-5 h-5"></i>
-                                <span class="text-lg">Join Our Community</span>
-                            </div>
-                        </div>
+                    <div class="timer-unit">
+                        <div class="timer-value" id="minutes">00</div>
+                        <div class="timer-label">Minutes</div>
+                    </div>
+                    <div class="timer-unit">
+                        <div class="timer-value" id="seconds">00</div>
+                        <div class="timer-label">Seconds</div>
                     </div>
                 </div>
             </div>
-        </section>
+        
+    </div>
 
-        <!-- Example About Section (add more as needed) -->
-        <section id="about" class="relative py-20 back-about">
-            <div class="absolute inset-0 z-0"></div>
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="section-header" data-aos="fade-down" data-aos-once="true">
-                    <h2 class="text-5xl">About</h2>
-                    <p>
-                        Hosted by Panimalar Engineering College, Chennai, <b>PEC Hacks 3.0</b> is your chance to meet innovators, tackle challenges, and push the boundaries of technology.
+    <!-- About Section -->
+    <section id="about" class="relative py-10 back-about z-30">
+        <div class="absolute inset-0 z-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Header -->
+            <div class="section-header" data-aos="fade-down" data-aos-once="true">
+                <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">About</h2>
+            </div>
+            
+            <!-- Content - FIXED CENTERING -->
+            <div class="flex flex-col items-center justify-center">
+                <div class="w-full lg:w-10/12 xl:w-9/12 self-center mb-12 lg:mb-0 text-center about-content" data-aos="zoom-in" data-aos-once="true" >
+                    <h3 class="text-4xl text-cyan-300 mb-8" style="font-family: 'Teko', sans-serif;">Welcome, Innovators and Change-Makers!</h3>
+                    <p class="text-gray-300 leading-relaxed mb-10 about-para" >
+                        "Introducing <span class="font-semibold text-cyan-300 tracking-wide text-xl">PEC HACKS 3.0</span> – where boundless creativity meets game-changing innovation! Hosted by
+                        <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI, TAMILNADU,</span> this hackathon is your Golden-ticket to transform bold ideas
+                        into impactful solutions. Join us on this electrifying journey as you team up with brilliant minds, tackle real-world
+                        challenges, and push the boundaries of technology."
                     </p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats">
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats ">
                         <div class="text-center">
                             <span class="flex justify-center">
                                 <lord-icon
@@ -326,101 +225,124 @@
                             </p>
                         </div>
                     </div>
+                </div>
             </div>
-        </section>
-        <br>
+
+            <br>
             <br>
 
             <!-- Patrons Section -->
             <div class="section-header">
-                <h2 class="text-5xl">Our Patrons</h2>
+                <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Our Patrons</h2>
             </div>
 
-            <div class="flex flex-col gap-8 mt-12">
-                <!-- First row with 2 boxes -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl">
-                    <!-- Patron 1 -->
-                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/New folder/chinna-durai.jpg" alt="Dr. P Chinnadurai" class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-2">Dr. P Chinnadurai</h3>
-                                <p class="text-gray-400">Secretary & Correspondent</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Patron 2 -->
-                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/New folder/sakthi-kumar.jpg" alt="Dr. C Sakthi Kumar" class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-2">Dr. C Sakthi Kumar</h3>
-                                <p class="text-gray-400">Director</p>
-                            </div>
-                        </div>
+            
+<div class="flex flex-col gap-8 mt-12">
+    <!-- First row with 4 boxes -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-auto max-w-5xl">
+        <!-- Patron 1 -->
+        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+            <div class="flex items-center gap-6 w-full">
+                <div class="flex-shrink-0">
+                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                        <img src="./assets/New folder/chinna-durai.jpg" alt="Dr. P Chinnadurai" class="object-cover w-full h-full">
                     </div>
                 </div>
-
-                <!-- Second row with 3 boxes -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto max-w-7xl">
-                    <!-- Patron 3 -->
-                    <div class="cosmic-card p-6 h-full min-h-[160px] flex items-center">
-                        <div class="flex items-center gap-5 w-full">
-                            <div class="flex-shrink-0">
-                                <div class="relative w-28 h-28 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/New folder/rajeswari-1.jpg" alt="Mrs.C Vijayarajeswari" class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-cyan-300 mb-1">Mrs.C Vijayarajeswari</h3>
-                                <p class="text-sm text-gray-400">Director</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Patron 4 -->
-                    <div class="cosmic-card p-6 h-full min-h-[160px] flex items-center">
-                        <div class="flex items-center gap-5 w-full">
-                            <div class="flex-shrink-0">
-                                <div class="relative w-28 h-28 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets//New folder//saranya-sree-sakthi-kumar.jpg" alt="Dr. Saranya Sree Sakthi Kumar" class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-cyan-300 mb-1">Dr. Saranya Sree Sakthi Kumar</h3>
-                                <p class="text-sm text-gray-400">Director</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Patron 5 -->
-                    <div class="cosmic-card p-6 h-full min-h-[160px] flex items-center">
-                        <div class="flex items-center gap-5 w-full">
-                            <div class="flex-shrink-0">
-                                <div class="relative w-28 h-28 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets//New folder/coa.png" alt="Dr.S.Prasanna Devi" class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-cyan-300 mb-1">Dr.S.Prasanna Devi</h3>
-                                <p class="text-sm text-gray-400">Chief Academic Officer</p>
-                            </div>
-                        </div>
+                <div class="flex-1">
+                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. P Chinnadurai</h3>
+                    <p class="text-gray-400">Secretary & Correspondent</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Patron 2 -->
+        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+            <div class="flex items-center gap-6 w-full">
+                <div class="flex-shrink-0">
+                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                        <img src="./assets/New folder/sakthi-kumar.jpg" alt="Dr. C Sakthi Kumar" class="object-cover w-full h-full">
                     </div>
                 </div>
+                <div class="flex-1">
+                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. C SakthiKumar</h3>
+                    <p class="text-gray-400">Director</p>
+                </div>
+            </div>
+        </div>
 
-                <!-- Last row with 2 boxes - college logo and GDG logo -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl">
-                    <!-- College logo box -->
+        <!-- Patron 3 -->
+        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+            <div class="flex items-center gap-6 w-full">
+                <div class="flex-shrink-0">
+                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                        <img src="./assets/New folder/rajeswari-1.jpg" alt="Mrs.C Vijayarajeswari" class="object-cover w-full h-full">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-md font-bold text-cyan-300 mb-2">Mrs. C Vijayarajeswari</h3>
+                    <p class="text-gray-400">Director</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Patron 4 -->
+        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+            <div class="flex items-center gap-6 w-full">
+                <div class="flex-shrink-0">
+                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                        <img src="./assets//New folder/saranya-sree-sakthi-kumar.jpg" alt="Dr. Saranya Sree Sakthi Kumar" class="object-cover w-full h-full">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. Saranya Sree Sakthi Kumar</h3>
+                    <p class="text-gray-400">Director</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Co-Patrons Header -->
+    <div class="text-center mb-8 mt-6">
+                        <h3 class="text-2xl md:text-5xl font-bold font-bungee text-white" style="font-family: 'Teko', sans-serif;">CO PATRONS</h3>
+                    </div>
+
+    <!-- First row of Co-Patrons (2 boxes) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl">
+        
+        <!-- Patron 1 -->
+        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+            <div class="flex items-center gap-6 w-full">
+                <div class="flex-shrink-0">
+                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                        <img src="./assets/New folder/mani.jpg" alt="Dr. K. Mani" class="object-cover w-full h-full">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr.K.Mani</h3>
+                    <p class="text-gray-400">Principal</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Patron 2 -->
+        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+            <div class="flex items-center gap-6 w-full">
+                <div class="flex-shrink-0">
+                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                        <img src="./assets/New folder/coa.png" alt="Dr.S.Prasanna Devi" class="object-cover w-full h-full">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr.S.Prasanna Devi</h3>
+                    <p class="text-gray-400">Chief Academic Officer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second row of Co-Patrons (2 boxes) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl  max-h-[350px] ">
+        <!-- College logo box -->
                     <div class="cosmic-card p-6 h-full min-h-[150px] flex items-center">
                         <div class="flex items-center gap-6 w-full">
                             <div class="flex-shrink-0">
@@ -429,8 +351,8 @@
                                 </div>
                             </div>
                             <div class="flex-1 text-left">
-                                <h3 class="text-lg font-bold text-cyan-300 mb-1">Organised By</h3>
-                                <p class="text-gray-400">Panimalar Engineering College</p>
+                                <h3 class="text-md font-bold text-cyan-300 mb-1">Organised By</h3>
+                                <p class="text-gray-400 text-sm">Panimalar Engineering College</p>
                             </div>
                         </div>
                     </div>
@@ -440,116 +362,129 @@
                         <div class="flex items-center gap-6 w-full">
                             <div class="flex-shrink-0">
                                 <div class="relative w-36 h-36 overflow-hidden">
-                                    <img src="./assets//New folder/GDGpec.png" alt="Google Developer Groups" class="object-contain w-full h-full">
+                                    <img src="./assets/New folder/GDG On Campus - Horizontal - Dark[1].png" alt="Google Developer Groups" class="object-contain w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1 text-left">
-                                <h3 class="text-lg font-bold text-cyan-300 mb-1">In Association With</h3>
-                                <p class="text-gray-400">Google Developer Groups</p>
+                                <h3 class="text-md font-bold text-cyan-300 mb-1">In Association With</h3>
+                                <p class="text-gray-400 text-sm">Google Developer Groups</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+    </div>
+</div>
         </div>
     </section>
 
     <!-- Domains Section -->
-    <section id="domains" class="relative py-20 ">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="section-header">
-                <h2>Domains</h2>
-                <p>Choose your mission and solve challenges that matter to the universe</p>
-            </div>
+<section id="domains" class="relative py-10  z-30">
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="section-header">
+            <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Domains</h2>
+            <p>Choose your mission and solve challenges that matter to the universe</p>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                <!-- Healthcare -->
-                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                    <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                    <div class="relative z-10 p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="text-4xl">🏥</div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Digital Healthcare</h3>
-                        <p class="text-gray-300 mb-4 leading-relaxed">
-                            Revolutionize healthcare with digital solutions for better patient care and medical research.
-                        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 max-w-7xl justify-center mx-auto">
+            <!-- Healthcare -->
+            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div class="relative z-10 p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="text-4xl">🏥</div>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Digital Healthcare</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Revolutionize healthcare with digital solutions for better patient care and medical research.
+                    </p>
                 </div>
-                
-                <!-- Fintech -->
-                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                    <div class="relative z-10 p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="text-4xl">💰</div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Financial Technology</h3>
-                        <p class="text-gray-300 mb-4 leading-relaxed">
-                            Innovate in digital payments, banking, and financial services for the next generation.
-                        </p>
+            </div>
+            
+            <!-- Fintech -->
+            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div class="relative z-10 p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="text-4xl">💰</div>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">FinTech</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Redefining money for the future where trust meets technology, innovation fuels progress, and limitless for everyone.
+                    </p>
                 </div>
-                
-                <!-- Edutech -->
-                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                    <div class="relative z-10 p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="text-4xl">🎓</div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Education Technology</h3>
-                        <p class="text-gray-300 mb-4 leading-relaxed">
-                            Transform learning experiences through technology to make education more accessible and effective.
-                        </p>
+            </div>
+            
+            <!-- Edutech -->
+            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div class="relative z-10 p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="text-4xl">🎓</div>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Education Technology</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Transform learning experiences through technology to make education more accessible and effective.
+                    </p>
                 </div>
-                
-                <!-- Sustainability -->
-                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                    <div class="relative z-10 p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="text-4xl">🌱</div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Sustainability & Green Tech</h3>
-                        <p class="text-gray-300 mb-4 leading-relaxed">
-                            Create eco-friendly solutions to combat climate change and promote sustainable living.
-                        </p>
+            </div>
+            
+            <!-- Sustainability -->
+            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div class="relative z-10 p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="text-4xl">🌱</div>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Sustainability & Green Tech</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Create eco-friendly solutions to combat climate change and promote sustainable living.
+                    </p>
                 </div>
-                
-                <!-- Open Innovation -->
-                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                    <div class="relative z-10 p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="text-4xl">💡</div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Open Innovation</h3>
-                        <p class="text-gray-300 mb-4 leading-relaxed">
-                            Develop groundbreaking solutions without constraints - the future is what you imagine.
-                        </p>
+            </div>
+            
+            <!-- Open Innovation -->
+            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div class="relative z-10 p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="text-4xl">💡</div>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Open Innovation</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Develop groundbreaking solutions without constraints the future is what you imagine.
+                    </p>
+                </div>
+            </div>
+            <!-- school track -->
+            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div class="relative z-10 p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="text-4xl">💡</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">School Track</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Ignite young minds to reimagine learning where curiosity meets innovation without limits.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Partners Section -->
-    <section id="partners" class="relative py-20 ">
+    <section id="partners" class="relative py-20 z-30">
         <div class="container mx-auto px-4 relative z-10">
             <div class="section-header">
-                <h2>Join Our Cosmic Alliance</h2>
+                <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Join Our Cosmic Alliance</h2>
                 <p>Partner with us to shape the future of technology and innovation</p>
             </div>
 
             <!-- Why Partner Section -->
             <div class="mb-20 mt-10">
-                <h3 class="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12">
-                    Why Partner With <span class="font-transformers tracking-wide">PEC HACKS 3.0</span>?
+                <h3 class="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12" style="font-family: 'Teko', sans-serif;">
+                    Why Partner With PEC HACKS 3.0 ?
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     <!-- Targeted Reach -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🎯</div>
@@ -590,14 +525,16 @@
 
             <!-- Partners by Category -->
             <div class="mb-16">
-                <h3 class="text-2xl md:text-3xl font-bold font-bungee text-center text-white mb-12">
-                    Our Amazing Partners
-                </h3>
+                <div class="section-header">
+                    <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">
+                     Partners
+                </h2>
+                </div>
 
                 <!-- Gold Partners -->
                 <div class="mb-12">
                     <div class="text-center mb-8">
-                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300">GOLD SPONSORS</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300" style="font-family: 'Teko', sans-serif;">GOLD SPONSORS</h3>
                     </div>
                     <div class="flex flex-wrap justify-center gap-8">
                         <!-- Devfolio -->
@@ -610,7 +547,7 @@
                         <!-- ETH India -->
                         <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://ethindia2024.devfolio.co/', '_blank')">
                             <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets//New folder/ETH - india.png" alt="ETHINDIA LOGO" class="object-contain rounded-xl w-full h-full">
+                                <img src="./assets/New folder/ETH - india.png" alt="ETHINDIA LOGO" class="object-contain rounded-xl w-full h-full">
                             </div>
                         </div>
                     </div>
@@ -621,7 +558,7 @@
             <div class="text-center">
                 <div class="cosmic-card max-w-4xl mx-auto p-8 glow" style="background: rgba(15, 23, 42, 0.9);">
                     <div class="text-center space-y-6">
-                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white">
+                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white" style="font-family: 'Teko', sans-serif;">
                             Ready to Join Our Mission?
                         </h3>
                         <p class="text-lg text-gray-300 font-rajdhani">
@@ -645,7 +582,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="relative bg-black/30 backdrop-blur-lg border-t border-gray-700/30 py-8">
+    <footer class="relative bg-black/30 backdrop-blur-lg border-t border-gray-700/30 py-8 z-30">
         <div class="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-blue-900/10 to-transparent pointer-events-none"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5 pointer-events-none"></div>
 
@@ -735,98 +672,9 @@
             </div>
         </div>
     </footer>
-        <!-- Add additional sections (Domains, Partners, Footer) above as shown in your file -->
-    </main>
 
-    <!-- JavaScript: Stars animation and site interactivity -->
-    <script>
-        // Stars background
-        const starsContainer = document.querySelector('.stars');
-        const PARTICLE_COUNT = 500;
-        const CREATION_INTERVAL = 20; // ms
-        const PARTICLE_LIFETIME = 15000; // ms
-        function createStar() {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.top = `${Math.random() * 100}vh`;
-            star.style.left = `${Math.random() * 100}vw`;
-            const size = Math.random() * 4 + 1;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.animationDuration = `${Math.random() * 12 + 3}s`;
-            star.style.opacity = Math.random() * 0.7 + 0.3;
-            starsContainer.appendChild(star);
-            setTimeout(() => {
-                if (star.parentNode === starsContainer) {
-                    starsContainer.removeChild(star);
-                }
-            }, PARTICLE_LIFETIME);
-        }
-        for (let i = 0; i < PARTICLE_COUNT; i++) { createStar(); }
-        setInterval(createStar, CREATION_INTERVAL);
-        // Make stars interactive
-        starsContainer.addEventListener('mousemove', (e) => {
-            const stars = document.querySelectorAll('.star');
-            stars.forEach(star => {
-                const rect = star.getBoundingClientRect();
-                const starX = rect.left + rect.width / 2;
-                const starY = rect.top + rect.height / 2;
-                const dx = e.clientX - starX, dy = e.clientY - starY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100) {
-                    const force = (100 - distance) / 100;
-                    star.style.transform = `translate(${dx * force * 0.1}px, ${dy * force * 0.1}px)`;
-                }
-            });
-        });
-        starsContainer.addEventListener('mouseleave', () => {
-            const stars = document.querySelectorAll('.star');
-            stars.forEach(star => { star.style.transform = 'translate(0, 0)'; });
-        });
 
-        // Site-specific JS
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({ duration: 800, once: true });
-            // Mobile nav
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-            lucide.createIcons();
-        });
-        // CTA Buttons
-        function downloadSponsorshipDeck() {
-            const link = document.createElement('a');
-            link.href = './assets/Pec Hacks 3.0 Sponsorship Deck.pdf';
-            link.download = 'PEC-Hacks-3.0-Sponsorship-Deck.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        function handleVisitClick() {
-            window.open("https://two.pechacks.org/", "_blank");
-        }
-        function handleCommunityClick() {
-            window.open("https://chat.whatsapp.com/FtFHlapbGqPBxtZomqR5Km", "_blank");
-        }
-        function handlePreregisterClick() {
-            window.open("https://forms.office.com/r/quWQDSF8BS", "_blank");
-        }
-    </script>
+    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
