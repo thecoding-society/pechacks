@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,52 +9,63 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Lordicon -->
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
 </head>
+
 <body>
     <!-- Starfield Canvas -->
     <canvas id="starfield"></canvas>
-    
+
     <div class="hud-container">
         <!-- Main Frame Container -->
         <div class="hud-frame" id="hudFrame">
             <!-- Frame Corners -->
             <div class="frame-corner frame-corner-v top-0 left-0"></div>
             <div class="frame-corner frame-corner-h top-0 left-0"></div>
-            
+
             <div class="frame-corner frame-corner-v top-0 right-0"></div>
             <div class="frame-corner frame-corner-h top-0 right-0"></div>
-            
+
             <div class="frame-corner frame-corner-v bottom-0 left-0"></div>
             <div class="frame-corner frame-corner-h bottom-0 left-0"></div>
-            
+
             <div class="frame-corner frame-corner-v bottom-0 right-0"></div>
             <div class="frame-corner frame-corner-h bottom-0 right-0"></div>
-            
+
             <!-- Midpoints (hidden on mobile) -->
             <div id="midpoints" class="hidden sm:block">
-                <div class="frame-corner frame-corner-h top-1/2 left-0 transform -translate-y-1/2" style="width: 12px;"></div>
-                <div class="frame-corner frame-corner-v top-1/2 left-0 transform -translate-y-1/2" style="height: 12px;"></div>
-                
-                <div class="frame-corner frame-corner-h top-1/2 right-0 transform -translate-y-1/2" style="width: 12px;"></div>
-                <div class="frame-corner frame-corner-v top-1/2 right-0 transform -translate-y-1/2" style="height: 12px;"></div>
-                
-                <div class="frame-corner frame-corner-h top-0 left-1/2 transform -translate-x-1/2" style="width: 12px;"></div>
-                <div class="frame-corner frame-corner-v top-0 left-1/2 transform -translate-x-1/2" style="height: 12px;"></div>
-                
-                <div class="frame-corner frame-corner-h bottom-0 left-1/2 transform -translate-x-1/2" style="width: 12px;"></div>
-                <div class="frame-corner frame-corner-v bottom-0 left-1/2 transform -translate-x-1/2" style="height: 12px;"></div>
+                <div class="frame-corner frame-corner-h top-1/2 left-0 transform -translate-y-1/2" style="width: 12px;">
+                </div>
+                <div class="frame-corner frame-corner-v top-1/2 left-0 transform -translate-y-1/2"
+                    style="height: 12px;"></div>
+
+                <div class="frame-corner frame-corner-h top-1/2 right-0 transform -translate-y-1/2"
+                    style="width: 12px;"></div>
+                <div class="frame-corner frame-corner-v top-1/2 right-0 transform -translate-y-1/2"
+                    style="height: 12px;"></div>
+
+                <div class="frame-corner frame-corner-h top-0 left-1/2 transform -translate-x-1/2" style="width: 12px;">
+                </div>
+                <div class="frame-corner frame-corner-v top-0 left-1/2 transform -translate-x-1/2"
+                    style="height: 12px;"></div>
+
+                <div class="frame-corner frame-corner-h bottom-0 left-1/2 transform -translate-x-1/2"
+                    style="width: 12px;"></div>
+                <div class="frame-corner frame-corner-v bottom-0 left-1/2 transform -translate-x-1/2"
+                    style="height: 12px;"></div>
             </div>
 
             <!-- Top Bar - Date & Time -->
-            <div class="h-8 flex items-center justify-between px-4 bg-black bg-opacity-50 relative" >
+            <div class="h-8 flex items-center justify-between px-4 bg-black bg-opacity-50 relative">
                 <div class="text-white font-mono text-sm font-semibold pulse" id="dateDisplay">DECEMBER 2025</div>
                 <div class="text-white font-mono text-sm font-semibold pulse" id="timeDisplay">00:00:00</div>
             </div>
@@ -61,19 +73,21 @@
             <!-- Main Content Area -->
             <div class="flex-1 relative">
                 <!-- Bottom Left Text -->
-                <div class="absolute bottom-3 left-3 text-sm sm:text-2xl text-white font-bold leading-tight" style="font-family: 'Teko', sans-serif;">
+                <div class="absolute bottom-3 left-3 text-sm sm:text-2xl text-white font-bold leading-tight"
+                    style="font-family: 'Teko', sans-serif;">
                     <p>International</p>
                     <p>Level</p>
                     <p>Hackathon</p>
                 </div>
 
                 <!-- Bottom Right Text -->
-                <div class="absolute bottom-3 right-3 text-sm sm:text-2xl text-white font-bold text-right leading-tight" style="font-family: 'Teko', sans-serif;">
+                <div class="absolute bottom-3 right-3 text-sm sm:text-2xl text-white font-bold text-right leading-tight"
+                    style="font-family: 'Teko', sans-serif;">
                     <p>36 Hour</p>
                     <p>Hackathon</p>
                 </div>
 
-                
+
             </div>
         </div>
 
@@ -87,7 +101,7 @@
             <div class="button-row">
                 <!-- Visit 2.0 button with blue theme -->
                 <div class="galaxy-button">
-                    <button class="space-button blue-theme"  onclick="window.location.href='https://two.pechacks.org/'">
+                    <button class="space-button blue-theme" onclick="window.location.href='https://two.pechacks.org/'">
                         <span class="backdrop"></span>
                         <span class="galaxy"></span>
                         <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Visit 2.0</label>
@@ -95,89 +109,90 @@
                 </div>
                 <!-- Community button with original theme -->
                 <div class="galaxy-button">
-                    <button class="space-button" onclick="window.location.href='https://chat.whatsapp.com/FtFHlapbGqPBxtZomqR5Km'">
+                    <button class="space-button"
+                        onclick="window.location.href='https://chat.whatsapp.com/FtFHlapbGqPBxtZomqR5Km'">
                         <span class="backdrop"></span>
                         <span class="galaxy"></span>
-                        <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Join Our Community</label>
+                        <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Join Our
+                            Community</label>
                     </button>
                 </div>
             </div>
             <!-- Pre-register button with new design -->
             <div class="space-btn-wrapper">
-            <button class="space-btn" id="preRegisterBtn">
-                <strong>PRE-REGISTER HERE</strong>
-                <div id="container-stars">
-                    <div id="stars"></div>
-                </div>
-                <div id="glow">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                </div>
-            </button>
-        </div>
+                <button class="space-btn" id="preRegisterBtn">
+                    <strong>PRE-REGISTER HERE</strong>
+                    <div id="container-stars">
+                        <div id="stars"></div>
+                    </div>
+                    <div id="glow">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </button>
+            </div>
             <!-- Devfolio Button -->
             <div class="devfolio-button-wrapper">
-                <div 
-                    class="apply-button devfolio-button" 
-                    data-hackathon-slug="PEC HACKS 3.0" 
-                    data-button-theme="light"
-                ></div>
-            </div>
-        </div>
-        
-        <!-- Timer Container -->
-            <div class="timer-container">
-                <div id="timer">
-                    <div class="timer-unit">
-                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="days">00</div>
-                        <div class="timer-label">Days</div>
-                    </div>
-                    <div class="timer-unit">
-                        <div class="timer-value" id="hours">00</div>
-                        <div class="timer-label">Hours</div>
-                    </div>
-                    <div class="timer-unit">
-                        <div class="timer-value" id="minutes">00</div>
-                        <div class="timer-label">Minutes</div>
-                    </div>
-                    <div class="timer-unit">
-                        <div class="timer-value" id="seconds">00</div>
-                        <div class="timer-label">Seconds</div>
-                    </div>
+                <div class="apply-button devfolio-button" data-hackathon-slug="pechacks3" data-button-theme="light">
                 </div>
             </div>
-        
+        </div>
+
+        <!-- Timer Container -->
+        <div class="timer-container">
+            <div id="timer">
+                <div class="timer-unit">
+                    <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="days">00</div>
+                    <div class="timer-label">Days</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-value" id="hours">00</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-value" id="minutes">00</div>
+                    <div class="timer-label">Minutes</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-value" id="seconds">00</div>
+                    <div class="timer-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- About Section -->
     <section id="about" class="relative py-10 back-about z-30">
         <div class="absolute inset-0 z-0"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
             <!-- Header -->
             <div class="section-header" data-aos="fade-down" data-aos-once="true">
                 <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">About</h2>
             </div>
-            
+
             <!-- Content - FIXED CENTERING -->
             <div class="flex flex-col items-center justify-center">
-                <div class="w-full lg:w-10/12 xl:w-9/12 self-center mb-12 lg:mb-0 text-center about-content" data-aos="zoom-in" data-aos-once="true" >
-                    <h3 class="text-4xl text-cyan-300 mb-8" style="font-family: 'Teko', sans-serif;">Welcome, Innovators and Change-Makers!</h3>
-                    <p class="text-gray-300 leading-relaxed mb-10 about-para" >
-                        "Introducing <span class="font-semibold text-cyan-300 tracking-wide text-xl">PEC HACKS 3.0</span> – where boundless creativity meets game-changing innovation! Hosted by
-                        <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI, TAMILNADU,</span> this hackathon is your Golden-ticket to transform bold ideas
-                        into impactful solutions. Join us on this electrifying journey as you team up with brilliant minds, tackle real-world
+                <div class="w-full lg:w-10/12 xl:w-9/12 self-center mb-12 lg:mb-0 text-center about-content"
+                    data-aos="zoom-in" data-aos-once="true">
+                    <h3 class="text-4xl text-cyan-300 mb-8" style="font-family: 'Teko', sans-serif;">Welcome, Innovators
+                        and Change-Makers!</h3>
+                    <p class="text-gray-300 leading-relaxed mb-10 about-para">
+                        "Introducing <span class="font-semibold text-cyan-300 tracking-wide text-xl">PEC HACKS
+                            3.0</span> – where boundless creativity meets game-changing innovation! Hosted by
+                        <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI,
+                            TAMILNADU,</span> this hackathon is your Golden-ticket to transform bold ideas
+                        into impactful solutions. Join us on this electrifying journey as you team up with brilliant
+                        minds, tackle real-world
                         challenges, and push the boundaries of technology."
                     </p>
 
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats ">
                         <div class="text-center">
                             <span class="flex justify-center">
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/srupsmbe.json"
-                                    trigger="loop"
-                                    colors="primary:#7ee3ff,secondary:#7ee3ff"
-                                    style="width:90px;height:90px">
+                                <lord-icon src="https://cdn.lordicon.com/srupsmbe.json" trigger="loop"
+                                    colors="primary:#7ee3ff,secondary:#7ee3ff" style="width:90px;height:90px">
                                 </lord-icon>
                             </span>
                             <p class="text-gray-300 mt-4">300+ Hackers</p>
@@ -185,11 +200,8 @@
 
                         <div class="text-center">
                             <span class="flex justify-center">
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/ogjpwrxe.json"
-                                    trigger="loop"
-                                    colors="primary:#7ee3ff,secondary:#7ee3ff"
-                                    style="width:90px;height:90px">
+                                <lord-icon src="https://cdn.lordicon.com/ogjpwrxe.json" trigger="loop"
+                                    colors="primary:#7ee3ff,secondary:#7ee3ff" style="width:90px;height:90px">
                                 </lord-icon>
                             </span>
                             <p class="text-gray-300 mt-4">60+ Projects</p>
@@ -197,12 +209,8 @@
 
                         <div class="text-center">
                             <span class="flex justify-center">
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/vttzorhw.json"
-                                    trigger="loop"
-                                    delay="1500"
-                                    state="in-reveal"
-                                    colors="primary:#f0abfc,secondary:#f0abfc"
+                                <lord-icon src="https://cdn.lordicon.com/vttzorhw.json" trigger="loop" delay="1500"
+                                    state="in-reveal" colors="primary:#f0abfc,secondary:#f0abfc"
                                     style="width:90px;height:90px">
                                 </lord-icon>
                             </span>
@@ -211,12 +219,8 @@
 
                         <div class="text-center">
                             <span class="flex justify-center">
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/ytklkgsc.json"
-                                    trigger="loop"
-                                    delay="1500"
-                                    state="in-reveal"
-                                    colors="primary:#86efac,secondary:#86efac"
+                                <lord-icon src="https://cdn.lordicon.com/ytklkgsc.json" trigger="loop" delay="1500"
+                                    state="in-reveal" colors="primary:#86efac,secondary:#86efac"
                                     style="width:90px;height:90px">
                                 </lord-icon>
                             </span>
@@ -236,118 +240,132 @@
                 <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Our Patrons</h2>
             </div>
 
-            
-<div class="flex flex-col gap-8 mt-12">
-    <!-- First row with 4 boxes -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-auto max-w-5xl">
-        <!-- Patron 1 -->
-        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-            <div class="flex items-center gap-6 w-full">
-                <div class="flex-shrink-0">
-                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                        <img src="./assets/New folder/chinna-durai.jpg" alt="Dr. P Chinnadurai" class="object-cover w-full h-full">
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. P Chinnadurai</h3>
-                    <p class="text-gray-400">Secretary & Correspondent</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Patron 2 -->
-        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-            <div class="flex items-center gap-6 w-full">
-                <div class="flex-shrink-0">
-                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                        <img src="./assets/New folder/sakthi-kumar.jpg" alt="Dr. C Sakthi Kumar" class="object-cover w-full h-full">
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. C SakthiKumar</h3>
-                    <p class="text-gray-400">Director</p>
-                </div>
-            </div>
-        </div>
 
-        <!-- Patron 3 -->
-        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-            <div class="flex items-center gap-6 w-full">
-                <div class="flex-shrink-0">
-                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                        <img src="./assets/New folder/rajeswari-1.jpg" alt="Mrs.C Vijayarajeswari" class="object-cover w-full h-full">
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <h3 class="text-md font-bold text-cyan-300 mb-2">Mrs. C Vijayarajeswari</h3>
-                    <p class="text-gray-400">Director</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Patron 4 -->
-        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-            <div class="flex items-center gap-6 w-full">
-                <div class="flex-shrink-0">
-                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                        <img src="./assets//New folder/saranya-sree-sakthi-kumar.jpg" alt="Dr. Saranya Sree Sakthi Kumar" class="object-cover w-full h-full">
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. Saranya Sree Sakthi Kumar</h3>
-                    <p class="text-gray-400">Director</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Co-Patrons Header -->
-    <div class="text-center mb-8 mt-6">
-                        <h3 class="text-2xl md:text-5xl font-bold font-bungee text-white" style="font-family: 'Teko', sans-serif;">CO PATRONS</h3>
+            <div class="flex flex-col gap-8 mt-12">
+                <!-- First row with 4 boxes -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-auto max-w-5xl">
+                    <!-- Patron 1 -->
+                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                                    <img src="./assets/New folder/chinna-durai.jpg" alt="Dr. P Chinnadurai"
+                                        class="object-cover w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. P Chinnadurai</h3>
+                                <p class="text-gray-400">Secretary & Correspondent</p>
+                            </div>
+                        </div>
                     </div>
 
-    <!-- First row of Co-Patrons (2 boxes) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl">
-        
-        <!-- Patron 1 -->
-        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-            <div class="flex items-center gap-6 w-full">
-                <div class="flex-shrink-0">
-                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                        <img src="./assets/New folder/mani.jpg" alt="Dr. K. Mani" class="object-cover w-full h-full">
+                    <!-- Patron 2 -->
+                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                                    <img src="./assets/New folder/sakthi-kumar.jpg" alt="Dr. C Sakthi Kumar"
+                                        class="object-cover w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. C SakthiKumar</h3>
+                                <p class="text-gray-400">Director</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patron 3 -->
+                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                                    <img src="./assets/New folder/rajeswari-1.jpg" alt="Mrs.C Vijayarajeswari"
+                                        class="object-cover w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-md font-bold text-cyan-300 mb-2">Mrs. C Vijayarajeswari</h3>
+                                <p class="text-gray-400">Director</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patron 4 -->
+                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                                    <img src="./assets//New folder/saranya-sree-sakthi-kumar.jpg"
+                                        alt="Dr. Saranya Sree Sakthi Kumar" class="object-cover w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. Saranya Sree Sakthi Kumar</h3>
+                                <p class="text-gray-400">Director</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-1">
-                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr.K.Mani</h3>
-                    <p class="text-gray-400">Principal</p>
-                </div>
-            </div>
-        </div>
 
-        <!-- Patron 2 -->
-        <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-            <div class="flex items-center gap-6 w-full">
-                <div class="flex-shrink-0">
-                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                        <img src="./assets/New folder/coa.png" alt="Dr.S.Prasanna Devi" class="object-cover w-full h-full">
+                <!-- Co-Patrons Header -->
+                <div class="text-center mb-8 mt-6">
+                    <h3 class="text-2xl md:text-5xl font-bold font-bungee text-white"
+                        style="font-family: 'Teko', sans-serif;">CO PATRONS</h3>
+                </div>
+
+                <!-- First row of Co-Patrons (2 boxes) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl">
+
+                    <!-- Patron 1 -->
+                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                                    <img src="./assets/New folder/mani.jpg" alt="Dr. K. Mani"
+                                        class="object-cover w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr.K.Mani</h3>
+                                <p class="text-gray-400">Principal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patron 2 -->
+                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
+                                    <img src="./assets/New folder/coa.png" alt="Dr.S.Prasanna Devi"
+                                        class="object-cover w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr.S.Prasanna Devi</h3>
+                                <p class="text-gray-400">Chief Academic Officer</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-1">
-                    <h3 class="text-md font-bold text-cyan-300 mb-2">Dr.S.Prasanna Devi</h3>
-                    <p class="text-gray-400">Chief Academic Officer</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Second row of Co-Patrons (2 boxes) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl  max-h-[350px] ">
-        <!-- College logo box -->
+                <!-- Second row of Co-Patrons (2 boxes) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl  max-h-[350px] ">
+                    <!-- College logo box -->
                     <div class="cosmic-card p-6 h-full min-h-[150px] flex items-center">
                         <div class="flex items-center gap-6 w-full">
                             <div class="flex-shrink-0">
                                 <div class="relative w-32 h-32 overflow-hidden">
-                                    <img src="./assets/New folder/image (1).png" alt="Panimalar Engineering College" class="object-contain w-full h-full">
+                                    <img src="./assets/New folder/image (1).png" alt="Panimalar Engineering College"
+                                        class="object-contain w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1 text-left">
@@ -362,7 +380,8 @@
                         <div class="flex items-center gap-6 w-full">
                             <div class="flex-shrink-0">
                                 <div class="relative w-36 h-36 overflow-hidden">
-                                    <img src="./assets/New folder/GDG On Campus - Horizontal - Dark[1].png" alt="Google Developer Groups" class="object-contain w-full h-full">
+                                    <img src="./assets/New folder/GDG On Campus - Horizontal - Dark[1].png"
+                                        alt="Google Developer Groups" class="object-contain w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1 text-left">
@@ -371,105 +390,120 @@
                             </div>
                         </div>
                     </div>
-    </div>
-</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Domains Section -->
-<section id="domains" class="relative py-10  z-30">
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="section-header">
-            <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Domains</h2>
-            <p>Choose your mission and solve challenges that matter to the universe</p>
-        </div>
+    <section id="domains" class="relative py-10  z-30">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="section-header">
+                <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Domains</h2>
+                <p>Choose your mission and solve challenges that matter to the universe</p>
+            </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 max-w-7xl justify-center mx-auto">
-            <!-- Healthcare -->
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">🏥</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 max-w-7xl justify-center mx-auto">
+                <!-- Healthcare -->
+                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Digital Healthcare</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Revolutionize healthcare with digital solutions for better patient care and medical research.
-                    </p>
+                    <div class="relative z-10 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="text-4xl">🏥</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Digital Healthcare</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Revolutionize healthcare with digital solutions for better patient care and medical
+                            research.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Fintech -->
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">💰</div>
+
+                <!-- Fintech -->
+                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">FinTech</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Redefining money for the future where trust meets technology, innovation fuels progress, and limitless for everyone.
-                    </p>
+                    <div class="relative z-10 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="text-4xl">💰</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">FinTech</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Redefining money for the future where trust meets technology, innovation fuels progress, and
+                            limitless for everyone.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Edutech -->
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">🎓</div>
+
+                <!-- Edutech -->
+                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Education Technology</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Transform learning experiences through technology to make education more accessible and effective.
-                    </p>
+                    <div class="relative z-10 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="text-4xl">🎓</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Education Technology</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Transform learning experiences through technology to make education more accessible and
+                            effective.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Sustainability -->
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">🌱</div>
+
+                <!-- Sustainability -->
+                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Sustainability & Green Tech</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Create eco-friendly solutions to combat climate change and promote sustainable living.
-                    </p>
+                    <div class="relative z-10 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="text-4xl">🌱</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Sustainability & Green Tech</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Create eco-friendly solutions to combat climate change and promote sustainable living.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Open Innovation -->
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">💡</div>
+
+                <!-- Open Innovation -->
+                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Open Innovation</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Develop groundbreaking solutions without constraints the future is what you imagine.
-                    </p>
+                    <div class="relative z-10 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="text-4xl">💡</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Open Innovation</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Develop groundbreaking solutions without constraints the future is what you imagine.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <!-- school track -->
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">💡</div>
+                <!-- school track -->
+                <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">School Track</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Ignite young minds to reimagine learning where curiosity meets innovation without limits.
-                    </p>
+                    <div class="relative z-10 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="text-4xl">💡</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">School Track</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Ignite young minds to reimagine learning where curiosity meets innovation without limits.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Partners Section -->
     <section id="partners" class="relative py-20 z-30">
@@ -481,7 +515,8 @@
 
             <!-- Why Partner Section -->
             <div class="mb-20 mt-10">
-                <h3 class="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12" style="font-family: 'Teko', sans-serif;">
+                <h3 class="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12"
+                    style="font-family: 'Teko', sans-serif;">
                     Why Partner With PEC HACKS 3.0 ?
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -490,28 +525,31 @@
                         <div class="text-4xl mb-4">🎯</div>
                         <h4 class="text-lg font-bold text-white mb-2">Targeted Reach</h4>
                         <p class="text-sm text-gray-300 leading-relaxed">
-                            Connect with 500+ highly skilled developers, designers, and innovators from top institutions.
+                            Connect with 500+ highly skilled developers, designers, and innovators from top
+                            institutions.
                         </p>
                     </div>
-                    
+
                     <!-- Brand Visibility -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🌟</div>
                         <h4 class="text-lg font-bold text-white mb-2">Brand Visibility</h4>
                         <p class="text-sm text-gray-300 leading-relaxed">
-                            Gain exposure across multiple channels including social media, campus networks, and tech communities.
+                            Gain exposure across multiple channels including social media, campus networks, and tech
+                            communities.
                         </p>
                     </div>
-                    
+
                     <!-- Talent Acquisition -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">💼</div>
                         <h4 class="text-lg font-bold text-white mb-2">Talent Acquisition</h4>
                         <p class="text-sm text-gray-300 leading-relaxed">
-                            Direct access to emerging talent and the opportunity to recruit the best minds in technology.
+                            Direct access to emerging talent and the opportunity to recruit the best minds in
+                            technology.
                         </p>
                     </div>
-                    
+
                     <!-- Innovation Access -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🚀</div>
@@ -527,27 +565,34 @@
             <div class="mb-16">
                 <div class="section-header">
                     <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">
-                     Partners
-                </h2>
+                        Partners
+                    </h2>
                 </div>
 
                 <!-- Gold Partners -->
                 <div class="mb-12">
                     <div class="text-center mb-8">
-                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300" style="font-family: 'Teko', sans-serif;">GOLD SPONSORS</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300"
+                            style="font-family: 'Teko', sans-serif;">GOLD SPONSORS</h3>
                     </div>
                     <div class="flex flex-wrap justify-center gap-8">
                         <!-- Devfolio -->
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://devfolio.co/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/New folder/Devfolio.png" alt="DEVFOLIO LOGO" class="object-contain rounded-xl w-full h-full">
+                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                            onclick="window.open('https://devfolio.co/', '_blank')">
+                            <div
+                                class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                                <img src="./assets/New folder/Devfolio.png" alt="DEVFOLIO LOGO"
+                                    class="object-contain rounded-xl w-full h-full">
                             </div>
                         </div>
-                        
+
                         <!-- ETH India -->
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://ethindia2024.devfolio.co/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/New folder/ETH - india.png" alt="ETHINDIA LOGO" class="object-contain rounded-xl w-full h-full">
+                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                            onclick="window.open('https://ethindia2024.devfolio.co/', '_blank')">
+                            <div
+                                class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                                <img src="./assets/New folder/ETH - india.png" alt="ETHINDIA LOGO"
+                                    class="object-contain rounded-xl w-full h-full">
                             </div>
                         </div>
                     </div>
@@ -558,21 +603,28 @@
             <div class="text-center">
                 <div class="cosmic-card max-w-4xl mx-auto p-8 glow" style="background: rgba(15, 23, 42, 0.9);">
                     <div class="text-center space-y-6">
-                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white" style="font-family: 'Teko', sans-serif;">
+                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white"
+                            style="font-family: 'Teko', sans-serif;">
                             Ready to Join Our Mission?
                         </h3>
                         <p class="text-lg text-gray-300 font-rajdhani">
-                            Be part of the most exciting hackathon in the region. Let's create something extraordinary together and shape the future of technology.
+                            Be part of the most exciting hackathon in the region. Let's create something extraordinary
+                            together and shape the future of technology.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button class="cosmic-button ghost border-white border-2" onclick="downloadSponsorshipDeck()">
+                            <button class="cosmic-button ghost border-white border-2"
+                                onclick="downloadSponsorshipDeck()">
                                 Download Sponsorship Deck
                             </button>
                         </div>
                         <div class="mt-6 pt-6 border-t border-gray-700">
                             <p class="text-sm text-gray-400 font-electrolize">
-                                Contact us: <a href="mailto:team@pechacks.org" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline">team@pechacks.org</a> | 
-                                <a href="tel:+919345404933" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline"> +91 9345404933</a>
+                                Contact us: <a href="mailto:team@pechacks.org"
+                                    class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline">team@pechacks.org</a>
+                                |
+                                <a href="tel:+919345404933"
+                                    class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline"> +91
+                                    9345404933</a>
                             </p>
                         </div>
                     </div>
@@ -583,31 +635,41 @@
 
     <!-- Footer Section -->
     <footer class="relative bg-black/30 backdrop-blur-lg border-t border-gray-700/30 py-8 z-30">
-        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-blue-900/10 to-transparent pointer-events-none"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5 pointer-events-none"></div>
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-blue-900/10 to-transparent pointer-events-none">
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5 pointer-events-none">
+        </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
                 <!-- Left Section -->
                 <div class="md:col-span-1">
-                    <h2 class="text-3xl font-extrabold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    <h2
+                        class="text-3xl font-extrabold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                         PEC Hacks
                     </h2>
                     <p class="text-lg mt-2 text-gray-300">International Hackathon*</p>
                     <div class="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
-                        <a href="https://github.com/thecoding-society" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-gray-400 transition-colors text-white">
+                        <a href="https://github.com/thecoding-society" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub" class="hover:text-gray-400 transition-colors text-white">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://x.com/PECHacks" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-blue-400 transition-colors text-white">
+                        <a href="https://x.com/PECHacks" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
+                            class="hover:text-blue-400 transition-colors text-white">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://www.instagram.com/pechacks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-pink-400 transition-colors text-white">
+                        <a href="https://www.instagram.com/pechacks/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram" class="hover:text-pink-400 transition-colors text-white">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/pec-hacks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-blue-400 transition-colors text-white">
+                        <a href="https://www.linkedin.com/company/pec-hacks/" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn" class="hover:text-blue-400 transition-colors text-white">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://discord.gg/3nwwVtSz" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="hover:text-indigo-400 transition-colors text-white">
+                        <a href="https://discord.gg/3nwwVtSz" target="_blank" rel="noopener noreferrer"
+                            aria-label="Discord" class="hover:text-indigo-400 transition-colors text-white">
                             <i class="fab fa-discord"></i>
                         </a>
                     </div>
@@ -636,12 +698,14 @@
                     <h3 class="text-xl font-bold text-white font-electrolize">Additional Links</h3>
                     <ul class="mt-2 space-y-2">
                         <li>
-                            <a href="https://www.panimalar.ac.in" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-rajdhani">
+                            <a href="https://www.panimalar.ac.in" target="_blank" rel="noopener noreferrer"
+                                class="text-cyan-400 hover:underline font-rajdhani">
                                 › College Website
                             </a>
                         </li>
                         <li>
-                            <a href="https://coding.peccsbs.xyz/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-rajdhani">
+                            <a href="https://coding.peccsbs.xyz/" target="_blank" rel="noopener noreferrer"
+                                class="text-cyan-400 hover:underline font-rajdhani">
                                 › The Coding Society
                             </a>
                         </li>
@@ -654,27 +718,21 @@
                     <div class="aspect-w-16 aspect-h-9">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7920451208224!2d80.07288927484274!3d13.048904887273663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5261c68a9f3031%3A0xab41c8bdcf32ad47!2sPanimalar%20Engineering%20College!5e0!3m2!1sen!2sin!4v1756634251679!5m2!1sen!2sin"
-                            width="100%"
-                            height="200"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            class="rounded-lg"
-                        ></iframe>
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
                     </div>
                 </div>
             </div>
 
             <!-- Copyright Section -->
-            <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-gray-700/30 text-center text-sm text-gray-400 font-rajdhani">
+            <div
+                class="max-w-7xl mx-auto mt-8 pt-6 border-t border-gray-700/30 text-center text-sm text-gray-400 font-rajdhani">
                 <p>© <span id="current-year"></span> PEC Hacks. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-
-    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
