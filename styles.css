@@ -938,7 +938,7 @@
         .about-header {
             font-size: 5.5rem !important;
             font-weight: 700;
-            background: linear-gradient(to right, #7ee3ff, #f0abfc, #86efac);
+            background: white;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -1355,7 +1355,7 @@
 .section-header h2 {
     font-size: 3.5rem;
     font-weight: 700;
-    background: linear-gradient(to right, #7ee3ff, #f0abfc, #86efac);
+    background: white;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
