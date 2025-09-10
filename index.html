@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <title>PEC Hacks | HUD Container</title>
+    <title>PEC Hacks | Hackathon</title>
+     <link rel="icon" type="image/png" href="./assets//New folder/favicon (1).png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,8 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    
 </head>
 <body>
     <!-- Starfield Canvas -->
@@ -60,15 +62,14 @@
 
             <!-- Top Bar - Date & Time -->
             <div class="h-8 flex items-center justify-between px-4 bg-black bg-opacity-50 relative">
-                <div class="text-white font-mono text-sm font-semibold pulse" id="dateDisplay">DECEMBER 2025</div>
+                <div class="text-white font-mono text-sm font-semibold pulse">DECEMBER 2025</div>
+                <div class="text-transparent font-mono text-sm font-semibold pulse" id="dateDisplay">DECEMBER 2025</div>
                 <div class="text-white font-mono text-sm font-semibold pulse" id="timeDisplay">00:00:00</div>
             </div>
 
             <!-- Bottom Left Text -->
             <div class="bottom-left-text">
-                <div>Panimalar</div>
-                <div>Engineering</div>
-                <div>College</div>
+                <div>December 27-28,2025</div>
             </div>
 
             <!-- Bottom Right Text -->
@@ -110,7 +111,7 @@
                 </div>
                 <!-- Pre-register button with new design -->
                 <div class="space-btn-wrapper">
-                    <button class="space-btn" id="preRegisterBtn" onclick="window.location.href='https://forms.office.com/r/quWQDSF8BS'">
+                    <button class="space-btn" id="preRegisterBtn" onclick="window.location.href='https://forms.office.com/r/quWQDSF8BS'" target="_blank">
                         <strong>PRE-REGISTER HERE</strong>
                         <div id="container-stars">
                             <div id="stars"></div>
@@ -131,15 +132,15 @@
                         <div class="timer-label">Days</div>
                     </div>
                     <div class="timer-unit">
-                        <div class="timer-value" id="hours">00</div>
+                        <div class="timer-value"  style="font-family: 'Outfit', sans-serif;" id="hours">00</div>
                         <div class="timer-label">Hours</div>
                     </div>
                     <div class="timer-unit">
-                        <div class="timer-value" id="minutes">00</div>
+                        <div class="timer-value"  style="font-family: 'Outfit', sans-serif;" id="minutes">00</div>
                         <div class="timer-label">Minutes</div>
                     </div>
                     <div class="timer-unit">
-                        <div class="timer-value" id="seconds">00</div>
+                        <div class="timer-value"  style="font-family: 'Outfit', sans-serif;" id="seconds">00</div>
                         <div class="timer-label">Seconds</div>
                     </div>
                 </div>
@@ -164,16 +165,12 @@
                     <h3 class="text-4xl text-cyan-300 mb-8" style="font-family: 'Teko', sans-serif;">Welcome, Innovators
                         and Change-Makers!</h3>
                     <p class="text-gray-300 leading-relaxed mb-10 about-para">
-                        "Introducing <span class="font-semibold text-cyan-300 tracking-wide text-xl">PEC HACKS
-                            3.0</span> – where boundless creativity meets game-changing innovation! Hosted by
-                        <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI,
-                            TAMILNADU,</span> this hackathon is your Golden-ticket to transform bold ideas
-                        into impactful solutions. Join us on this electrifying journey as you team up with brilliant
-                        minds, tackle real-world
-                        challenges, and push the boundaries of technology."
+                        "Welcome to <span class="font-semibold text-cyan-300 tracking-wide text-3xl">PEC HACKS
+                            </span>, where innovation meets impact! We are thrilled to invite you to this exciting hackathon organized by <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI,
+                            TAMILNADU,</span>. It is your gateway to a world of possibilities, where passionate individuals like you come together to unleash their creativity, solve real-world challenges, and make a meaningful difference."
                     </p>
 
-                    <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats ">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats ">
                         <div class="text-center">
                             <span class="flex justify-center">
                                 <lord-icon src="https://cdn.lordicon.com/srupsmbe.json" trigger="loop"
@@ -213,7 +210,7 @@
                                 Prize Pool - ₹ 19 Lakhs <br>
                             </p>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
 
@@ -235,13 +232,13 @@
                             <div class="flex-shrink-0">
                                 <div
                                     class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/New folder/chinna-durai.jpg" alt="Dr. P Chinnadurai"
+                                    <img src="./assets/patrons/chinna-durai.jpg" alt="Dr. P Chinnadurai"
                                         class="object-cover w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. P Chinnadurai</h3>
-                                <p class="text-gray-400">Secretary & Correspondent</p>
+                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr. P Chinnadurai</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Secretary & Correspondent</p>
                             </div>
                         </div>
                     </div>
@@ -252,13 +249,13 @@
                             <div class="flex-shrink-0">
                                 <div
                                     class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/New folder/sakthi-kumar.jpg" alt="Dr. C Sakthi Kumar"
+                                    <img src="./assets/patrons/sakthi-kumar.jpg" alt="Dr. C Sakthi Kumar"
                                         class="object-cover w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. C SakthiKumar</h3>
-                                <p class="text-gray-400">Director</p>
+                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr. C SakthiKumar</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Director</p>
                             </div>
                         </div>
                     </div>
@@ -269,13 +266,13 @@
                             <div class="flex-shrink-0">
                                 <div
                                     class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/New folder/rajeswari-1.jpg" alt="Mrs.C Vijayarajeswari"
+                                    <img src="./assets/patrons/rajeswari-1.jpg" alt="Mrs.C Vijayarajeswari"
                                         class="object-cover w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-md font-bold text-cyan-300 mb-2">Mrs. C Vijayarajeswari</h3>
-                                <p class="text-gray-400">Director</p>
+                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Mrs. C Vijayarajeswari</h3>
+                                <p class="text-gray-400 text-lg">Director</p>
                             </div>
                         </div>
                     </div>
@@ -286,13 +283,13 @@
                             <div class="flex-shrink-0">
                                 <div
                                     class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets//New folder/saranya-sree-sakthi-kumar.jpg"
+                                    <img src="./assets//patrons/saranya-sree-sakthi-kumar.jpg"
                                         alt="Dr. Saranya Sree Sakthi Kumar" class="object-cover w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr. Saranya Sree Sakthi Kumar</h3>
-                                <p class="text-gray-400">Director</p>
+                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr. Saranya Sree Sakthi Kumar</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Director</p>
                             </div>
                         </div>
                     </div>
@@ -313,13 +310,13 @@
                             <div class="flex-shrink-0">
                                 <div
                                     class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/New folder/mani.jpg" alt="Dr. K. Mani"
+                                    <img src="./assets//patrons/mani.jpg" alt="Dr. K. Mani"
                                         class="object-cover w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr.K.Mani</h3>
-                                <p class="text-gray-400">Principal</p>
+                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr.K.Mani</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Principal</p>
                             </div>
                         </div>
                     </div>
@@ -330,13 +327,13 @@
                             <div class="flex-shrink-0">
                                 <div
                                     class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/New folder/coa.png" alt="Dr.S.Prasanna Devi"
+                                    <img src="./assets/patrons/coa.png" alt="Dr.S.Prasanna Devi"
                                         class="object-cover w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-md font-bold text-cyan-300 mb-2">Dr.S.Prasanna Devi</h3>
-                                <p class="text-gray-400">Chief Academic Officer</p>
+                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr.S.Prasanna Devi</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Chief Academic Officer</p>
                             </div>
                         </div>
                     </div>
@@ -349,13 +346,13 @@
                         <div class="flex items-center gap-6 w-full">
                             <div class="flex-shrink-0">
                                 <div class="relative w-32 h-32 overflow-hidden">
-                                    <img src="./assets/New folder/image (1).png" alt="Panimalar Engineering College"
+                                    <img src="./assets/patrons/image (1).png" alt="Panimalar Engineering College"
                                         class="object-contain w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1 text-left">
-                                <h3 class="text-md font-bold text-cyan-300 mb-1">Organised By</h3>
-                                <p class="text-gray-400 text-sm">Panimalar Engineering College</p>
+                                <h3 class="text-xl font-bold text-cyan-300 mb-1" style="font-family: 'Teko', sans-serif;">Organised By</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Panimalar Engineering College</p>
                             </div>
                         </div>
                     </div>
@@ -365,13 +362,13 @@
                         <div class="flex items-center gap-6 w-full">
                             <div class="flex-shrink-0">
                                 <div class="relative w-36 h-36 overflow-hidden">
-                                    <img src="./assets/New folder/GDG On Campus - Horizontal - Dark[1].png"
+                                    <img src="./assets/patrons/GDGpec.png"
                                         alt="Google Developer Groups" class="object-contain w-full h-full">
                                 </div>
                             </div>
                             <div class="flex-1 text-left">
-                                <h3 class="text-md font-bold text-cyan-300 mb-1">In Association With</h3>
-                                <p class="text-gray-400 text-sm">Google Developer Groups</p>
+                                <h3 class="text-xl font-bold text-cyan-300 mb-1" style="font-family: 'Teko', sans-serif;">In Association With</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Google Developer Groups</p>
                             </div>
                         </div>
                     </div>
@@ -396,8 +393,8 @@
                     <div class="flex items-start justify-between mb-4">
                         <div class="text-4xl">🏥</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Digital Healthcare</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
+                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">Digital Healthcare</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
                         Revolutionize healthcare with digital solutions for better patient care and medical research.
                     </p>
                 </div>
@@ -410,9 +407,9 @@
                     <div class="flex items-start justify-between mb-4">
                         <div class="text-4xl">💰</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">FinTech</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Redefining money for the future where trust meets technology, innovation fuels progress, and limitless for everyone.
+                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">FinTech</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
+                        Redefining money for the future where trust meets technology, innovation fuels progress.
                     </p>
                 </div>
             </div>
@@ -424,9 +421,9 @@
                     <div class="flex items-start justify-between mb-4">
                         <div class="text-4xl">🎓</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Education Technology</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Transform learning experiences through technology to make education more accessible and effective.
+                    <h3 class="text-2xl font-bold text-white mb-3 " style="font-family: 'Teko', sans-serif;">Education Technology</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
+                        Transform learning experiences through technology to make education more effective.
                     </p>
                 </div>
             </div>
@@ -438,8 +435,8 @@
                     <div class="flex items-start justify-between mb-4">
                         <div class="text-4xl">🌱</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Sustainability & Green Tech</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
+                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">Sustainability & Green Tech</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
                         Create eco-friendly solutions to combat climate change and promote sustainable living.
                     </p>
                 </div>
@@ -452,8 +449,8 @@
                     <div class="flex items-start justify-between mb-4">
                         <div class="text-4xl">💡</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Open Innovation</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
+                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">Open Innovation</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
                         Develop groundbreaking solutions without constraints the future is what you imagine.
                     </p>
                 </div>
@@ -465,8 +462,8 @@
                     <div class="flex items-start justify-between mb-4">
                         <div class="text-4xl">💡</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">School Track</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
+                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">School Track</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
                         Ignite young minds to reimagine learning where curiosity meets innovation without limits.
                     </p>
                 </div>
@@ -479,7 +476,7 @@
     <section id="partners" class="relative py-20 z-30">
         <div class="container mx-auto px-4 relative z-10">
             <div class="section-header">
-                <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Join Our Cosmic Alliance</h2>
+                <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Join With Us</h2>
                 <p>Partner with us to shape the future of technology and innovation</p>
             </div>
 
@@ -488,12 +485,12 @@
                 <h3 class="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12" style="font-family: 'Teko', sans-serif;">
                     Why Partner With PEC HACKS 3.0 ?
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto" >
                     <!-- Targeted Reach -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🎯</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Targeted Reach</h4>
-                        <p class="text-sm text-gray-300 leading-relaxed">
+                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Targeted Reach</h4>
+                        <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
                             Connect with 500+ highly skilled developers, designers, and innovators from top institutions.
                         </p>
                     </div>
@@ -501,8 +498,8 @@
                     <!-- Brand Visibility -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🌟</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Brand Visibility</h4>
-                        <p class="text-sm text-gray-300 leading-relaxed">
+                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Brand Visibility</h4>
+                        <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
                             Gain exposure across multiple channels including social media, campus networks, and tech communities.
                         </p>
                     </div>
@@ -510,8 +507,8 @@
                     <!-- Talent Acquisition -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">💼</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Talent Acquisition</h4>
-                        <p class="text-sm text-gray-300 leading-relaxed">
+                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Talent Acquisition</h4>
+                        <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
                             Direct access to emerging talent and the opportunity to recruit the best minds in technology.
                         </p>
                     </div>
@@ -519,8 +516,8 @@
                     <!-- Innovation Access -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🚀</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Innovation Access</h4>
-                        <p class="text-sm text-gray-300 leading-relaxed">
+                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Innovation Access</h4>
+                        <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
                             Get first-hand access to cutting-edge solutions and innovative ideas from the hackathon.
                         </p>
                     </div>
@@ -544,16 +541,31 @@
                         <!-- Devfolio -->
                         <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://devfolio.co/', '_blank')">
                             <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/New folder/Devfolio.png" alt="DEVFOLIO LOGO" class="object-contain rounded-xl w-full h-full">
+                                <img src="./assets/sponsers/Devfolio.png" alt="DEVFOLIO LOGO" class="object-contain rounded-xl w-full h-full">
                             </div>
                         </div>
                         
                         <!-- ETH India -->
                         <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://ethindia2024.devfolio.co/', '_blank')">
                             <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/New folder/ETH - india.png" alt="ETHINDIA LOGO" class="object-contain rounded-xl w-full h-full">
+                                <img src="./assets/sponsers/ETH - india.png" alt="ETHINDIA LOGO" class="object-contain rounded-xl w-full h-full">
                             </div>
                         </div>
+                    </div>
+                </div>
+                <!-- Bronze Partners -->
+                <div class="mb-12">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300" style="font-family: 'Teko', sans-serif;">BRONZE SPONSORS</h3>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <!-- balsamiq -->
+                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://balsamiq.com', '_blank')">
+                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                                <img src="./assets/sponsers/balsamiq.png" alt="balsamiq LOGO" class="object-contain rounded-xl w-full h-full">
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -569,14 +581,14 @@
                             Be part of the most exciting hackathon in the region. Let's create something extraordinary together and shape the future of technology.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button class="border-2 px-4 py-2 rounded-xl border-blue-500" onclick="downloadSponsorshipDeck()">
+                            <button class="border-2 px-4 py-2 rounded-xl border-blue-500 text-2xl"style="font-family: 'Teko', sans-serif;" onclick="downloadSponsorshipDeck()">
                                 Download Sponsorship Deck
                             </button>
                         </div>
                         <div class="mt-6 pt-6 border-t border-gray-700">
-                            <p class="text-sm text-gray-400 font-electrolize">
-                                Contact us: <a href="mailto:team@pechacks.org" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline">team@pechacks.org</a> | 
-                                <a href="tel:+919345404933" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline"> +91 9345404933</a>
+                            <p class="text-xl text-gray-400 font-electrolize" style="font-family: 'Teko', sans-serif;">
+                                Contact us: <a href="mailto:team@pechacks.org" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline text-xl">team@pechacks.org</a> | 
+                                <a href="tel:+919345404933" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline text-xl" style="font-family: 'Teko', sans-serif;"> +91 9345404933</a>  (BHARANIVELAN J)
                             </p>
                         </div>
                     </div>
@@ -594,10 +606,10 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
                 <!-- Left Section -->
                 <div class="md:col-span-1">
-                    <h2 class="text-3xl font-extrabold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    <h2 class="text-4xl font-extrabold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent" style="font-family: 'Teko', sans-serif;">
                         PEC Hacks
                     </h2>
-                    <p class="text-lg mt-2 text-gray-300">International Hackathon*</p>
+                    <p class="text-2xl mt-2 text-gray-300" style="font-family: 'Teko', sans-serif;">International Hackathon</p>
                     <div class="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
                         <a href="https://github.com/thecoding-society" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-gray-400 transition-colors text-white">
                             <i class="fab fa-github"></i>
@@ -611,7 +623,7 @@
                         <a href="https://www.linkedin.com/company/pec-hacks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-blue-400 transition-colors text-white">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://discord.gg/3nwwVtSz" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="hover:text-indigo-400 transition-colors text-white">
+                        <a href="https://discord.gg/2w2FSTXehQ" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="hover:text-indigo-400 transition-colors text-white">
                             <i class="fab fa-discord"></i>
                         </a>
                     </div>
@@ -619,13 +631,13 @@
 
                 <!-- Middle Section -->
                 <div class="md:col-span-1">
-                    <h3 class="text-xl font-bold text-white font-electrolize">Venue Address</h3>
-                    <p class="mt-2 text-gray-300 font-rajdhani">
+                    <h3 class="text-2xl font-bold text-white font-electrolize" style="font-family: 'Teko', sans-serif;">Venue Address</h3>
+                    <p class="mt-2 text-xl text-gray-300 font-rajdhani" style="font-family: 'Teko', sans-serif;">
                         Panimalar Engineering College,<br>
                         Nazarathpettai, Poonamallee,<br>
                         Chennai, Tamil Nadu - 600123
                     </p>
-                    <h3 class="text-xl font-bold mt-6 text-white font-electrolize">Branding Guidelines</h3>
+                    <h3 class="text-xl font-bold mt-6 text-white font-electrolize" style="font-family: 'Teko', sans-serif;">Branding Guidelines</h3>
                     <ul class="mt-2 space-y-2">
                         <li>
                             <a href="http://assets.pechacks.org/" class="text-cyan-400 hover:underline font-rajdhani">
@@ -637,7 +649,7 @@
 
                 <!-- Right Section -->
                 <div class="md:col-span-1">
-                    <h3 class="text-xl font-bold text-white font-electrolize">Additional Links</h3>
+                    <h3 class="text-xl font-bold text-white font-electrolize" style="font-family: 'Teko', sans-serif;">Additional Links</h3>
                     <ul class="mt-2 space-y-2">
                         <li>
                             <a href="https://www.panimalar.ac.in" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-rajdhani">
@@ -654,7 +666,7 @@
 
                 <!-- Map Section -->
                 <div class="md:col-span-1">
-                    <h3 class="text-xl font-bold mb-4 text-white font-electrolize">Location</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-white font-electrolize" style="font-family: 'Teko', sans-serif;">Location</h3>
                     <div class="aspect-w-16 aspect-h-9">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7920451208224!2d80.07288927484274!3d13.048904887273663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5261c68a9f3031%3A0xab41c8bdcf32ad47!2sPanimalar%20Engineering%20College!5e0!3m2!1sen!2sin!4v1756634251679!5m2!1sen!2sin"
