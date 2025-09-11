@@ -62,27 +62,33 @@
 
             <!-- Top Bar - Date & Time -->
             <div class="h-8 flex items-center justify-between px-4 bg-black bg-opacity-50 relative">
-                <div class="text-white font-mono text-sm font-semibold pulse">DECEMBER 2025</div>
+                <div class="text-transparent font-mono text-sm font-semibold pulse">DECEMBER 2025</div>
                 <div class="text-transparent font-mono text-sm font-semibold pulse" id="dateDisplay">DECEMBER 2025</div>
-                <div class="text-white font-mono text-sm font-semibold pulse" id="timeDisplay">00:00:00</div>
+                <div class="text-transparent font-mono text-sm font-semibold pulse" id="timeDisplay">00:00:00</div>
             </div>
 
             <!-- Bottom Left Text -->
-            <div class="bottom-left-text">
+            <!-- <div class="bottom-left-text">
                 <div>December 27-28,2025</div>
-            </div>
+            </div> -->
 
             <!-- Bottom Right Text -->
-            <div class="bottom-right-text">
+            <!-- <div class="bottom-right-text">
                 <div>36-H</div>
                 <div>Hackathon</div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Title Container -->
         <div class="title-container">
             <h1 class="hud-title" id="hudTitle">PEC HACKS 3.0</h1>
-            <div class="title-text">International Level Hackathon</div>
+            <!-- <div class="title-text">International Level Hackathon</div> -->
+            <p class="title-text">
+									DECEMBER 27-28, 2025
+								</p>
+								<p class="title-text mb-7">
+									36-hr International Level HACKATHON IN CHENNAI
+								</p>
         </div>
 
         <!-- Content Container (Buttons + Timer) -->
@@ -170,7 +176,7 @@
                             TAMILNADU,</span>. It is your gateway to a world of possibilities, where passionate individuals like you come together to unleash their creativity, solve real-world challenges, and make a meaningful difference."
                     </p>
 
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats ">
+                    <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats ">
                         <div class="text-center">
                             <span class="flex justify-center">
                                 <lord-icon src="https://cdn.lordicon.com/srupsmbe.json" trigger="loop"
@@ -210,7 +216,7 @@
                                 Prize Pool - ₹ 19 Lakhs <br>
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -272,7 +278,7 @@
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Mrs. C Vijayarajeswari</h3>
-                                <p class="text-gray-400 text-lg">Director</p>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Director</p>
                             </div>
                         </div>
                     </div>
@@ -477,7 +483,7 @@
         <div class="container mx-auto px-4 relative z-10">
             <div class="section-header">
                 <h2 class="about-header" style="font-family: 'Transformers', sans-serif;">Join With Us</h2>
-                <p>Partner with us to shape the future of technology and innovation</p>
+                <p class="text-xl" style="font-family: 'Teko', sans-serif;" >Partner with us to shape the future of technology and innovation</p>
             </div>
 
             <!-- Why Partner Section -->
@@ -551,12 +557,19 @@
                                 <img src="./assets/sponsers/ETH - india.png" alt="ETHINDIA LOGO" class="object-contain rounded-xl w-full h-full">
                             </div>
                         </div>
+
+                        <!-- GIT-HUB -->
+                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://github.com/', '_blank')">
+                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                                <img src="./assets//sponsers/Git-hub logo.png" alt="GIT-HUB LOGO" class="object-contain rounded-xl w-full h-full">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Bronze Partners -->
                 <div class="mb-12">
                     <div class="text-center mb-8">
-                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300" style="font-family: 'Teko', sans-serif;">BRONZE SPONSORS</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-[#CD7F32]" style="font-family: 'Teko', sans-serif;">BRONZE SPONSORS</h3>
                     </div>
                     <div class="flex flex-wrap justify-center gap-8">
                         <!-- balsamiq -->
@@ -577,7 +590,7 @@
                         <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white" style="font-family: 'Teko', sans-serif;">
                             Ready to Join Our Mission?
                         </h3>
-                        <p class="text-lg text-gray-300 font-rajdhani">
+                        <p class="text-lg text-gray-300 font-rajdhani" style="font-family: 'Teko', sans-serif; font-size: x-large;">
                             Be part of the most exciting hackathon in the region. Let's create something extraordinary together and shape the future of technology.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -587,8 +600,8 @@
                         </div>
                         <div class="mt-6 pt-6 border-t border-gray-700">
                             <p class="text-xl text-gray-400 font-electrolize" style="font-family: 'Teko', sans-serif;">
-                                Contact us: <a href="mailto:team@pechacks.org" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline text-xl">team@pechacks.org</a> | 
-                                <a href="tel:+919345404933" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline text-xl" style="font-family: 'Teko', sans-serif;"> +91 9345404933</a>  (BHARANIVELAN J)
+                                Contact us: <a href="mailto:team@pechacks.org" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline text-xl">team@pechacks.org</a> 
+                                
                             </p>
                         </div>
                     </div>
