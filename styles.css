@@ -1394,13 +1394,12 @@
         .heading-small {
             display: flex;
             justify-content: center;
-            gap: 2px;
             font-size: 88px;
             font-weight: bold;
             color: #fff;
             position: relative;
             z-index: 1;
-            font-family: 'Transformers', sans-serif;
+            font-family: 'Transformers', sans-serif !important;
         }
         .heading-small div {
             overflow: hidden;
