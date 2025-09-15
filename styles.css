@@ -1374,3 +1374,64 @@
 /* Custom fonts */
 .font-bungee { font-family: 'Bungee', cursive; }
 .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+
+.heading {
+            position: relative;
+            text-align: center;
+            margin-bottom: 100px;
+            margin-top: 100px;
+        }
+        .heading-shadow {
+            font-size: 130px;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: -80%;
+            left: 50%;
+            transform: translateX(-50%);
+            user-select: none;
+            font-family: 'Transformers', sans-serif;
+        }
+        .heading-small {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 88px;
+            font-weight: bold;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            font-family: 'Transformers', sans-serif;
+        }
+        .heading-small div {
+            overflow: hidden;
+            height: 98px;
+        }
+        .heading-small div div {
+            transform: translateY(0%);
+            will-change: auto;
+        }
+
+        @media (max-width: 768px) {
+            .heading-shadow {
+                font-size: 80px;
+                top: -60%;
+            }
+            .heading-small {
+                font-size: 48px;
+            }
+            .heading-small div {
+                height: 54px;
+            }
+        }
+        @media (max-width: 480px) {
+            .heading-shadow {
+                font-size: 60px;
+                top: -50%;
+            }
+            .heading-small {
+                font-size: 36px;
+            }
+            .heading-small div {
+                height: 40px;
+            }
+        }
