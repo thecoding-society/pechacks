@@ -1394,7 +1394,7 @@
         .heading-small {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 2px;
             font-size: 88px;
             font-weight: bold;
             color: #fff;
