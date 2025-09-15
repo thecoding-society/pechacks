@@ -178,7 +178,7 @@ function updateDateTime() {
 // Countdown timer
 function updateTimer() {
   // Set the future date
-  const future = Date.parse("Dec 27, 2025 19:00:00");
+  const future = Date.parse("Dec 27, 2025 07:00:00");
   const now = new Date();
   const diff = future - now;
 
