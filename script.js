@@ -288,3 +288,42 @@ function downloadSponsorshipDeck() {
   // Alternatively, you could open in a new tab:
   // window.open('https://example.com/path/to/sponsorship-deck.pdf', '_blank');
 }
+
+
+// Layout pattern: 5,4,5,4 repeating for desktop
+        const pattern = [5, 4, 5, 4];
+        const TOTAL_COLS = 12;
+        let row = 0;
+        let inRowIndex = 0;
+
+        function applyLayout() {
+            const gridItems = document.querySelectorAll('#grid > .hex-container');
+            const isMobile = window.innerWidth <= 600;
+            
+            if (isMobile) {
+                // Mobile layout is handled by CSS
+                return;
+            } else {
+                // Desktop layout: 5,4,5,4 pattern
+                row = 0;
+                inRowIndex = 0;
+                
+                gridItems.forEach((item) => {
+                    const perRow = pattern[row % pattern.length];
+                    const occupiedCols = perRow * 2;
+                    const leftOffset = Math.floor((TOTAL_COLS - occupiedCols) / 2);
+                    const startCol = leftOffset + 1 + (inRowIndex * 2);
+                    item.style.gridColumn = `${startCol} / span 2`;
+
+                    inRowIndex++;
+                    if (inRowIndex >= perRow) { row++; inRowIndex = 0; }
+                });
+            }
+        }
+
+        // Apply layout on load and resize
+        window.addEventListener('load', applyLayout);
+        window.addEventListener('resize', applyLayout);
+
+
+        
