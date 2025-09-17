@@ -750,7 +750,7 @@
             width: 90%;
             display: flex;
             justify-content: center;
-            margin-top: 16px;
+            
         }
 
         /* Timer Styles */
@@ -875,12 +875,12 @@
             }
 
             .content-container {
-                margin-top: 50px;
+                margin-top: 30px;
             }
             
             .button-container {
                 max-width: 100%;
-                margin-bottom: 50px;
+                margin-bottom: 10px;
             }
 
             .timer-container {
@@ -2046,3 +2046,20 @@
                 padding: 1rem;
             }
         }
+
+        /* Devfolio Button Styling */
+.apply-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    overflow: hidden;
+    
+}
+
+/* Override Devfolio's default styles to match your theme */
+.apply-button iframe {
+    border-radius: 5rem !important;
+    overflow: hidden;
+    background: transparent !important;
+}
