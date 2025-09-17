@@ -178,7 +178,7 @@ function updateDateTime() {
 // Countdown timer
 function updateTimer() {
   // Set the future date
-  const future = Date.parse("Dec 27, 2025 19:00:00");
+  const future = Date.parse("Dec 27, 2025 07:00:00");
   const now = new Date();
   const diff = future - now;
 
@@ -288,3 +288,137 @@ function downloadSponsorshipDeck() {
   // Alternatively, you could open in a new tab:
   // window.open('https://example.com/path/to/sponsorship-deck.pdf', '_blank');
 }
+
+// Layout pattern: 5,4,5,4 repeating for desktop
+const pattern = [5, 4, 5, 4];
+const TOTAL_COLS = 12;
+let row = 0;
+let inRowIndex = 0;
+
+function applyLayout() {
+  const gridItems = document.querySelectorAll("#grid > .hex-container");
+  const isMobile = window.innerWidth <= 600;
+
+  if (isMobile) {
+    // Mobile layout is handled by CSS
+    return;
+  } else {
+    // Desktop layout: 5,4,5,4 pattern
+    row = 0;
+    inRowIndex = 0;
+
+    gridItems.forEach((item) => {
+      const perRow = pattern[row % pattern.length];
+      const occupiedCols = perRow * 2;
+      const leftOffset = Math.floor((TOTAL_COLS - occupiedCols) / 2);
+      const startCol = leftOffset + 1 + inRowIndex * 2;
+      item.style.gridColumn = `${startCol} / span 2`;
+
+      inRowIndex++;
+      if (inRowIndex >= perRow) {
+        row++;
+        inRowIndex = 0;
+      }
+    });
+  }
+}
+
+// Apply layout on load and resize
+window.addEventListener("load", applyLayout);
+window.addEventListener("resize", applyLayout);
+
+// Navbar functionality
+const navbar = document.getElementById("navbar");
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mobileNav = document.getElementById("mobileNav");
+const closeMenu = document.getElementById("closeMenu");
+
+// Navbar scroll effect
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+
+// Mobile menu toggle
+mobileMenuBtn.addEventListener("click", () => {
+  mobileNav.classList.add("active");
+  document.body.style.overflow = "hidden";
+});
+
+closeMenu.addEventListener("click", closeMobileNav);
+
+function closeMobileNav() {
+  mobileNav.classList.remove("active");
+  document.body.style.overflow = "auto";
+}
+
+// Close mobile nav when clicking outside
+mobileNav.addEventListener("click", (e) => {
+  if (e.target === mobileNav) {
+    closeMobileNav();
+  }
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      const navbarHeight = navbar.offsetHeight;
+      const targetPosition =
+        targetElement.getBoundingClientRect().top +
+        window.pageYOffset -
+        navbarHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+
+      // Close mobile nav if open
+      closeMobileNav();
+    }
+  });
+});
+
+// DOMAIN CARDS INTERACTIVITY
+document.addEventListener("DOMContentLoaded", function () {
+  const domainCards = document.querySelectorAll(".pec-domain-card");
+
+  domainCards.forEach((card) => {
+    const cardData = card.querySelector(".pec-domain-card__data");
+
+    card.addEventListener("mouseenter", function () {
+      // Show data animation
+      cardData.style.animation = "pec-show-data 1s forwards";
+      cardData.style.opacity = "1";
+      cardData.style.transition = "opacity 0.3s";
+
+      // Remove overflow animation
+      card.style.animation = "pec-remove-overflow 2s forwards";
+    });
+
+    card.addEventListener("mouseleave", function () {
+      // Remove data animation
+      cardData.style.animation = "pec-remove-data 1s forwards";
+
+      // Show overflow animation
+      card.style.animation = "pec-show-overflow 2s forwards";
+
+      // After animation completes, reset opacity with delay
+      setTimeout(() => {
+        if (!card.matches(":hover")) {
+          cardData.style.opacity = "0";
+        }
+      }, 1000);
+    });
+  });
+});
