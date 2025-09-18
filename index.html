@@ -14,18 +14,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    
+    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
 </head>
 <body>
     <!-- Starfield Canvas -->
     <canvas id="starfield"></canvas>
 
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <!-- Replace with your actual logo -->
+            <img src="./assets/New folder/pechacks-01.png" alt="PEC Hacks Logo">
+        </div>
+        
+        <div class="nav-links">
+            <a href="#home" class="nav-link">HOME</a>
+            <a href="#about" class="nav-link">ABOUT</a>
+            <a href="#domains-cards" class="nav-link">DOMAINS</a>
+            <a href="#partners" class="nav-link">PARTNERS</a>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#home" class="mobile-nav-link" onclick="closeMobileNav()">HOME</a>
+        <a href="#about" class="mobile-nav-link" onclick="closeMobileNav()">ABOUT</a>
+        <a href="#domains-cards" class="mobile-nav-link" onclick="closeMobileNav()">DOMAINS</a>
+        <a href="#partners" class="mobile-nav-link" onclick="closeMobileNav()">PARTNERS</a>
+    </div>
+
+
     <!-- HOME SECTION -->
-    <div class="hud-container">
+    <div class="hud-container" id="home">
         <!-- Main Frame Container -->
-        <div class="hud-frame" id="hudFrame">
-            <!-- Frame Corners -->
-            <div class="frame-corner frame-corner-v top-0 left-0"></div>
+        <div>
+            
+            <!-- <div class="frame-corner frame-corner-v top-0 left-0"></div>
             <div class="frame-corner frame-corner-h top-0 left-0"></div>
 
             <div class="frame-corner frame-corner-v top-0 right-0"></div>
@@ -37,7 +68,7 @@
             <div class="frame-corner frame-corner-v bottom-0 right-0"></div>
             <div class="frame-corner frame-corner-h bottom-0 right-0"></div>
 
-            <!-- Midpoints (hidden on mobile) -->
+            
             <div id="midpoints" class="hidden sm:block">
                 <div class="frame-corner frame-corner-h top-1/2 left-0 transform -translate-y-1/2" style="width: 12px;">
                 </div>
@@ -58,22 +89,22 @@
                     style="width: 12px;"></div>
                 <div class="frame-corner frame-corner-v bottom-0 left-1/2 transform -translate-x-1/2"
                     style="height: 12px;"></div>
-            </div>
+            </div> -->
 
-            <!-- Top Bar - Date & Time -->
+            
             <div class="h-8 flex items-center justify-between px-4 bg-black bg-opacity-50 relative">
                 <div class="text-transparent font-mono text-sm font-semibold pulse">DECEMBER 2025</div>
                 <div class="text-transparent font-mono text-sm font-semibold pulse" id="dateDisplay">DECEMBER 2025</div>
                 <div class="text-transparent font-mono text-sm font-semibold pulse" id="timeDisplay">00:00:00</div>
             </div>
 
-            <!-- Bottom Left Text -->
+            
             <!-- <div class="bottom-left-text">
                 <div>December 27-28,2025</div>
-            </div> -->
+            </div>
 
-            <!-- Bottom Right Text -->
-            <!-- <div class="bottom-right-text">
+            
+            <div class="bottom-right-text">
                 <div>36-H</div>
                 <div>Hackathon</div>
             </div> -->
@@ -84,7 +115,8 @@
             <h1 class="hud-title" id="hudTitle">PEC HACKS 3.0</h1>
             <!-- <div class="title-text">International Level Hackathon</div> -->
             <p class="title-text">
-									DECEMBER 27-28, 2025
+									<!-- DECEMBER 27-28, 2025 -->
+                                     Dates will be announced soon
 								</p>
 								<p class="title-text mb-7">
 									36-hr International Level HACKATHON IN CHENNAI
@@ -128,6 +160,16 @@
                         </div>
                     </button>
                 </div>
+                <!--DEV BUTTON-->
+                <!-- Devfolio Apply Button -->
+<div class="space-btn-wrapper">
+    <div 
+        class="apply-button" 
+        data-hackathon-slug="pechacks3" 
+        data-button-theme="dark-inverted"
+        style="height: 44px; width: 312px; margin: 0 auto;"
+    ></div>
+</div>
             </div>
 
             <!-- Timer Container -->
@@ -175,10 +217,10 @@
             <div class="flex flex-col items-center justify-center">
                 <div class="w-full lg:w-10/12 xl:w-9/12 self-center mb-12 lg:mb-0 text-center about-content"
                     data-aos="zoom-in" data-aos-once="true">
-                    <h3 class="text-4xl text-cyan-300 mb-8" style="font-family: 'Teko', sans-serif;">Welcome, Innovators
+                    <h3 class="text-3xl text-cyan-300 mb-8" style="font-family: 'Teko', sans-serif;">Welcome, Innovators
                         and Change-Makers!</h3>
                     <p class="text-gray-300 leading-relaxed mb-10 about-para">
-                        "Welcome to <span class="font-semibold text-cyan-300 tracking-wide text-3xl">PEC HACKS
+                        "Welcome to <span class="font-semibold text-cyan-300 tracking-wide text-2xl">PEC HACKS
                             </span>, where innovation meets impact! We are thrilled to invite you to this exciting hackathon organized by <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI,
                             TAMILNADU,</span>. It is your gateway to a world of possibilities, where passionate individuals like you come together to unleash their creativity, solve real-world challenges, and make a meaningful difference."
                     </p>
@@ -232,8 +274,12 @@
 
             <!-- Patrons Section -->
             <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">PATRONS</h1>
+        <h1 class="heading-shadow not-selectable">OUR PATRONS</h1>
         <h2 class="heading-small">
+            <div><div>O</div></div>
+            <div><div>U</div></div>
+            <div><div>R</div></div>
+            <div><div style="margin: 0px 35px 0px 0px;"></div></div>
             <div><div>P</div></div>
             <div><div>A</div></div>
             <div><div>T</div></div>
@@ -361,6 +407,12 @@
                     </div>
                 </div>
 
+                <!-- organised by header -->
+                <div class="text-center mb-8 mt-6">
+                    <h3 class="text-2xl md:text-5xl font-bold font-bungee text-white"
+                        style="font-family: 'Teko', sans-serif;">ORGANISED BY</h3>
+                </div>
+
                 <!-- Second row of Co-Patrons (2 boxes) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl  max-h-[350px] ">
                     <!-- College logo box -->
@@ -373,7 +425,7 @@
                                 </div>
                             </div>
                             <div class="flex-1 text-left">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-1" style="font-family: 'Teko', sans-serif;">Organised By</h3>
+                                <!-- <h3 class="text-xl font-bold text-cyan-300 mb-1" style="font-family: 'Teko', sans-serif;">Organised By</h3> -->
                                 <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Panimalar Engineering College</p>
                             </div>
                         </div>
@@ -399,6 +451,339 @@
         </div>
     </section>
 
+    <!-- Glimps Section -->
+            <div class="heading not-selectable">
+        <h1 class="heading-shadow not-selectable">Gallery</h1>
+        <h2 class="heading-small">
+            <div><div>G</div></div>
+            <div><div>A</div></div>
+            <div><div>L</div></div>
+            <div><div>L</div></div>
+            <div><div>E</div></div>
+            <div><div>R</div></div>
+            <div><div>Y</div></div>
+        </h2>
+    </div>
+
+    <!-- <div class="relative  back-about z-30">
+        <div class="external">
+  <div class="horizontal-scroll-wrapper">
+    <div class="img-wrapper slower">
+      <a ><img src="./assets/pec hacks 2.0/DAY 1/01.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="img-wrapper faster">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/02.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="img-wrapper slower vertical">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/03.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="img-wrapper slower slower-down">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/04.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="img-wrapper">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/05.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="img-wrapper slower">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/06.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="img-wrapper faster1">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/07.jpg" alt="">
+      </a>
+    </div>
+    
+    <div class="img-wrapper slower slower2">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/09.jpg" alt="">
+      </a>
+    </div>
+    
+    <div class="img-wrapper">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/10.jpg" alt="">
+      </a>
+    </div>
+    
+    <div class="img-wrapper slower">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/11.jpg" alt="">
+      </a>
+    </div>
+    
+    <div class="img-wrapper slower last">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/12.jpg" alt="">
+      </a>
+    </div>
+    <div class="img-wrapper slower slower2">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/13.jpg" alt="">
+      </a>
+    </div>
+    
+    <div class="img-wrapper">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/14.jpg" alt="">
+      </a>
+    </div>
+    
+    <div class="img-wrapper slower">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/15.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="img-wrapper slower slower2">
+      <a >
+        <img src="./assets/pec hacks 2.0/DAY 1/16.jpg" alt="">
+      </a>
+    </div>
+  </div>
+  
+</div>
+    </div> -->
+
+    <div  class="relative  back-about z-30">
+        <div class="wrap">
+        <main id="grid" aria-live="polite">
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/01.jpg" alt="img01">
+                    </div>
+                    <div class="flip-back">
+                        <img src="./assets/pec hacks 2.0/DAY 1/02.jpg" alt="img02">
+                    </div>
+                </div>
+            </div>
+            
+           
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/03.jpg" alt="img03">
+                    </div>
+                    <div class="flip-back">
+                        <img src="./assets/pec hacks 2.0/DAY 1/04.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/05.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="./assets/pec hacks 2.0/DAY 1/09.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/07.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="./assets/pec hacks 2.0/DAY 1/08.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/06.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="./assets/pec hacks 2.0/DAY 1/10.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+           
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/11.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="./assets/pec hacks 2.0/DAY 1/12.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/30.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="./assets/pec hacks 2.0/DAY 1/14.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/15.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="./assets/pec hacks 2.0/DAY 1/16.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/18.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/19.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/20.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/21.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+           
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/22.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/23.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+           
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/24.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/25.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/26.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/27.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/28.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/29.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/13.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/31.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/34.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/33.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/35.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/36.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hex-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <img src="./assets/pec hacks 2.0/DAY 1/37.jpg" alt="img04">
+                    </div>
+                    <div class="flip-back">
+                        <img src="../pechacks/assets/pec hacks 2.0/DAY 1/36.jpg" alt="img04">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    </div>
+
+    <div class="background">
+    <div class="overlay"></div>
+    <div class="title">GLIMPSE</div>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ldYAX1xME0M?si=SNC_oTtGj66hdb06" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+
     <!--DOMAINS SECTION-->
     <section id="domains" class="relative py-10  z-30">
     <div class="container mx-auto px-4 relative z-10">
@@ -415,8 +800,8 @@
         </h2>
     </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-10 max-w-7xl justify-center mx-auto">
-            <!-- Healthcare -->
+        <!-- <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-10 max-w-7xl justify-center mx-auto">
+            
             <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
                 <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
                 <div class="relative z-10 p-6">
@@ -430,7 +815,7 @@
                 </div>
             </div>
             
-            <!-- Fintech -->
+            
             <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
                 <div class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
                 <div class="relative z-10 p-6">
@@ -444,7 +829,7 @@
                 </div>
             </div>
             
-            <!-- Edutech -->
+            
             <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
                 <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
                 <div class="relative z-10 p-6">
@@ -458,7 +843,7 @@
                 </div>
             </div>
             
-            <!-- Sustainability -->
+            
             <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
                 <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
                 <div class="relative z-10 p-6">
@@ -472,7 +857,7 @@
                 </div>
             </div>
             
-            <!-- Open Innovation -->
+            
             <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
                 <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
                 <div class="relative z-10 p-6">
@@ -485,7 +870,7 @@
                     </p>
                 </div>
             </div>
-            <!-- school track -->
+            
             <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
                 <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
                 <div class="relative z-10 p-6">
@@ -498,12 +883,57 @@
                     </p>
                 </div>
             </div>
+        </div> -->
+
+        <div class="pec-domain-cards-container" id="domains-cards">
+            <div class="pec-domain-cards-wrapper">
+                <article class="pec-domain-card">
+                    <img src="./assets/DOMAINS/006.jpg" alt="Digital Healthcare" class="pec-domain-card__img">
+                    <div class="pec-domain-card__data">
+                        <h2 class="pec-domain-card__title">HEALTHCARE</h2>                       
+                    </div>
+                </article>
+
+                <article class="pec-domain-card">
+                    <img src="./assets/DOMAINS/005.jpg" alt="FinTech" class="pec-domain-card__img">
+                    <div class="pec-domain-card__data">
+                        <h2 class="pec-domain-card__title">FINTECH</h2>
+                    </div>
+                </article>
+
+                <article class="pec-domain-card">
+                    <img src="./assets/DOMAINS/004.jpg" alt="Education Technology" class="pec-domain-card__img">
+                    <div class="pec-domain-card__data">
+                        <h2 class="pec-domain-card__title">EDUTECH</h2>
+                    </div>
+                </article>
+                <article class="pec-domain-card">
+                    <img src="./assets/DOMAINS/003.jpg" alt="Digital Healthcare" class="pec-domain-card__img">
+                    <div class="pec-domain-card__data">
+                        <h2 class="pec-domain-card__title">SUSTAINABILITY & GREEN TECH</h2>
+                    </div>
+                </article>
+
+                <article class="pec-domain-card">
+                    <img src="./assets/DOMAINS/001.jpg" alt="FinTech" class="pec-domain-card__img">
+                    <div class="pec-domain-card__data">
+                        <h2 class="pec-domain-card__title">OPEN INNOVATION</h2>
+                    </div>
+                </article>
+
+                <article class="pec-domain-card">
+                    <img src="./assets/DOMAINS/002.jpg" alt="Education Technology" class="pec-domain-card__img">
+                    <div class="pec-domain-card__data">
+                        <h2 class="pec-domain-card__title">SCHOOL TRACK</h2>
+                    </div>
+                </article>
+            </div>
         </div>
     </div>
 </section>
 
     <!-- Partners Section -->
-    <section id="partners" class="relative py-20 z-30">
+    <section  class="relative py-20 z-30">
         <div class="container mx-auto px-4 relative z-10">
 
             <div class="heading not-selectable">
@@ -570,7 +1000,7 @@
             </div>
 
             <!-- Partners by Category -->
-            <div class="mb-16">
+            <div class="mb-16" id="partners">
                 <div class="heading not-selectable">
         <h1 class="heading-shadow not-selectable">PARTNERS</h1>
         <h2 class="heading-small">
@@ -660,8 +1090,8 @@
 
     <!-- Footer Section -->
     <footer class="relative bg-black/30 backdrop-blur-lg border-t border-gray-700/30 py-8 z-30">
-        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-blue-900/10 to-transparent pointer-events-none"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-black pointer-events-none"></div>
+        <div class="absolute inset-0 bg-black pointer-events-none"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class=" grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
