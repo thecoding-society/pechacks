@@ -422,3 +422,99 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+//FAQ SECTION CODE STARTS HERE
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Accordion functionality
+  const accordionButtons = document.querySelectorAll(".dark-accordion-button");
+
+  accordionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const accordionItem = button.parentElement;
+      const accordionContent = button.nextElementSibling;
+
+      // Close all other accordion items
+      document.querySelectorAll(".dark-accordion-item").forEach((item) => {
+        if (item !== accordionItem && item.classList.contains("active")) {
+          item.classList.remove("active");
+          item.querySelector(".dark-accordion-content").style.maxHeight = null;
+          item
+            .querySelector(".dark-accordion-button")
+            .classList.remove("active");
+        }
+      });
+
+      // Toggle current accordion item
+      accordionItem.classList.toggle("active");
+      button.classList.toggle("active");
+
+      if (accordionContent.style.maxHeight) {
+        accordionContent.style.maxHeight = null;
+      } else {
+        accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+      }
+    });
+  });
+
+  // Search functionality
+  const searchInput = document.getElementById("dark-faq-search");
+  const accordionItems = document.querySelectorAll(".dark-accordion-item");
+  const noResultsMessage = document.getElementById("dark-no-results");
+
+  searchInput.addEventListener("input", function () {
+    const searchTerm = this.value.toLowerCase();
+    let foundItems = 0;
+
+    accordionItems.forEach((item) => {
+      const question = item
+        .querySelector(".dark-accordion-button")
+        .textContent.toLowerCase();
+      const answer = item
+        .querySelector(".dark-accordion-content")
+        .textContent.toLowerCase();
+
+      if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+        item.style.display = "block";
+        foundItems++;
+
+        // If search term exists, open the accordion
+        if (searchTerm.length > 0) {
+          item.classList.add("active");
+          item.querySelector(".dark-accordion-button").classList.add("active");
+          item.querySelector(".dark-accordion-content").style.maxHeight =
+            item.querySelector(".dark-accordion-content").scrollHeight + "px";
+        }
+      } else {
+        item.style.display = "none";
+      }
+    });
+
+    // Show no results message if no items found
+    if (foundItems === 0 && searchTerm.length > 0) {
+      noResultsMessage.style.display = "block";
+    } else {
+      noResultsMessage.style.display = "none";
+    }
+
+    // If search is cleared, close all accordions
+    if (searchTerm.length === 0) {
+      accordionItems.forEach((item) => {
+        item.classList.remove("active");
+        item.querySelector(".dark-accordion-button").classList.remove("active");
+        item.querySelector(".dark-accordion-content").style.maxHeight = null;
+      });
+    }
+  });
+
+  // Open first accordion by default
+  if (accordionItems.length > 0) {
+    accordionItems[0].classList.add("active");
+    accordionItems[0]
+      .querySelector(".dark-accordion-button")
+      .classList.add("active");
+    accordionItems[0].querySelector(".dark-accordion-content").style.maxHeight =
+      accordionItems[0].querySelector(".dark-accordion-content").scrollHeight +
+      "px";
+  }
+});
