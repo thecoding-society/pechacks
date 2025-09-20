@@ -279,7 +279,7 @@ document.getElementById("current-year").textContent = new Date().getFullYear();
 function downloadSponsorshipDeck() {
   // Create a temporary link element
   const link = document.createElement("a");
-  link.href = "./assets/New folder/Pec Hacks 3.0 Sponsorship Deck.pdf"; // Replace with actual URL
+  link.href = "./assets/New folder/Pec Hacks 3.0 Sponsorship Deck (2).pdf"; // Replace with actual URL
   link.download = "PEC-Hacks-3.0-Sponsorship-Deck.pdf";
   document.body.appendChild(link);
   link.click();
