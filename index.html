@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PEC Hacks | Hackathon</title>
-     <link rel="icon" type="image/png" href="./assets//New folder/favicon (1).png" />
+    <link rel="icon" type="image/png" href="./assets//New folder/favicon (1).png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
 </head>
+
 <body>
     <!-- Starfield Canvas -->
     <canvas id="starfield"></canvas>
@@ -26,7 +29,7 @@
             <!-- Replace with your actual logo -->
             <img src="./assets/New folder/pechacks-01.png" alt="PEC Hacks Logo">
         </div>
-        
+
         <div class="nav-links">
             <a href="#home" class="nav-link">HOME</a>
             <a href="#about" class="nav-link">ABOUT</a>
@@ -34,12 +37,12 @@
             <a href="#partners" class="nav-link">PARTNERS</a>
             <a href="#faq" class="nav-link">FAQ'S</a>
         </div>
-        
+
         <button class="mobile-menu-btn" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
         </button>
     </nav>
-    
+
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
         <button class="close-menu" id="closeMenu">
@@ -57,7 +60,7 @@
     <div class="hud-container" id="home">
         <!-- Main Frame Container -->
         <div>
-            
+
             <!-- <div class="frame-corner frame-corner-v top-0 left-0"></div>
             <div class="frame-corner frame-corner-h top-0 left-0"></div>
 
@@ -93,14 +96,14 @@
                     style="height: 12px;"></div>
             </div> -->
 
-            
+
             <div class="h-8 flex items-center justify-between px-4 bg-black bg-opacity-50 relative">
                 <div class="text-transparent font-mono text-sm font-semibold pulse">DECEMBER 2025</div>
                 <div class="text-transparent font-mono text-sm font-semibold pulse" id="dateDisplay">DECEMBER 2025</div>
                 <div class="text-transparent font-mono text-sm font-semibold pulse" id="timeDisplay">00:00:00</div>
             </div>
 
-            
+
             <!-- <div class="bottom-left-text">
                 <div>December 27-28,2025</div>
             </div>
@@ -117,12 +120,12 @@
             <h1 class="hud-title" id="hudTitle">PEC HACKS 3.0</h1>
             <!-- <div class="title-text">International Level Hackathon</div> -->
             <p class="title-text">
-									<!-- DECEMBER 27-28, 2025 -->
-                                     Dates will be announced soon
-								</p>
-								<p class="title-text mb-7">
-									36-hr International Level HACKATHON IN CHENNAI
-								</p>
+                <!-- DECEMBER 27-28, 2025 -->
+                Dates will be announced soon
+            </p>
+            <p class="title-text mb-7">
+                36-hr International Level HACKATHON IN CHENNAI
+            </p>
         </div>
 
         <!-- Content Container (Buttons + Timer) -->
@@ -132,10 +135,12 @@
                 <div class="button-row">
                     <!-- Visit 2.0 button with blue theme -->
                     <div class="galaxy-button">
-                        <button class="space-button blue-theme" onclick="window.location.href='https://two.pechacks.org/'">
+                        <button class="space-button blue-theme"
+                            onclick="window.location.href='https://two.pechacks.org/'">
                             <span class="backdrop"></span>
                             <span class="galaxy"></span>
-                            <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Visit 2.0</label>
+                            <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Visit
+                                2.0</label>
                         </button>
                     </div>
                     <!-- Community button with original theme -->
@@ -164,14 +169,10 @@
                 </div> -->
                 <!--DEV BUTTON-->
                 <!-- Devfolio Apply Button -->
-<div class="space-btn-wrapper">
-    <div 
-        class="apply-button" 
-        data-hackathon-slug="pechacks3" 
-        data-button-theme="light"
-        style="height: 44px; width: 312px; margin: 0 auto;"
-    ></div>
-</div>
+                <div class="space-btn-wrapper">
+                    <div class="apply-button" data-hackathon-slug="pechacks3" data-button-theme="light"
+                        style="height: 44px; width: 312px; margin: 0 auto;"></div>
+                </div>
             </div>
 
             <!-- Timer Container -->
@@ -182,15 +183,15 @@
                         <div class="timer-label">Days</div>
                     </div>
                     <div class="timer-unit">
-                        <div class="timer-value"  style="font-family: 'Outfit', sans-serif;" id="hours">00</div>
+                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="hours">00</div>
                         <div class="timer-label">Hours</div>
                     </div>
                     <div class="timer-unit">
-                        <div class="timer-value"  style="font-family: 'Outfit', sans-serif;" id="minutes">00</div>
+                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="minutes">00</div>
                         <div class="timer-label">Minutes</div>
                     </div>
                     <div class="timer-unit">
-                        <div class="timer-value"  style="font-family: 'Outfit', sans-serif;" id="seconds">00</div>
+                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="seconds">00</div>
                         <div class="timer-label">Seconds</div>
                     </div>
                 </div>
@@ -205,15 +206,25 @@
         <div class="container mx-auto px-4 relative z-10">
             <!-- Header -->
             <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">ABOUT</h1>
-        <h2 class="heading-small">
-            <div><div>A</div></div>
-            <div><div>B</div></div>
-            <div><div>O</div></div>
-            <div><div>U</div></div>
-            <div><div>T</div></div>
-        </h2>
-    </div>
+                <h1 class="heading-shadow not-selectable">ABOUT</h1>
+                <h2 class="heading-small">
+                    <div>
+                        <div>A</div>
+                    </div>
+                    <div>
+                        <div>B</div>
+                    </div>
+                    <div>
+                        <div>O</div>
+                    </div>
+                    <div>
+                        <div>U</div>
+                    </div>
+                    <div>
+                        <div>T</div>
+                    </div>
+                </h2>
+            </div>
 
             <!-- Content - FIXED CENTERING -->
             <div class="flex flex-col items-center justify-center">
@@ -223,8 +234,11 @@
                         and Change-Makers!</h3>
                     <p class="text-gray-300 leading-relaxed mb-10 about-para">
                         "Welcome to <span class="font-semibold text-cyan-300 tracking-wide text-2xl">PEC HACKS
-                            </span>, where innovation meets impact! We are thrilled to invite you to this exciting hackathon organized by <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI,
-                            TAMILNADU,</span>. It is your gateway to a world of possibilities, where passionate individuals like you come together to unleash their creativity, solve real-world challenges, and make a meaningful difference."
+                        </span>, where innovation meets impact! We are thrilled to invite you to this exciting hackathon
+                        organized by <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI,
+                            TAMILNADU,</span>. It is your gateway to a world of possibilities, where passionate
+                        individuals like you come together to unleash their creativity, solve real-world challenges, and
+                        make a meaningful difference."
                     </p>
 
                     <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats ">
@@ -274,7 +288,7 @@
             <br>
             <br>
 
-            
+
             <!-- <div class="heading not-selectable">
         <h1 class="heading-shadow not-selectable">OUR PATRONS</h1>
         <h2 class="heading-small">
@@ -454,16 +468,30 @@
     </section>
 
     <!-- Glimps Section -->
-            <div class="heading not-selectable">
+    <div class="heading not-selectable">
         <h1 class="heading-shadow not-selectable">Gallery</h1>
         <h2 class="heading-small">
-            <div><div>G</div></div>
-            <div><div>A</div></div>
-            <div><div>L</div></div>
-            <div><div>L</div></div>
-            <div><div>E</div></div>
-            <div><div>R</div></div>
-            <div><div>Y</div></div>
+            <div>
+                <div>G</div>
+            </div>
+            <div>
+                <div>A</div>
+            </div>
+            <div>
+                <div>L</div>
+            </div>
+            <div>
+                <div>L</div>
+            </div>
+            <div>
+                <div>E</div>
+            </div>
+            <div>
+                <div>R</div>
+            </div>
+            <div>
+                <div>Y</div>
+            </div>
         </h2>
     </div>
 
@@ -562,247 +590,264 @@
 </div>
     </div> -->
 
-    <div  class="relative  back-about z-30">
+    <div class="relative  back-about z-30">
         <div class="wrap">
-        <main id="grid" aria-live="polite">
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/cheif.jpg" alt="img01">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/02.jpg" alt="img02">
-                    </div>
-                </div>
-            </div>
-            
-           
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/03.jpg" alt="img03">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/04.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/05.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/09.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/07.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/08.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/06.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/10.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-           
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/11.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/12.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/30.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/14.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/15.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/16.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/18.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/19.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
+            <main id="grid" aria-live="polite">
 
-           
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/20.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/21.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-           
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/22.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/23.jpg" alt="img04">
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/36.jpg" alt="img01">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/02.jpg" alt="img02">
+                        </div>
                     </div>
                 </div>
-            </div>
-           
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/24.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/25.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/26.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/27.jpg" alt="img04">
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/03.jpg" alt="img03">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/04.jpg" alt="img04">
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/28.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/29.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/13.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/31.jpg" alt="img04">
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/05.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/09.jpg" alt="img04">
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/34.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/33.jpg" alt="img04">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/35.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/36.jpg" alt="img04">
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/07.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/08.jpg" alt="img04">
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="hex-container">
-                <div class="flip-card">
-                    <div class="flip-front">
-                        <img src="./assets/pec hacks 2.0/DAY 1/37.jpg" alt="img04">
-                    </div>
-                    <div class="flip-back">
-                        <img src="./assets/pec hacks 2.0/DAY 1/36.jpg" alt="img04">
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/06.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/10.jpg" alt="img04">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/11.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/12.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/30.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/14.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/15.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/16.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/18.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/19.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/20.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/21.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/22.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/23.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/24.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/25.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/26.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/27.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/28.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/29.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/13.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/31.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/34.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/33.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/35.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/36.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hex-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <img src="./assets/pec hacks 2.0/DAY 1/37.jpg" alt="img04">
+                        </div>
+                        <div class="flip-back">
+                            <img src="./assets/pec hacks 2.0/DAY 1/36.jpg" alt="img04">
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
 
     </div>
 
     <div class="background">
-    <div class="overlay"></div>
-    <div class="title">GLIMPSE</div>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/ldYAX1xME0M?si=SNC_oTtGj66hdb06" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="overlay"></div>
+        <div class="title">GLIMPSE</div>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ldYAX1xME0M?si=SNC_oTtGj66hdb06"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </div>
-  </div>
 
 
     <!--DOMAINS SECTION-->
     <section id="domains" class="relative py-10  z-30">
-    <div class="container mx-auto px-4 relative z-10">
-         <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">DOMAINS</h1>
-        <h2 class="heading-small">
-            <div><div>D</div></div>
-            <div><div>O</div></div>
-            <div><div>M</div></div>
-            <div><div>A</div></div>
-            <div><div>I</div></div>
-            <div><div>N</div></div>
-            <div><div>S</div></div>
-        </h2>
-    </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="heading not-selectable">
+                <h1 class="heading-shadow not-selectable">DOMAINS</h1>
+                <h2 class="heading-small">
+                    <div>
+                        <div>D</div>
+                    </div>
+                    <div>
+                        <div>O</div>
+                    </div>
+                    <div>
+                        <div>M</div>
+                    </div>
+                    <div>
+                        <div>A</div>
+                    </div>
+                    <div>
+                        <div>I</div>
+                    </div>
+                    <div>
+                        <div>N</div>
+                    </div>
+                    <div>
+                        <div>S</div>
+                    </div>
+                </h2>
+            </div>
 
-        <!-- <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-10 max-w-7xl justify-center mx-auto">
+            <!-- <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-10 max-w-7xl justify-center mx-auto">
             
             <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
                 <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
@@ -887,113 +932,142 @@
             </div>
         </div> -->
 
-        <div class="pec-domain-cards-container" id="domains-cards">
-            <div class="pec-domain-cards-wrapper">
-                <article class="pec-domain-card">
-                    <img src="./assets/DOMAINS/006.jpg" alt="Digital Healthcare" class="pec-domain-card__img">
-                    <div class="pec-domain-card__data">
-                        <h2 class="pec-domain-card__title">HEALTHCARE</h2>                       
-                    </div>
-                </article>
+            <div class="pec-domain-cards-container" id="domains-cards">
+                <div class="pec-domain-cards-wrapper">
+                    <article class="pec-domain-card">
+                        <img src="./assets/DOMAINS/006.jpg" alt="Digital Healthcare" class="pec-domain-card__img">
+                        <div class="pec-domain-card__data">
+                            <h2 class="pec-domain-card__title">HEALTHCARE</h2>
+                        </div>
+                    </article>
 
-                <article class="pec-domain-card">
-                    <img src="./assets/DOMAINS/005.jpg" alt="FinTech" class="pec-domain-card__img">
-                    <div class="pec-domain-card__data">
-                        <h2 class="pec-domain-card__title">FINTECH</h2>
-                    </div>
-                </article>
+                    <article class="pec-domain-card">
+                        <img src="./assets/DOMAINS/005.jpg" alt="FinTech" class="pec-domain-card__img">
+                        <div class="pec-domain-card__data">
+                            <h2 class="pec-domain-card__title">FINTECH</h2>
+                        </div>
+                    </article>
 
-                <article class="pec-domain-card">
-                    <img src="./assets/DOMAINS/004.jpg" alt="Education Technology" class="pec-domain-card__img">
-                    <div class="pec-domain-card__data">
-                        <h2 class="pec-domain-card__title">EDUTECH</h2>
-                    </div>
-                </article>
-                <article class="pec-domain-card">
-                    <img src="./assets/DOMAINS/003.jpg" alt="Digital Healthcare" class="pec-domain-card__img">
-                    <div class="pec-domain-card__data">
-                        <h2 class="pec-domain-card__title">SUSTAINABILITY & GREEN TECH</h2>
-                    </div>
-                </article>
+                    <article class="pec-domain-card">
+                        <img src="./assets/DOMAINS/004.jpg" alt="Education Technology" class="pec-domain-card__img">
+                        <div class="pec-domain-card__data">
+                            <h2 class="pec-domain-card__title">EDUTECH</h2>
+                        </div>
+                    </article>
+                    <article class="pec-domain-card">
+                        <img src="./assets/DOMAINS/003.jpg" alt="Digital Healthcare" class="pec-domain-card__img">
+                        <div class="pec-domain-card__data">
+                            <h2 class="pec-domain-card__title">SUSTAINABILITY & GREEN TECH</h2>
+                        </div>
+                    </article>
 
-                <article class="pec-domain-card">
-                    <img src="./assets/DOMAINS/001.jpg" alt="FinTech" class="pec-domain-card__img">
-                    <div class="pec-domain-card__data">
-                        <h2 class="pec-domain-card__title">OPEN INNOVATION</h2>
-                    </div>
-                </article>
+                    <article class="pec-domain-card">
+                        <img src="./assets/DOMAINS/001.jpg" alt="FinTech" class="pec-domain-card__img">
+                        <div class="pec-domain-card__data">
+                            <h2 class="pec-domain-card__title">OPEN INNOVATION</h2>
+                        </div>
+                    </article>
 
-                <article class="pec-domain-card">
-                    <img src="./assets/DOMAINS/002.jpg" alt="Education Technology" class="pec-domain-card__img">
-                    <div class="pec-domain-card__data">
-                        <h2 class="pec-domain-card__title">SCHOOL TRACK</h2>
-                    </div>
-                </article>
+                    <article class="pec-domain-card">
+                        <img src="./assets/DOMAINS/002.jpg" alt="Education Technology" class="pec-domain-card__img">
+                        <div class="pec-domain-card__data">
+                            <h2 class="pec-domain-card__title">SCHOOL TRACK</h2>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Partners Section -->
-    <section  class="relative py-20 z-30">
+    <section class="relative py-20 z-30">
         <div class="container mx-auto px-4 relative z-10">
 
             <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">Join With Us</h1>
-        <h2 class="heading-small" >
-            <div><div>J</div></div>
-            <div><div>o</div></div>
-            <div><div>i</div></div>
-            <div><div style="margin: 0px 20px 0px 0px;">n</div></div>
-            <div><div>W</div></div>
-            <div><div>i</div></div>
-            <div><div>t</div></div>
-            <div><div style="margin: 0px 20px 0px 0px;">h</div></div>
-            <div><div>U</div></div>
-            <div><div>s</div></div>
-        </h2>
-        <div class="section-header">
-                
-                <p class="text-xl" style="font-family: 'Teko', sans-serif; margin-top: 20px;" >Partner with us to shape the future of technology and innovation</p>
+                <h1 class="heading-shadow not-selectable">Join With Us</h1>
+                <h2 class="heading-small">
+                    <div>
+                        <div>J</div>
+                    </div>
+                    <div>
+                        <div>o</div>
+                    </div>
+                    <div>
+                        <div>i</div>
+                    </div>
+                    <div>
+                        <div style="margin: 0px 20px 0px 0px;">n</div>
+                    </div>
+                    <div>
+                        <div>W</div>
+                    </div>
+                    <div>
+                        <div>i</div>
+                    </div>
+                    <div>
+                        <div>t</div>
+                    </div>
+                    <div>
+                        <div style="margin: 0px 20px 0px 0px;">h</div>
+                    </div>
+                    <div>
+                        <div>U</div>
+                    </div>
+                    <div>
+                        <div>s</div>
+                    </div>
+                </h2>
+                <div class="section-header">
+
+                    <p class="text-xl" style="font-family: 'Teko', sans-serif; margin-top: 20px;">Partner with us to
+                        shape the future of technology and innovation</p>
+                </div>
             </div>
-    </div>
             <!-- Why Partner Section -->
             <div class="mb-20 mt-10">
-                <h3 class="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12" style="font-family: 'Teko', sans-serif;">
+                <h3 class="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12"
+                    style="font-family: 'Teko', sans-serif;">
                     Why Partner With PEC HACKS 3.0 ?
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto" >
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     <!-- Targeted Reach -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🎯</div>
-                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Targeted Reach</h4>
+                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Targeted
+                            Reach</h4>
                         <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
-                            Connect with 500+ highly skilled developers, designers, and innovators from top institutions.
+                            Connect with 500+ highly skilled developers, designers, and innovators from top
+                            institutions.
                         </p>
                     </div>
-                    
+
                     <!-- Brand Visibility -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🌟</div>
-                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Brand Visibility</h4>
+                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Brand
+                            Visibility</h4>
                         <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
-                            Gain exposure across multiple channels including social media, campus networks, and tech communities.
+                            Gain exposure across multiple channels including social media, campus networks, and tech
+                            communities.
                         </p>
                     </div>
-                    
+
                     <!-- Talent Acquisition -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">💼</div>
-                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Talent Acquisition</h4>
+                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Talent
+                            Acquisition</h4>
                         <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
-                            Direct access to emerging talent and the opportunity to recruit the best minds in technology.
+                            Direct access to emerging talent and the opportunity to recruit the best minds in
+                            technology.
                         </p>
                     </div>
-                    
+
                     <!-- Innovation Access -->
                     <div class="cosmic-card text-center p-6">
                         <div class="text-4xl mb-4">🚀</div>
-                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Innovation Access</h4>
+                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">
+                            Innovation Access</h4>
                         <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
                             Get first-hand access to cutting-edge solutions and innovative ideas from the hackathon.
                         </p>
@@ -1004,124 +1078,174 @@
             <!-- Partners by Category -->
             <div class="mb-16" id="partners">
                 <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">PARTNERS</h1>
-        <h2 class="heading-small">
-            <div><div>P</div></div>
-            <div><div>A</div></div>
-            <div><div>R</div></div>
-            <div><div>T</div></div>
-            <div><div>N</div></div>
-            <div><div>E</div></div>
-            <div><div>R</div></div>
-            <div><div>S</div></div>
-        </h2>
-    </div>
+                    <h1 class="heading-shadow not-selectable">PARTNERS</h1>
+                    <h2 class="heading-small">
+                        <div>
+                            <div>P</div>
+                        </div>
+                        <div>
+                            <div>A</div>
+                        </div>
+                        <div>
+                            <div>R</div>
+                        </div>
+                        <div>
+                            <div>T</div>
+                        </div>
+                        <div>
+                            <div>N</div>
+                        </div>
+                        <div>
+                            <div>E</div>
+                        </div>
+                        <div>
+                            <div>R</div>
+                        </div>
+                        <div>
+                            <div>S</div>
+                        </div>
+                    </h2>
                 </div>
+            </div>
 
-                <!-- Gold Partners -->
-                <div class="mb-12">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300" style="font-family: 'Teko', sans-serif;">GOLD SPONSORS</h3>
-                    </div>
-                    <div class="flex flex-wrap justify-center gap-8">
-                        <!-- Devfolio -->
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://devfolio.co/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/sponsers/Devfolio.png" alt="DEVFOLIO LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
-                        </div>
-                        
-                        <!-- ETH India -->
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://ethindia2024.devfolio.co/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/sponsers/ETH - india.png" alt="ETHINDIA LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
-                        </div>
-
-                        <!-- GIT-HUB -->
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://github.com/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets//sponsers/Git-hub logo.png" alt="GIT-HUB LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
-                        </div>
-                    </div>
+            <!-- Gold Partners -->
+            <div class="mb-12">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300"
+                        style="font-family: 'Teko', sans-serif;">GOLD SPONSORS</h3>
                 </div>
-                <!-- Bronze Partners -->
-                <div class="mb-12">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-[#CD7F32]" style="font-family: 'Teko', sans-serif;">BRONZE SPONSORS</h3>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- Devfolio -->
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://devfolio.co/', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets/sponsers/Devfolio.png" alt="DEVFOLIO LOGO"
+                                class="object-contain rounded-xl w-full h-full">
+                        </div>
                     </div>
-                    <div class="flex flex-wrap  justify-center gap-8">
-                        
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://balsamiq.com', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/sponsers/balsamiq.png" alt="balsamiq LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
-                        </div>
 
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://nordpass.com/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/sponsers/nord.png" alt="nord LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
+                    <!-- ETH India -->
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://ethindia2024.devfolio.co/', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets/sponsers/ETH - india.png" alt="ETHINDIA LOGO"
+                                class="object-contain rounded-xl w-full h-full">
                         </div>
-
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://nordvpn.com/hackathons', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/sponsers/nordvpn.png" alt="nordvpn LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
-                        </div>
-
-                        
                     </div>
-                </div>
-                <div class="mb-12">
-                    
-                    <div class="flex flex-wrap  justify-center gap-8">
-            
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://incogni.com/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/sponsers/incogni.png" alt="incogni LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
-                        </div>
-                        
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://nexos.ai/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/sponsers/nexosai(1).jpg" alt="nexosai LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
-                        </div>
-                        <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105" onclick="window.open('https://nordprotect.com/', '_blank')">
-                            <div class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                                <img src="./assets/sponsers/nordprotect-(1).jpg" alt="nordprotect LOGO" class="object-contain rounded-xl w-full h-full">
-                            </div>
+
+                    <!-- GIT-HUB -->
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://github.com/', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets//sponsers/Git-hub logo.png" alt="GIT-HUB LOGO"
+                                class="object-contain rounded-xl w-full h-full">
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Bronze Partners -->
+            <div class="mb-12">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl md:text-3xl font-bold font-bungee text-[#CD7F32]"
+                        style="font-family: 'Teko', sans-serif;">BRONZE SPONSORS</h3>
+                </div>
+                <div class="flex flex-wrap  justify-center gap-8">
 
-            <!-- Call to Action -->
-            <div class="text-center">
-                <div class="cosmic-card max-w-4xl mx-auto p-8 glow" style="background: rgba(15, 23, 42, 0.9);">
-                    <div class="text-center space-y-6">
-                        <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white" style="font-family: 'Teko', sans-serif;">
-                            Ready to Join Our Mission?
-                        </h3>
-                        <p class="text-lg text-gray-300 font-rajdhani" style="font-family: 'Teko', sans-serif; font-size: x-large;">
-                            Be part of the most exciting hackathon in the region. Let's create something extraordinary together and shape the future of technology.
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://balsamiq.com', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets/sponsers/balsamiq.png" alt="balsamiq LOGO"
+                                class="object-contain rounded-xl w-full h-full">
+                        </div>
+                    </div>
+
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://nordpass.com/', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets/sponsers/nord.png" alt="nord LOGO"
+                                class="object-contain rounded-xl w-full h-full">
+                        </div>
+                    </div>
+
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://nordvpn.com/hackathons', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets/sponsers/nordvpn.png" alt="nordvpn LOGO"
+                                class="object-contain rounded-xl w-full h-full">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="mb-12">
+
+                <div class="flex flex-wrap  justify-center gap-8">
+
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://incogni.com/', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets/sponsers/incogni.png" alt="incogni LOGO"
+                                class="object-contain rounded-xl w-full h-full">
+                        </div>
+                    </div>
+
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://nexos.ai/', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets/sponsers/nexosai(1).jpg" alt="nexosai LOGO"
+                                class="object-contain rounded-xl w-full h-full">
+                        </div>
+                    </div>
+                    <div class="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                        onclick="window.open('https://nordprotect.com/', '_blank')">
+                        <div
+                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
+                            <img src="./assets/sponsers/nordprotect-(1).jpg" alt="nordprotect LOGO"
+                                class="object-contain rounded-xl w-full h-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center">
+            <div class="cosmic-card max-w-4xl mx-auto p-8 glow" style="background: rgba(15, 23, 42, 0.9);">
+                <div class="text-center space-y-6">
+                    <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white"
+                        style="font-family: 'Teko', sans-serif;">
+                        Ready to Join Our Mission?
+                    </h3>
+                    <p class="text-lg text-gray-300 font-rajdhani"
+                        style="font-family: 'Teko', sans-serif; font-size: x-large;">
+                        Be part of the most exciting hackathon in the region. Let's create something extraordinary
+                        together and shape the future of technology.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="border-2 px-4 py-2 rounded-xl border-blue-500 text-2xl"
+                            style="font-family: 'Teko', sans-serif;" onclick="downloadSponsorshipDeck()">
+                            Download Sponsorship Deck
+                        </button>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-gray-700">
+                        <p class="text-xl text-gray-400 font-electrolize" style="font-family: 'Teko', sans-serif;">
+                            Contact us: <a href="mailto:team@pechacks.org"
+                                class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline text-xl">team@pechacks.org</a>
+
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button class="border-2 px-4 py-2 rounded-xl border-blue-500 text-2xl"style="font-family: 'Teko', sans-serif;" onclick="downloadSponsorshipDeck()">
-                                Download Sponsorship Deck
-                            </button>
-                        </div>
-                        <div class="mt-6 pt-6 border-t border-gray-700">
-                            <p class="text-xl text-gray-400 font-electrolize" style="font-family: 'Teko', sans-serif;">
-                                Contact us: <a href="mailto:team@pechacks.org" class="text-cyan-300 hover:text-cyan-200 cursor-pointer underline text-xl">team@pechacks.org</a> 
-                                
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -1129,16 +1253,26 @@
 
     <div class="dark-faq-container" id="faq">
         <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">FAQ'S</h1>
-        <h2 class="heading-small">
-            <div><div>F</div></div>
-            <div><div>A</div></div>
-            <div><div>Q</div></div>
-            <div><div>'</div></div>
-            <div><div>S</div></div>
-        </h2>
-    </div>
-        
+            <h1 class="heading-shadow not-selectable">FAQ'S</h1>
+            <h2 class="heading-small">
+                <div>
+                    <div>F</div>
+                </div>
+                <div>
+                    <div>A</div>
+                </div>
+                <div>
+                    <div>Q</div>
+                </div>
+                <div>
+                    <div>'</div>
+                </div>
+                <div>
+                    <div>S</div>
+                </div>
+            </h2>
+        </div>
+
         <div class="dark-faq-row">
             <!-- Left Column (First 6 questions) -->
             <div class="dark-faq-column">
@@ -1263,9 +1397,9 @@
                 </div>
             </div>
         </div>
-        
-        
-        
+
+
+
     </div>
 
     <!-- Footer Section -->
@@ -1277,24 +1411,31 @@
             <div class=" grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
                 <!-- Left Section -->
                 <div class="md:col-span-1">
-                    <h2 class="text-4xl font-extrabold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent" style="font-family: 'Teko', sans-serif;">
+                    <h2 class="text-4xl font-extrabold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+                        style="font-family: 'Teko', sans-serif;">
                         PEC Hacks
                     </h2>
-                    <p class="text-2xl mt-2 text-gray-300" style="font-family: 'Teko', sans-serif;">International Hackathon</p>
+                    <p class="text-2xl mt-2 text-gray-300" style="font-family: 'Teko', sans-serif;">International
+                        Hackathon</p>
                     <div class="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
-                        <a href="https://github.com/thecoding-society" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-gray-400 transition-colors text-white">
+                        <a href="https://github.com/thecoding-society" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub" class="hover:text-gray-400 transition-colors text-white">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://x.com/PECHacks" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-blue-400 transition-colors text-white">
+                        <a href="https://x.com/PECHacks" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
+                            class="hover:text-blue-400 transition-colors text-white">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://www.instagram.com/pechacks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-pink-400 transition-colors text-white">
+                        <a href="https://www.instagram.com/pechacks/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram" class="hover:text-pink-400 transition-colors text-white">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/pec-hacks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-blue-400 transition-colors text-white">
+                        <a href="https://www.linkedin.com/company/pec-hacks/" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn" class="hover:text-blue-400 transition-colors text-white">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://discord.gg/2w2FSTXehQ" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="hover:text-indigo-400 transition-colors text-white">
+                        <a href="https://discord.gg/2w2FSTXehQ" target="_blank" rel="noopener noreferrer"
+                            aria-label="Discord" class="hover:text-indigo-400 transition-colors text-white">
                             <i class="fab fa-discord"></i>
                         </a>
                     </div>
@@ -1302,13 +1443,15 @@
 
                 <!-- Middle Section -->
                 <div class="md:col-span-1">
-                    <h3 class="text-2xl font-bold text-white font-electrolize" style="font-family: 'Teko', sans-serif;">Venue Address</h3>
+                    <h3 class="text-2xl font-bold text-white font-electrolize" style="font-family: 'Teko', sans-serif;">
+                        Venue Address</h3>
                     <p class="mt-2 text-xl text-gray-300 font-rajdhani" style="font-family: 'Teko', sans-serif;">
                         Panimalar Engineering College,<br>
                         Nazarathpettai, Poonamallee,<br>
                         Chennai, Tamil Nadu - 600123
                     </p>
-                    <h3 class="text-xl font-bold mt-6 text-white font-electrolize" style="font-family: 'Teko', sans-serif;">Branding Guidelines</h3>
+                    <h3 class="text-xl font-bold mt-6 text-white font-electrolize"
+                        style="font-family: 'Teko', sans-serif;">Branding Guidelines</h3>
                     <ul class="mt-2 space-y-2">
                         <li>
                             <a href="http://assets.pechacks.org/" class="text-cyan-400 hover:underline font-rajdhani">
@@ -1320,28 +1463,34 @@
 
                 <!-- Right Section -->
                 <div class="md:col-span-1">
-                    <h3 class="text-xl font-bold text-white font-electrolize" style="font-family: 'Teko', sans-serif;">Additional Links</h3>
+                    <h3 class="text-xl font-bold text-white font-electrolize" style="font-family: 'Teko', sans-serif;">
+                        Additional Links</h3>
                     <ul class="mt-2 space-y-2">
                         <li>
-                            <a href="https://www.panimalar.ac.in" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-rajdhani">
+                            <a href="https://www.panimalar.ac.in" target="_blank" rel="noopener noreferrer"
+                                class="text-cyan-400 hover:underline font-rajdhani">
                                 › College Website
                             </a>
                         </li>
                         <li>
-                            <a href="https://coding.peccsbs.xyz/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-rajdhani">
+                            <a href="https://coding.peccsbs.xyz/" target="_blank" rel="noopener noreferrer"
+                                class="text-cyan-400 hover:underline font-rajdhani">
                                 › The Coding Society
                             </a>
                         </li>
                     </ul>
-                    <h3 class="text-xl font-bold text-white font-electrolize mt-6" style="font-family: 'Teko', sans-serif;">Past Events</h3>
+                    <h3 class="text-xl font-bold text-white font-electrolize mt-6"
+                        style="font-family: 'Teko', sans-serif;">Past Events</h3>
                     <ul class="mt-2 space-y-2">
                         <li>
-                            <a href="https://one.pechacks.org/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-rajdhani">
+                            <a href="https://one.pechacks.org/" target="_blank" rel="noopener noreferrer"
+                                class="text-cyan-400 hover:underline font-rajdhani">
                                 › Visit 1.0
                             </a>
                         </li>
                         <li>
-                            <a href="https://two.pechacks.org/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-rajdhani">
+                            <a href="https://two.pechacks.org/" target="_blank" rel="noopener noreferrer"
+                                class="text-cyan-400 hover:underline font-rajdhani">
                                 › Visit 2.0
                             </a>
                         </li>
@@ -1350,24 +1499,20 @@
 
                 <!-- Map Section -->
                 <div class="md:col-span-1">
-                    <h3 class="text-2xl font-bold mb-4 text-white font-electrolize" style="font-family: 'Teko', sans-serif;">Location</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-white font-electrolize"
+                        style="font-family: 'Teko', sans-serif;">Location</h3>
                     <div class="aspect-w-16 aspect-h-9">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7920451208224!2d80.07288927484274!3d13.048904887273663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5261c68a9f3031%3A0xab41c8bdcf32ad47!2sPanimalar%20Engineering%20College!5e0!3m2!1sen!2sin!4v1756634251679!5m2!1sen!2sin"
-                            width="100%"
-                            height="200"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            class="rounded-lg"
-                        ></iframe>
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
                     </div>
                 </div>
             </div>
 
             <!-- Copyright Section -->
-            <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-gray-700/30 text-center text-sm text-gray-400 font-rajdhani">
+            <div
+                class="max-w-7xl mx-auto mt-8 pt-6 border-t border-gray-700/30 text-center text-sm text-gray-400 font-rajdhani">
                 <p>© <span id="current-year"></span> PEC Hacks. All rights reserved.</p>
             </div>
         </div>
@@ -1375,4 +1520,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
