@@ -518,3 +518,46 @@ document.addEventListener("DOMContentLoaded", function () {
       "px";
   }
 });
+
+// Progress bar animation
+        // window.addEventListener('scroll', function() {
+        //     const progressBar = document.getElementById('progressBar');
+        //     const timelineEvents = document.querySelectorAll('.timeline-event');
+        //     const eventMarkers = document.querySelectorAll('.event-marker');
+        //     const eventDescriptions = document.querySelectorAll('.event-description');
+            
+        //     // Calculate scroll progress
+        //     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        //     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        //     const scrollProgress = scrollTop / scrollHeight;
+            
+        //     // Update progress bar height - fixed calculation
+        //     const timelineComponent = document.querySelector('.timeline-component');
+        //     const timelineHeight = timelineComponent.offsetHeight;
+        //     const windowHeight = window.innerHeight;
+        //     const maxScroll = timelineHeight - windowHeight;
+        //     const currentScroll = Math.min(scrollTop, maxScroll);
+        //     const progressPercentage = (currentScroll / maxScroll) * 100;
+            
+        //     progressBar.style.height = progressPercentage + '%';
+            
+        //     // Update active states based on scroll position
+        //     timelineEvents.forEach((event, index) => {
+        //         const rect = event.getBoundingClientRect();
+        //         const isVisible = rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
+                
+        //         if (isVisible) {
+        //             eventMarkers[index].classList.add('active');
+        //             eventDescriptions[index].classList.add('active');
+        //         } else {
+        //             eventMarkers[index].classList.remove('active');
+        //             eventDescriptions[index].classList.remove('active');
+        //         }
+        //     });
+        // });
+
+        // // Initialize progress bar on page load
+        // window.addEventListener('load', function() {
+        //     const progressBar = document.getElementById('progressBar');
+        //     progressBar.style.height = '0%';
+        // });
