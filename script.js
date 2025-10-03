@@ -757,13 +757,11 @@ class TargetCursor {
       this.spinTl.kill();
     }
 
-    this.spinTl = gsap
-      .timeline({ repeat: -1 })
-      .to(this.cursorWrapper, {
-        rotation: "+=360",
-        duration: this.spinDuration,
-        ease: "none",
-      });
+    this.spinTl = gsap.timeline({ repeat: -1 }).to(this.cursorWrapper, {
+      rotation: "+=360",
+      duration: this.spinDuration,
+      ease: "none",
+    });
   }
 
   moveCursor(x, y) {
@@ -984,13 +982,11 @@ class TargetCursor {
             const normalizedRotation = currentRotation % 360;
 
             this.spinTl.kill();
-            this.spinTl = gsap
-              .timeline({ repeat: -1 })
-              .to(this.cursorWrapper, {
-                rotation: "+=360",
-                duration: this.spinDuration,
-                ease: "none",
-              });
+            this.spinTl = gsap.timeline({ repeat: -1 }).to(this.cursorWrapper, {
+              rotation: "+=360",
+              duration: this.spinDuration,
+              ease: "none",
+            });
 
             gsap.to(this.cursorWrapper, {
               rotation: normalizedRotation + 360,
