@@ -1048,36 +1048,3 @@ document.addEventListener("DOMContentLoaded", () => {
   //     cursor.createSpinTimeline();
   // }, 5000);
 });
-
-// JavaScript for hover effects and animations
-document.addEventListener("DOMContentLoaded", function () {
-  // Add hover effect to all sponsor images
-  const sponsorImages = document.querySelectorAll(
-    ".community-partners-gold img"
-  );
-
-  sponsorImages.forEach((img) => {
-    img.addEventListener("mouseenter", function () {
-      this.style.transform = "scale(1.05)";
-      this.style.boxShadow = "0 8px 16px rgba(255, 255, 255, 0.1)";
-    });
-
-    img.addEventListener("mouseleave", function () {
-      this.style.transform = "scale(1)";
-      this.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
-    });
-  });
-
-  // Pause animation on hover
-  const carousels = document.querySelectorAll(".community-partners-carousel");
-
-  carousels.forEach((carousel) => {
-    carousel.addEventListener("mouseenter", function () {
-      this.style.animationPlayState = "paused";
-    });
-
-    carousel.addEventListener("mouseleave", function () {
-      this.style.animationPlayState = "running";
-    });
-  });
-});

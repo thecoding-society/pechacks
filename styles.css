@@ -3280,212 +3280,136 @@
             border-top: none;
         }
 
+        /*cursor code ends*/
+
         /* Community Partners Section */
-        .community-partners-section {
-            padding: 60px 20px;
-            background-color: #000;
-        }
-
-        .community-partners-heading {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .community-partners-heading-shadow {
-            font-size: 120px;
-            color: rgba(255, 255, 255, 0.05);
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
+        .carousel-container {
+            max-width: 1300px;
             width: 100%;
-            z-index: 1;
-            font-weight: bold;
+            margin: 0 auto 100px;
         }
 
-        .community-partners-heading-small {
-            font-size: 60px;
-            color: #fff;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .community-partners-heading-small div {
-            overflow: hidden;
-        }
-
-        .community-partners-title {
-            font-size: 30px;
-            color: #fff;
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .community-partners-light-des {
-            color: #fff;
-        }
-
-        /* Carousel Styles */
-        .community-partners-carousel-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .community-partners-carousel-scroll-container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .community-partners-carousel {
-            display: flex;
-            white-space: nowrap;
-            animation-timing-function: linear;
-        }
-
-        .community-partners-primary-carousel {
-            animation: community-partners-scroll-left 150s linear infinite;
-        }
-
-        .community-partners-secondary-carousel {
-            animation: community-partners-scroll-right 200s linear infinite;
-        }
-
-        .community-partners-gold {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .community-partners-com {
-            margin: 10px 0;
-            width: 220px;
-        }
-
-        .community-partners-gold a {
-            display: inline-block;
-            transition: transform 0.3s ease;
+        .carousel-section {
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             
         }
 
-        .community-partners-gold img {
-            width: 220px;
-            height: 150px;
-            object-fit: contain;
-            border-radius: 15px;
+        .carousel-row {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 15px 0;
+            margin-bottom: 10px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 10px;
+            width: max-content;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: white;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .community-partners-gold img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
-        }
-
-        .community-partners-hvr-float-shadow {
-            display: inline-block;
-            vertical-align: middle;
-            transform: perspective(1px) translateZ(0);
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-            transition-duration: 0.3s;
-            transition-property: transform;
-        }
-
-        .community-partners-hvr-float-shadow:hover {
+        .carousel-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Animations */
-        @keyframes community-partners-scroll-left {
-            from {
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(30%);
+            transition: filter 0.3s ease;
+        }
+
+        .carousel-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Animation for each row */
+        .carousel-row-1 .carousel-track {
+            animation: carousel-scroll-left 40s linear infinite;
+        }
+
+        .carousel-row-2 .carousel-track {
+            animation: carousel-scroll-right 45s linear infinite;
+        }
+
+        .carousel-row-3 .carousel-track {
+            animation: carousel-scroll-left 50s linear infinite;
+        }
+
+        .carousel-row-4 .carousel-track {
+            animation: carousel-scroll-right 55s linear infinite;
+        }
+
+        @keyframes carousel-scroll-left {
+            0% {
                 transform: translateX(0);
             }
-            to {
+            100% {
                 transform: translateX(-50%);
             }
         }
 
-        @keyframes community-partners-scroll-right {
-            from {
+        @keyframes carousel-scroll-right {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
                 transform: translateX(0);
             }
-            to {
-                transform: translateX(50%);
-            }
         }
 
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .community-partners-heading-shadow {
-                font-size: 100px;
-                top: -30px;
-            }
-            
-            .community-partners-heading-small {
-                font-size: 50px;
-            }
-            
-            .community-partners-gold img {
-                width: 120px;
-                height: 120px;
-            }
+        /* Pause animation on hover */
+        .carousel-row:hover .carousel-track {
+            animation-play-state: paused;
         }
 
+        /* Mobile-first responsive styles */
         @media (max-width: 768px) {
-            .community-partners-heading-shadow {
-                font-size: 80px;
-                top: -25px;
+            .carousel-section {
+                padding: 20px;
             }
             
-            .community-partners-heading-small {
-                font-size: 40px;
+            .carousel-item {
+                width: 140px;
+                height: 80px;
             }
             
-            .community-partners-title {
-                font-size: 24px;
-            }
-            
-            .community-partners-gold img {
-                width: 100px;
-                height: 100px;
+            .carousel-track {
+                gap: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .community-partners-heading-shadow {
-                font-size: 60px;
-                top: -20px;
+            .carousel-section {
+                padding: 1px;
+                
             }
             
-            .community-partners-heading-small {
-                font-size: 30px;
-                flex-wrap: wrap;
-            }
-            
-            .community-partners-title {
-                font-size: 20px;
-            }
-            
-            .community-partners-gold img {
-                width: 80px;
+            .carousel-item {
+                width: 130px;
                 height: 80px;
+                padding: 10px;
             }
             
-            .community-partners-carousel-scroll-container {
-                gap: 20px;
+            .carousel-track {
+                gap: 5px;
             }
         }
