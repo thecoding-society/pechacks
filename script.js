@@ -276,17 +276,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("current-year").textContent = new Date().getFullYear();
 
 // Handle sponsorship deck download
-function downloadSponsorshipDeck() {
-  // Create a temporary link element
-  const link = document.createElement("a");
-  link.href = "./assets/New folder/Pec Hacks 3.0 Sponsorship Deck (2).pdf"; // Replace with actual URL
-  link.download = "PEC-Hacks-3.0-Sponsorship-Deck.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-
-  // Alternatively, you could open in a new tab:
-  // window.open('https://example.com/path/to/sponsorship-deck.pdf', '_blank');
+function viewSponsorshipDeck() {
+  // Open the sponsorship deck in a new browser tab for viewing
+  window.open("./assets/Pec Hacks 3.0 Sponsorship Deck new.pdf", "_blank");
 }
 
 // Layout pattern: 5,4,5,4 repeating for desktop
@@ -1048,3 +1040,5 @@ document.addEventListener("DOMContentLoaded", () => {
   //     cursor.createSpinTimeline();
   // }, 5000);
 });
+
+

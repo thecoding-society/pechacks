@@ -352,7 +352,8 @@
             <br>
 
 
-            <div class="heading not-selectable">
+            <section >
+                <!-- <div class="heading not-selectable">
         <h1 class="heading-shadow not-selectable">OUR PATRONS</h1>
         <h2 class="heading-small">
             <div><div>O</div></div>
@@ -367,10 +368,10 @@
             <div><div>N</div></div>
             <div><div>S</div></div>
         </h2>
-    </div>
+    </div> -->
 
 
-            <div class="flex flex-col gap-8 mt-12">
+            <!-- <div class="flex flex-col gap-8 mt-12">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-auto max-w-5xl">
                     
@@ -526,7 +527,62 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            
+                <div class="text-center mb-8 mt-6">
+                    <h3 class="text-2xl md:text-5xl font-bold font-bungee text-white"
+                        style="font-family: 'Teko', sans-serif;">ORGANISED BY</h3>
+                </div>
+
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto max-w-6xl  max-h-[650px] ">
+                    
+                    <div class="cosmic-card p-6 h-full min-h-[150px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div class="relative w-32 h-32 overflow-hidden">
+                                    <img src="./assets/patrons/image (1).png" alt="Panimalar Engineering College"
+                                        class="object-contain w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1 text-left">
+                                
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Panimalar Engineering College</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="cosmic-card p-6 h-full min-h-[150px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div class="relative w-36 h-36 overflow-hidden">
+                                    <img src="./assets/patrons/GDGpec.png"
+                                        alt="Google Developer Groups" class="object-contain w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1 text-left">
+                                <h3 class="text-xl font-bold text-cyan-300 mb-1" style="font-family: 'Teko', sans-serif;">In Association With</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Google Developer Groups</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="cosmic-card p-6 h-full min-h-[150px] flex items-center">
+                        <div class="flex items-center gap-6 w-full">
+                            <div class="flex-shrink-0">
+                                <div class="relative w-36 h-36 overflow-hidden">
+                                    <img src="./assets/patrons/IEEE-LOGO.png"
+                                        alt="IEEE-LOGO" class="object-contain w-full h-full">
+                                </div>
+                            </div>
+                            <div class="flex-1 text-left">
+                                <h3 class="text-xl font-bold text-cyan-300 mb-1" style="font-family: 'Teko', sans-serif;">In Association With</h3>
+                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">IEEE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </section>
 
@@ -1160,7 +1216,8 @@
     </div>
 
     <!--prizes section-->
-    <div class="heading not-selectable " id="prizes">
+    <section  id="prizes" class="relative py-10 z-30">
+        <div class="heading not-selectable " >
         <h1 class="heading-shadow not-selectable">PRIZES</h1>
         <h2 class="heading-small ">
             <div>
@@ -1339,6 +1396,7 @@
             </div>
         </div>
     </div>
+    </section>
 
 
 
@@ -1434,8 +1492,9 @@
                 </div>
             </div>
 
-            <!-- Partners by Category -->
-            <div class="mb-16 pt-6" id="partners">
+            <section  id="partners" class="relative py-20 z-30">
+                <!-- Partners by Category -->
+            <div class="mb-16 pt-6">
                 <div class="heading not-selectable">
                     <h1 class="heading-shadow not-selectable">PARTNERS</h1>
                     <h2 class="heading-small">
@@ -1826,7 +1885,7 @@
                             </div>
                             <div class="carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
-                                    <img src="./assets/community partners/ssn-logo.png" alt="Blockseblock LOGO">
+                                    <img src="./assets/community partners/SPARK-TECH LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
                             <div class="carousel-item cursor-target">
@@ -1993,6 +2052,7 @@
             </div> -->
                 </section>
             </div>
+            </section>
 
         </div>
 
@@ -2011,7 +2071,7 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center ">
                         <button class="border-2 px-4 py-2 rounded-xl border-blue-500 text-2xl cursor-target"
-                            style="font-family: 'Teko', sans-serif;" onclick="downloadSponsorshipDeck()">
+                            style="font-family: 'Teko', sans-serif;" onclick="viewSponsorshipDeck()">
                             Download Sponsorship Deck
                         </button>
                     </div>
@@ -2183,6 +2243,36 @@
 
 
     </div>
+
+    <!--CONTACT SECTION-->
+    <section class="contact-section">
+    <div class="contact-container">
+
+      <!-- Email Section -->
+      <div class="contact-box">
+        <div class="contact-icon">✉️</div>
+        <h3 class="contact-title">EMAIL US</h3>
+        <div class="contact-email ">
+          <a href="mailto:team@pechacks.org" class="cursor-target">team@pechacks.org</a>
+        </div>
+      </div>
+
+      <!-- Phone Section -->
+      <div class="contact-box">
+        <div class="contact-icon">📞</div>
+        <h3 class="contact-title">CALL US</h3>
+        <div class="contact-phone">
+          <p class="contact-info"><strong>Bharanivelan J</strong><br>
+            <a href="tel:+919345404933" class="cursor-target">+91 93454 04933</a>
+          </p>
+          <p class="contact-info"><strong>Keshni B</strong><br>
+            <a href="tel:+916374723471" class="cursor-target">+91 63747 23471</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
     <!-- Footer Section -->
     <footer class="relative bg-black/30 backdrop-blur-lg border-t border-gray-700/30 py-8 z-30">

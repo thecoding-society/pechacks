@@ -3413,3 +3413,89 @@
                 gap: 5px;
             }
         }
+
+        /* ====== Contact Section ====== */
+    .contact-section {
+      width: 100%;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+      box-sizing: border-box;
+    }
+
+    
+
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1000px;
+      width: 100%;
+      gap: 50px;
+    }
+
+    /* ====== Contact Box ====== */
+    .contact-box {
+      flex: 1;
+      text-align: center;
+      min-width: 300px;
+    }
+
+    .contact-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .contact-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .contact-phone{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+
+    .contact-info {
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      margin: 20px;
+    }
+
+    .contact-email a,
+    .contact-phone a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-email a:hover,
+    .contact-phone a:hover {
+      color: cyan;
+      text-shadow: 0 0 10px cyan;
+    }
+
+    /* ====== Responsive Design ====== */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .contact-box {
+        flex: 1 1 100%;
+      }
+      .contact-title {
+        font-size: 1.4rem;
+      }
+      .contact-phone{
+        display: block;
+      }
+    }
