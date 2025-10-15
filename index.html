@@ -1,528 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PEC Hacks | Hackathon</title>
     <link rel="icon" type="image/png" href="./assets/New folder/favicon (1).png" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rajdhani:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Starfield Canvas -->
-    <canvas id="starfield"></canvas>
-
     <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-logo">
-            <!-- Replace with your actual logo -->
-            <img src="./assets/New folder/pechacks-01.png" alt="PEC Hacks Logo">
+    <div class="navbars-container">
+        <!-- Mobile Navigation -->
+        <div class="navbars-mobile" id="navbarsMobile">
+            <a href="#home" class="navbars-mobile-link cursor-target" onclick="navbarsCloseMobile()">HOME</a>
+            <a href="#about" class="navbars-mobile-link cursor-target" onclick="navbarsCloseMobile()">ABOUT</a>
+            <a href="#domain-section" class="navbars-mobile-link cursor-target" onclick="navbarsCloseMobile()">DOMAINS</a>
+            <a href="#prize-section" class="navbars-mobile-link cursor-target" onclick="navbarsCloseMobile()">PRIZES</a>
+            <a href="#partners" class="navbars-mobile-link cursor-target" onclick="navbarsCloseMobile()">PARTNERS</a>
+            <a href="#faq" class="navbars-mobile-link cursor-target" onclick="navbarsCloseMobile()">FAQ'S</a>
         </div>
 
-        <div class="nav-links">
-            <a href="#home" class="nav-link cursor-target">HOME</a>
-            <a href="#about" class="nav-link cursor-target">ABOUT</a>
-            <a href="#domains-cards" class="nav-link cursor-target">DOMAINS</a>
-            <a href="#prizes" class="nav-link cursor-target">PRIZES</a>
-            <a href="#partners" class="nav-link cursor-target">PARTNERS</a>
-            <a href="#faq" class="nav-link cursor-target">FAQ'S</a>
-        </div>
+        <nav class="navbars-main" id="navbarsMain">
+            <div class="navbars-logo">
+                <img src="./assets/New folder/pechacks-01.png" alt="PEC Hacks Logo" class="navbars-logo-img">
+            </div>
 
-        <button class="mobile-menu-btn cursor-target" id="mobileMenuBtn">
-            <i class="fas fa-bars "></i>
-        </button>
-    </nav>
+            <div class="navbars-links">
+                <a href="#home" class="navbars-link cursor-target">HOME</a>
+                <a href="#about" class="navbars-link cursor-target">ABOUT</a>
+                <a href="#domain-section" class="navbars-link cursor-target">DOMAINS</a>
+                <a href="#prize-section" class="navbars-link cursor-target">PRIZES</a>
+                <a href="#partners" class="navbars-link cursor-target">PARTNERS</a>
+                <a href="#faq" class="navbars-link cursor-target">FAQ'S</a>
+            </div>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <button class="close-menu" id="closeMenu">
-            <i class="fas fa-times"></i>
-        </button>
-        <a href="#home" class="mobile-nav-link cursor-target" onclick="closeMobileNav()">HOME</a>
-        <a href="#about" class="mobile-nav-link cursor-target" onclick="closeMobileNav()">ABOUT</a>
-        <a href="#domains-cards" class="mobile-nav-link cursor-target" onclick="closeMobileNav()">DOMAINS</a>
-        <a href="#prizes" class="mobile-nav-link cursor-target" onclick="closeMobileNav()">PRIZES</a>
-        <a href="#partners" class="mobile-nav-link cursor-target" onclick="closeMobileNav()">PARTNERS</a>
-        <a href="#faq" class="mobile-nav-link cursor-target" onclick="closeMobileNav()">FAQ'S</a>
+            <button class="navbars-menu-btn" id="navbarsMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <button class="navbars-close-btn" id="navbarsCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
     </div>
 
+     <!-- Starfield code starts -->
+    <canvas class="starfield-canvas" id="starfieldCanvas"></canvas>
 
-    <!-- HOME SECTION -->
-    <div class="hud-container" id="home">
-        <!-- Main Frame Container -->
-        <div>
-
-            <!-- <div class="frame-corner frame-corner-v top-0 left-0"></div>
-            <div class="frame-corner frame-corner-h top-0 left-0"></div>
-
-            <div class="frame-corner frame-corner-v top-0 right-0"></div>
-            <div class="frame-corner frame-corner-h top-0 right-0"></div>
-
-            <div class="frame-corner frame-corner-v bottom-0 left-0"></div>
-            <div class="frame-corner frame-corner-h bottom-0 left-0"></div>
-
-            <div class="frame-corner frame-corner-v bottom-0 right-0"></div>
-            <div class="frame-corner frame-corner-h bottom-0 right-0"></div>
-
-            
-            <div id="midpoints" class="hidden sm:block">
-                <div class="frame-corner frame-corner-h top-1/2 left-0 transform -translate-y-1/2" style="width: 12px;">
-                </div>
-                <div class="frame-corner frame-corner-v top-1/2 left-0 transform -translate-y-1/2"
-                    style="height: 12px;"></div>
-
-                <div class="frame-corner frame-corner-h top-1/2 right-0 transform -translate-y-1/2"
-                    style="width: 12px;"></div>
-                <div class="frame-corner frame-corner-v top-1/2 right-0 transform -translate-y-1/2"
-                    style="height: 12px;"></div>
-
-                <div class="frame-corner frame-corner-h top-0 left-1/2 transform -translate-x-1/2" style="width: 12px;">
-                </div>
-                <div class="frame-corner frame-corner-v top-0 left-1/2 transform -translate-x-1/2"
-                    style="height: 12px;"></div>
-
-                <div class="frame-corner frame-corner-h bottom-0 left-1/2 transform -translate-x-1/2"
-                    style="width: 12px;"></div>
-                <div class="frame-corner frame-corner-v bottom-0 left-1/2 transform -translate-x-1/2"
-                    style="height: 12px;"></div>
-            </div> -->
-
-
-            <div class="h-8 flex items-center justify-between px-4 bg-black bg-opacity-50 relative">
-                <div class="text-transparent font-mono text-sm font-semibold pulse">DECEMBER 2025</div>
-                <div class="text-transparent font-mono text-sm font-semibold pulse" id="dateDisplay">DECEMBER 2025</div>
-                <div class="text-transparent font-mono text-sm font-semibold pulse" id="timeDisplay">00:00:00</div>
-            </div>
-
-
-            <!-- <div class="bottom-left-text">
-                <div>December 27-28,2025</div>
-            </div>
-
-            
-            <div class="bottom-right-text">
-                <div>36-H</div>
-                <div>Hackathon</div>
-            </div> -->
-        </div>
-
+    <!--home section starts-->
+    <div class="home-main-container" id="home">
+      <div class="home-content-wrapper">
         <!-- Title Container -->
-        <div class="title-container">
-            <h1 class="hud-title" id="hudTitle">PEC HACKS 3.0</h1>
-            <!-- <div class="title-text">International Level Hackathon</div> -->
-            <p class="title-text">
-                DECEMBER 27-28, 2025
-                <!-- Dates will be announced soon -->
-            </p>
-            <p class="title-text mb-7">
-                36-hr International Level HACKATHON IN CHENNAI
-            </p>
+        <div class="home-title-container">
+          <h1 class="home-hud-title" id="homeHudTitle">
+            PEC HACKS 
+            <span class="glitch-30">
+                3.0
+                <span aria-hidden="true">3.0</span>
+                <span aria-hidden="true">3.0</span>
+            </span>
+          </h1>
+          <p class="home-title-text">DECEMBER 27-28, 2025</p>
+          <p class="home-title-text">
+            36-hr International Level HACKATHON IN CHENNAI
+          </p>
         </div>
 
         <!-- Content Container (Buttons + Timer) -->
-        <div class="content-container">
-            <!-- Button Container -->
-            <div class="button-container">
-                <div class="button-row">
-                    <!-- Visit 2.0 button with blue theme -->
-                    <div class="galaxy-button">
-                        <button class="space-button blue-theme cursor-target"
-                            onclick="window.location.href='https://two.pechacks.org/'">
-                            <span class="backdrop"></span>
-                            <span class="galaxy"></span>
-                            <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Visit
-                                2.0</label>
-                        </button>
-                    </div>
-                    <!-- Community button with original theme -->
-                    <div class="galaxy-button">
-                        <button class="space-button cursor-target"
-                            onclick="window.location.href='https://chat.whatsapp.com/GlkLriPcKKZJYduudh6RbI?mode=wwt'">
-                            <span class="backdrop"></span>
-                            <span class="galaxy"></span>
-                            <label class="text" style="font-family: 'Teko', sans-serif; font-size: large;">Join Our
-                                Community</label>
-                        </button>
-                    </div>
-                </div>
-                <!-- Pre-register button with new design -->
-                <!-- <div class="space-btn-wrapper">
-                    <button class="space-btn" id="preRegisterBtn" onclick="window.location.href='https://forms.office.com/r/quWQDSF8BS'" target="_blank">
-                        <strong>PRE-REGISTER HERE</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
-                </div> -->
-                <!--DEV BUTTON-->
-                <!-- Devfolio Apply Button -->
-                <div class="space-btn-wrapper">
-                    <div class="apply-button cursor-target" data-hackathon-slug="pechacks3" data-button-theme="light"
-                        style="height: 44px; width: 312px; margin: 0 auto;"></div>
-                </div>
+        <div class="home-content-container">
+          <!-- Button Container -->
+          <div class="home-button-container">
+            <div class="home-button-row">
+              <!-- Visit 2.0 button with blue theme -->
+              <div class="home-galaxy-button">
+                <button
+                  class="home-space-button home-blue-theme cursor-target"
+                  onclick="window.location.href='https://two.pechacks.org/'"
+                >
+                  <span class="home-backdrop"></span>
+                  <span class="home-galaxy"></span>
+                  <label
+                    class="home-text"
+                    style="font-family: 'Teko', sans-serif; font-size: large"
+                    >Visit 2.0</label
+                  >
+                </button>
+              </div>
+              <!-- Community button with original theme -->
+              <div class="home-galaxy-button">
+                <button
+                  class="home-space-button cursor-target"
+                  onclick="window.location.href='https://chat.whatsapp.com/GlkLriPcKKZJYduudh6RbI?mode=wwt'"
+                >
+                  <span class="home-backdrop"></span>
+                  <span class="home-galaxy"></span>
+                  <label
+                    class="home-text"
+                    style="font-family: 'Teko', sans-serif; font-size: large"
+                    >Join Our Community</label
+                  >
+                </button>
+              </div>
             </div>
+            <!-- NEW DEVFOLIO BUTTON -->
+            <div class="home-space-btn-wrapper">
+              <a href="https://eventopia.in/event/pechacks3" target="_blank" style="text-decoration: none;">
+                 <button class="devfolio-btn cursor-target" style="
+                   background: white;
+                   color: black;
+                   border: none;
+                   padding: 12px 30px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  border-radius: 8px;
+                  transition: all 0.3s ease;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                  font-family: 'Teko', sans-serif;
+                  padding: 10px 100px;
+                  font-size: 20px;
+                  
+                  ">    
+                  Apply Now
+                </button>
+              </a>
+            </div>
+          </div>
 
-            <!-- Timer Container -->
-            <div class="timer-container">
-                <div id="timer">
-                    <div class="timer-unit">
-                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="days">00</div>
-                        <div class="timer-label">Days</div>
-                    </div>
-                    <div class="timer-unit">
-                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="hours">00</div>
-                        <div class="timer-label">Hours</div>
-                    </div>
-                    <div class="timer-unit">
-                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="minutes">00</div>
-                        <div class="timer-label">Minutes</div>
-                    </div>
-                    <div class="timer-unit">
-                        <div class="timer-value" style="font-family: 'Outfit', sans-serif;" id="seconds">00</div>
-                        <div class="timer-label">Seconds</div>
-                    </div>
+          <!-- Timer Container -->
+          <div class="home-timer-container">
+            <div class="home-timer">
+              <div class="home-timer-unit">
+                <div
+                  class="home-timer-value"
+                  style="font-family: 'Outfit', sans-serif"
+                  id="homeDays"
+                >
+                  00
                 </div>
+                <div class="home-timer-label">Days</div>
+              </div>
+              <div class="home-timer-unit">
+                <div
+                  class="home-timer-value"
+                  style="font-family: 'Outfit', sans-serif"
+                  id="homeHours"
+                >
+                  00
+                </div>
+                <div class="home-timer-label">Hours</div>
+              </div>
+              <div class="home-timer-unit">
+                <div
+                  class="home-timer-value"
+                  style="font-family: 'Outfit', sans-serif"
+                  id="homeMinutes"
+                >
+                  00
+                </div>
+                <div class="home-timer-label">Minutes</div>
+              </div>
+              <div class="home-timer-unit">
+                <div
+                  class="home-timer-value"
+                  style="font-family: 'Outfit', sans-serif"
+                  id="homeSeconds"
+                >
+                  00
+                </div>
+                <div class="home-timer-label">Seconds</div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="relative py-10 back-about z-30">
-        <div class="absolute inset-0 z-0"></div>
+    <!--About section starts-->
+    <section id="about" class="about-section">
+        <div class="about-absolute-inset"></div>
 
-        <div class="container mx-auto px-4 relative z-10">
+        <div class="about-container about-relative-z-10">
             <!-- Header -->
-            <div class="heading not-selectable">
-                <h1 class="heading-shadow not-selectable">ABOUT US</h1>
+            <div class="section-heading about-not-selectable">
+                <h1 class="heading-shadow about-not-selectable">ABOUT US</h1>
                 <h2 class="heading-small">
-                    <div>
-                        <div>A</div>
-                    </div>
-                    <div>
-                        <div>B</div>
-                    </div>
-                    <div>
-                        <div>O</div>
-                    </div>
-                    <div>
-                        <div>U</div>
-                    </div>
-                    <div>
-                        <div>T</div>
-                    </div>
-                    <div>
-                        <div style="margin: 0px 20px 0px 0px;"></div>
-                    </div>
-                    <div>
-                        <div>U</div>
-                    </div>
-                    <div>
-                        <div>S</div>
-                    </div>
+                    <div><div>A</div></div>
+                    <div><div>B</div></div>
+                    <div><div>O</div></div>
+                    <div><div>U</div></div>
+                    <div><div>T</div></div>
+                    <div><div style="margin: 0px 20px 0px 0px;"></div></div>
+                    <div><div>U</div></div>
+                    <div><div>S</div></div>
                 </h2>
             </div>
 
-            <!-- Content - FIXED CENTERING -->
-            <div class="flex flex-col items-center justify-center">
-                <div class="w-full lg:w-10/12 xl:w-9/12 self-center mb-12 lg:mb-0 text-center about-content"
-                    data-aos="zoom-in" data-aos-once="true">
-                    <h3 class="text-3xl text-cyan-300 mb-8" style="font-family: 'Teko', sans-serif;">Welcome, Innovators
-                        and Change-Makers!</h3>
-                    <p class="text-gray-300 leading-relaxed mb-10 about-para">
-                        "Welcome to <span class="font-semibold text-cyan-300 tracking-wide text-2xl">PEC HACKS
-                        </span>, where innovation meets impact! We are thrilled to invite you to this exciting hackathon
-                        organized by <span class="font-semibold text-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI,
-                            TAMILNADU,</span>. It is your gateway to a world of possibilities, where passionate
-                        individuals like you come together to unleash their creativity, solve real-world challenges, and
-                        make a meaningful difference."
+            <!-- Content -->
+            <div class="about-content">
+                <div class="about-content-wrapper">
+                    <h3 class="about-title">Welcome, Innovators and Change-Makers!</h3>
+                    <p class="about-para">
+                        "Welcome to <span class="about-highlight-text">PEC HACKS</span>, where innovation meets impact! We are thrilled to invite you to this exciting hackathon organized by <span class="about-bold-white"> PANIMALAR ENGINEERING COLLEGE, CHENNAI, TAMILNADU</span>. It is your gateway to a world of possibilities, where passionate individuals like you come together to unleash their creativity, solve real-world challenges, and make a meaningful difference."
                     </p>
 
-                    <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 about-stats ">
-                        <div class="text-center">
-                            <span class="flex justify-center">
-                                <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="loop"
-                                    colors="primary:#7ee3ff,secondary:#7ee3ff" style="width:90px;height:90px">
-                                </lord-icon>
-                            </span>
-                            <p class="text-gray-300 mt-4">10,000+ registrations</p>
-                        </div>
-
-                        <div class="text-center">
-                            <span class="flex justify-center">
-                                <lord-icon src="https://cdn.lordicon.com/jjjmlddk.json" trigger="loop"
-                                    colors="primary:#7ee3ff,secondary:#7ee3ff" style="width:90px;height:90px">
-                                </lord-icon>
-                            </span>
-                            <p class="text-gray-300 mt-4">361+ colleges</p>
-                        </div>
-
-                        <div class="text-center">
-                            <span class="flex justify-center">
-                                <lord-icon src="https://cdn.lordicon.com/onmwuuox.json" trigger="loop" delay="1500"
-                                    state="in-reveal" colors="primary:#f0abfc,secondary:#f0abfc"
-                                    style="width:90px;height:90px">
-                                </lord-icon>
-                            </span>
-                            <p class="text-gray-300 mt-4">82 cities</p>
-                        </div>
-
-                        <div class="text-center">
-                            <span class="flex justify-center">
-                                <lord-icon src="https://cdn.lordicon.com/nobciafz.json" trigger="loop" delay="1500"
-                                    state="in-reveal" colors="primary:#86efac,secondary:#86efac"
-                                    style="width:90px;height:90px">
-                                </lord-icon>
-                            </span>
-                            <p class="text-gray-300 mt-4">
-                                300+ hackers
- <br>
-                            </p>
-                        </div>
-                        
-                    </div> -->
-
-                    <section class="stats-section">
-                        <div class="stats-container">
-                            <!-- Registrations -->
-                            <div class="stat-box">
-                                <div class="stat-icon"><i class="fas fa-user-plus"></i></div>
-                                <div class="stat-number" data-target="10000">0</div><span
-                                    style="display: inline-block; font-weight: bold;  font-family: 'Teko', sans-serif; font-size: 1.2rem; margin-left: 5px;">+
-                                </span>
-                                <div class="stat-label">Registrations</div>
+                    <!-- Updated Stats Section with Bento Grid -->
+                    <section class="about-stats-section">
+                        <div class="stats-bento-grid">
+                            <!-- Registrations (Large Box) -->
+                            <div class="stat-box stat-box-large">
+                                <div class="stat-box-content">
+                                    <div class="stat-icon"><i class="fas fa-user-plus"></i></div>
+                                    <div class="stat-number" data-target="10000">0</div>
+                                    <span class="stat-plus">+</span>
+                                    <div class="stat-label">Registrations</div>
+                                </div>
                             </div>
 
-                            <!-- Colleges -->
-                            <div class="stat-box">
-                                <div class="stat-icon"><i class="fas fa-university"></i></div>
-                                <div class="stat-number" data-target="361">0</div>
-                                <div class="stat-label">Colleges</div>
+                            <!-- Colleges (Small Box) -->
+                            <div class="stat-box stat-box-small">
+                                <div class="stat-box-content">
+                                    <div class="stat-icon"><i class="fas fa-university"></i></div>
+                                    <div class="stat-number" data-target="361">0</div>
+                                    <div class="stat-label">Colleges</div>
+                                </div>
                             </div>
 
-                            <!-- Cities -->
-                            <div class="stat-box">
-                                <div class="stat-icon"><i class="fas fa-city"></i></div>
-                                <div class="stat-number" data-target="82">0</div>
-                                <div class="stat-label">Cities</div>
+                            <!-- Cities (Small Box) -->
+                            <div class="stat-box stat-box-small">
+                                <div class="stat-box-content">
+                                    <div class="stat-icon"><i class="fas fa-city"></i></div>
+                                    <div class="stat-number" data-target="82">0</div>
+                                    <div class="stat-label">Cities</div>
+                                </div>
                             </div>
 
-                            <!-- Hackers -->
-                            <div class="stat-box">
-                                <div class="stat-icon"><i class="fas fa-user-secret"></i></div>
-                                <div class="stat-number" data-target="300">0</div>
-                                <div class="stat-label">Hackers</div>
+                            <!-- Hackers (Small Box) -->
+                            <div class="stat-box stat-box-small">
+                                <div class="stat-box-content">
+                                    <div class="stat-icon"><i class="fas fa-user-secret"></i></div>
+                                    <div class="stat-number" data-target="300">0</div>
+                                    <div class="stat-label">Hackers</div>
+                                </div>
                             </div>
 
-                            <!-- Projects -->
-                            <div class="stat-box">
-                                <div class="stat-icon"><i class="fas fa-lightbulb"></i></div>
-                                <div class="stat-number" data-target="100">0</div>
-                                <div class="stat-label">Projects</div>
+                            <!-- Projects (Small Box) -->
+                            <div class="stat-box stat-box-small">
+                                <div class="stat-box-content">
+                                    <div class="stat-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <div class="stat-number" data-target="100">0</div>
+                                    <div class="stat-label">Projects</div>
+                                </div>
                             </div>
 
-                            <!-- Prize Pool -->
-                            <div class="stat-box">
-                                <div class="stat-icon"><i class="fas fa-trophy"></i></div>
-                                <div class="stat-number" data-target="40 ">0 </div><span
-                                    style="display: inline-block; font-weight: bold;  font-family: 'Teko', sans-serif; font-size: 1.2rem; margin-left: 5px;">+
-                                    Lakhs</span>
-                                <div class="stat-label">Prize Pool </div>
+                            <!-- Prize Pool (Large Box) -->
+                            <div class="stat-box stat-box-large">
+                                <div class="stat-box-content">
+                                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                                    <div class="stat-number" data-target="40">0</div>
+                                    <span class="stat-plus">+ Lakhs</span>
+                                    <div class="stat-label">Prize Pool</div>
+                                </div>
                             </div>
                         </div>
                     </section>
                 </div>
             </div>
 
-            <br>
-            <br>
-
-
-            <!-- <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">OUR PATRONS</h1>
-        <h2 class="heading-small">
-            <div><div>O</div></div>
-            <div><div>U</div></div>
-            <div><div>R</div></div>
-            <div><div style="margin: 0px 35px 0px 0px;"></div></div>
-            <div><div>P</div></div>
-            <div><div>A</div></div>
-            <div><div>T</div></div>
-            <div><div>R</div></div>
-            <div><div>O</div></div>
-            <div><div>N</div></div>
-            <div><div>S</div></div>
-        </h2>
-    </div>
-
-
-            <div class="flex flex-col gap-8 mt-12">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-auto max-w-5xl">
-                    
-                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/patrons/chinna-durai.jpg" alt="Dr. P Chinnadurai"
-                                        class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr. P Chinnadurai</h3>
-                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Secretary & Correspondent</p>
+            <!-- Association Section -->
+            <!-- <div class="about-association-container">
+                <div class="about-organized-container">
+                    <h3 class="about-organized-title">Organized By</h3>
+                    <div class="about-logo-container">
+                        <div class="about-logo-image">
+                            
+                            <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-university" style="font-size: 50px; color: #7ee3ff;"></i>
                             </div>
                         </div>
-                    </div>
-
-                    
-                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/patrons/sakthi-kumar.jpg" alt="Dr. C Sakthi Kumar"
-                                        class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr. C SakthiKumar</h3>
-                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Director</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/patrons/rajeswari-1.jpg" alt="Mrs.C Vijayarajeswari"
-                                        class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Mrs. C Vijayarajeswari</h3>
-                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Director</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets//patrons/saranya-sree-sakthi-kumar.jpg"
-                                        alt="Dr. Saranya Sree Sakthi Kumar" class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr. Saranya Sree Sakthi Kumar</h3>
-                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Director</p>
-                            </div>
-                        </div>
+                        <div class="about-logo-text">Panimalar Engineering College</div>
                     </div>
                 </div>
 
-                
-                <div class="text-center mb-8 mt-6">
-                    <h3 class="text-2xl md:text-5xl font-bold font-bungee text-white"
-                        style="font-family: 'Teko', sans-serif;">CO PATRONS</h3>
-                </div>
-
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl">
-
-                    
-                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets//patrons/mani.jpg" alt="Dr. K. Mani"
-                                        class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr.K.Mani</h3>
-                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Principal</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="cosmic-card p-6 h-full min-h-[180px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400/50">
-                                    <img src="./assets/patrons/coa.png" alt="Dr.S.Prasanna Devi"
-                                        class="object-cover w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-2" style="font-family: 'Teko', sans-serif;">Dr.S.Prasanna Devi</h3>
-                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Chief Academic Officer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div class="text-center mb-8 mt-6">
-                    <h3 class="text-2xl md:text-5xl font-bold font-bungee text-white"
-                        style="font-family: 'Teko', sans-serif;">ORGANISED BY</h3>
-                </div>
-
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-5xl  max-h-[350px] ">
-                    
-                    <div class="cosmic-card p-6 h-full min-h-[150px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div class="relative w-32 h-32 overflow-hidden">
-                                    <img src="./assets/patrons/image (1).png" alt="Panimalar Engineering College"
-                                        class="object-contain w-full h-full">
-                                </div>
-                            </div>
-                            <div class="flex-1 text-left">
+                <div class="about-associated-container">
+                    <h3 class="about-associated-title">Associated With</h3>
+                    <div class="about-associated-logos">
+                        <div class="about-associated-logo-item">
+                            <div class="about-logo-image">
                                 
-                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Panimalar Engineering College</p>
+                                <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-code" style="font-size: 50px; color: #7ee3ff;"></i>
+                                </div>
                             </div>
+                            <div class="about-logo-text">Tech Partner</div>
+                        </div>
+                        <div class="about-associated-logo-item">
+                            <div class="about-logo-image">
+                                
+                                <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-rocket" style="font-size: 50px; color: #7ee3ff;"></i>
+                                </div>
+                            </div>
+                            <div class="about-logo-text">Innovation Partner</div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Patrons Section -->
+            <!-- <div class="about-content-wrapper about-mt-50">
+                <h3 class="about-title">Our Esteemed Patrons</h3>
+                <div class="about-patrons-grid">
+                    <div class="about-patron-card">
+                        <div class="about-patron-image">
+                            
+                            <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-user" style="font-size: 50px; color: #7ee3ff;"></i>
+                            </div>
+                        </div>
+                        <div class="about-patron-info">
+                            <div class="about-patron-name">Dr. R. S. Kumar</div>
+                            <div class="about-patron-role">Principal, Panimalar Engineering College</div>
                         </div>
                     </div>
 
-                    
-                    <div class="cosmic-card p-6 h-full min-h-[150px] flex items-center">
-                        <div class="flex items-center gap-6 w-full">
-                            <div class="flex-shrink-0">
-                                <div class="relative w-36 h-36 overflow-hidden">
-                                    <img src="./assets/patrons/GDGpec.png"
-                                        alt="Google Developer Groups" class="object-contain w-full h-full">
-                                </div>
+                    <div class="about-patron-card">
+                        <div class="about-patron-image">
+                            
+                            <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-user" style="font-size: 50px; color: #7ee3ff;"></i>
                             </div>
-                            <div class="flex-1 text-left">
-                                <h3 class="text-xl font-bold text-cyan-300 mb-1" style="font-family: 'Teko', sans-serif;">In Association With</h3>
-                                <p class="text-gray-400 text-lg" style="font-family: 'Teko', sans-serif;">Google Developer Groups</p>
-                            </div>
+                        </div>
+                        <div class="about-patron-info">
+                            <div class="about-patron-name">Prof. A. Sharma</div>
+                            <div class="about-patron-role">Head of Computer Science Department</div>
                         </div>
                     </div>
                 </div>
@@ -530,470 +347,250 @@
         </div>
     </section>
 
-    <!-- Glimps Section -->
-    <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">Gallery</h1>
-        <h2 class="heading-small">
-            <div>
-                <div>G</div>
-            </div>
-            <div>
-                <div>A</div>
-            </div>
-            <div>
-                <div>L</div>
-            </div>
-            <div>
-                <div>L</div>
-            </div>
-            <div>
-                <div>E</div>
-            </div>
-            <div>
-                <div>R</div>
-            </div>
-            <div>
-                <div>Y</div>
-            </div>
-        </h2>
-    </div>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="section-heading about-not-selectable">
+            <h1 class="heading-shadow about-not-selectable">GALLERY</h1>
+            <h2 class="heading-small">
+                <div><div>G</div></div>
+                <div><div>A</div></div>
+                <div><div>L</div></div>
+                <div><div>L</div></div>
+                <div><div>E</div></div>
+                <div><div>R</div></div>
+                <div><div>Y</div></div>
+            </h2>
+        </div>
 
-    <!-- <div class="relative  back-about z-30">
-        <div class="external">
-  <div class="horizontal-scroll-wrapper">
-    <div class="img-wrapper slower">
-      <a ><img src="./assets/pec hacks 2.0/DAY 1/01.jpg" alt="">
-      </a>
-    </div>
-
-    <div class="img-wrapper faster">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/02.jpg" alt="">
-      </a>
-    </div>
-
-    <div class="img-wrapper slower vertical">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/03.jpg" alt="">
-      </a>
-    </div>
-
-    <div class="img-wrapper slower slower-down">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/04.jpg" alt="">
-      </a>
-    </div>
-
-    <div class="img-wrapper">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/05.jpg" alt="">
-      </a>
-    </div>
-
-    <div class="img-wrapper slower">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/06.jpg" alt="">
-      </a>
-    </div>
-
-    <div class="img-wrapper faster1">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/07.jpg" alt="">
-      </a>
-    </div>
-    
-    <div class="img-wrapper slower slower2">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/09.jpg" alt="">
-      </a>
-    </div>
-    
-    <div class="img-wrapper">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/10.jpg" alt="">
-      </a>
-    </div>
-    
-    <div class="img-wrapper slower">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/11.jpg" alt="">
-      </a>
-    </div>
-    
-    <div class="img-wrapper slower last">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/12.jpg" alt="">
-      </a>
-    </div>
-    <div class="img-wrapper slower slower2">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/13.jpg" alt="">
-      </a>
-    </div>
-    
-    <div class="img-wrapper">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/14.jpg" alt="">
-      </a>
-    </div>
-    
-    <div class="img-wrapper slower">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/15.jpg" alt="">
-      </a>
-    </div>
-
-    <div class="img-wrapper slower slower2">
-      <a >
-        <img src="./assets/pec hacks 2.0/DAY 1/16.jpg" alt="">
-      </a>
-    </div>
-  </div>
-  
-</div>
-    </div> -->
-
-    <div class="relative  back-about z-30">
-        <div class="wrap">
-            <main id="grid" aria-live="polite">
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+        <div class="gallery-wrap">
+            <main class="gallery-grid" aria-live="polite">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/36.jpg" alt="img01">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/02.jpg" alt="img02">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/03.jpg" alt="img03">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/04.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/05.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/09.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/07.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/08.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/06.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/10.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/11.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/12.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/30.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/14.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/15.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/16.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/18.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/19.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/20.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/21.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/22.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/23.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/24.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/25.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/26.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/27.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/28.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/29.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/13.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/31.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/34.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/33.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/35.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/36.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
 
-                <div class="hex-container">
-                    <div class="flip-card">
-                        <div class="flip-front">
+                <div class="gallery-hex-container">
+                    <div class="gallery-flip-card">
+                        <div class="gallery-flip-front">
                             <img src="./assets/pec hacks 2.0/DAY 1/37.jpg" alt="img04">
                         </div>
-                        <div class="flip-back">
+                        <div class="gallery-flip-back">
                             <img src="./assets/pec hacks 2.0/DAY 1/36.jpg" alt="img04">
                         </div>
                     </div>
                 </div>
             </main>
         </div>
+    </section>
 
-    </div>
-
-    <div class="background">
-        <div class="overlay"></div>
-        <div class="title">GLIMPSE</div>
-        <div class="video-container ">
+    <!-- Glimpse Section -->
+    <section id="glimpse" class="glimpse-section">
+        <div class="glimpse-title">GLIMPSE</div>
+        <div class="video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/ldYAX1xME0M?si=SNC_oTtGj66hdb06"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-    </div>
-
-
-    <!--DOMAINS SECTION-->
-    <section id="domains-cards" class="relative py-10  z-30">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="heading not-selectable">
-                <h1 class="heading-shadow not-selectable">DOMAINS</h1>
+    </section>
+    
+    <!--domain section starts-->
+    <section id="domain-section" class="domains-section">
+        <div class="domains-container">
+            <div class="section-heading">
+                <h1 class="heading-shadow">DOMAINS</h1>
                 <h2 class="heading-small">
-                    <div>
-                        <div>D</div>
-                    </div>
-                    <div>
-                        <div>O</div>
-                    </div>
-                    <div>
-                        <div>M</div>
-                    </div>
-                    <div>
-                        <div>A</div>
-                    </div>
-                    <div>
-                        <div>I</div>
-                    </div>
-                    <div>
-                        <div>N</div>
-                    </div>
-                    <div>
-                        <div>S</div>
-                    </div>
+                    <div><div>D</div></div>
+                    <div><div>O</div></div>
+                    <div><div>M</div></div>
+                    <div><div>A</div></div>
+                    <div><div>I</div></div>
+                    <div><div>N</div></div>
+                    <div><div>S</div></div>
                 </h2>
             </div>
-
-            <!-- <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-10 max-w-7xl justify-center mx-auto">
-            
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">🏥</div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">Digital Healthcare</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
-                        Revolutionize healthcare with digital solutions for better patient care and medical research.
-                    </p>
-                </div>
-            </div>
-            
-            
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">💰</div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">FinTech</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
-                        Redefining money for the future where trust meets technology, innovation fuels progress.
-                    </p>
-                </div>
-            </div>
-            
-            
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">🎓</div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3 " style="font-family: 'Teko', sans-serif;">Education Technology</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
-                        Transform learning experiences through technology to make education more effective.
-                    </p>
-                </div>
-            </div>
-            
-            
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">🌱</div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">Sustainability & Green Tech</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
-                        Create eco-friendly solutions to combat climate change and promote sustainable living.
-                    </p>
-                </div>
-            </div>
-            
-            
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">💡</div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">Open Innovation</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
-                        Develop groundbreaking solutions without constraints the future is what you imagine.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="cosmic-card group cursor-pointer relative overflow-hidden glow">
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="text-4xl">💡</div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3" style="font-family: 'Teko', sans-serif;">School Track</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-2xl" style="font-family: 'Teko', sans-serif;">
-                        Ignite young minds to reimagine learning where curiosity meets innovation without limits.
-                    </p>
-                </div>
-            </div>
-        </div> -->
 
             <div class="pec-domain-cards-container">
                 <div class="pec-domain-cards-wrapper">
@@ -1041,44 +638,30 @@
             </div>
         </div>
     </section>
-
-    <!--timeline section-->
-    <div class="heading not-selectable">
-        <h1 class="heading-shadow not-selectable">TIMELINE</h1>
-        <h2 class="heading-small">
-            <div>
-                <div>T</div>
-            </div>
-            <div>
-                <div>I</div>
-            </div>
-            <div>
-                <div>M</div>
-            </div>
-            <div>
-                <div>E</div>
-            </div>
-            <div>
-                <div>L</div>
-            </div>
-            <div>
-                <div>I</div>
-            </div>
-            <div>
-                <div>N</div>
-            </div>
-            <div>
-                <div>E</div>
-            </div>
-        </h2>
-    </div>
+    
+    <!--timeline section starts-->
     <div class="timeline-section">
         <div class="timeline-container">
+            <!-- Timeline Header -->
+            <div class="section-heading about-not-selectable">
+                <h1 class="heading-shadow about-not-selectable">TIMELINE</h1>
+                <h2 class="heading-small">
+                    <div><div>T</div></div>
+                    <div><div>I</div></div>
+                    <div><div>M</div></div>
+                    <div><div>E</div></div>
+                    <div><div>L</div></div>
+                    <div><div>I</div></div>
+                    <div><div>N</div></div>
+                    <div><div>E</div></div>
+                </h2>
+            </div>
+            
             <div class="timeline-component">
                 <div class="timeline-track">
                     <div class="timeline-progress" id="timeline-progressBar"></div>
                 </div>
-                
+
                 <div class="timeline-events">
                     <div class="timeline-event">
                         <div class="timeline-event-content timeline-event-content-left">
@@ -1091,7 +674,7 @@
                         </div>
                         <div class="timeline-event-content timeline-event-content-right"></div>
                     </div>
-                    
+
                     <div class="timeline-event">
                         <div class="timeline-event-content timeline-event-content-left"></div>
                         <div class="timeline-event-center">
@@ -1115,7 +698,7 @@
                         </div>
                         <div class="timeline-event-content timeline-event-content-right"></div>
                     </div>
-                    
+
                     <div class="timeline-event">
                         <div class="timeline-event-content timeline-event-content-left"></div>
                         <div class="timeline-event-center">
@@ -1127,7 +710,7 @@
                             <div class="timeline-event-description active">27th November 2025</div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-event">
                         <div class="timeline-event-content timeline-event-content-left">
                             <div class="timeline-event-badge">Phase 5</div>
@@ -1139,7 +722,7 @@
                         </div>
                         <div class="timeline-event-content timeline-event-content-right"></div>
                     </div>
-                    
+
                     <div class="timeline-event">
                         <div class="timeline-event-content timeline-event-content-left"></div>
                         <div class="timeline-event-center">
@@ -1176,7 +759,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-fade-overlay-top"></div>
                 <div class="timeline-fade-overlay-bottom"></div>
             </div>
@@ -1184,31 +767,21 @@
     </div>
 
     <!--prizes section-->
-    <div class="heading not-selectable " id="prizes">
-        <h1 class="heading-shadow not-selectable">PRIZES</h1>
-        <h2 class="heading-small ">
-            <div>
-                <div>P</div>
+    <section  id="prize-section">
+      <!-- Prizes Header -->
+            <div class="section-heading">
+                <h1 class="heading-shadow">PRIZES</h1>
+                <h2 class="heading-small">
+                    <div><div>P</div></div>
+                    <div><div>R</div></div>
+                    <div><div>I</div></div>
+                    <div><div>Z</div></div>
+                    <div><div>E</div></div>
+                    <div><div>S</div></div>
+                </h2>
             </div>
-            <div>
-                <div>R</div>
-            </div>
-            <div>
-                <div>I</div>
-            </div>
-            <div>
-                <div>Z</div>
-            </div>
-            <div>
-                <div>E</div>
-            </div>
-            <div>
-                <div>S</div>
-            </div>
-        </h2>
-    </div>
-
-    <div class="prize-container">
+      <div class="prize-container">
+        
         <div class="prize-cards-wrapper">
 
             <div class="prize-row-container">
@@ -1240,7 +813,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="prize-row-container">
                 <div class="prize-card-item prize-card-silver">
@@ -1300,7 +872,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="prize-row-container">
                 <div class="prize-card-item prize-card-school">
@@ -1363,779 +934,463 @@
             </div>
         </div>
     </div>
-
-
-
-    <!-- Partners Section -->
-    <section class="relative py-20 z-30">
-        <div class="container mx-auto px-4 relative z-10">
-
-            <div class="heading not-selectable">
-                <h1 class="heading-shadow not-selectable">Join With Us</h1>
-                <h2 class="heading-small">
-                    <div>
-                        <div>J</div>
-                    </div>
-                    <div>
-                        <div>o</div>
-                    </div>
-                    <div>
-                        <div>i</div>
-                    </div>
-                    <div>
-                        <div style="margin: 0px 20px 0px 0px;">n</div>
-                    </div>
-                    <div>
-                        <div>W</div>
-                    </div>
-                    <div>
-                        <div>i</div>
-                    </div>
-                    <div>
-                        <div>t</div>
-                    </div>
-                    <div>
-                        <div style="margin: 0px 20px 0px 0px;">h</div>
-                    </div>
-                    <div>
-                        <div>U</div>
-                    </div>
-                    <div>
-                        <div>s</div>
-                    </div>
-                </h2>
-
-            </div>
-            <!-- Why Partner Section -->
-            <div class="mb-20 mt-10">
-                <h3 class="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12"
-                    style="font-family: 'Teko', sans-serif;">
-                    Why Partner With PEC HACKS 3.0 ?
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                    <!-- Targeted Reach -->
-                    <div class="cosmic-card text-center p-6">
-                        <div class="text-4xl mb-4">🎯</div>
-                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Targeted
-                            Reach</h4>
-                        <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
-                            Connect with 500+ highly skilled developers, designers, and innovators from top
-                            institutions.
-                        </p>
-                    </div>
-
-                    <!-- Brand Visibility -->
-                    <div class="cosmic-card text-center p-6">
-                        <div class="text-4xl mb-4">🌟</div>
-                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Brand
-                            Visibility</h4>
-                        <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
-                            Gain exposure across multiple channels including social media, campus networks, and tech
-                            communities.
-                        </p>
-                    </div>
-
-                    <!-- Talent Acquisition -->
-                    <div class="cosmic-card text-center p-6">
-                        <div class="text-4xl mb-4">💼</div>
-                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">Talent
-                            Acquisition</h4>
-                        <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
-                            Direct access to emerging talent and the opportunity to recruit the best minds in
-                            technology.
-                        </p>
-                    </div>
-
-                    <!-- Innovation Access -->
-                    <div class="cosmic-card text-center p-6">
-                        <div class="text-4xl mb-4">🚀</div>
-                        <h4 class="text-xl font-bold text-white mb-2" style="font-family: 'Teko', sans-serif;">
-                            Innovation Access</h4>
-                        <p class="text-lg text-gray-300 leading-relaxed" style="font-family: 'Teko', sans-serif;">
-                            Get first-hand access to cutting-edge solutions and innovative ideas from the hackathon.
-                        </p>
-                    </div>
-                </div>
-            </div>
+    </section>
+    
+    <!--partners section starts-->
+    <section id="partners" class="partners-section">
+        <div class="partners-container">
+            
 
             <!-- Partners by Category -->
-            <div class="mb-16 pt-6" id="partners">
-                <div class="heading not-selectable">
-                    <h1 class="heading-shadow not-selectable">PARTNERS</h1>
+            <div class="partners-categories">
+                <div class="section-heading">
+                    <h1 class="heading-shadow">PARTNERS</h1>
                     <h2 class="heading-small">
-                        <div>
-                            <div>P</div>
-                        </div>
-                        <div>
-                            <div>A</div>
-                        </div>
-                        <div>
-                            <div>R</div>
-                        </div>
-                        <div>
-                            <div>T</div>
-                        </div>
-                        <div>
-                            <div>N</div>
-                        </div>
-                        <div>
-                            <div>E</div>
-                        </div>
-                        <div>
-                            <div>R</div>
-                        </div>
-                        <div>
-                            <div>S</div>
-                        </div>
+                        <div><div>P</div></div>
+                        <div><div>A</div></div>
+                        <div><div>R</div></div>
+                        <div><div>T</div></div>
+                        <div><div>N</div></div>
+                        <div><div>E</div></div>
+                        <div><div>R</div></div>
+                        <div><div>S</div></div>
                     </h2>
                 </div>
-            </div>
 
-            <!-- Gold Partners -->
-            <div class="mb-12">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl md:text-3xl font-bold font-bungee text-yellow-300"
-                        style="font-family: 'Teko', sans-serif;">GOLD SPONSORS</h3>
-                </div>
-                <div class="flex flex-wrap justify-center gap-8">
-                    <!-- Devfolio -->
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://devfolio.co/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/Devfolio.png" alt="DEVFOLIO LOGO"
-                                class="object-contain rounded-xl w-full h-full">
-                        </div>
+                <!-- Gold Partners -->
+                <div class="partners-sponsor-section partners-gold">
+                    <div class="partners-section-title">
+                        <h3 class="partners-gold-title">GOLD SPONSORS</h3>
                     </div>
+                    <div class="partners-flex">
+                        <!-- Devfolio -->
+                        <div class="partners-item cursor-target" onclick="window.open('https://devfolio.co/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/Devfolio.png" alt="DEVFOLIO LOGO">
+                            </div>
+                        </div>
 
-                    <!-- GIT-HUB -->
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://github.com/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets//sponsers/Git-hub logo.png" alt="GIT-HUB LOGO"
-                                class="object-contain rounded-xl w-full h-full">
+                        <!-- GIT-HUB -->
+                        <div class="partners-item cursor-target" onclick="window.open('https://github.com/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/Git-hub logo.png" alt="GIT-HUB LOGO">
+                            </div>
                         </div>
-                    </div>
-                    <!-- THIRDWEB -->
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://thirdweb.com/brand-kit', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets//sponsers/THIRDWEB-LOGO.png" alt="GIT-HUB LOGO"
-                                class="object-contain rounded-xl w-full h-full">
+                        
+                        <!-- THIRDWEB -->
+                        <div class="partners-item cursor-target" onclick="window.open('https://thirdweb.com/brand-kit', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/THIRDWEB-LOGO.png" alt="THIRDWEB LOGO">
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- code crafters -->
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://codecrafters.io/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/codecrafters.jpg" alt="GIT-HUB LOGO"
-                                class="object-contain rounded-xl w-full h-full">
+                        <!-- code crafters -->
+                        <div class="partners-item cursor-target" onclick="window.open('https://codecrafters.io/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/codecrafters.jpg" alt="CODECRAFTERS LOGO">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Silver Partners -->
-            <div class="mb-12">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl md:text-3xl font-bold font-bungee text-[#CD7F32]"
-                        style="font-family: 'Teko', sans-serif;">SILVER SPONSORS</h3>
+
+                <!-- Silver Partners -->
+                <div class="partners-sponsor-section partners-silver">
+                    <div class="partners-section-title">
+                        <h3 class="partners-silver-title">SILVER SPONSORS</h3>
+                    </div>
+                    <div class="partners-flex">
+                        <!-- ETH India -->
+                        <div class="partners-item cursor-target" onclick="window.open('https://ethindia2024.devfolio.co/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/ETH - india.png" alt="ETHINDIA LOGO">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-wrap  justify-center gap-8">
 
-                    <!-- ETH India -->
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://ethindia2024.devfolio.co/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/ETH - india.png" alt="ETHINDIA LOGO"
-                                class="object-contain rounded-xl w-full h-full">
+                <!-- Bronze Partners -->
+                <div class="partners-sponsor-section partners-bronze">
+                    <div class="partners-section-title">
+                        <h3 class="partners-bronze-title">BRONZE SPONSORS</h3>
+                    </div>
+                    <div class="partners-flex">
+                        <div class="partners-item cursor-target" onclick="window.open('https://balsamiq.com', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/balsamiq.png" alt="balsamiq LOGO">
+                            </div>
+                        </div>
+
+                        <div class="partners-item cursor-target" onclick="window.open('https://nordpass.com/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/nord.png" alt="nord LOGO">
+                            </div>
+                        </div>
+
+                        <div class="partners-item cursor-target" onclick="window.open('https://nordvpn.com/hackathons', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/nordvpn.png" alt="nordvpn LOGO">
+                            </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
-            <!-- Bronze Partners -->
-            <div class="mb-12">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl md:text-3xl font-bold font-bungee text-[#CD7F32]"
-                        style="font-family: 'Teko', sans-serif;">BRONZE SPONSORS</h3>
-                </div>
-                <div class="flex flex-wrap  justify-center gap-8">
-
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://balsamiq.com', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/balsamiq.png" alt="balsamiq LOGO"
-                                class="object-contain rounded-xl w-full h-full">
+                    
+                    <div class="partners-flex" style="margin-top: 2rem;">
+                        <div class="partners-item cursor-target" onclick="window.open('https://incogni.com/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/incogni.png" alt="incogni LOGO">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://nordpass.com/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/nord.png" alt="nord LOGO"
-                                class="object-contain rounded-xl w-full h-full">
+                        <div class="partners-item cursor-target" onclick="window.open('https://artofproblemsolving.com/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/AOPS LOGO.png" alt="AOPS LOGO">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://nordvpn.com/hackathons', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/nordvpn.png" alt="nordvpn LOGO"
-                                class="object-contain rounded-xl w-full h-full">
+                        <div class="partners-item cursor-target" onclick="window.open('https://nexos.ai/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/nexosai(1).jpg" alt="nexosai LOGO">
+                            </div>
                         </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="mb-12">
-
-                <div class="flex flex-wrap  justify-center gap-8">
-
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://incogni.com/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/incogni.png" alt="incogni LOGO"
-                                class="object-contain rounded-xl w-full h-full">
-                        </div>
-                    </div>
-
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://artofproblemsolving.com/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/AOPS LOGO.png" alt="incogni LOGO"
-                                class="object-contain rounded-xl w-full h-full">
-                        </div>
-                    </div>
-
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://nexos.ai/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/nexosai(1).jpg" alt="nexosai LOGO"
-                                class="object-contain rounded-xl w-full h-full">
-                        </div>
-                    </div>
-                    <div class=" transform transition-transform duration-300 hover:scale-105 cursor-target"
-                        onclick="window.open('https://nordprotect.com/', '_blank')">
-                        <div
-                            class="bg-white/5 rounded-xl flex items-center justify-center h-32 w-56 backdrop-blur-sm border border-white/10">
-                            <img src="./assets/sponsers/nordprotect-(1).jpg" alt="nordprotect LOGO"
-                                class="object-contain rounded-xl w-full h-full">
+                        
+                        <div class="partners-item cursor-target" onclick="window.open('https://nordprotect.com/', '_blank')">
+                            <div class="partners-logo">
+                                <img src="./assets/sponsers/nordprotect-(1).jpg" alt="nordprotect LOGO">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- community Partners -->
-            <div class="text-center mb-8">
-                <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white"
-                    style="font-family: 'Teko', sans-serif;">COMMUNITY PARTNERS</h3>
-            </div>
-            <div class="carousel-container">
-                <section class="carousel-section">
-                    <!-- Row 1 - Scrolls Left -->
-                    <div class="carousel-row carousel-row-1">
-                        <div class="carousel-track">
+            <!-- Community Partners -->
+            <div class="partners-community">
+                <div class="partners-section-title">
+                    <h3 class="partners-community-title">COMMUNITY PARTNERS</h3>
+                </div>
+                <div class="partners-carousel-container">
+                    <section class="partners-carousel-section">
+                        <!-- Row 1 - Scrolls Left -->
+                        <div class="partners-carousel-row partners-carousel-row-1">
+                            <div class="partners-carousel-track">
                             <!-- First set of logos -->
-                            <div class="carousel-item cursor-target">
-                                <a href="https://www.socialwinterofcode.com/" target="_blank">
+                            <div class="partners-carousel-item cursor-target">
+                                <a href="https://www.instagram.com/avishkaar.aitam?igsh=MXRvZ3NpMDhhZms3bg==" target="_blank">
                                     <img src="./assets/community partners/avishkaar-logo.png" alt="SWOC LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.linkedin.com/company/gdgoncampus-snscollegeofengineering/"
                                     target="_blank">
                                     <img src="./assets/community partners/chatrapathi-sivaji-university.png"
                                         alt="GDG SNS LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://avishkaar2024.adityatekkali.edu.in/" target="_blank">
                                     <img src="./assets/community partners/cit-chennai.png" alt="avishkaar LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://gdg.community.dev/gdg-on-campus-jansons-institute-of-technology-coimbatore-india/"
                                     target="_blank">
                                     <img src="./assets/community partners/CIT-COIMBATORE-LOGO.png" alt="GDG JIT LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
+                                <a href="https://gdg.community.dev/gdg-on-campus-jansons-institute-of-technology-coimbatore-india/"
+                                    target="_blank">
+                                    <img src="./assets/community partners/IEEE-logo.png" alt="IEEE LOGO">
+                                </a>
+                            </div>
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.linkedin.com/company/hack-club-sist/" target="_blank">
                                     <img src="./assets/community partners/CNCF-LOGO.png" alt="Hacksist LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/CODE-CRAFTERS(2).png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/DSC-SRM-RMP LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/GEC-PALAKKAD-LOGO.png"
                                         alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/GRAPHIC-CAFE(2).jpg" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/GURU NAYAR LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
 
                             <!-- Duplicate set for seamless looping -->
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.socialwinterofcode.com/" target="_blank">
                                     <img src="./assets/community partners/GVPCE-LOGO.png" alt="SWOC LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.linkedin.com/company/gdgoncampus-snscollegeofengineering/"
                                     target="_blank">
                                     <img src="./assets/community partners/iilm-university.png" alt="GDG SNS LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://avishkaar2024.adityatekkali.edu.in/" target="_blank">
                                     <img src="./assets/community partners/indian-data-club.png" alt="avishkaar LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://gdg.community.dev/gdg-on-campus-jansons-institute-of-technology-coimbatore-india/"
                                     target="_blank">
                                     <img src="./assets/community partners/PAAVAI LOGO.png" alt="GDG JIT LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.linkedin.com/company/hack-club-sist/" target="_blank">
                                     <img src="./assets/community partners/SPEC-NIT-LOGO.png" alt="Hacksist LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/srgec(gudlavalleru).png"
                                         alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/ssn-logo.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/SVCE-LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/UNIVERSITY-PETROLEUM-LOGO.png"
                                         alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.socialwinterofcode.com/" target="_blank">
                                     <img src="./assets/community partners/7-ELITES.png" alt="SWOC LOGO">
                                 </a>
                             </div>
                         </div>
-                    </div>
+                        </div>
 
-                    <!-- Row 2 - Scrolls Right -->
-                    <div class="carousel-row carousel-row-2">
-                        <div class="carousel-track">
+                        <!-- Row 2 - Scrolls Right -->
+                        <div class="partners-carousel-row partners-carousel-row-2">
+                            <div class="partners-carousel-track">
                             <!-- First set of logos -->
 
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.linkedin.com/company/gdgoncampus-snscollegeofengineering/"
                                     target="_blank">
                                     <img src="./assets/community partners/START-THE-UP.png" alt="GDG SNS LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://avishkaar2024.adityatekkali.edu.in/" target="_blank">
                                     <img src="./assets/community partners/CODENEURAX.png" alt="avishkaar LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://gdg.community.dev/gdg-on-campus-jansons-institute-of-technology-coimbatore-india/"
                                     target="_blank">
                                     <img src="./assets/community partners/D3 LOGO.png" alt="GDG JIT LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.linkedin.com/company/hack-club-sist/" target="_blank">
                                     <img src="./assets/community partners/E-VJIT.png" alt="Hacksist LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/ESHWARI COE LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/FRESOURCES.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/GLA-UNIVERSITY LOGO.png"
                                         alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/INTELLEXA-02.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/RCC-IOT.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
 
                             <!-- Duplicate set for seamless looping -->
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.socialwinterofcode.com/" target="_blank">
                                     <img src="./assets/community partners/SDC-CIT-COIMBATORE.png" alt="SWOC LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.linkedin.com/company/gdgoncampus-snscollegeofengineering/"
                                     target="_blank">
                                     <img src="./assets/community partners/SVCE-TIRUPATHI.png" alt="GDG SNS LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://avishkaar2024.adityatekkali.edu.in/" target="_blank">
                                     <img src="./assets/community partners/SWOC.png" alt="avishkaar LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://gdg.community.dev/gdg-on-campus-jansons-institute-of-technology-coimbatore-india/"
                                     target="_blank">
                                     <img src="./assets/community partners/THE-ASCENT-CIRCLE.png" alt="GDG JIT LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://www.linkedin.com/company/hack-club-sist/" target="_blank">
                                     <img src="./assets/community partners/THE-STUDENT-SPOT.png" alt="Hacksist LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/CODESAPIENS LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
-                                    <img src="./assets/community partners/ssn-logo.png" alt="Blockseblock LOGO">
+                                    <img src="./assets/community partners/SPARK-TECH LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/SVCE-LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/UNIVERSITY-PETROLEUM-LOGO.png"
                                         alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/VJIT-LOGO.png" alt="Blockseblock LOGO">
                                 </a>
                             </div>
-                            <div class="carousel-item cursor-target">
+                            <div class="partners-carousel-item cursor-target">
                                 <a href="https://blockseblock.com/" target="_blank">
                                     <img src="./assets/community partners/UNIVERSITY-PETROLEUM-LOGO.png"
                                         alt="Blockseblock LOGO">
                                 </a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Row 3 - Scrolls Left -->
-                    <!-- <div class="carousel-row carousel-row-3">
-                <div class="carousel-track">
-                    
-                    <div class="carousel-item">
-                        <a href="https://lu.ma/k9lnt71x" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/1a2a6c/ffffff?text=BUILDERS" alt="Builders Qoneqt Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://gdg.community.dev/gdg-on-campus-kg-college-of-arts-science-coimbatore-india/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/b21f1f/ffffff?text=GDG+KG" alt="GDG KG College of Arts and Science">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/fdbb2d/333333?text=STUDENT+DEV" alt="Student Developer Cell">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://aiclub24.web.app/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/1a2a6c/ffffff?text=AI+CLUB" alt="AI Club MKCE">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://gdg.community.dev/gdg-on-campus-vellore-institute-of-technology-chennai-india/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/b21f1f/ffffff?text=GDG+VIT" alt="GDG VIT Chennai">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://gdg.community.dev/gdg-on-campus-dr-akhilesh-das-gupta-institute-of-professional-studies-delhi-india/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/fdbb2d/333333?text=GDG+ADGIPS" alt="GDG ADGIPS">
-                        </a>
-                    </div>
-                    
-                    
-                    <div class="carousel-item">
-                        <a href="https://lu.ma/k9lnt71x" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/1a2a6c/ffffff?text=BUILDERS" alt="Builders Qoneqt Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://gdg.community.dev/gdg-on-campus-kg-college-of-arts-science-coimbatore-india/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/b21f1f/ffffff?text=GDG+KG" alt="GDG KG College of Arts and Science">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/fdbb2d/333333?text=STUDENT+DEV" alt="Student Developer Cell">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://aiclub24.web.app/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/1a2a6c/ffffff?text=AI+CLUB" alt="AI Club MKCE">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://gdg.community.dev/gdg-on-campus-vellore-institute-of-technology-chennai-india/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/b21f1f/ffffff?text=GDG+VIT" alt="GDG VIT Chennai">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://gdg.community.dev/gdg-on-campus-dr-akhilesh-das-gupta-institute-of-professional-studies-delhi-india/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/fdbb2d/333333?text=GDG+ADGIPS" alt="GDG ADGIPS">
-                        </a>
-                    </div>
+                        </div>
+                    </section>
                 </div>
-            </div> -->
-
-                    <!-- Row 4 - Scrolls Right -->
-                    <!-- <div class="carousel-row carousel-row-4">
-                <div class="carousel-track">
-                    
-                    <div class="carousel-item">
-                        <a href="https://www.instagram.com/cs.club.iiitdm" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/1a2a6c/ffffff?text=CS+CLUB" alt="CS Club IIITDM Kancheepuram">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.whatsapp.com/channel/0029VajqSxIChq6M1DxI4t2X" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/b21f1f/ffffff?text=EVENT+HUB" alt="Event Hub Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.linkedin.com/company/maharana-pratap-engineering-college/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/fdbb2d/333333?text=ALGOZENITH" alt="Algozenith Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.linkedin.com/company/ssn-coding-club/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/1a2a6c/ffffff?text=SSN+CODING" alt="SSN Coding Club Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://connectverse.co.uk/#" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/b21f1f/ffffff?text=CONNECT+VERSE" alt="Connect Verse Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://hackhustle.techsociety.saveetha.in/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/fdbb2d/333333?text=HACK+HUSTLE" alt="Hack Hustle Logo">
-                        </a>
-                    </div>
-                    
-                    
-                    <div class="carousel-item">
-                        <a href="https://www.instagram.com/cs.club.iiitdm" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/1a2a6c/ffffff?text=CS+CLUB" alt="CS Club IIITDM Kancheepuram">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.whatsapp.com/channel/0029VajqSxIChq6M1DxI4t2X" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/b21f1f/ffffff?text=EVENT+HUB" alt="Event Hub Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.linkedin.com/company/maharana-pratap-engineering-college/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/fdbb2d/333333?text=ALGOZENITH" alt="Algozenith Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.linkedin.com/company/ssn-coding-club/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/1a2a6c/ffffff?text=SSN+CODING" alt="SSN Coding Club Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://connectverse.co.uk/#" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/b21f1f/ffffff?text=CONNECT+VERSE" alt="Connect Verse Logo">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://hackhustle.techsociety.saveetha.in/" target="_blank">
-                            <img src="https://via.placeholder.com/150x80/fdbb2d/333333?text=HACK+HUSTLE" alt="Hack Hustle Logo">
-                        </a>
-                    </div>
-                </div>
-            </div> -->
-                </section>
             </div>
 
-        </div>
-
-        <!-- Call to Action -->
-        <div class="text-center">
-            <div class="cosmic-card max-w-4xl mx-auto p-8 glow" style="background: rgba(15, 23, 42, 0.9);">
-                <div class="text-center space-y-6">
-                    <h3 class="text-2xl md:text-3xl font-bold font-bungee text-white"
-                        style="font-family: 'Teko', sans-serif;">
-                        Ready to Join Our Mission?
-                    </h3>
-                    <p class="text-lg text-gray-300 font-rajdhani"
-                        style="font-family: 'Teko', sans-serif; font-size: x-large;">
-                        Be part of the most exciting hackathon in the region. Let's create something extraordinary
-                        together and shape the future of technology.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center ">
-                        <button class="border-2 px-4 py-2 rounded-xl border-blue-500 text-2xl cursor-target"
-                            style="font-family: 'Teko', sans-serif;" onclick="downloadSponsorshipDeck()">
-                            Download Sponsorship Deck
-                        </button>
-                    </div>
-                    <div class="mt-6 pt-6 border-t border-gray-700">
-                        <p class="text-xl text-gray-400 font-electrolize" style="font-family: 'Teko', sans-serif;">
-                            Contact us: <a href="mailto:team@pechacks.org"
-                                class="text-cyan-300 hover:text-cyan-200  underline text-xl cursor-target">team@pechacks.org</a>
-
+            <!-- Call to Action -->
+            <div class="partners-cta">
+                <div class="partners-cta-card">
+                    <div class="partners-cta-content">
+                        <h3 class="partners-cta-title">Ready to Join Our Mission?</h3>
+                        <p class="partners-cta-description">
+                            Be part of the most exciting hackathon in the region. Let's create something extraordinary together and shape the future of technology.
                         </p>
+                        <div class="partners-cta-buttons">
+                            <button class="partners-cta-button cursor-target" onclick="viewSponsorshipDeck()">
+                                View Sponsorship Deck
+                            </button>
+                        </div>
+                        <div class="partners-contact-info">
+                            <p class="partners-contact-text">
+                                Contact us: <a href="mailto:team@pechacks.org" class="partners-contact-email cursor-target">team@pechacks.org</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
-    <!--FAQ  SECTION-->
-
-    <div class="dark-faq-container" id="faq">
-        <div class="heading not-selectable">
-            <h1 class="heading-shadow not-selectable">FAQ'S</h1>
-            <h2 class="heading-small">
-                <div>
-                    <div>F</div>
-                </div>
-                <div>
-                    <div>A</div>
-                </div>
-                <div>
-                    <div>Q</div>
-                </div>
-                <div>
-                    <div>'</div>
-                </div>
-                <div>
-                    <div>S</div>
-                </div>
-            </h2>
-        </div>
-
-        <div class="dark-faq-row">
+    <!--faq section starts-->
+    <section id="faq" class="faqs-container">
+        <div class="faqs-row">
             <!-- Left Column (First 6 questions) -->
-            <div class="dark-faq-column">
-                <div class="dark-accordion">
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Is this Hackathon an online event or
-                            offline?
-                            <span class="dark-accordion-icon">+</span>
+            <div class="faqs-column">
+                <div class="faqs-accordion">
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button cursor-target">Is this Hackathon an online event or offline?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
+                        <div class="faqs-accordion-content">
                             <p>This is an offline event.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Is there any registration fee?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">Is there any registration fee?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
+                        <div class="faqs-accordion-content">
                             <p>No, registrations for the event are entirely free of charge.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Should you stay on campus overnight?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">Should you stay on campus overnight?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
-                            <p>Yes, we ask that all participants stay on campus throughout the hackathon for the
-                                best experience.</p>
+                        <div class="faqs-accordion-content">
+                            <p>Yes, we ask that all participants stay on campus throughout the hackathon for the best experience.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">What are the facilities arranged by the
-                            organizers?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">What are the facilities arranged by the organizers?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
-                            <p>We have arranged everything for you, including meals, comfortable accommodations, and
-                                swag.</p>
+                        <div class="faqs-accordion-content">
+                            <p>We have arranged everything for you, including meals, comfortable accommodations, and swag.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">I am a newbie, can I hack?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">I am a newbie, can I hack?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
+                        <div class="faqs-accordion-content">
                             <p>Absolutely! Mentors will assist you throughout the event.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Does this hackathon cover both software and
-                            hardware
-                            projects?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">Does this hackathon cover both software and hardware projects?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
+                        <div class="faqs-accordion-content">
                             <p>Yes, it includes both software and hardware projects.</p>
                         </div>
                     </div>
@@ -2143,128 +1398,107 @@
             </div>
 
             <!-- Right Column (Last 6 questions) -->
-            <div class="dark-faq-column">
-                <div class="dark-accordion">
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">What should I bring for the hackathon?
-                            <span class="dark-accordion-icon">+</span>
+            <div class="faqs-column">
+                <div class="faqs-accordion">
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">What should I bring for the hackathon?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
+                        <div class="faqs-accordion-content">
                             <p>Bring your student ID, laptops, gadgets, or anything else you want to work on.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Will the hackathon have Wi-Fi facilities?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">Will the hackathon have Wi-Fi facilities?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
+                        <div class="faqs-accordion-content">
                             <p>Yes, we will provide Wi-Fi throughout the event.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Can I participate without a team?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">Can I participate without a team?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
-                            <p>No, this hackathon is a team event. You can team up with others in our community
-                                group.</p>
+                        <div class="faqs-accordion-content">
+                            <p>No, this hackathon is a team event. You can team up with others in our community group.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Will you sponsor our travel costs?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">Will you sponsor our travel costs?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
-                            <p>No, we do not reimburse travel costs, but accommodation is provided for those
-                                traveling from outside the city.</p>
+                        <div class="faqs-accordion-content">
+                            <p>No, we do not reimburse travel costs, but accommodation is provided for those traveling from outside the city.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Will there be any mentoring sessions?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">Will there be any mentoring sessions?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
+                        <div class="faqs-accordion-content">
                             <p>Yes, mentors will guide you throughout the hackathon.</p>
                         </div>
                     </div>
 
-                    <div class="dark-accordion-item">
-                        <button class="dark-accordion-button cursor-target">Do I need to be a student to participate?
-                            <span class="dark-accordion-icon">+</span>
+                    <div class="faqs-accordion-item cursor-target">
+                        <button class="faqs-accordion-button">Do I need to be a student to participate?
+                            <span class="faqs-accordion-icon">+</span>
                         </button>
-                        <div class="dark-accordion-content">
+                        <div class="faqs-accordion-content">
                             <p>Yes, this hackathon is open to high school and undergraduate students.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
     </div>
+    </section>
 
-    <!-- Footer Section -->
-    <footer class="relative bg-black/30 backdrop-blur-lg border-t border-gray-700/30 py-8 z-30">
-        <div class="absolute inset-0 bg-black pointer-events-none"></div>
-        <div class="absolute inset-0 bg-black pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class=" grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
+    <!--footer section-->
+    <footer class="footer-container">
+        <div class="footer-overlay"></div>
+        
+        <div class="footer-content">
+            <div class="footer-grid">
                 <!-- Left Section -->
-                <div class="md:col-span-1">
-                    <h2 class="text-4xl font-extrabold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-                        style="font-family: 'Teko', sans-serif;">
-                        PEC Hacks
-                    </h2>
-                    <p class="text-2xl mt-2 text-gray-300" style="font-family: 'Teko', sans-serif;">International
-                        Hackathon</p>
-                    <div class="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
-                        <a href="https://github.com/thecoding-society" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub" class="hover:text-gray-400 transition-colors text-white cursor-target">
+                <div>
+                    <h2 class="footer-title">PEC Hacks</h2>
+                    <p class="footer-subtitle">International Hackathon</p>
+                    <div class="social-icons ">
+                        <a href="https://github.com/thecoding-society" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon cursor-target">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://x.com/PECHacks" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
-                            class="hover:text-blue-400 transition-colors text-white cursor-target">
+                        <a href="https://x.com/PECHacks" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon cursor-target">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://www.instagram.com/pechacks/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram"
-                            class="hover:text-pink-400 transition-colors text-white cursor-target">
+                        <a href="https://www.instagram.com/pechacks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon cursor-target">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/pec-hacks/" target="_blank" rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                            class="hover:text-blue-400 transition-colors text-white cursor-target">
+                        <a href="https://www.linkedin.com/company/pec-hacks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon cursor-target">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://discord.gg/2w2FSTXehQ" target="_blank" rel="noopener noreferrer"
-                            aria-label="Discord"
-                            class="hover:text-indigo-400 transition-colors text-white cursor-target">
+                        <a href="https://discord.gg/2w2FSTXehQ" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="social-icon cursor-target">
                             <i class="fab fa-discord"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Middle Section -->
-                <div class="md:col-span-1">
-                    <h3 class="text-2xl font-bold text-white font-electrolize" style="font-family: 'Teko', sans-serif;">
-                        Venue Address</h3>
-                    <p class="mt-2 text-xl text-gray-300 font-rajdhani" style="font-family: 'Teko', sans-serif;">
+                <div>
+                    <h3 class="footer-heading">Venue Address</h3>
+                    <p class="footer-text">
                         Panimalar Engineering College,<br>
                         Nazarathpettai, Poonamallee,<br>
                         Chennai, Tamil Nadu - 600123
                     </p>
-                    <h3 class="text-xl font-bold mt-6 text-white font-electrolize"
-                        style="font-family: 'Teko', sans-serif;">Branding Guidelines</h3>
-                    <ul class="mt-2 space-y-2">
+                    <h3 class="footer-heading" style="margin-top: 1.5rem;">Branding Guidelines</h3>
+                    <ul class="footer-list">
                         <li>
-                            <a href="http://assets.pechacks.org/"
-                                class="text-cyan-400 hover:underline font-rajdhani cursor-target">
+                            <a href="http://assets.pechacks.org/" class="footer-link cursor-target">
                                 › PEC Hacks Branding Asset
                             </a>
                         </li>
@@ -2272,35 +1506,29 @@
                 </div>
 
                 <!-- Right Section -->
-                <div class="md:col-span-1">
-                    <h3 class="text-xl font-bold text-white font-electrolize" style="font-family: 'Teko', sans-serif;">
-                        Additional Links</h3>
-                    <ul class="mt-2 space-y-2">
+                <div>
+                    <h3 class="footer-heading">Additional Links</h3>
+                    <ul class="footer-list">
                         <li>
-                            <a href="https://www.panimalar.ac.in" target="_blank" rel="noopener noreferrer"
-                                class="text-cyan-400 hover:underline font-rajdhani cursor-target">
+                            <a href="https://www.panimalar.ac.in" target="_blank" rel="noopener noreferrer" class="footer-link cursor-target">
                                 › College Website
                             </a>
                         </li>
                         <li>
-                            <a href="https://coding.peccsbs.xyz/" target="_blank" rel="noopener noreferrer"
-                                class="text-cyan-400 hover:underline font-rajdhani cursor-target">
+                            <a href="https://coding.peccsbs.xyz/" target="_blank" rel="noopener noreferrer" class="footer-link cursor-target">
                                 › The Coding Society
                             </a>
                         </li>
                     </ul>
-                    <h3 class="text-xl font-bold text-white font-electrolize mt-6"
-                        style="font-family: 'Teko', sans-serif;">Past Events</h3>
-                    <ul class="mt-2 space-y-2">
+                    <h3 class="footer-heading" style="margin-top: 1.5rem;">Past Events</h3>
+                    <ul class="footer-list">
                         <li>
-                            <a href="https://one.pechacks.org/" target="_blank" rel="noopener noreferrer"
-                                class="text-cyan-400 hover:underline font-rajdhani cursor-target">
+                            <a href="https://one.pechacks.org/" target="_blank" rel="noopener noreferrer" class="footer-link cursor-target">
                                 › Visit 1.0
                             </a>
                         </li>
                         <li>
-                            <a href="https://two.pechacks.org/" target="_blank" rel="noopener noreferrer"
-                                class="text-cyan-400 hover:underline font-rajdhani cursor-target">
+                            <a href="https://two.pechacks.org/" target="_blank" rel="noopener noreferrer" class="footer-link cursor-target">
                                 › Visit 2.0
                             </a>
                         </li>
@@ -2308,28 +1536,31 @@
                 </div>
 
                 <!-- Map Section -->
-                <div class="md:col-span-1">
-                    <h3 class="text-2xl font-bold mb-4 text-white font-electrolize"
-                        style="font-family: 'Teko', sans-serif;">Location</h3>
-                    <div class="aspect-w-16 aspect-h-9">
-                        <iframe
+                <div>
+                    <h3 class="footer-heading">Location</h3>
+                    <div class="map-container">
+                        <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7920451208224!2d80.07288927484274!3d13.048904887273663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5261c68a9f3031%3A0xab41c8bdcf32ad47!2sPanimalar%20Engineering%20College!5e0!3m2!1sen!2sin!4v1756634251679!5m2!1sen!2sin"
-                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Copyright Section -->
-            <div
-                class="max-w-7xl mx-auto mt-8 pt-6 border-t border-gray-700/30 text-center text-sm text-gray-400 font-rajdhani">
-                <p>© <span id="current-year"></span> PEC Hacks. All rights reserved.</p>
-            </div>
+        <!-- Copyright Section -->
+        <div class="copyright">
+            <p style="font-family: 'Teko', sans-serif;">© <span id="current-year">2025</span> PEC Hacks. All rights reserved.</p>
         </div>
     </footer>
-
+    
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
 </body>
-
 </html>
