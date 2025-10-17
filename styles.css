@@ -2992,11 +2992,12 @@
             letter-spacing: 1px;
         }
 
-        /* Carousel Styles */
+        /* Partners Carousel - FIXED INFINITE SCROLLING */
         .partners-carousel-container {
             width: 100%;
             margin: 0 auto 6rem;
             overflow: hidden;
+            position: relative;
         }
 
         .partners-carousel-section {
@@ -3052,16 +3053,16 @@
             filter: grayscale(0%);
         }
 
-        /* Animation for each row */
+        /* PERFECT INFINITE SCROLLING ANIMATION */
         .partners-carousel-row-1 .partners-carousel-track {
-            animation: partners-carousel-scroll-left 40s linear infinite;
+            animation: partners-scroll-left 60s linear infinite;
         }
 
         .partners-carousel-row-2 .partners-carousel-track {
-            animation: partners-carousel-scroll-right 45s linear infinite;
+            animation: partners-scroll-right 70s linear infinite;
         }
 
-        @keyframes partners-carousel-scroll-left {
+        @keyframes partners-scroll-left {
             0% {
                 transform: translateX(0);
             }
@@ -3070,7 +3071,7 @@
             }
         }
 
-        @keyframes partners-carousel-scroll-right {
+        @keyframes partners-scroll-right {
             0% {
                 transform: translateX(-50%);
             }
