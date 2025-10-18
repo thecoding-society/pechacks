@@ -3056,10 +3056,12 @@
         /* PERFECT INFINITE SCROLLING ANIMATION */
         .partners-carousel-row-1 .partners-carousel-track {
             animation: partners-scroll-left 60s linear infinite;
+            padding-left: 100px;
         }
 
         .partners-carousel-row-2 .partners-carousel-track {
-            animation: partners-scroll-right 70s linear infinite;
+            animation: partners-scroll-right 60s linear infinite;
+            padding-left: 100px;
         }
 
         @keyframes partners-scroll-left {
@@ -3067,13 +3069,13 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-78%);
             }
         }
 
         @keyframes partners-scroll-right {
             0% {
-                transform: translateX(-50%);
+                transform: translateX(-78%);
             }
             100% {
                 transform: translateX(0);
