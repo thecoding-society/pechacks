@@ -860,7 +860,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function viewSponsorshipDeck() {
   // Open the sponsorship deck in a new browser tab for viewing
-  window.open("./assets/Pec Hacks 3.0 Sponsorship Deck new.pdf", "_blank");
+  window.open("./assets/Pec Hacks 3.0 Sponsorship Deck Final.pdf", "_blank");
 }
 
 //full sponser section ends
@@ -899,8 +899,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Open first accordion by default
-  if (accordionButtons.length > 0) {
-    accordionButtons[0].click();
-  }
+  // if (accordionButtons.length > 0) {
+  //   accordionButtons[0].click();
+  // }
 });
 //faq section ends
