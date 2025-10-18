@@ -899,8 +899,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Open first accordion by default
-  if (accordionButtons.length > 0) {
-    accordionButtons[0].click();
-  }
+  // if (accordionButtons.length > 0) {
+  //   accordionButtons[0].click();
+  // }
 });
 //faq section ends
