@@ -61,7 +61,7 @@
         <div class="home-title-container">
           <h1 class="home-hud-title" id="homeHudTitle">
             PEC HACKS 
-            <span class="glitch-30">
+            <span class="glitch-30 " id="glitchElement">
                 3.0
                 <span aria-hidden="true">3.0</span>
                 <span aria-hidden="true">3.0</span>
@@ -82,7 +82,7 @@
               <div class="home-galaxy-button">
                 <button
                   class="home-space-button home-blue-theme cursor-target"
-                  onclick="window.location.href='https://two.pechacks.org/'"
+                  onclick="window.open('https://two.pechacks.org/', '_blank')"
                 >
                   <span class="home-backdrop"></span>
                   <span class="home-galaxy"></span>
@@ -97,7 +97,7 @@
               <div class="home-galaxy-button">
                 <button
                   class="home-space-button cursor-target"
-                  onclick="window.location.href='https://chat.whatsapp.com/FHbkRZMpKkSA2FTCqjr5d3?mode=wwc'"
+                  onclick="window.open('https://chat.whatsapp.com/FHbkRZMpKkSA2FTCqjr5d3?mode=wwc', '_blank')"
                 >
                   <span class="home-backdrop"></span>
                   <span class="home-galaxy"></span>
@@ -227,7 +227,8 @@
                             <div class="stat-box stat-box-small">
                                 <div class="stat-box-content">
                                     <div class="stat-icon"><i class="fas fa-university"></i></div>
-                                    <div class="stat-number" data-target="361">0</div>
+                                    <div class="stat-number" data-target="360">0</div>
+                                    <span class="stat-plus">+</span>
                                     <div class="stat-label">Colleges</div>
                                 </div>
                             </div>
@@ -236,7 +237,8 @@
                             <div class="stat-box stat-box-small">
                                 <div class="stat-box-content">
                                     <div class="stat-icon"><i class="fas fa-city"></i></div>
-                                    <div class="stat-number" data-target="82">0</div>
+                                    <div class="stat-number" data-target="80">0</div>
+                                    <span class="stat-plus">+</span>
                                     <div class="stat-label">Cities</div>
                                 </div>
                             </div>
@@ -245,7 +247,8 @@
                             <div class="stat-box stat-box-small">
                                 <div class="stat-box-content">
                                     <div class="stat-icon"><i class="fas fa-user-secret"></i></div>
-                                    <div class="stat-number" data-target="300">0</div>
+                                    <div class="stat-number" data-target="500">0</div>
+                                    <span class="stat-plus">+</span>
                                     <div class="stat-label">Hackers</div>
                                 </div>
                             </div>
@@ -255,6 +258,7 @@
                                 <div class="stat-box-content">
                                     <div class="stat-icon"><i class="fas fa-lightbulb"></i></div>
                                     <div class="stat-number" data-target="100">0</div>
+                                    <span class="stat-plus">+</span>
                                     <div class="stat-label">Projects</div>
                                 </div>
                             </div>
@@ -263,8 +267,9 @@
                             <div class="stat-box stat-box-large">
                                 <div class="stat-box-content">
                                     <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                                    <span class="stat-plus">₹</span>
                                     <div class="stat-number" data-target="40">0</div>
-                                    <span class="stat-plus">+ Lakhs</span>
+                                    <span class="stat-plus">Lakhs +</span>
                                     <div class="stat-label">Prize Pool</div>
                                 </div>
                             </div>
@@ -272,78 +277,6 @@
                     </section>
                 </div>
             </div>
-
-            <!-- Association Section -->
-            <!-- <div class="about-association-container">
-                <div class="about-organized-container">
-                    <h3 class="about-organized-title">Organized By</h3>
-                    <div class="about-logo-container">
-                        <div class="about-logo-image">
-                            
-                            <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-university" style="font-size: 50px; color: #7ee3ff;"></i>
-                            </div>
-                        </div>
-                        <div class="about-logo-text">Panimalar Engineering College</div>
-                    </div>
-                </div>
-
-                <div class="about-associated-container">
-                    <h3 class="about-associated-title">Associated With</h3>
-                    <div class="about-associated-logos">
-                        <div class="about-associated-logo-item">
-                            <div class="about-logo-image">
-                                
-                                <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fas fa-code" style="font-size: 50px; color: #7ee3ff;"></i>
-                                </div>
-                            </div>
-                            <div class="about-logo-text">Tech Partner</div>
-                        </div>
-                        <div class="about-associated-logo-item">
-                            <div class="about-logo-image">
-                                
-                                <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fas fa-rocket" style="font-size: 50px; color: #7ee3ff;"></i>
-                                </div>
-                            </div>
-                            <div class="about-logo-text">Innovation Partner</div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Patrons Section -->
-            <!-- <div class="about-content-wrapper about-mt-50">
-                <h3 class="about-title">Our Esteemed Patrons</h3>
-                <div class="about-patrons-grid">
-                    <div class="about-patron-card">
-                        <div class="about-patron-image">
-                            
-                            <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-user" style="font-size: 50px; color: #7ee3ff;"></i>
-                            </div>
-                        </div>
-                        <div class="about-patron-info">
-                            <div class="about-patron-name">Dr. R. S. Kumar</div>
-                            <div class="about-patron-role">Principal, Panimalar Engineering College</div>
-                        </div>
-                    </div>
-
-                    <div class="about-patron-card">
-                        <div class="about-patron-image">
-                            
-                            <div style="width: 120px; height: 120px; background: rgba(125, 227, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-user" style="font-size: 50px; color: #7ee3ff;"></i>
-                            </div>
-                        </div>
-                        <div class="about-patron-info">
-                            <div class="about-patron-name">Prof. A. Sharma</div>
-                            <div class="about-patron-role">Head of Computer Science Department</div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
 
@@ -789,7 +722,7 @@
                     <div class="prize-card-content">
                         <div class="prize-back-side">
                             <div class="prize-back-content">
-                                <img src="./assets/prizes(01)/gold(1).png" alt="Gold Medal" class="prize-icon">
+                                <img src="./assets/prizes(01)/gold-image.png" alt="Gold Medal" class="prize-icon">
                                 <div class="prize-name">Gold Medal</div>
                                 <p class="prize-des">First Place Award</p>
                             </div>
@@ -819,7 +752,7 @@
                     <div class="prize-card-content">
                         <div class="prize-back-side">
                             <div class="prize-back-content">
-                                <img src="./assets/prizes(01)/silver(1).png" alt="Silver Medal" class="prize-icon">
+                                <img src="./assets/prizes(01)/silver-image.png" alt="Silver Medal" class="prize-icon">
                                 <div class="prize-name">Silver Medal</div>
                                 <p class="prize-des">Second Place Award</p>
                             </div>
@@ -847,7 +780,7 @@
                     <div class="prize-card-content">
                         <div class="prize-back-side">
                             <div class="prize-back-content">
-                                <img src="./assets/prizes(01)/bronze_2_-removebg-preview.png" alt="Bronze Medal"
+                                <img src="./assets/prizes(01)/bronze-logo.png" alt="Bronze Medal"
                                     class="prize-icon">
                                 <div class="prize-name">Bronze Medal</div>
                                 <p class="prize-des">Third Place Award</p>
@@ -935,6 +868,95 @@
         </div>
     </div>
     </section>
+
+    <!-- Judges Section -->
+    <!-- <section id="judges-section" class="judges-section">
+        <div class="section-heading">
+            <h1 class="heading-shadow">JUDGES</h1>
+            <h2 class="heading-small">
+                <div><div>J</div></div>
+                <div><div>U</div></div>
+                <div><div>D</div></div>
+                <div><div>G</div></div>
+                <div><div>E</div></div>
+                <div><div>S</div></div>
+            </h2>
+        </div>
+        
+        <div class="judges-wrapper">
+            <div class="judges-container">
+                
+                <div class="judges-card">
+                    <img src="./assets/judges/Anuradha_afhvd8.png" class="judges-image" />
+                    <div class="judges-content">
+                        <h2 class="judges-name">Anuradha</h2>
+                        <h3 class="judges-role">HOD</h3>
+                        <p class="judges-description">
+                            Transforming ideas into realities, creating interfaces that inspire
+                            and engage users dreams.
+                        </p>
+                        <div class="judges-socials">
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-linkedin-in judges-social-icon"></i>
+                            </button>
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-instagram judges-social-icon"></i>
+                            </button>
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-twitter judges-social-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="judges-card">
+                    <img src="./assets/judges/Sarath_Kumaran_P_nuesxt.jpg" class="judges-image" />
+                    <div class="judges-content">
+                        <h2 class="judges-name">Sarath</h2>
+                        <h3 class="judges-role">Full Stack Developer</h3>
+                        <p class="judges-description">
+                            Crafting intuitive experiences that bridge the gap between users and technology.
+                        </p>
+                        <div class="judges-socials">
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-linkedin-in judges-social-icon"></i>
+                            </button>
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-instagram judges-social-icon"></i>
+                            </button>
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-twitter judges-social-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="judges-card">
+                    <img src="./assets/judges/praveen.webp" class="judges-image" />
+                    <div class="judges-content">
+                        <h2 class="judges-name">praveen</h2>
+                        <h3 class="judges-role">Full Stack Developer</h3>
+                        <p class="judges-description">
+                            Building robust systems that power seamless digital experiences for millions.
+                        </p>
+                        <div class="judges-socials">
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-linkedin-in judges-social-icon"></i>
+                            </button>
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-instagram judges-social-icon"></i>
+                            </button>
+                            <button class="judges-social-button cursor-target">
+                                <i class="fa-brands fa-twitter judges-social-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
     
     <!--partners section starts-->
     <section id="partners" class="partners-section">
@@ -990,8 +1012,8 @@
                                 <img src="./assets/sponsers/codecrafters.jpg" alt="CODECRAFTERS LOGO">
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>  
+                </div>  
 
                 <!-- Silver Partners -->
                 <div class="partners-sponsor-section partners-silver">
@@ -1326,7 +1348,7 @@
                         </div>
                         <div class="partners-contact-info">
                             <p class="partners-contact-text">
-                                Contact us: <a href="mailto:team@pechacks.org" class="partners-contact-email cursor-target">team@pechacks.org</a>
+                                Contact us: <a href="mailto:team@pechacks.org"   class="partners-contact-email cursor-target">team@pechacks.org</a>
                             </p>
                         </div>
                     </div>
@@ -1337,6 +1359,17 @@
 
     <!--faq section starts-->
     <section id="faq" class="faqs-container">
+        <!-- Header -->
+            <div class="section-heading about-not-selectable">
+                <h1 class="heading-shadow about-not-selectable">FAQ'S</h1>
+                <h2 class="heading-small">
+                    <div><div>F</div></div>
+                    <div><div>A</div></div>
+                    <div><div>Q</div></div>
+                    <div><div>'</div></div>
+                    <div><div>S</div></div>
+                </h2>
+            </div>
         <div class="faqs-row">
             <!-- Left Column (First 6 questions) -->
             <div class="faqs-column">
@@ -1498,8 +1531,8 @@
                     <h3 class="footer-heading" style="margin-top: 1.5rem;">Branding Guidelines</h3>
                     <ul class="footer-list">
                         <li>
-                            <a href="http://assets.pechacks.org/" class="footer-link cursor-target">
-                                › PEC Hacks Branding Asset
+                            <a href="http://assets.pechacks.org/" target="_blank" rel="noopener noreferrer" class="footer-link cursor-target">
+                                ›  PEC Hacks Branding Assets
                             </a>
                         </li>
                     </ul>
@@ -1558,7 +1591,7 @@
             <p style="font-family: 'Teko', sans-serif;">© <span id="current-year">2025</span> PEC Hacks. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     

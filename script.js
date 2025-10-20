@@ -1,3 +1,4 @@
+// All your existing JavaScript code goes here
 // Navbar functionality
 const navbarsMain = document.getElementById("navbarsMain");
 const navbarsMenuBtn = document.getElementById("navbarsMenuBtn");
@@ -115,7 +116,7 @@ document.addEventListener("keydown", (e) => {
 
 // Close mobile nav on window resize (if needed)
 window.addEventListener("resize", () => {
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 900) {
     navbarsCloseMobile();
   }
 });
@@ -561,11 +562,11 @@ function updateHomeTimer() {
   // If the difference is negative, the event has passed
   if (diff <= 0) {
     document.querySelector(".home-timer").innerHTML = `
-                                        <div class="home-timer-unit">
-                                            <div class="home-timer-value">00</div>
-                                            <div class="home-timer-label">Event Started</div>
-                                        </div>
-                                    `;
+                                                <div class="home-timer-unit">
+                                                    <div class="home-timer-value">00</div>
+                                                    <div class="home-timer-label">Event Started</div>
+                                                </div>
+                                            `;
     return;
   }
 
@@ -590,6 +591,25 @@ function updateHomeTimer() {
     .padStart(2, "0");
 }
 
+// Glitch effect cycle
+function startGlitchCycle() {
+  const glitchElement = document.getElementById("glitchElement");
+
+  // Initial delay of 2 seconds before first glitch
+  setTimeout(() => {
+    // Add glitch effect
+    glitchElement.classList.add("glitch-active");
+
+    // Remove glitch after 2 seconds
+    setTimeout(() => {
+      glitchElement.classList.remove("glitch-active");
+
+      // Restart the cycle after 2 seconds of normal display
+      setTimeout(startGlitchCycle, 2000);
+    }, 2000);
+  }, 2000);
+}
+
 // Initialize
 function initHome() {
   // Set initial timer
@@ -597,6 +617,9 @@ function initHome() {
 
   // Set up interval for timer
   setInterval(updateHomeTimer, 1000);
+
+  // Start the glitch cycle
+  startGlitchCycle();
 }
 
 // Start when DOM is loaded
@@ -904,3 +927,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // }
 });
 //faq section ends
+
+// Set current year in footer
+document.getElementById("current-year").textContent = new Date().getFullYear();
