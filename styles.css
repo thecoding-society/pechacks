@@ -1,4 +1,5 @@
-@import url('https://fonts.cdnfonts.com/css/transformers-2');
+ /* All your existing CSS code goes here */
+        @import url('https://fonts.cdnfonts.com/css/transformers-2');
         @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); 
         
@@ -156,7 +157,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: glassy;
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(15px);
             z-index: 999;
             display: flex;
@@ -166,10 +167,14 @@
             gap: 2.5rem;
             transform: translateY(-100%);
             transition: transform 0.5s ease;
+            opacity: 0;
+            visibility: hidden;
         }
         
         .navbars-mobile.active {
             transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
         }
         
         .navbars-mobile-link {
@@ -227,7 +232,8 @@
             }
         }
         
-        @media (max-width: 768px) {
+        /* FIXED: Changed from 768px to 900px to prevent mobile nav on small laptops */
+        @media (max-width: 900px) {
             .navbars-links {
                 display: none;
             }
@@ -356,7 +362,6 @@
         }
         /* cursor code ends */
 
-        /*Home section starts*/
         /*Home section starts*/
         .home-main-container {
             position: relative;
@@ -672,32 +677,41 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* NEW GLITCH EFFECT FOR 3.0 */
+        /* NEW GLITCH EFFECT FOR 3.0 - MODIFIED FOR CYCLIC ANIMATION */
         .glitch-30 {
             position: relative;
             display: inline-block;
             color: #fff;
             font-size: 6rem;
             font-weight: 900;
-            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
-                0.025em 0.04em 0 #fffc00;
-            animation: glitch 725ms infinite;
+            text-shadow: none;
+            animation: none;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
         }
 
         .glitch-30 span {
             position: absolute;
             top: 0;
             left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .glitch-30 span:first-child {
+        .glitch-30.glitch-active {
+            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                0.025em 0.04em 0 #fffc00;
+            animation: glitch 725ms infinite;
+        }
+
+        .glitch-30.glitch-active span:first-child {
             animation: glitch 500ms infinite;
             clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
             transform: translate(-0.04em, -0.03em);
             opacity: 0.75;
         }
 
-        .glitch-30 span:last-child {
+        .glitch-30.glitch-active span:last-child {
             animation: glitch 375ms infinite;
             clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
             transform: translate(0.04em, 0.03em);
@@ -736,14 +750,12 @@
         }
 
         /* Responsive Styles */
-        /* Media query for mobile devices */
         @media (max-width: 768px) {
             .devfolio-btn {
                 padding: 10px 70px !important;
                 font-size: 18px !important;
             }
-        }
-        @media (max-width: 768px) {
+            
             .home-hud-title {
                 font-size: 3rem;
             }
@@ -877,7 +889,8 @@
         .home-space-button * {
             pointer-events: none;
         }
-        /*About section starts*/
+
+
         /*About section starts*/
         .about-container {
             width: 100%;
@@ -1077,7 +1090,6 @@
             font-weight: bold;
             font-family: 'Teko', sans-serif;
             font-size: 24px;
-            margin-left: 5px;
             color: white;
         }
 
@@ -1610,7 +1622,6 @@
             user-select: none;
         }
 
-        /*About section ends*/
         /*About section ends*/
 
         /* Gallery Section Styles */
@@ -2818,6 +2829,245 @@
 
 /*prize section ends */ 
 
+/* Judges Section Styles */
+.judges-section {
+    position: relative;
+    background: transparent;
+    z-index: 85;
+    padding: 80px 0;
+    min-height: 100vh;
+    height: auto;
+}
+
+.judges-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.judges-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    justify-items: center;
+}
+
+.judges-card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    padding: 25px 15px 25px 8px;
+    background: black;
+    border: 1px solid rgba(125, 227, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.judges-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(126, 227, 255, 0.2);
+}
+
+.judges-image {
+    max-width: 120px;
+    width: 30vw;
+    height: 140px;
+    object-fit: cover;
+    margin-left: -30px;
+    margin-right: 12px;
+    border-radius: inherit;
+    box-shadow: 0 30px 20px rgb(0 0 0 / 8%);
+    transition: border-radius 0.3s;
+}
+
+.judges-name {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-right: 12px;
+    margin-bottom: 6px;
+    color: #7ee3ff;
+    font-family: 'Teko', sans-serif;
+}
+
+.judges-role {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.75;
+    color: #fff;
+    font-family: 'Teko', sans-serif;
+}
+
+.judges-description {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    opacity: 0.5;
+    line-height: 1.4;
+    color: #fff;
+    font-family: 'Teko', sans-serif;
+}
+
+ .judges-socials {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .judges-card:hover .judges-socials {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .judges-social-button {
+            position: relative;
+            border: 0;
+            background: transparent;
+            color: #f8f8f8;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .judges-social-button:hover {
+            transform: scale(1.1);
+        }
+
+
+        .judges-social-icon {
+            position: relative;
+            z-index: 1;
+            border: 3px solid #1e1c1b;
+            background: #3f3b39;
+            display: grid;
+            place-items: center;
+            font-size: 16px;
+            width: 34px;
+            height: 34px;
+            border-radius: 34px;
+            transition: background 0.3s ease;
+        }
+
+        .judges-social-button:hover .judges-social-icon {
+            background: white;
+            color: black;
+        }
+
+.judges-content {
+    flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .judges-container {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1100px;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .judges-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+        gap: 25px;
+    }
+    
+    .judges-card {
+        max-width: 380px;
+        padding: 25px 15px 25px 8px;
+    }
+    
+    .judges-image {
+        max-width: 130px;
+        height: 150px;
+        margin-left: -30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .judges-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: 50px;
+    }
+    
+    .judges-card {
+        margin: 0;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .judges-name {
+        margin-right: 0;
+        font-size: 18px;
+    }
+
+    .judges-image {
+        margin: -60px 0 15px 0;
+        width: 100%;
+        max-width: 250px;
+        height: 160px;
+    }
+
+    .judges-description {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .judges-socials {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .judges-container {
+        max-width: 400px;
+        gap: 80px;
+    }
+    
+    .judges-card {
+        max-width: 350px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .judges-image {
+        height: 45vw;
+        width: 45vw;
+        border-radius: 50%;
+        border: 6px solid var(--judges-card);
+        box-shadow: none;
+        margin: -80px 0 15px 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .judges-container {
+        max-width: 320px;
+    }
+    
+    .judges-card {
+        max-width: 300px;
+    }
+}
+
 /*full sponeser section starts*/
 
 /* Section container */
@@ -2927,7 +3177,7 @@
         .partners-silver-title {
             font-size: 1.875rem;
             font-weight: bold;
-            color: #CD7F32;
+            color: linear-gradient(135deg, #C0C0C0, #D9D9D9, #E0E0E0, #B0B0B0);
             font-family: 'Teko', sans-serif;
             letter-spacing: 1px;
         }
@@ -2983,7 +3233,7 @@
         }
 
         .partners-community-title {
-            font-size: 1.875rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: white;
             font-family: 'Teko', sans-serif;
