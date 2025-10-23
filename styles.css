@@ -360,7 +360,19 @@
             border-right: none;
             border-top: none;
         }
+         /* Hide custom cursor on mobile devices */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .target-cursor-wrapper {
+        display: none !important;
+    }
+
+    .cursor-target {
+        cursor: auto !important;
+    }
+}
         /* cursor code ends */
+       
+
 
         /*Home section starts*/
         .home-main-container {
