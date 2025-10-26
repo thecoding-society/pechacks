@@ -1034,6 +1034,49 @@
             transform: translateY(0%);
             will-change: auto;
         }
+        .sponsors-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Transformers', sans-serif !important;
+  text-align: center;
+  position: relative;
+  z-index: 6;
+  line-height: 1;
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 5.5rem);
+  gap: 0.25rem;
+}
+
+.sponsors-heading div {
+  overflow: hidden;
+  height: auto;
+}
+
+.sponsors-heading div div {
+  transform: translateY(0%);
+  will-change: auto;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .sponsors-heading {
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
+    gap: 0.15rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .sponsors-heading {
+    font-size: clamp(3rem, 8vw, 4rem);
+    gap: 0.1rem;
+  }
+}
+
         
         /* Content Styling */
         .about-content {
