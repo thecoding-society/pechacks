@@ -562,11 +562,11 @@ function updateHomeTimer() {
   // If the difference is negative, the event has passed
   if (diff <= 0) {
     document.querySelector(".home-timer").innerHTML = `
-                                                <div class="home-timer-unit">
-                                                    <div class="home-timer-value">00</div>
-                                                    <div class="home-timer-label">Event Started</div>
-                                                </div>
-                                            `;
+                                                      <div class="home-timer-unit">
+                                                          <div class="home-timer-value">00</div>
+                                                          <div class="home-timer-label">Event Started</div>
+                                                      </div>
+                                                  `;
     return;
   }
 
@@ -888,6 +888,38 @@ function viewSponsorshipDeck() {
 
 //full sponser section ends
 
+// Teams Section JavaScript
+// Add touch interaction for mobile devices
+document.addEventListener("DOMContentLoaded", function () {
+  const teamsCards = document.querySelectorAll(".teams-card");
+
+  // Check if device is touch-enabled
+  if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+    teamsCards.forEach((card) => {
+      card.addEventListener("click", function () {
+        // Close other open cards
+        teamsCards.forEach((otherCard) => {
+          if (otherCard !== card && otherCard.classList.contains("active")) {
+            otherCard.classList.remove("active");
+          }
+        });
+
+        // Toggle current card
+        card.classList.toggle("active");
+      });
+    });
+
+    // Close card when clicking outside
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".teams-card")) {
+        teamsCards.forEach((card) => {
+          card.classList.remove("active");
+        });
+      }
+    });
+  }
+});
+
 //faq section starts
 // FAQ Accordion functionality
 document.addEventListener("DOMContentLoaded", function () {
@@ -930,3 +962,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Set current year in footer
 document.getElementById("current-year").textContent = new Date().getFullYear();
+
+// Patrons animation script
+document.addEventListener("DOMContentLoaded", function () {
+  const patronsAnimatedElements = document.querySelectorAll(
+    ".patrons-fade-in-up"
+  );
+
+  const patronsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          patronsObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  // Initially pause animations
+  patronsAnimatedElements.forEach((el) => {
+    el.style.animationPlayState = "paused";
+    patronsObserver.observe(el);
+  });
+
+  // Add staggered animation delay for patron cards
+  const patronsCards = document.querySelectorAll(".patrons-card");
+  patronsCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
+});
