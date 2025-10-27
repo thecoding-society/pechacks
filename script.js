@@ -836,6 +836,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //timeline section ends
 
+//prizes section starts
+document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -30px 0px' };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = entry.target.dataset.transform || 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      const platforms = document.querySelectorAll('.podium-platform');
+      platforms.forEach((platform, index) => {
+        platform.style.opacity = '0';
+        platform.style.transform = 'translateY(50px)';
+        platform.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.2}s`;
+        platform.dataset.transform = 'translateY(0)';
+        observer.observe(platform);
+      });
+
+      const awards = document.querySelectorAll('.award-display');
+      awards.forEach((award, index) => {
+        award.style.opacity = '0';
+        award.style.transform = 'translateX(-50%) translateY(-30px)';
+        award.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${0.5 + index * 0.15}s`;
+        award.dataset.transform = 'translateX(-50%) translateY(0)';
+        observer.observe(award);
+        award.style.animationPlayState = 'running'; // ensure synced float
+      });
+
+      // Pause animation on hover
+      platforms.forEach(platform => {
+        platform.addEventListener('mouseenter', () => {
+          const award = platform.querySelector('.award-display');
+          award.style.animationPlayState = 'paused';
+        });
+        platform.addEventListener('mouseleave', () => {
+          const award = platform.querySelector('.award-display');
+          award.style.animationPlayState = 'running';
+        });
+      });
+    });
+
 // Gallery Section JavaScript
 // Layout pattern: 5,4,5,4 repeating for desktop
 const pattern = [5, 4, 5, 4];
