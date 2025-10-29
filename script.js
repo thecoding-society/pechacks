@@ -737,102 +737,36 @@ document.addEventListener("DOMContentLoaded", function () {
 //domain section ends
 
 //timeline section starts
-// Progress bar animation
-function initTimelineProgress() {
-  const progressBar = document.getElementById("timeline-progressBar");
-  const timelineEvents = document.querySelectorAll(".timeline-event");
-  const eventMarkers = document.querySelectorAll(".timeline-event-marker");
-  const eventDescriptions = document.querySelectorAll(
-    ".timeline-event-description"
-  );
+function setupTimeline(mode) {
+      const timeline = document.querySelector(".timeline-wrapper");
+      const path = document.getElementById(mode === "mobile" ? "path-mobile" : "path-desktop");
+      const trophy = document.getElementById(mode === "mobile" ? "trophy-mobile" : "trophy-desktop");
+      const pathLength = path.getTotalLength();
+      const sectionHeight = window.innerHeight * 2.5;
+      timeline.style.height = sectionHeight + "px";
 
-  // Initially hide the progress bar completely
-  progressBar.style.opacity = "0";
-  progressBar.style.height = "0%";
-
-  let hasUserScrolled = false;
-  let progressBarVisible = false;
-
-  // Track if user has started scrolling
-  window.addEventListener("scroll", function () {
-    if (!hasUserScrolled) {
-      hasUserScrolled = window.pageYOffset > 10;
-    }
-  });
-
-  window.addEventListener("scroll", function () {
-    const timelineComponent = document.querySelector(".timeline-component");
-    const timelineRect = timelineComponent.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Only activate if user has actually scrolled AND timeline is in view
-    const timelineInView =
-      timelineRect.top < windowHeight * 0.8 &&
-      timelineRect.bottom > windowHeight * 0.2;
-
-    if (hasUserScrolled && timelineInView) {
-      if (!progressBarVisible) {
-        // Show progress bar with fade-in effect
-        progressBar.style.opacity = "1";
-        progressBarVisible = true;
+      function updateTrophy() {
+        const rect = timeline.getBoundingClientRect();
+        const scrollRange = sectionHeight - window.innerHeight;
+        const progress = Math.min(Math.max(-rect.top / scrollRange, 0), 1);
+        const point = path.getPointAtLength(pathLength * progress);
+        trophy.setAttribute("transform", `translate(${point.x}, ${point.y})`);
       }
 
-      // Calculate progress based on timeline visibility
-      const timelineStart = scrollTop + timelineRect.top;
-      const timelineEnd = timelineStart + timelineRect.height;
-      const viewportMiddle = scrollTop + windowHeight / 2;
-
-      // Calculate how much of the timeline has been scrolled through
-      const timelineScrollStart = timelineStart - windowHeight * 0.3;
-      const timelineScrollEnd = timelineEnd - windowHeight * 0.7;
-      const scrollRange = timelineScrollEnd - timelineScrollStart;
-
-      if (scrollRange > 0) {
-        const currentScroll = Math.max(
-          0,
-          Math.min(scrollRange, scrollTop - timelineScrollStart)
-        );
-        const progressPercentage = (currentScroll / scrollRange) * 100;
-        progressBar.style.height =
-          Math.max(0, Math.min(100, progressPercentage)) + "%";
-      }
-    } else {
-      // Hide progress bar when not in timeline section or if user hasn't scrolled yet
-      if (progressBarVisible) {
-        progressBar.style.opacity = "0";
-        progressBarVisible = false;
-      }
-      progressBar.style.height = "0%";
+      window.addEventListener("scroll", updateTrophy);
+      window.addEventListener("resize", updateTrophy);
+      updateTrophy();
     }
 
-    // Update active states based on scroll position
-    timelineEvents.forEach((event, index) => {
-      const rect = event.getBoundingClientRect();
-      const isVisible =
-        rect.top < window.innerHeight * 0.7 &&
-        rect.bottom > window.innerHeight * 0.3;
+    function initTimeline() {
+      const isMobile = window.innerWidth <= 768;
+      document.getElementById("timeline-desktop").style.display = isMobile ? "none" : "block";
+      document.getElementById("timeline-mobile").style.display = isMobile ? "block" : "none";
+      setupTimeline(isMobile ? "mobile" : "desktop");
+    }
 
-      if (isVisible) {
-        eventMarkers[index].classList.add("active");
-        eventDescriptions[index].classList.add("active");
-      } else {
-        eventMarkers[index].classList.remove("active");
-        eventDescriptions[index].classList.remove("active");
-      }
-    });
-  });
-
-  // Small delay to ensure DOM is fully ready
-  setTimeout(() => {
-    window.dispatchEvent(new Event("scroll"));
-  }, 100);
-}
-
-// Initialize on DOM ready
-document.addEventListener("DOMContentLoaded", function () {
-  initTimelineProgress();
-});
+    window.addEventListener("load", initTimeline);
+    window.addEventListener("resize", initTimeline);
 
 //timeline section ends
 

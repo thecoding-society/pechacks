@@ -2169,331 +2169,113 @@
 
 /*domain section ends*/
 
-/*timeline section starts*/
+  .timeline-wrapper {
+    height: 520vh;
+  }
 
-        .timeline-section {
-            position: relative;
-            padding: 60px 0;
-            background: transparent;
-            z-index: 70;
-        }
-        
-        .timeline-container {
-            width: 95vw;
-            max-width: 1360px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .timeline-component {
-            position: relative;
-            max-width: 1120px;
-            margin: 0 auto;
-        }
-        
-        .timeline-track {
-            position: absolute;
-            width: 3px;
-            height: 100%;
-            background-color: #414141;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-        
-        .timeline-progress {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 0;
-            background: linear-gradient(to bottom, #ff7448, #ff4848 51%, #6248ff);
-            z-index: 2;
-            transition: height 0.1s ease;
-        }
-        
-        .timeline-events {
-            position: relative;
-            z-index: 3;
-        }
-        
-        .timeline-event {
-            display: flex;
-            justify-content: center;
-            padding: 60px 0;
-            position: relative;
-        }
-        
-        .timeline-event-content {
-            width: 45%;
-            padding: 0 20px;
-            font-family: 'Teko', sans-serif;
-        }
-        
-        .timeline-event-content-left {
-            text-align: right;
-        }
-        
-        .timeline-event-content-right {
-            text-align: left;
-        }
-        
-        .timeline-event-center {
-            width: 10%;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .timeline-event-marker {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: #fff;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            box-shadow: 0 0 0 8px #0a0a0a;
-            transition: all 0.3s ease;
-            z-index: 3;
-        }
-        
-        .timeline-event-marker.active {
-            background-color: #ff7448;
-            transform: translateY(-50%) scale(1.2);
-        }
-        
-        .timeline-event-date {
-            color: #fff;
-            font-size: 36px;
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: -0.03em;
-            margin-bottom: 16px;
-        }
-        
-        .timeline-event-description {
-            color: #fff;
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 1.4;
-            margin-bottom: 24px;
-            opacity: 0.25;
-            transition: opacity 0.5s ease;
-        }
-        
-        .timeline-event-description.active {
-            opacity: 1;
-        }
-        
-        .timeline-event-badge {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.15);
-            color: #fff;
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 12px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-        
-        .timeline-fade-overlay-top, .timeline-fade-overlay-bottom {
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 80px;
-            pointer-events: none;
-            z-index: 4;
-        }
-        
-        .timeline-fade-overlay-top {
-            top: 0;
-        }
-        
-        .timeline-fade-overlay-bottom {
-            bottom: 0;
-        }
-        
-        /* Tablet Styles */
-        @media (max-width: 991px) {
-            .timeline-event-content {
-                width: 42%;
-                padding: 0 15px;
-            }
-            
-            .timeline-event-center {
-                width: 16%;
-            }
-            
-            .timeline-event-date {
-                font-size: 32px;
-            }
-            
-            .timeline-event-description {
-                font-size: 17px;
-            }
-        }
-        
-        /* Mobile Styles */
-        @media (max-width: 767px) {
-            .timeline-section {
-                padding: 40px 0;
-            }
-            
-            .timeline-container {
-                width: 100%;
-                padding: 0 30px;
-            }
-            
-            .timeline-track {
-                left: 1px;
-                transform: none;
-            }
-            
-            .timeline-progress {
-                left: 1px;
-                transform: none;
-            }
-            
-            .timeline-event {
-                display: block;
-                padding: 40px 0;
-            }
-            
-            .timeline-event-content {
-                width: 100%;
-                padding: 0;
-                text-align: left !important;
-                margin-left: 60px;
-            }
-            
-            .timeline-event-center {
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 60px;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-            }
-            
-            .timeline-event-marker {
-                position: relative;
-                top: 50%;
-                left: -15px;
-                transform: translate(-50%, -50%);
-            }
+  .timeline-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-            .timeline-event-badge{
-                margin-left: 20px;
-            }
-            
-            .timeline-event-date {
-                font-size: 28px;
-                position: static;
-                transform: none;
-                margin-left: 20px;
-            }
-            
-            .timeline-event-description {
-                font-size: 16px;
-                margin-left: 20px;
-            }
-        }
-        
-        /* Small Mobile Styles */
-        @media (max-width: 479px) {
-            .timeline-section {
-                padding: 30px 0;
-            }
+  svg {
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    min-height: 350px;
+  }
 
-            .timeline-container {
-                width: 100%;
-                padding: 0 30px;
-            }
-            
-            .timeline-track {
-                left: 1px;
-            }
-            
-            .timeline-progress {
-                left: 1px;
-            }
-            
-            .timeline-event {
-                padding: 30px 0;
-            }
-            
-            .timeline-event-content {
-                margin-left: 50px;
-            }
-            
-            .timeline-event-center {
-                width: 50px;
-            }
-            
-            .timeline-event-marker {
-                left: -15px;
-                width: 12px;
-                height: 12px;
-            }
-            
-            .timeline-event-date {
-                font-size: 24px;
-            }
-            
-            .timeline-event-description {
-                font-size: 15px;
-            }
-            
-            .timeline-event-badge {
-                font-size: 10px;
-                padding: 4px 8px;
-            }
-        }
-        
-        /* Extra Small Mobile Styles */
-        @media (max-width: 359px) {
-            .timeline-event-content {
-                margin-left: 25px;
-            }
-            
-            .timeline-event-center {
-                width: 45px;
-            }
+  path {
+    stroke: #4b284b;
+    stroke-width: 4;
+    fill: none;
+  }
 
-            .timeline-track {
-                left: 1px;
-            }
-            
-            .timeline-progress {
-                left: 1px;
-            }
+  /* Circle checkpoints */
+  .milestone {
+    fill: #fff;
+    stroke: #4b284b;
+    stroke-width: 3;
+    r: 14;
+    filter: drop-shadow(0 0 6px rgba(75, 40, 75, 0.6));
+    transition: transform 0.3s ease, fill 0.3s ease;
+  }
+  .milestone:hover {
+    fill: #ff6fcf;
+    transform: scale(1.3);
+  }
 
-            .timeline-event-marker {
-                left: -15px;
-                width: 12px;
-                height: 12px;
-            }
-            
-            .timeline-event-date {
-                font-size: 22px;
-            }
+  /* Labels */
+  .milestone-group text {
+    font-size: clamp(14px, 2vw, 18px);
+    fill: #fffbff;
+    font-weight: 600;
+  }
 
-            .timeline-event-badge{
-                font-size: 0.8rem;
-            }
-            
-            .timeline-event-description {
-                font-size: 25px;
-            }
-        }
-/*timeline section ends*/
+  .time-text {
+    font-size: clamp(12px, 1.5vw, 16px);
+    fill: #ffffff;
+    font-weight: 500;
+  }
+
+  /* Trophy */
+  #trophy-desktop,
+  #trophy-mobile {
+    font-size: clamp(10px, 3vw, 140px);
+    filter: drop-shadow(7px 7px 10px rgba(0, 0, 0, 0.35));
+    transition: transform 0.3s ease;
+  }
+
+  #trophy-desktop:hover,
+  #trophy-mobile:hover {
+    transform: scale(1.15);
+  }
+
+  /* Mobile vertical mode */
+  @media (max-width: 768px) {
+    .timeline-wrapper {
+      height: 650vh;
+    }
+
+    svg {
+      width: 85%;
+      max-width: none;
+      min-height: 500px;
+    }
+
+    .milestone {
+      r: 18;
+      stroke-width: 3;
+    }
+
+    .milestone-group text {
+      font-size: clamp(16px, 4vw, 24px);
+    }
+
+    .time-text {
+      font-size: clamp(14px, 3vw, 18px);
+    }
+
+    #trophy-mobile {
+      font-size: clamp(100px, 18vw, 160px);
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .timeline-wrapper {
+      height: 550vh;
+    }
+    svg {
+      width: 95%;
+    }
+    #trophy-desktop {
+      font-size: clamp(100px, 12vw, 160px);
+    }
+  }
 
 /*prize section starts*/
 
