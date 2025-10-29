@@ -562,11 +562,11 @@ function updateHomeTimer() {
   // If the difference is negative, the event has passed
   if (diff <= 0) {
     document.querySelector(".home-timer").innerHTML = `
-                                                      <div class="home-timer-unit">
-                                                          <div class="home-timer-value">00</div>
-                                                          <div class="home-timer-label">Event Started</div>
-                                                      </div>
-                                                  `;
+                                                          <div class="home-timer-unit">
+                                                              <div class="home-timer-value">00</div>
+                                                              <div class="home-timer-label">Event Started</div>
+                                                          </div>
+                                                      `;
     return;
   }
 
