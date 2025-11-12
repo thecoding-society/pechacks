@@ -9,6 +9,8 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <!-- Remix Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
@@ -1735,234 +1737,467 @@
   </section>
 
   <!-- Teams Section -->
-  <!-- <section id="teams" class="teams-section">
-      <div class="section-heading">
-        <h1 class="heading-shadow">TEAMS</h1>
-        <h2 class="heading-small">
-          <div><div>T</div></div>
-          <div><div>E</div></div>
-          <div><div>A</div></div>
-          <div><div>M</div></div>
-          <div><div>S</div></div>
-        </h2>
-      </div>
-      
-      <div class="teams-container">
-        
-        <div class="teams-row">
-          
-          <div class="teams-card">
-            <div class="teams-image">
-              <img src="./assets/judges/Anuradha_afhvd8.png" alt="Oliver Thoe profile image">
-            </div>
-
-            <div class="teams-info">
-              <div class="teams-bio">
-                <h2 class="teams-name">Oliver Thoe</h2>
-                <p class="teams-role">UX/UI Designer</p>
-                <p class="teams-description">Creative designer passionate about clean UI and smooth user experience.</p>
-              </div>
-            </div>
-
-            <div class="teams-actions">
-              <div class="teams-social">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-github"></i>
-              </div>
-              <a href="#" class="teams-projects">
-                Projects <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
-
-          
-          <div class="teams-card">
-            <div class="teams-image">
-              <img src="./assets/judges/praveen.webp" alt="Sophia Miller profile image">
-            </div>
-
-            <div class="teams-info">
-              <div class="teams-bio">
-                <h2 class="teams-name">Sophia Miller</h2>
-                <p class="teams-role">Frontend Developer</p>
-                <p class="teams-description">JavaScript enthusiast who loves creating interactive web experiences.</p>
-              </div>
-            </div>
-
-            <div class="teams-actions">
-              <div class="teams-social">
-                <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-github"></i>
-              </div>
-              <a href="#" class="teams-projects">
-                Projects <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
-
-          
-          <div class="teams-card">
-            <div class="teams-image">
-              <img src="./assets/judges/Sarath_Kumaran_P_nuesxt.jpg" alt="James Wilson profile image">
-            </div>
-
-            <div class="teams-info">
-              <div class="teams-bio">
-                <h2 class="teams-name">James Wilson</h2>
-                <p class="teams-role">Backend Developer</p>
-                <p class="teams-description">Database architect and API specialist with 8 years of experience.</p>
-              </div>
-            </div>
-
-            <div class="teams-actions">
-              <div class="teams-social">
-                <i class="fa-brands fa-stack-overflow"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-github"></i>
-              </div>
-              <a href="#" class="teams-projects">
-                Projects <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
-
-          
-          <div class="teams-card">
-            <div class="teams-image">
-              <img src="https://i.imgur.com/8zJ7Y9q.jpg" alt="Emma Johnson profile image">
-            </div>
-
-            <div class="teams-info">
-              <div class="teams-bio">
-                <h2 class="teams-name">Emma Johnson</h2>
-                <p class="teams-role">Product Manager</p>
-                <p class="teams-description">Strategic thinker focused on delivering value to users and stakeholders.</p>
-              </div>
-            </div>
-
-            <div class="teams-actions">
-              <div class="teams-social">
-                <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-brands fa-medium"></i>
-                <i class="fa-brands fa-twitter"></i>
-              </div>
-              <a href="#" class="teams-projects">
-                Projects <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
+    <section id="teams" class="teams-section">
+        <div class="section-heading">
+            <h1 class="heading-shadow">TEAMS</h1>
+            <h2 class="heading-small">
+                <div><div>T</div></div>
+                <div><div>E</div></div>
+                <div><div>A</div></div>
+                <div><div>M</div></div>
+                <div><div>S</div></div>
+            </h2>
         </div>
-
         
-        <div class="teams-row">
-          
-          <div class="teams-card">
-            <div class="teams-image">
-              <img src="https://i.imgur.com/9tK8W7j.jpg" alt="Michael Brown profile image">
+        <div class="teamss-container">
+            <!-- Row 1: 1 card -->
+            <div class="teamss-row teamss-row-1">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Tyler Grant</h3>
+                                <p class="teamss__profession">Web Developer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-1">
+                                <i class="ri-menu-line teamss__menu cursor-target"></i>
+                                <i class="ri-close-large-line teamss__close cursor-target"></i>
+                            </div>
+                        </div>
+
+                        <div class="teamss__social" id="teamss-social-1">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="teams-info">
-              <div class="teams-bio">
-                <h2 class="teams-name">Michael Brown</h2>
-                <p class="teams-role">DevOps Engineer</p>
-                <p class="teams-description">Infrastructure expert who ensures our systems run smoothly at scale.</p>
-              </div>
+            <!-- Row 2: 2 cards -->
+            <div class="teamss-row teamss-row-2">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Sarah Johnson</h3>
+                                <p class="teamss__profession">UI/UX Designer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-2">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
+
+                        <div class="teamss__social" id="teamss-social-2">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Michael Chen</h3>
+                                <p class="teamss__profession">Frontend Developer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-3">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
+
+                        <div class="teamss__social" id="teamss-social-3">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="teams-actions">
-              <div class="teams-social">
-                <i class="fa-brands fa-docker"></i>
-                <i class="fa-brands fa-aws"></i>
-                <i class="fa-brands fa-github"></i>
-              </div>
-              <a href="#" class="teams-projects">
-                Projects <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
+            <!-- Row 3: 3 cards -->
+            <div class="teamss-row teamss-row-3">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Emily Rodriguez</h3>
+                                <p class="teamss__profession">Backend Developer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-4">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
 
-          
-          <div class="teams-card">
-            <div class="teams-image">
-              <img src="https://i.imgur.com/7sK5W8j.jpg" alt="Isabella Davis profile image">
+                        <div class="teamss__social" id="teamss-social-4">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">David Wilson</h3>
+                                <p class="teamss__profession">Full Stack Developer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-5">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
+
+                        <div class="teamss__social" id="teamss-social-5">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Jessica Brown</h3>
+                                <p class="teamss__profession">Project Manager</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-6">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
+
+                        <div class="teamss__social" id="teamss-social-6">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="teams-info">
-              <div class="teams-bio">
-                <h2 class="teams-name">Isabella Davis</h2>
-                <p class="teams-role">Content Strategist</p>
-                <p class="teams-description">Storyteller who crafts compelling narratives for our digital products.</p>
-              </div>
+            <!-- Row 4: 3 cards -->
+            <div class="teamss-row teamss-row-3">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Alex Thompson</h3>
+                                <p class="teamss__profession">DevOps Engineer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-7">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
+
+                        <div class="teamss__social" id="teamss-social-7">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Sophia Martinez</h3>
+                                <p class="teamss__profession">Data Scientist</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-8">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
+
+                        <div class="teamss__social" id="teamss-social-8">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Daniel Lee</h3>
+                                <p class="teamss__profession">Mobile Developer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-9">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
+
+                        <div class="teamss__social" id="teamss-social-9">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="teams-actions">
-              <div class="teams-social">
-                <i class="fa-brands fa-medium"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-linkedin"></i>
-              </div>
-              <a href="#" class="teams-projects">
-                Projects <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
+            <!-- Row 5: 3 cards -->
+            <div class="teamss-row teamss-row-3">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Olivia Garcia</h3>
+                                <p class="teamss__profession">QA Engineer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-10">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
 
-          
-          <div class="teams-card">
-            <div class="teams-image">
-              <img src="https://i.imgur.com/6rK4W9j.jpg" alt="William Taylor profile image">
-            </div>
+                        <div class="teamss__social" id="teamss-social-10">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="teams-info">
-              <div class="teams-bio">
-                <h2 class="teams-name">William Taylor</h2>
-                <p class="teams-role">QA Engineer</p>
-                <p class="teams-description">Detail-oriented tester who ensures our products meet quality standards.</p>
-              </div>
-            </div>
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">James Wilson</h3>
+                                <p class="teamss__profession">Product Designer</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-11">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
 
-            <div class="teams-actions">
-              <div class="teams-social">
-                <i class="fa-brands fa-stack-overflow"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-linkedin"></i>
-              </div>
-              <a href="#" class="teams-projects">
-                Projects <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
+                        <div class="teamss__social" id="teamss-social-11">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-          
-          <div class="teams-card">
-            <div class="teams-image">
-              <img src="https://i.imgur.com/4qJ3W8j.jpg" alt="Charlotte Anderson profile image">
-            </div>
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Emma Davis</h3>
+                                <p class="teamss__profession">System Architect</p>
+                            </div>
+            
+                            <div class="teamss__button" id="teamss-btn-12">
+                                <i class="ri-menu-line teamss__menu"></i>
+                                <i class="ri-close-large-line teamss__close"></i>
+                            </div>
+                        </div>
 
-            <div class="teams-info">
-              <div class="teams-bio">
-                <h2 class="teams-name">Charlotte Anderson</h2>
-                <p class="teams-role">Data Scientist</p>
-                <p class="teams-description">Analytics expert who turns complex data into actionable insights.</p>
-              </div>
+                        <div class="teamss__social" id="teamss-social-12">
+                            <a href="http://codepen.io/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-codepen-line"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-facebook-circle-line"></i></span>
+                            </a>
+                            <a href="https://github.com/bedimcode" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-github-line"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/bedimcode/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-instagram-line"></i></span>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="teamss__link" rel="noopener noreferrer">
+                                <span><i class="ri-dribbble-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="teams-actions">
-              <div class="teams-social">
-                <i class="fa-brands fa-kaggle"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-medium"></i>
-              </div>
-              <a href="#" class="teams-projects">
-                Projects <i class="fa-solid fa-up-right-from-square"></i>
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
-    </section> -->
+    </section>
 
   <!--faq section starts-->
   <section id="faq" class="faqs-container">
