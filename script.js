@@ -888,37 +888,25 @@ function viewSponsorshipDeck() {
 
 //full sponser section ends
 
-// Teams Section JavaScript
-// Add touch interaction for mobile devices
-document.addEventListener("DOMContentLoaded", function () {
-  const teamsCards = document.querySelectorAll(".teams-card");
+/*=============== SHOW SOCIAL ===============*/
+        const teamssShowSocial = (btnId, socialId) => {
+            const btn = document.getElementById(btnId),
+                social = document.getElementById(socialId);
 
-  // Check if device is touch-enabled
-  if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
-    teamsCards.forEach((card) => {
-      card.addEventListener("click", function () {
-        // Close other open cards
-        teamsCards.forEach((otherCard) => {
-          if (otherCard !== card && otherCard.classList.contains("active")) {
-            otherCard.classList.remove("active");
-          }
+            if (btn && social) {
+                btn.addEventListener("click", () => {
+                    social.classList.toggle("teamss-show-social");
+                    btn.classList.toggle("teamss-show-icon");
+                });
+            }
+        };
+
+        // Initialize all profile cards
+        document.addEventListener("DOMContentLoaded", () => {
+            for (let i = 1; i <= 13; i++) {
+                teamssShowSocial(`teamss-btn-${i}`, `teamss-social-${i}`);
+            }
         });
-
-        // Toggle current card
-        card.classList.toggle("active");
-      });
-    });
-
-    // Close card when clicking outside
-    document.addEventListener("click", function (event) {
-      if (!event.target.closest(".teams-card")) {
-        teamsCards.forEach((card) => {
-          card.classList.remove("active");
-        });
-      }
-    });
-  }
-});
 
 //faq section starts
 // FAQ Accordion functionality
