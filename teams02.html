@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Section - PEC Hacks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        /* Team Container with 1-4-4-4 Rows */
+        .teamss-container {
+            max-width: 1500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Team Row Styles */
+        .teamss-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 60px;
+        }
+
+        /* Row with 1 card */
+        .teamss-row-1 {
+            justify-content: center;
+        }
+
+        /* Row with 4 cards */
+        .teamss-row-4 {
+            justify-content: center;
+        }
+
+        /* Team Card Styles */
+        .teamss {
+            display: flex;
+            justify-content: center;
+            width: 310px;
+            height: 120px;
+            position: relative;
+        }
+
+        .teamss__img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            object-fit: cover;
+            background: #ccc;
+        }
+
+        .teamss__card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .teamss__content {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            background-color: rgba(235, 235, 235, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 1.5rem;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            column-gap: .5rem;
+            z-index: 10;
+            padding: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .teamss__data {
+            margin-left: .25rem;
+            flex: 1;
+            font-family: 'Teko', sans-serif;
+        }
+
+        .teamss__name {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: .25rem;
+            font-weight: 700;
+            font-family: 'Teko', sans-serif;
+        }
+
+        .teamss__profession {
+            font-size: 1.20rem;
+            color: hsl(220, 8%, 56%);
+        }
+
+        .teamss__button {
+            width: 42px;
+            height: 42px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px hsla(220, 48%, 30%, .3);
+            display: grid;
+            place-items: center;
+            margin-inline: auto .5rem;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            z-index: 20;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .teamss__button:hover {
+            transform: scale(1.1);
+            background-color: #0077b5;
+        }
+
+        .teamss__button:hover .teamss__linkedin {
+            color: white;
+        }
+
+        .teamss__linkedin {
+            color: black;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+        }
+
+        
+
+        /* Responsive Design */
+        @media (max-width: 1500px) {
+            .teamss-row {
+                gap: 50px;
+            }
+            
+            .teamss {
+                width: 260px;
+            }
+        }
+
+        @media (max-width: 1300px) {
+            .teamss-row {
+                gap: 40px;
+            }
+            
+            .teamss {
+                width: 240px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .teamss-row-4 {
+                flex-wrap: wrap;
+                gap: 50px;
+            }
+            
+            .teamss {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .teamss-row-4 {
+                gap: 40px;
+            }
+            
+            .teamss {
+                width: 260px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .teamss-row {
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+            
+            .teamss-row-1,
+            .teamss-row-4 {
+                justify-content: center;
+            }
+            
+            .teamss {
+                width: 300px;
+                margin-bottom: 20px;
+            }
+            
+            /* Section header responsive */
+            .section-heading {
+                height: 80px;
+                margin-bottom: 80px;
+                margin-top: 80px;
+            }
+            
+            .heading-shadow {
+                font-size: 80px;
+            }
+            
+            .heading-small {
+                font-size: 48px;
+            }
+            
+            .heading-small div {
+                height: 54px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .teamss-container {
+                gap: 70px;
+            }
+            
+            .teamss-row {
+                gap: 35px;
+            }
+            
+            .teamss {
+                width: 100%;
+                max-width: 380px;
+                height: auto;
+                margin-bottom: 30px;
+            }
+            
+            .teamss__card {
+                max-width: 100%;
+                height: auto;
+                flex-direction: column;
+                overflow: visible;
+            }
+            
+            .teamss__content {
+                border-radius: 1rem;
+                height: 110px;
+                padding: 0 5px;
+                transition: border-radius 0.3s ease;
+                position: relative;
+            }
+            
+            /* Section header mobile */
+            .section-heading {
+                height: 60px;
+                margin-bottom: 60px;
+                margin-top: 60px;
+            }
+            
+            .heading-shadow {
+                font-size: 62px;
+            }
+            
+            .heading-small {
+                font-size: 45px;
+            }
+            
+            .heading-small div {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .teamss-container {
+                gap: 60px;
+            }
+            
+            .teamss-row {
+                gap: 30px;
+            }
+            
+            .teamss {
+                margin-bottom: 25px;
+            }
+            
+            .teamss__img {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .teamss__content {
+                height: 100px;
+            }
+            
+            .teamss__name {
+                font-size: 1.15rem;
+            }
+            
+            .teamss__profession {
+                font-size: 0.9rem;
+            }
+            
+            .teamss__button {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .teamss-row {
+                gap: 25px;
+            }
+            
+            .teamss-container {
+                gap: 50px;
+            }
+            
+            .teamss {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Teams Section -->
+    <section id="teams" class="teams-section">
+        <div class="section-heading">
+            <h1 class="heading-shadow">TEAMS</h1>
+            <h2 class="heading-small">
+                <div><div>T</div></div>
+                <div><div>E</div></div>
+                <div><div>A</div></div>
+                <div><div>M</div></div>
+                <div><div>S</div></div>
+            </h2>
+        </div>
+        
+        <div class="teamss-container">
+            <!-- Row 1: 1 card -->
+            <div class="teamss-row teamss-row-1">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/Anuradha_afhvd8.png" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Dr D Anuradha</h3>
+                                <p class="teamss__profession">Lead Organiser</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/in/anuradhadurairaj/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: 4 cards -->
+            <div class="teamss-row teamss-row-4">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/bharanivelan.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Sarah Johnson</h3>
+                                <p class="teamss__profession">UI/UX Designer</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/imgi_131_Keshni_s0ycxz.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Michael Chen</h3>
+                                <p class="teamss__profession">Frontend Developer</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/praveen.webp" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Emily Rodriguez</h3>
+                                <p class="teamss__profession">Backend Developer</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/Sarath_Kumaran_P_nuesxt.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">David Wilson</h3>
+                                <p class="teamss__profession">Full Stack Developer</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: 4 cards -->
+            <div class="teamss-row teamss-row-4">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/rexx.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Jessica Brown</h3>
+                                <p class="teamss__profession">Project Manager</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                           <img src="./assets/teams/imgi_126_Akash.jpg" alt="Profile Picture" class="teamss__img">
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Alex Thompson</h3>
+                                <p class="teamss__profession">DevOps Engineer</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/nancy.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Sophia Martinez</h3>
+                                <p class="teamss__profession">Data Scientist</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/Rohit.png" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">James Anderson</h3>
+                                <p class="teamss__profession">Mobile Developer</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: 4 cards -->
+            <div class="teamss-row teamss-row-4">
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/vignesh.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Jessica Brown</h3>
+                                <p class="teamss__profession">Project Manager</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                           <img src="./assets/teams/hem.jpg" alt="Profile Picture" class="teamss__img">
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Alex Thompson</h3>
+                                <p class="teamss__profession">DevOps Engineer</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/gopika.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">Sophia Martinez</h3>
+                                <p class="teamss__profession">Data Scientist</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teamss">
+                    <div class="teamss__card">
+                        <div class="teamss__content">
+                            <img src="./assets/teams/surya.jpg" alt="Profile Picture" class="teamss__img">
+            
+                            <div class="teamss__data">
+                                <h3 class="teamss__name">James Anderson</h3>
+                                <p class="teamss__profession">Mobile Developer</p>
+                            </div>
+            
+                            <a href="https://www.linkedin.com/" target="_blank" class="teamss__button cursor-target" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in teamss__linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

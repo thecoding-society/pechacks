@@ -4209,7 +4209,7 @@
         }
         /*general styles end*/
 
-        /* Team Container with 1-2-4-4 Rows */
+        /* Team Container with 1-4-4-4 Rows */
         .teamss-container {
             max-width: 1500px;
             width: 100%;
@@ -4231,11 +4231,6 @@
 
         /* Row with 1 card */
         .teamss-row-1 {
-            justify-content: center;
-        }
-
-        /* Row with 2 cards */
-        .teamss-row-2 {
             justify-content: center;
         }
 
@@ -4339,6 +4334,8 @@
             transition: color 0.3s ease;
         }
 
+        
+
         /* Responsive Design */
         @media (max-width: 1500px) {
             .teamss-row {
@@ -4388,7 +4385,6 @@
             }
             
             .teamss-row-1,
-            .teamss-row-2,
             .teamss-row-4 {
                 justify-content: center;
             }
