@@ -836,6 +836,174 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //timeline section ends
 
+//workshop section starts
+// Workshop Section JavaScript - SIMPLIFIED VERSION
+let activeDay = 1;
+let isTransitioning = false;
+
+// DOM Elements
+const contentArea = document.getElementById("contentArea");
+const dayButtons = document.getElementById("dayButtons");
+
+// Initialize
+function initWorkshop() {
+  renderDayButtons();
+  updateActiveDay(activeDay);
+  initStarfield();
+
+  // Handle window resize
+  window.addEventListener("resize", handleResize);
+}
+
+// Render Day Navigation Buttons
+function renderDayButtons() {
+  dayButtons.innerHTML = "";
+  for (let i = 1; i <= 6; i++) {
+    const button = document.createElement("button");
+    button.className = "workshop-day-button";
+    button.textContent = i;
+    button.dataset.day = i;
+
+    if (i === activeDay) {
+      button.classList.add("workshop-active");
+    }
+
+    button.addEventListener("click", () => handleDayChange(i));
+    dayButtons.appendChild(button);
+  }
+}
+
+// Handle Day Change - SIMPLIFIED (no auto-scroll)
+function handleDayChange(day) {
+  if (day === activeDay || isTransitioning) return;
+
+  isTransitioning = true;
+  contentArea.classList.add("workshop-transitioning");
+
+  setTimeout(() => {
+    activeDay = day;
+    updateActiveDay(day);
+    contentArea.classList.remove("workshop-transitioning");
+
+    // Update button states
+    document.querySelectorAll(".workshop-day-button").forEach((btn) => {
+      btn.classList.toggle(
+        "workshop-active",
+        parseInt(btn.dataset.day) === day
+      );
+    });
+
+    isTransitioning = false;
+  }, 400);
+}
+
+// Update Active Day Content
+function updateActiveDay(dayNumber) {
+  // Hide all content areas
+  document.querySelectorAll(".workshop-content").forEach((content) => {
+    content.classList.remove("active");
+  });
+
+  // Show the active content area
+  const activeContent = document.querySelector(
+    `.workshop-content[data-day="${dayNumber}"]`
+  );
+  if (activeContent) {
+    activeContent.classList.add("active");
+  }
+}
+
+// Navigate Days
+function navigateDay(direction) {
+  if (direction === "prev" && activeDay > 1) {
+    handleDayChange(activeDay - 1);
+  } else if (direction === "next" && activeDay < 6) {
+    handleDayChange(activeDay + 1);
+  }
+}
+
+// Keyboard Navigation (optional - keep if you want keyboard support)
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+    e.preventDefault();
+    navigateDay("prev");
+  } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+    e.preventDefault();
+    navigateDay("next");
+  }
+});
+
+// Starfield Animation
+function initStarfield() {
+  const canvas = document.getElementById("starfield");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  const stars = [];
+  const starCount = 80;
+
+  // Initialize stars
+  for (let i = 0; i < starCount; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 2 + 0.5,
+      opacity: Math.random() * 0.8 + 0.2,
+      speed: Math.random() * 0.3 + 0.1,
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach((star) => {
+      // Twinkling effect
+      star.opacity += (Math.random() - 0.5) * 0.05;
+      star.opacity = Math.max(0.2, Math.min(1, star.opacity));
+
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+      ctx.fill();
+
+      // Slow drift
+      star.y += star.speed * 0.1;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Handle resize
+  window.addEventListener("resize", () => {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  });
+}
+
+// Handle window resize
+function handleResize() {
+  // Center buttons on mobile
+  if (window.innerWidth <= 768) {
+    document.querySelector(".workshop-day-buttons").style.justifyContent =
+      "center";
+  }
+}
+
+// Initialize on load
+window.addEventListener("DOMContentLoaded", initWorkshop);
+
+//workshop section ends
+
 // Gallery Section JavaScript
 // Layout pattern: 5,4,5,4 repeating for desktop
 const pattern = [5, 4, 5, 4];
@@ -889,36 +1057,164 @@ function viewSponsorshipDeck() {
 //full sponser section ends
 
 // Teams Section JavaScript
-// Add touch interaction for mobile devices
+// Teams Section JavaScript - HOVER FOR DESKTOP, CLICK FOR MOBILE
 document.addEventListener("DOMContentLoaded", function () {
-  const teamsCards = document.querySelectorAll(".teams-card");
+  // Function to toggle social menu for each team member
+  const teamssShowSocial = (btnId, socialId) => {
+    const btn = document.getElementById(btnId);
+    const social = document.getElementById(socialId);
+    const card = btn.closest(".teamss__card");
+    const content = card.querySelector(".teamss__content");
 
-  // Check if device is touch-enabled
-  if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
-    teamsCards.forEach((card) => {
-      card.addEventListener("click", function () {
-        // Close other open cards
-        teamsCards.forEach((otherCard) => {
-          if (otherCard !== card && otherCard.classList.contains("active")) {
-            otherCard.classList.remove("active");
+    if (btn && social) {
+      // Click event for mobile devices
+      const toggleSocialMenu = (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+
+        // Toggle the active state
+        const isActive = social.classList.contains("teamss-show-social");
+
+        // Close all other open social menus first
+        document
+          .querySelectorAll(".teamss__social.teamss-show-social")
+          .forEach((otherSocial) => {
+            if (otherSocial !== social) {
+              otherSocial.classList.remove("teamss-show-social");
+              const otherBtn =
+                otherSocial.previousElementSibling?.querySelector(
+                  ".teamss__button"
+                );
+              if (otherBtn) {
+                otherBtn.classList.remove("teamss-show-icon");
+              }
+              const otherContent = otherSocial.previousElementSibling;
+              if (otherContent) {
+                otherContent.style.borderRadius = "1.5rem";
+              }
+            }
+          });
+
+        // Toggle current social menu
+        social.classList.toggle("teamss-show-social");
+        btn.classList.toggle("teamss-show-icon");
+
+        // Update content border radius
+        if (content) {
+          if (!isActive) {
+            content.style.borderRadius = "1.5rem 1.5rem 0 0";
+          } else {
+            content.style.borderRadius = "1.5rem";
           }
-        });
+        }
+      };
 
-        // Toggle current card
-        card.classList.toggle("active");
+      // Only add click events for mobile devices
+      if (window.innerWidth <= 768) {
+        btn.addEventListener("click", toggleSocialMenu);
+
+        // Touch event for mobile to ensure proper triggering
+        btn.addEventListener("touchend", (e) => {
+          e.preventDefault();
+          toggleSocialMenu(e);
+        });
+      }
+    }
+  };
+
+  // Close social menu when clicking outside (for mobile only)
+  function closeAllSocialMenus() {
+    document
+      .querySelectorAll(".teamss__social.teamss-show-social")
+      .forEach((social) => {
+        social.classList.remove("teamss-show-social");
+        const btn =
+          social.previousElementSibling?.querySelector(".teamss__button");
+        if (btn) {
+          btn.classList.remove("teamss-show-icon");
+        }
+        const content = social.previousElementSibling;
+        if (content) {
+          content.style.borderRadius = "1.5rem";
+        }
       });
+  }
+
+  // Only add outside click listeners for mobile
+  if (window.innerWidth <= 768) {
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+      if (
+        !e.target.closest(".teamss__card") &&
+        !e.target.closest(".teamss__social")
+      ) {
+        closeAllSocialMenus();
+      }
     });
 
-    // Close card when clicking outside
-    document.addEventListener("click", function (event) {
-      if (!event.target.closest(".teams-card")) {
-        teamsCards.forEach((card) => {
-          card.classList.remove("active");
-        });
+    // Close on outside touch
+    document.addEventListener("touchstart", (e) => {
+      if (
+        !e.target.closest(".teamss__card") &&
+        !e.target.closest(".teamss__social")
+      ) {
+        closeAllSocialMenus();
       }
     });
   }
+
+  // Initialize all profile cards
+  for (let i = 1; i <= 13; i++) {
+    teamssShowSocial(`teamss-btn-${i}`, `teamss-social-${i}`);
+  }
+
+  // Handle window resize to adjust functionality
+  window.addEventListener("resize", function () {
+    const isNowMobile = window.innerWidth <= 768;
+
+    if (isNowMobile) {
+      // Re-initialize with mobile functionality
+      for (let i = 1; i <= 13; i++) {
+        teamssShowSocial(`teamss-btn-${i}`, `teamss-social-${i}`);
+      }
+    } else {
+      // Close all menus when switching to desktop view
+      closeAllSocialMenus();
+    }
+  });
 });
+
+//prizes section starts
+document.addEventListener("DOMContentLoaded", () => {
+  const techCards = document.querySelectorAll(".nnprize-tech-card");
+
+  const isMobileView = () => window.innerWidth <= 900;
+
+  techCards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      if (isMobileView()) {
+        event.preventDefault();
+
+        const wasActive = card.classList.contains("nnprize-active-tap");
+
+        techCards.forEach((otherCard) => {
+          if (
+            otherCard !== card &&
+            otherCard.classList.contains("nnprize-active-tap")
+          ) {
+            otherCard.classList.remove("nnprize-active-tap");
+          }
+        });
+
+        if (!wasActive) {
+          card.classList.add("nnprize-active-tap");
+        } else {
+          card.classList.remove("nnprize-active-tap");
+        }
+      }
+    });
+  });
+});
+//prizes section ends
 
 //faq section starts
 // FAQ Accordion functionality
