@@ -2562,7 +2562,6 @@
            SECTION 1: COMPACT MAIN PODIUM
            ========================================= */
         .nnprize-podium-section {
-            padding: clamp(60px, 10vw, 100px) 20px;
             background: transparent;
             position: relative;
             display: flex;
@@ -2685,8 +2684,9 @@
         }
 
         .nnprize-award-title {
-            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;
+            font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px;
             color: #888; font-weight: 600; margin-bottom: 5px;
+            font-family: 'Teko', sans-serif;
         }
 
         .nnprize-award-prize {
@@ -3014,10 +3014,10 @@
         .nnprize-glass-section {
             position: relative;
             background: transparent;
-            padding: clamp(60px, 10vw, 100px) 20px;
+            padding: clamp(60px, 10vw, 40px) 10px;
             overflow: hidden;
-            font-family: 'Inter', system-ui, sans-serif;
             perspective: 1000px;
+            font-family: 'Teko', sans-serif;
         }
 
         /* Ambient Animations */
@@ -3048,7 +3048,7 @@
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
-            padding: 55px;
+            padding: 30px;
             overflow: hidden;
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -3065,24 +3065,24 @@
             animation: nnprize-lightSweep 4s ease-in-out infinite; pointer-events: none;
         }
 
-        .nnprize-glass-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .nnprize-glass-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 
         .nnprize-glass-icon-container {
-            width: 100px; height: 100px;
+            width: 50px; height: 50px;
             display: flex; align-items: center; justify-content: center;
             background: rgba(255,255,255,0.03);
             border-radius: 50%;
             border: 1px solid rgba(255,255,255,0.1);
             animation: nnprize-gentleFloat 6s ease-in-out infinite;
         }
-        .nnprize-glass-icon-container i { font-size: 40px; color: rgba(255,255,255,0.8); }
-        .nnprize-glass-number { font-size: 100px; font-weight: 800; color: rgba(255,255,255,0.05); font-family: 'Inter', sans-serif; }
+        .nnprize-glass-icon-container i { font-size: 20px; color: rgba(255,255,255,0.8); }
+        .nnprize-glass-number { font-size: 50px; font-weight: 800; color: rgba(255,255,255,0.05); font-family: 'Inter', sans-serif; }
 
-        .nnprize-glass-card-title { font-size: 38px; font-weight: 700; margin-bottom: 20px; color: #fff; line-height: 1.1; }
+        .nnprize-glass-card-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; color: #fff; line-height: 1.1; }
 
         .nnprize-glass-prize-section { display: flex; flex-direction: column; }
         .nnprize-glass-prize-label { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 5px; }
-        .nnprize-glass-prize-amount { font-size: clamp(32px, 5vw, 44px); font-weight: 700; color: #fff; text-shadow: 0 0 30px rgba(255,255,255,0.2); }
+        .nnprize-glass-prize-amount { font-size: clamp(3rem , 3rem , 4rem); font-weight: 700; color: #fff; text-shadow: 0 0 30px rgba(255,255,255,0.2); }
 
         .nnprize-glass-card.nnprize-school-card .nnprize-glass-icon-container i { color: #00F0FF; text-shadow: 0 0 20px rgba(0,240,255,0.4); }
         .nnprize-glass-card.nnprize-school-card:hover { border-color: rgba(0,240,255,0.3); }
