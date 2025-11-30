@@ -4320,7 +4320,7 @@
 /* Teams Section Active States - FOR MOBILE ACCORDION ONLY */
 .teamss-show-social {
     opacity: 1 !important;
-    height: 80px !important;
+    height: 50px !important;
     padding: 1rem 0.5rem !important;
     transform: translateY(0) !important;
     pointer-events: auto !important;
@@ -4359,7 +4359,7 @@
 
 @media (min-width: 1301px) {
     .teamss-container {
-        gap: 140px !important;
+        gap: 100px !important;
     }
     
     .teamss-row {
