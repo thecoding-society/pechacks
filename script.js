@@ -1057,131 +1057,296 @@ function viewSponsorshipDeck() {
 //full sponser section ends
 
 // Teams Section JavaScript
-// Teams Section JavaScript - HOVER FOR DESKTOP, CLICK FOR MOBILE
+// Teams Section JavaScript - COMPLETE AND WORKING
 document.addEventListener("DOMContentLoaded", function () {
-  // Function to toggle social menu for each team member
-  const teamssShowSocial = (btnId, socialId) => {
-    const btn = document.getElementById(btnId);
-    const social = document.getElementById(socialId);
-    const card = btn.closest(".teamss__card");
-    const content = card.querySelector(".teamss__content");
+  console.log("🚀 Teams section script loaded successfully");
+  initializeTeamsSection();
+});
+
+function initializeTeamsSection() {
+  console.log("🔧 Initializing teams section...");
+
+  const isMobile = window.innerWidth <= 768;
+  console.log(`📱 Is mobile view: ${isMobile} (width: ${window.innerWidth}px)`);
+
+  if (isMobile) {
+    setupMobileAccordion();
+  } else {
+    setupDesktopHover();
+  }
+
+  setupWindowResizeHandler();
+}
+
+function setupMobileAccordion() {
+  console.log("📲 Setting up mobile accordion behavior");
+
+  // Enable button interactions for mobile
+  document.querySelectorAll(".teamss__button").forEach((btn) => {
+    btn.style.pointerEvents = "auto";
+    btn.style.cursor = "pointer";
+  });
+
+  // Initialize all team cards
+  let foundCount = 0;
+  for (let i = 1; i <= 13; i++) {
+    const btn = document.getElementById(`teamss-btn-${i}`);
+    const social = document.getElementById(`teamss-social-${i}`);
 
     if (btn && social) {
-      // Click event for mobile devices
-      const toggleSocialMenu = (e) => {
-        e.stopPropagation(); // Prevent event bubbling
-
-        // Toggle the active state
-        const isActive = social.classList.contains("teamss-show-social");
-
-        // Close all other open social menus first
-        document
-          .querySelectorAll(".teamss__social.teamss-show-social")
-          .forEach((otherSocial) => {
-            if (otherSocial !== social) {
-              otherSocial.classList.remove("teamss-show-social");
-              const otherBtn =
-                otherSocial.previousElementSibling?.querySelector(
-                  ".teamss__button"
-                );
-              if (otherBtn) {
-                otherBtn.classList.remove("teamss-show-icon");
-              }
-              const otherContent = otherSocial.previousElementSibling;
-              if (otherContent) {
-                otherContent.style.borderRadius = "1.5rem";
-              }
-            }
-          });
-
-        // Toggle current social menu
-        social.classList.toggle("teamss-show-social");
-        btn.classList.toggle("teamss-show-icon");
-
-        // Update content border radius
-        if (content) {
-          if (!isActive) {
-            content.style.borderRadius = "1.5rem 1.5rem 0 0";
-          } else {
-            content.style.borderRadius = "1.5rem";
-          }
-        }
-      };
-
-      // Only add click events for mobile devices
-      if (window.innerWidth <= 768) {
-        btn.addEventListener("click", toggleSocialMenu);
-
-        // Touch event for mobile to ensure proper triggering
-        btn.addEventListener("touchend", (e) => {
-          e.preventDefault();
-          toggleSocialMenu(e);
-        });
-      }
+      foundCount++;
+      setupTeamCard(btn, social, i);
     }
-  };
-
-  // Close social menu when clicking outside (for mobile only)
-  function closeAllSocialMenus() {
-    document
-      .querySelectorAll(".teamss__social.teamss-show-social")
-      .forEach((social) => {
-        social.classList.remove("teamss-show-social");
-        const btn =
-          social.previousElementSibling?.querySelector(".teamss__button");
-        if (btn) {
-          btn.classList.remove("teamss-show-icon");
-        }
-        const content = social.previousElementSibling;
-        if (content) {
-          content.style.borderRadius = "1.5rem";
-        }
-      });
   }
 
-  // Only add outside click listeners for mobile
-  if (window.innerWidth <= 768) {
-    // Close on outside click
-    document.addEventListener("click", (e) => {
-      if (
-        !e.target.closest(".teamss__card") &&
-        !e.target.closest(".teamss__social")
-      ) {
-        closeAllSocialMenus();
-      }
-    });
+  console.log(`✅ Found and setup ${foundCount} team cards`);
 
-    // Close on outside touch
-    document.addEventListener("touchstart", (e) => {
-      if (
-        !e.target.closest(".teamss__card") &&
-        !e.target.closest(".teamss__social")
-      ) {
-        closeAllSocialMenus();
-      }
-    });
-  }
+  // Setup outside click handlers
+  setupOutsideClickHandlers();
+}
 
-  // Initialize all profile cards
-  for (let i = 1; i <= 13; i++) {
-    teamssShowSocial(`teamss-btn-${i}`, `teamss-social-${i}`);
-  }
+function setupDesktopHover() {
+  console.log("💻 Setting up desktop hover behavior");
 
-  // Handle window resize to adjust functionality
-  window.addEventListener("resize", function () {
-    const isNowMobile = window.innerWidth <= 768;
-
-    if (isNowMobile) {
-      // Re-initialize with mobile functionality
-      for (let i = 1; i <= 13; i++) {
-        teamssShowSocial(`teamss-btn-${i}`, `teamss-social-${i}`);
-      }
-    } else {
-      // Close all menus when switching to desktop view
-      closeAllSocialMenus();
-    }
+  // Disable button clicks for desktop (hover only)
+  document.querySelectorAll(".teamss__button").forEach((btn) => {
+    btn.style.pointerEvents = "none";
   });
-});
+
+  // Ensure all menus are closed
+  closeAllTeamMenus();
+}
+
+function setupTeamCard(button, social, index) {
+  // Remove any existing event listeners
+  button.removeEventListener("click", handleTeamClick);
+  button.removeEventListener("touchend", handleTeamTouch);
+
+  // Store references on the button element
+  button._socialElement = social;
+  button._index = index;
+
+  // Add new event listeners
+  button.addEventListener("click", handleTeamClick);
+  button.addEventListener("touchend", handleTeamTouch);
+
+  console.log(`✅ Setup team card ${index}`);
+}
+
+function handleTeamClick(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  const button = event.currentTarget;
+  const social = button._socialElement;
+  const index = button._index;
+
+  if (social) {
+    console.log(`🔄 Toggle click for team ${index}`);
+    toggleTeamMenu(social, button, index);
+  } else {
+    console.error(`❌ No social element found for team ${index}`);
+  }
+}
+
+function handleTeamTouch(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  const button = event.currentTarget;
+  const social = button._socialElement;
+  const index = button._index;
+
+  if (social) {
+    console.log(`🔄 Toggle touch for team ${index}`);
+    toggleTeamMenu(social, button, index);
+  }
+}
+
+function toggleTeamMenu(social, button, index) {
+  const isActive = social.classList.contains("teamss-show-social");
+
+  console.log(`🎯 Team ${index}: ${isActive ? "Closing" : "Opening"} menu`);
+
+  // Close all other menus first (accordion behavior)
+  if (!isActive) {
+    closeAllTeamMenus();
+  }
+
+  // Toggle current menu
+  if (isActive) {
+    closeTeamMenu(social, button);
+  } else {
+    openTeamMenu(social, button);
+  }
+}
+
+function openTeamMenu(social, button) {
+  social.classList.add("teamss-show-social");
+  button.classList.add("teamss-show-icon");
+
+  // Update content border radius
+  const content = social.previousElementSibling;
+  if (content && content.classList.contains("teamss__content")) {
+    content.style.borderRadius = "1.5rem 1.5rem 0 0";
+  }
+
+  console.log("✅ Menu opened");
+}
+
+function closeTeamMenu(social, button) {
+  social.classList.remove("teamss-show-social");
+  button.classList.remove("teamss-show-icon");
+
+  // Reset content border radius
+  const content = social.previousElementSibling;
+  if (content && content.classList.contains("teamss__content")) {
+    content.style.borderRadius = "1.5rem";
+  }
+
+  console.log("✅ Menu closed");
+}
+
+function closeAllTeamMenus() {
+  const openSocials = document.querySelectorAll(
+    ".teamss__social.teamss-show-social"
+  );
+  const openButtons = document.querySelectorAll(
+    ".teamss__button.teamss-show-icon"
+  );
+
+  openSocials.forEach((social) => {
+    social.classList.remove("teamss-show-social");
+  });
+
+  openButtons.forEach((button) => {
+    button.classList.remove("teamss-show-icon");
+  });
+
+  // Reset all content borders
+  document.querySelectorAll(".teamss__content").forEach((content) => {
+    content.style.borderRadius = "1.5rem";
+  });
+
+  if (openSocials.length > 0) {
+    console.log(`🔒 Closed ${openSocials.length} open menus`);
+  }
+}
+
+function setupOutsideClickHandlers() {
+  // Remove existing handlers to avoid duplicates
+  document.removeEventListener("click", handleOutsideClick);
+  document.removeEventListener("touchstart", handleOutsideTouch);
+
+  // Add new handlers
+  document.addEventListener("click", handleOutsideClick);
+  document.addEventListener("touchstart", handleOutsideTouch);
+
+  console.log("✅ Outside click handlers setup");
+}
+
+function handleOutsideClick(event) {
+  if (
+    !event.target.closest(".teamss__card") &&
+    !event.target.closest(".teamss__social")
+  ) {
+    console.log("👆 Outside click detected");
+    closeAllTeamMenus();
+  }
+}
+
+function handleOutsideTouch(event) {
+  if (
+    !event.target.closest(".teamss__card") &&
+    !event.target.closest(".teamss__social")
+  ) {
+    console.log("👆 Outside touch detected");
+    closeAllTeamMenus();
+  }
+}
+
+function setupWindowResizeHandler() {
+  let resizeTimeout;
+  let currentMobile = window.innerWidth <= 768;
+
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function () {
+      const nowMobile = window.innerWidth <= 768;
+
+      if (nowMobile !== currentMobile) {
+        console.log(
+          `🔄 Viewport changed: ${currentMobile ? "mobile" : "desktop"} → ${
+            nowMobile ? "mobile" : "desktop"
+          }`
+        );
+        currentMobile = nowMobile;
+
+        // Cleanup and reinitialize
+        cleanupTeamsSection();
+
+        if (nowMobile) {
+          setupMobileAccordion();
+        } else {
+          setupDesktopHover();
+        }
+      }
+    }, 150);
+  });
+}
+
+function cleanupTeamsSection() {
+  console.log("🧹 Cleaning up teams section...");
+
+  // Remove all event listeners from buttons
+  for (let i = 1; i <= 13; i++) {
+    const btn = document.getElementById(`teamss-btn-${i}`);
+    if (btn) {
+      btn.removeEventListener("click", handleTeamClick);
+      btn.removeEventListener("touchend", handleTeamTouch);
+    }
+  }
+
+  // Remove outside handlers
+  document.removeEventListener("click", handleOutsideClick);
+  document.removeEventListener("touchstart", handleOutsideTouch);
+
+  // Close all menus
+  closeAllTeamMenus();
+}
+
+// Debugging utility
+window.debugTeams = function () {
+  console.log("🔍 DEBUG: Teams Section Status");
+  console.log(
+    `📏 Viewport: ${window.innerWidth}px (${
+      window.innerWidth <= 768 ? "mobile" : "desktop"
+    })`
+  );
+
+  let found = 0;
+  for (let i = 1; i <= 13; i++) {
+    const btn = document.getElementById(`teamss-btn-${i}`);
+    const social = document.getElementById(`teamss-social-${i}`);
+    const status = btn && social ? "✅" : "❌";
+    console.log(`${status} Team ${i}: Button=${!!btn}, Social=${!!social}`);
+    if (btn && social) found++;
+  }
+
+  console.log(`📊 Summary: ${found}/13 teams found`);
+  console.log(
+    `🎯 Active menus: ${
+      document.querySelectorAll(".teamss-show-social").length
+    }`
+  );
+};
+
+// Auto-debug on load
+setTimeout(() => {
+  if (window.location.hash.includes("debug")) {
+    window.debugTeams();
+  }
+}, 1000);
 
 //prizes section starts
 document.addEventListener("DOMContentLoaded", () => {
