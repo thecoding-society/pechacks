@@ -3,6 +3,12 @@
     @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); 
     
+
+    /* Hide scrollbar but allow scrolling */
+    ::-webkit-scrollbar {
+         display: none;
+    }
+
     * {
         margin: 0;
         padding: 0;
@@ -4054,6 +4060,7 @@
         
         /* Team Section Styles */
 /* Team Section Styles */
+/* Team Section Styles */
 .teams-section {
     position: relative;
     background: transparent;
@@ -4198,53 +4205,14 @@
     transform: rotate(-90deg);
 }
 
-/* DESKTOP/LAPTOP: Hover FUNCTIONALITY (769px and above) */
-@media (min-width: 769px) {
-    /* Show close icon on card hover */
-    .teamss:hover .teamss__menu {
-        opacity: 0;
-        transform: rotate(90deg);
-    }
-
-    .teamss:hover .teamss__close {
-        opacity: 1;
-        transform: rotate(0deg);
-    }
-
-    /* Show social on card hover */
-    .teamss:hover .teamss__social {
-        opacity: 1;
-        height: 80px;
-        padding: 1rem 0.5rem;
-        transform: translateY(0);
-        pointer-events: auto;
-    }
-
-    .teamss:hover .teamss__link {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .teamss:hover .teamss__content {
-        border-radius: 1.5rem 1.5rem 0 0;
-        border-bottom: none;
-    }
-    
-    /* Disable button clicks on desktop - hover only */
-    .teamss__button {
-        pointer-events: none;
-    }
-}
-
-/* Social menu positioned below the card for all screen sizes - NARROWER WIDTH */
+/* Social menu positioned below the card for all screen sizes - NOW FULL WIDTH MATCHING CONTENT */
 .teamss__social {
     position: absolute;
-    width: 90%; /* Reduced from 100% to 90% */
-    left: 5%; /* Center the narrower social section */
+    width: 95%; /* Changed from 90% to 100% to match content card */
     height: 0;
     background-color: rgba(235, 235, 235, 0.1);
     backdrop-filter: blur(5px);
-    border-radius: 0 0 1rem 1rem; /* Slightly smaller border radius for narrower look */
+    border-radius: 0 0 1.5rem 1.5rem; /* Changed from 0 0 1rem 1rem to match content card */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4341,9 +4309,42 @@
     transform: translateY(0) !important;
 }
 
-.teamss-show-social ~ .teamss__content {
-    border-radius: 1.5rem 1.5rem 0 0 !important;
-    border-bottom: none !important;
+/* DESKTOP/LAPTOP: Hover FUNCTIONALITY (769px and above) */
+@media (min-width: 769px) {
+    /* Show close icon on card hover */
+    .teamss:hover .teamss__menu {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .teamss:hover .teamss__close {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    /* Show social on card hover */
+    .teamss:hover .teamss__social {
+        opacity: 1;
+        height: 80px;
+        padding: 1rem 0.5rem;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .teamss:hover .teamss__link {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* When hovered, content card bottom border radius should be straight (0 radius) */
+    .teamss:hover .teamss__content {
+        border-radius: 1.5rem 1.5rem 0 0;
+    }
+    
+    /* Disable button clicks on desktop - hover only */
+    .teamss__button {
+        pointer-events: none;
+    }
 }
 
 /* INCREASED GAPS FOR LAPTOP VIEW ONLY */
@@ -4431,11 +4432,14 @@
 }
 
 /* MOBILE STYLES WITH ACCORDION FUNCTIONALITY (768px and below) */
+/* MOBILE STYLES WITH ACCORDION FUNCTIONALITY (768px and below) */
 @media (max-width: 768px) {
     /* Enable button clicks for mobile */
     .teamss__button {
         pointer-events: auto !important;
         cursor: pointer !important;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
     
     /* Change to accordion layout */
@@ -4443,7 +4447,7 @@
         width: 100%;
         max-width: 400px;
         height: auto !important;
-        margin-bottom: 25px !important;
+        margin-bottom: 30px !important; /* Increased bottom margin */
         transition: all 0.3s ease;
     }
     
@@ -4457,54 +4461,87 @@
     
     .teamss__content {
         height: 120px;
+        border-radius: 1.5rem; /* Reset to rounded when closed */
+        transition: border-radius 0.3s ease;
     }
     
     .teamss-container {
-        gap: 40px !important;
+        gap: 50px !important; /* Increased gap between rows */
     }
     
     .teamss-row {
-        gap: 30px !important;
+        gap: 35px !important; /* Increased gap between cards */
         flex-direction: column;
         align-items: center;
     }
     
-    /* CRITICAL: Change social menu to relative for accordion push effect - KEEP FULL WIDTH ON MOBILE */
+    /* SOCIAL MENU STYLES FOR MOBILE */
     .teamss__social {
         position: relative !important;
         top: auto !important;
         left: 0 !important;
-        width: 100% !important; /* Keep full width on mobile for better touch */
+        width: 100% !important;
         transform: none !important;
-        margin-top: -2px;
+        margin-top: 0;
+        margin-bottom: 20px; /* Gap below the social menu */
         transition: all 0.3s ease-in-out !important;
-        border-radius: 0 0 1.5rem 1.5rem !important; /* Restore original border radius on mobile */
+        border-radius: 0 0 1.5rem 1.5rem !important;
+        border: 2px solid white;
+        border-top: none;
+        box-sizing: border-box;
+        background-color: rgba(235, 235, 235, 0.1);
+        backdrop-filter: blur(5px);
     }
     
+    /* When menu is open - ADD SPACING */
+    .teamss-show-social {
+        height: 60px !important; /* Height with spacing */
+        padding: 40px 0 !important; /* Internal vertical padding */
+        margin-bottom: 20px !important; /* Gap below social menu */
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    
+    /* When menu is closed - hide properly */
+    .teamss__social:not(.teamss-show-social) {
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        border-top: none !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* When active on mobile, content card should have straight bottom */
+    .teamss-show-social ~ .teamss__content {
+        border-radius: 1.5rem 1.5rem 0 0 !important;
+    }
+    
+    /* Social links spacing */
     .teamss__link {
         transition: opacity 0.3s ease 0.2s;
+        margin: 0 12px !important; /* Spacing around social icons */
+        transform: translateY(10px);
+    }
+    
+    /* Active state social links */
+    .teamss-show-social .teamss__link {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        margin: 0 15px !important; /* Consistent spacing */
     }
     
     .teamss__link span {
         width: 40px;
         height: 40px;
         font-size: 1.4rem;
-    }
-
-    /* Improved mobile touch interactions */
-    .teamss__button {
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-    }
-    
-    /* Ensure proper touch targets */
-    .teamss__link span {
-        min-width: 44px;
-        min-height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border: 1px solid white;
+        min-width: 44px; /* Minimum touch target size */
+        min-height: 44px;
     }
 }
 
