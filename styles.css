@@ -4432,11 +4432,14 @@
 }
 
 /* MOBILE STYLES WITH ACCORDION FUNCTIONALITY (768px and below) */
+/* MOBILE STYLES WITH ACCORDION FUNCTIONALITY (768px and below) */
 @media (max-width: 768px) {
     /* Enable button clicks for mobile */
     .teamss__button {
         pointer-events: auto !important;
         cursor: pointer !important;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
     
     /* Change to accordion layout */
@@ -4444,7 +4447,7 @@
         width: 100%;
         max-width: 400px;
         height: auto !important;
-        margin-bottom: 25px !important;
+        margin-bottom: 30px !important; /* Increased bottom margin */
         transition: all 0.3s ease;
     }
     
@@ -4458,59 +4461,87 @@
     
     .teamss__content {
         height: 120px;
+        border-radius: 1.5rem; /* Reset to rounded when closed */
+        transition: border-radius 0.3s ease;
     }
     
     .teamss-container {
-        gap: 40px !important;
+        gap: 50px !important; /* Increased gap between rows */
     }
     
     .teamss-row {
-        gap: 30px !important;
+        gap: 35px !important; /* Increased gap between cards */
         flex-direction: column;
         align-items: center;
     }
     
-    /* CRITICAL: Change social menu to relative for accordion push effect - KEEP FULL WIDTH ON MOBILE */
+    /* SOCIAL MENU STYLES FOR MOBILE */
     .teamss__social {
         position: relative !important;
         top: auto !important;
         left: 0 !important;
-        width: 100% !important; /* Already full width */
+        width: 100% !important;
         transform: none !important;
-        margin-top: -2px;
+        margin-top: 0;
+        margin-bottom: 20px; /* Gap below the social menu */
         transition: all 0.3s ease-in-out !important;
-        border-radius: 0 0 1.5rem 1.5rem !important; /* Keep original border radius on mobile */
+        border-radius: 0 0 1.5rem 1.5rem !important;
+        border: 2px solid white;
+        border-top: none;
+        box-sizing: border-box;
+        background-color: rgba(235, 235, 235, 0.1);
+        backdrop-filter: blur(5px);
     }
     
-    /* When active on mobile, content card bottom border radius should be straight (0 radius) */
+    /* When menu is open - ADD SPACING */
+    .teamss-show-social {
+        height: 60px !important; /* Height with spacing */
+        padding: 40px 0 !important; /* Internal vertical padding */
+        margin-bottom: 20px !important; /* Gap below social menu */
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    
+    /* When menu is closed - hide properly */
+    .teamss__social:not(.teamss-show-social) {
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        border-top: none !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* When active on mobile, content card should have straight bottom */
     .teamss-show-social ~ .teamss__content {
-        border-radius: 1.5rem 1.5rem 0 0;
+        border-radius: 1.5rem 1.5rem 0 0 !important;
     }
     
+    /* Social links spacing */
     .teamss__link {
         transition: opacity 0.3s ease 0.2s;
+        margin: 0 12px !important; /* Spacing around social icons */
+        transform: translateY(10px);
+    }
+    
+    /* Active state social links */
+    .teamss-show-social .teamss__link {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        margin: 0 15px !important; /* Consistent spacing */
     }
     
     .teamss__link span {
         width: 40px;
         height: 40px;
         font-size: 1.4rem;
-    }
-
-    /* Improved mobile touch interactions */
-    .teamss__button {
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-    }
-    
-    /* Ensure proper touch targets */
-    .teamss__link span {
-        min-width: 44px;
-        min-height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border: 1px solid white;
+        min-width: 44px; /* Minimum touch target size */
+        min-height: 44px;
     }
 }
 
