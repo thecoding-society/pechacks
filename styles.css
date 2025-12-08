@@ -3151,7 +3151,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
     padding: 25px 15px 25px 8px;
     background: black;
     border: 1px solid rgba(125, 227, 255, 0.2);
@@ -3166,7 +3166,7 @@
 }
 
 .judges-image {
-    max-width: 120px;
+    max-width: 110px;
     width: 30vw;
     height: 140px;
     object-fit: cover;
@@ -3183,7 +3183,7 @@
     margin-top: 0;
     margin-right: 12px;
     margin-bottom: 6px;
-    color: #7ee3ff;
+    color: white;
     font-family: 'Teko', sans-serif;
 }
 
@@ -3228,6 +3228,7 @@
             padding: 0;
             cursor: pointer;
             transition: transform 0.3s ease;
+            text-decoration: none;
         }
 
         .judges-social-button:hover {
@@ -3256,6 +3257,59 @@
 
 .judges-content {
     flex: 1;
+}
+
+/* Judges Badge Styles - ALWAYS VISIBLE */
+.judges-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    font-family: 'Teko', sans-serif;
+    height: 24px;
+    min-width: 120px;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: none;
+}
+
+.judge-badge {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.mentor-badge {
+    background: linear-gradient(135deg, #7ee3ff, #8f51ea);
+    color: white;
+    border-color: #7ee3ff;
+    box-shadow: 0 0 10px rgba(126, 227, 255, 0.3);
+}
+
+/* Add glow on hover */
+.judges-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px currentColor;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .judges-badge {
+        margin-right: 10px;
+        font-size: 11px;
+        padding: 3px 10px;
+        min-width: 55px;
+    }
 }
 
 /* Responsive adjustments */
@@ -4977,15 +5031,6 @@
     gap: 0.375rem; /* Reduced gap */
 }
 
-.workshop-tag {
-    padding: 0.375rem 0.75rem; /* Reduced padding */
-    font-size: clamp(0.75rem, 2vw, 1rem); /* Smaller font */
-    border-radius: 9999px;
-    background: rgba(38,38,38,0.5);
-    border: 1px solid #404040;
-    white-space: nowrap;
-}
-
 /* Speakers Section - COMPACT */
 .workshop-speakers-section {
     margin-bottom: 1rem; /* Reduced */
@@ -5010,12 +5055,12 @@
     align-items: center;
     gap: 0.75rem; /* Reduced gap */
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
 }
 
 .workshop-speaker-image {
-    width: 3rem; /* Smaller images */
-    height: 3rem;
+    width: 6rem; /* Smaller images */
+    height: 6rem;
     border-radius: 50%;
     background: #262626;
     border: 2px solid #404040;
@@ -5064,8 +5109,8 @@
 }
 
 .workshop-icon-tiny {
-    width: 1rem; /* Smaller */
-    height: 1rem;
+    width: 1.5rem; /* Smaller */
+    height: 1.5rem;
 }
 
 .workshop-speaker-role {
@@ -5176,6 +5221,7 @@
     height: 100%;
     gap: 0.75rem; /* Reduced gap */
     padding: 1.5rem 0.75rem; /* Reduced padding */
+    
 }
 
 .workshop-day-button {
