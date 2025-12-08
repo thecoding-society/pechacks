@@ -2,9 +2,18 @@
 <html lang="en">
 
 <head>
-  <!-- Website Details-->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZ6L07FFSH"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-VZ6L07FFSH");
+	</script>
+	<!-- end of G tag -->
 
   <!-- meta tags - seo -->
 	<meta name="title" content="PEC Hacks" />
@@ -18,14 +27,20 @@
 	<meta name="url" content="https://pechacks.org/" />
 	<meta name="og:title" content="PEC Hacks" />
 
+  <!-- Website Details-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon-->
+  <title>PEC Hacks | Hackathon</title>
+  <link rel="icon" type="image/png" href="./assets/New folder/favicon (1).png" />
+  
+  <!-- CSS Reference-->
+  <link rel="stylesheet" href="styles.css" />
+
   <!-- herflang -->
 	<link rel="alternate" href="https://pechacks.org/" hreflang="x-default" />
 	<!-- cannonical -->
 	<link rel="canonical" href="https://pechacks.org/" />
-
-  <!-- Favicon-->
-  <title>PEC Hacks | Hackathon</title>
-  <link rel="icon" type="image/png" href="./assets/New folder/favicon (1).png" />
 
   <!-- Open Graph meta tags -->
   <meta property="og:title" content="PEC Hacks 2025 | Premier Hackathon Event in Chennai" />
@@ -58,7 +73,42 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Reference to manifest.json -->
+	<link rel="manifest" href="pwa/manifest.json" />
+
+  <!-- sitemap -->
+	<link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
+
+  <!-- Structured data using JSON-LD -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "Event",
+	  "name": "PEC Hacks 3.0",
+	  "description": "A 36-hr hackathon event in Chennai, India. Solve real-world challenges, and make a meaningful impact.",
+	  "image": "https://pechacks.org/pwa/opengraph-image.png",
+	  "startDate": "2025-12-27",
+	  "endDate": "2025-12-28",
+	  "location": {
+	    "@type": "Place",
+	    "name": "Panimalar Engineering College",
+	    "address": {
+	      "@type": "PostalAddress",
+	      "streetAddress": "Nazarathpettai, Poonamallee",
+	      "addressLocality": "Chennai",
+	      "addressRegion": "Tamil Nadu",
+	      "postalCode": "600123",
+	      "addressCountry": "IN"
+	    }
+	  },
+	  "organizer": {
+	    "@type": "Organization",
+	    "name": "PEC Hacks",
+	    "url": "https://pechacks.org"
+	  }
+	}
+	</script>
 </head>
 
 <body>
@@ -1015,7 +1065,7 @@
                         <h3 class="nnprize-glass-card-title">Best School Team</h3>
                         <div class="nnprize-glass-prize-section">
                             <span class="nnprize-glass-prize-label">Grand Prize</span>
-                            <div class="nnprize-glass-prize-amount">₹25000</div>
+                            <div class="nnprize-glass-prize-amount">₹25,000</div>
                         </div>
                     </div>
                 </article>
@@ -1030,7 +1080,7 @@
                         <h3 class="nnprize-glass-card-title">Best All-Girls Team</h3>
                         <div class="nnprize-glass-prize-section">
                             <span class="nnprize-glass-prize-label">Grand Prize</span>
-                            <div class="nnprize-glass-prize-amount">₹35000</div>
+                            <div class="nnprize-glass-prize-amount">₹35,000</div>
                         </div>
                     </div>
                 </article>
