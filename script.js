@@ -858,7 +858,7 @@ function initWorkshop() {
 // Render Day Navigation Buttons
 function renderDayButtons() {
   dayButtons.innerHTML = "";
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 4; i++) {
     const button = document.createElement("button");
     button.className = "workshop-day-button";
     button.textContent = i;
