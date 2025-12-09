@@ -3485,7 +3485,7 @@ body {
     max-width: 320px;
     position: relative;
     /* Added for absolute positioning of socials */
-    padding: 25px 50px 25px 8px;
+    padding: 20px 35px 25px 2px;
     /* Added right padding for socials */
 
     background: rgba(235, 235, 235, 0.1);
@@ -3705,8 +3705,8 @@ body {
     .judges-image {
         margin: -60px 0 15px 0;
         width: 100%;
-        max-width: 250px;
-        height: 160px;
+        max-width: 100px;
+        height: 100px;
     }
 
     .judges-description {
@@ -4520,7 +4520,7 @@ body {
 }
 
 .judges-card {
-    width: 360px;
+    width: 350px;
     max-width: 100%;
 }
 
@@ -6051,7 +6051,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem;
+    gap: 7rem;
     width: 100%;
     max-width: 1200px;
     padding: 0 20px;
