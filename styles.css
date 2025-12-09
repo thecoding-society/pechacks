@@ -3594,6 +3594,11 @@ body {
     color: black;
 }
 
+.fa-brands{
+    padding-left: 7.5px;
+    padding-top: 5px;;
+}
+
 .judges-content {
     flex: 1;
 }
@@ -3748,7 +3753,7 @@ body {
     }
 
     .judges-card {
-        max-width: 180px;
+        max-width: 300px !important;
         padding-left: 8px;
         padding-right: 8px;
         padding-bottom: 15px;
@@ -3756,13 +3761,17 @@ body {
         margin-top: 30px;
     }
 
+    .fa-brands{
+        padding-left: 0px;
+    }
+
     .judges-image {
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
+        height: 100px;
+        width: 200px !important;
+        border-radius: 100%;
         border: 3px solid var(--judges-card);
         box-shadow: none;
-        margin: -40px 0 8px 0;
+        margin: -70px 0 8px 0;
         /* Reduced bottom margin */
     }
 
