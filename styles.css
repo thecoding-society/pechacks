@@ -3453,344 +3453,179 @@ body {
 
 /* Judges Section Styles */
 .judges-section {
-    position: relative;
+    padding: 80px 20px;
     background: transparent;
-    z-index: 85;
-    padding: 80px 0;
     min-height: 100vh;
-    height: auto;
 }
 
-.judges-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 70px;
+/* TITLE */
+.judges-title {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
+.judges-title h1 {
+    font-size: 48px;
+    color: #e6c77b; /* Gold */
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(230, 199, 123, 0.6);
+}
+
+.judges-title p {
+    color: #b3a378;
+    font-size: 18px;
+}
+
+/* GRID */
 .judges-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-    width: 100%;
-    max-width: 1300px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 45px;
+    max-width: 1200px;
+    margin: auto;
 }
 
+/* CARD */
 .judges-card {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 320px;
+    background: linear-gradient(145deg, #111, #0b0b0b);
+    border: 1px solid rgba(230, 199, 123, 0.2);
+    border-radius: 18px;
+    padding: 15px 0px;
+    text-align: center;
+    transition: 0.4s ease;
+    box-shadow: 0 0 14px rgba(255, 215, 130, 0.15);
     position: relative;
-    /* Added for absolute positioning of socials */
-    padding: 20px 35px 25px 2px;
-    /* Added right padding for socials */
-
-    background: rgba(235, 235, 235, 0.1);
-    border: 1px solid white;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .judges-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(126, 227, 255, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 0 35px rgba(255, 215, 130, 0.4);
+    border-color: rgba(255, 215, 130, 0.6);
+}
+
+/* IMAGE WRAPPER WITH GOLD RING */
+.judges-image-wrapper {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: auto;
+    padding: 4px;
+    background: linear-gradient(135deg, #d6b15d, #f8e7b0);
+    box-shadow: 0 0 20px rgba(255, 215, 130, 0.5);
 }
 
 .judges-image {
-    max-width: 110px;
-    width: 30vw;
-    height: 140px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
     object-fit: cover;
-    margin-left: -30px;
-    margin-right: 12px;
-    border-radius: inherit;
-    box-shadow: 0 30px 20px rgb(0 0 0 / 8%);
-    transition: border-radius 0.3s;
 }
 
+/* NAME */
 .judges-name {
-    font-size: 20px;
-    font-weight: 400;
-    margin-top: 0;
-    margin-right: 12px;
-    margin-bottom: 6px;
-    color: white;
+    margin-top: 15px;
+    font-size: 23px;
+    color: #fff;
     font-family: 'Teko', sans-serif;
 }
 
+/* ROLE */
 .judges-role {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0;
-    opacity: 0.75;
-    color: #fff;
+    color: #e6c77b;
+    margin-top: -5px;
     font-family: 'Teko', sans-serif;
 }
 
-.judges-description {
-    font-size: 17px;
-    font-weight: 400;
-    margin-bottom: 15px;
-    opacity: 0.5;
-    line-height: 1.4;
-    color: #fff;
-    font-family: 'Teko', sans-serif;
-}
-
-.judges-socials {
-    position: absolute;
-    right: 15px;
-    top: 55%;
-    transform: translateY(-50%) translateX(20px);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 10;
-}
-
-.judges-card:hover .judges-socials {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-}
-
-.judges-social-button {
-    position: relative;
-    border: 0;
-    background: transparent;
-    color: #f8f8f8;
-    padding: 0;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    text-decoration: none;
-}
-
-.judges-social-button:hover {
-    transform: scale(1.1);
-}
-
-
-.judges-social-icon {
-    position: relative;
-    z-index: 1;
-    border: 3px solid #1e1c1b;
-    background: #3f3b39;
-    display: grid;
-    place-items: center;
-    font-size: 16px;
-    width: 34px;
-    height: 34px;
-    border-radius: 34px;
-    transition: background 0.3s ease;
-}
-
-.judges-social-button:hover .judges-social-icon {
-    background: white;
-    color: black;
-}
-
-.fa-brands{
-    padding-left: 7.5px;
-    padding-top: 5px;;
-}
-
-.judges-content {
-    flex: 1;
-}
-
-/* Judges Badge Styles - ALWAYS VISIBLE */
+/* BADGES */
 .judges-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 12px;
-    border-radius: 20px;
+    display: inline-block;
+    padding: 5px 18px;
+    margin-top: 12px;
     font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-left: 5px;
-    margin-bottom: 10px;
+    border-radius: 23px;
     font-family: 'Teko', sans-serif;
-    height: 28px;
-    min-width: 140px;
-    text-align: center;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: none;
 }
 
 .judge-badge {
-    background: transparent;
-    color: white;
-    border-color: white;
+    background: rgba(255, 215, 130, 0.1);
+    border: 1px solid #e6c77b;
+    color: #e6c77b;
 }
 
 .mentor-badge {
-    background: linear-gradient(135deg, #7ee3ff, #8f51ea);
-    color: white;
-    border-color: #7ee3ff;
-    box-shadow: 0 0 10px rgba(126, 227, 255, 0.3);
+    background: linear-gradient(135deg, #e6c77b, #c19a3d);
+    color: #000;
+    box-shadow: 0 0 12px rgba(230, 199, 123, 0.4);
 }
 
-/* Add glow on hover */
-.judges-badge:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px currentColor;
+/* DESCRIPTION */
+.judges-description {
+    color: #d0c6a4;
+    font-size: 15px;
+    margin-top: 12px;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .judges-badge {
-        margin-right: 10px;
-        font-size: 11px;
-        padding: 3px 10px;
-        min-width: 55px;
-    }
+/* SOCIAL BUTTONS — HIDDEN BY DEFAULT */
+.judges-socials {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.35s ease;
+    margin-right: -2px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .judges-container {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1100px;
-        gap: 25px;
-    }
+/* SHOW SOCIAL ICONS ON HOVER */
+.judges-card:hover .judges-socials {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-@media (max-width: 1024px) {
-    .judges-container {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
-        gap: 25px;
-    }
-
-    .judges-card {
-        max-width: 380px;
-        padding: 25px 15px 25px 8px;
-    }
-
-    .judges-image {
-        max-width: 130px;
-        height: 150px;
-        margin-left: -30px;
-    }
+/* SOCIAL BUTTON STYLE */
+.social-btn {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(230, 199, 123, 0.15);
+    margin: 12px 6px 0 6px;
+    font-size: 18px;
+    color: #e6c77b;
+    border: 1px solid rgba(230, 199, 123, 0.3);
+    transition: 0.3s;
+    text-decoration: none !important;   /* REMOVE UNDERLINE */
 }
 
-@media (max-width: 768px) {
-    .judges-container {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        gap: 60px;
-    }
-
-    .judges-card {
-        margin: 0;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 30px;
-        width: 100%;
-        max-width: 450px;
-        text-align: center;
-        flex-direction: column;
-    }
-
-    .judges-name {
-        margin-right: 0;
-        font-size: 18px;
-    }
-
-    .judges-image {
-        margin: -60px 0 15px 0;
-        width: 100%;
-        max-width: 100px;
-        height: 100px;
-    }
-
-    .judges-description {
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .judges-content {
-        align-items: center !important;
-        text-align: center;
-    }
-
-    .judges-badge {
-        margin-right: 0 !important;
-    }
-
-    .judges-socials {
-        position: relative;
-        inset: auto;
-        transform: none !important;
-        flex-direction: row;
-        gap: 20px;
-        opacity: 1;
-        justify-content: center;
-        margin-top: 15px;
-        width: 100%;
-    }
-
-    .judges-card:hover .judges-socials {
-        transform: none !important;
-    }
+.social-btn i {
+    text-decoration: none !important;   /* Remove underline from icon */
 }
 
+.social-btn:hover {
+    background: #e6c77b;
+    color: #000;
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(230, 199, 123, 0.6);
+}
+
+/* MOBILE */
 @media (max-width: 480px) {
-    .judges-container {
-        max-width: 280px;
-        gap: 50px;
+    .judges-title h1 {
+        font-size: 36px;
     }
 
-    .judges-card {
-        max-width: 300px !important;
-        padding-left: 8px;
-        padding-right: 8px;
-        padding-bottom: 15px;
-        /* Reduced from 30px */
-        margin-top: 30px;
-    }
-
-    .fa-brands{
-        padding-left: 0px;
-    }
-
-    .judges-image {
-        height: 100px;
-        width: 200px !important;
-        border-radius: 100%;
-        border: 3px solid var(--judges-card);
-        box-shadow: none;
-        margin: -70px 0 8px 0;
-        /* Reduced bottom margin */
-    }
-
+    /* Mobile: Always show social icons if you want */
+    /* Uncomment if needed:
     .judges-socials {
-        margin-top: 10px;
-        /* Reduced from 15px */
-        gap: 10px;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
     }
+    */
 }
 
-@media (max-width: 375px) {
-    .judges-container {
-        max-width: 320px;
-    }
-
-    .judges-card {
-        max-width: 300px;
-    }
-}
 
 /*full sponeser section starts*/
 
@@ -3949,6 +3784,13 @@ body {
     object-fit: contain;
     width: 100%;
     height: 100%;
+}
+
+.internship{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
 }
 
 /* Community Partners */
@@ -4529,7 +4371,7 @@ body {
 }
 
 .judges-card {
-    width: 350px;
+    width: 320px;
     max-width: 100%;
 }
 
@@ -4545,6 +4387,7 @@ body {
     /* Add some spacing if needed */
     margin-bottom: 15px;
     margin-right: 20px;
+    margin-left: 22px;
     /* Nudge left */
 }
 
